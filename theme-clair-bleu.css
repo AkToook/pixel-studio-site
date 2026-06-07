@@ -1,0 +1,67 @@
+/* ============================================================
+   THÈME CLAIR / BLEU CLAIR — WEBcraft
+   À COLLER juste AVANT la balise </style> de ton index.html
+   (tout en bas du <style>, pour que ça écrase l'ancien thème)
+   ============================================================ */
+
+:root{
+  /* Fonds : blanc + bleu très clair */
+  --bg:#FFFFFF;          /* fond principal              */
+  --bg2:#EEF4FF;         /* sections alternées          */
+  --bg3:#FFFFFF;         /* cartes / encarts            */
+
+  /* Texte : devient SOMBRE (sur fond clair) */
+  --white:#0F1E33;       /* texte principal (bleu nuit) */
+  --muted:#5A6B82;       /* texte secondaire gris-bleu  */
+
+  /* Accents : bleu remplace le violet */
+  --violet:#2563EB;
+  --vb:#3B82F6;
+  --cyan:#0EA5E9;
+  --cb:#38BDF8;
+
+  --border:rgba(37,99,235,.16);
+}
+
+/* Corps + barre de scroll */
+body{background:#FFFFFF;color:var(--white)}
+::-webkit-scrollbar-track{background:#EEF4FF}
+::-webkit-scrollbar-thumb{background:var(--vb)}
+
+/* Barre de navigation (était rgba(7,8,15)) */
+nav{background:rgba(255,255,255,.85)!important;
+    border-bottom:1px solid rgba(37,99,235,.12)!important}
+@media(max-width:768px){
+  .nav-links{background:rgba(255,255,255,.97)!important}
+}
+
+/* Grands fonds de sections codés en dur */
+#hero{background:radial-gradient(ellipse 80% 60% at 50% -10%,
+      rgba(59,130,246,.12) 0%,transparent 70%),#FFFFFF!important}
+.process-sec,#process{background:linear-gradient(180deg,#EEF4FF 0%,#FFFFFF 100%)!important}
+.faq-sec,#faq{background:linear-gradient(180deg,#FFFFFF 0%,#EEF4FF 100%)!important}
+
+/* Halos décoratifs : passe le violet en bleu */
+.orb1{background:radial-gradient(circle,rgba(59,130,246,.16) 0%,transparent 65%)!important}
+.orb2{background:radial-gradient(circle,rgba(56,189,248,.14) 0%,transparent 65%)!important}
+.cta-orb{background:radial-gradient(ellipse,rgba(59,130,246,.14) 0%,rgba(56,189,248,.08) 50%,transparent 70%)!important}
+
+/* Cartes translucides (étaient du blanc à 2–3% sur fond noir
+   -> invisibles sur blanc) : on les passe en bleu très clair */
+.sol-item,.ov3-card,.spec-card{
+  background:#F4F8FF!important;
+  border:1px solid rgba(37,99,235,.14)!important;
+}
+.sol-item:hover{background:#EAF2FF!important;border-color:rgba(37,99,235,.3)!important}
+
+/* Petits textes qui étaient en blanc translucide -> deviennent lisibles */
+.spec-cond{color:#7A8AA0!important}
+
+/* Ombres : on adoucit (les noires à 50-60% sont trop dures sur blanc) */
+.hero-img,.human-img,.subcat-card:hover,.sec-card:hover,.pcard:hover{
+  box-shadow:0 18px 50px rgba(37,99,235,.14)!important
+}
+
+/* Bordures violettes résiduelles -> bleu */
+.hero-img{border:1px solid rgba(59,130,246,.22)!important}
+.hero-img-badge{border:1px solid rgba(59,130,246,.3)!important}

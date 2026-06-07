@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══════════════════════════════════════════════════
+     CONSENT MODE v2 — À placer AVANT tout tag tracking
+     Conforme CNIL / RGPD — Tout refusé par défaut
+     ══════════════════════════════════════════════════ -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Refus par défaut — obligatoire avant tout pixel
+  gtag('consent', 'default', {
+    'ad_storage':        'denied',
+    'ad_user_data':      'denied',
+    'ad_personalization':'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update':   800
+  });
+  gtag('js', new Date());
+</script>
+
+<!-- ══════════════════════════════════════════════════
+     GOOGLE TAG MANAGER
+     Décommenter après avoir créé votre conteneur GTM
+     Remplacer GTM-XXXXXXX par votre ID réel
+     ══════════════════════════════════════════════════ -->
+<!--
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+<!-- ══ FIN GTM HEAD ══ -->
+<title>Pixel Studio — Agence & studio web à Reims et Paris</title>
+<meta name="description" content="Agence & studio de web design à Reims et Paris : création de sites web qui convertissent, SEO local, copywriting inclus. Livraison en 72h à 2 semaines, devis gratuit.">
+<meta property="og:title" content="Pixel Studio — Agence & studio web à Reims et Paris">
+<meta property="og:description" content="Des sites web qui convertissent. Design sur mesure, livraison rapide.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:rgba(0,15,40,.0);
+  --bg-soft:rgba(0,20,50,.55);
+  --bg-blue:rgba(96,165,250,.15);
+  --ink:#ffffff;
+  --ink-2:rgba(255,255,255,.85);
+  --muted:rgba(255,255,255,.55);
+  --line:rgba(255,255,255,.15);
+  --blue:#F72585;
+  --blue-2:#FF6EB4;
+  --sky:#FFB3D9;
+  --green:#4ADE80;
+  --accent:#F72585;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --r:18px;
+  --maxw:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:transparent;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#vanta-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+/* sections with solid bg now use semi-transparent overlay so vanta shows through */
+.soft{background:rgba(0,20,50,.55)!important;backdrop-filter:blur(2px)}
+.marquee{background:rgba(0,20,50,.6)!important;backdrop-filter:blur(2px)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+::selection{background:var(--blue);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg-soft)}
+::-webkit-scrollbar-thumb{background:#C7D6EF;border-radius:10px}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;color:var(--ink)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:15px;border-radius:50px;padding:15px 26px;transition:transform .2s,box-shadow .2s,background .2s,color .2s;cursor:pointer;border:none;white-space:nowrap}
+.btn-pri{background:#1D4ED8;color:#fff}
+.btn-pri:hover{transform:translateY(-2px);background:#2563EB}
+.btn-blue{background:linear-gradient(120deg,#2563EB,#3B82F6);color:#fff;box-shadow:0 10px 28px rgba(29,78,216,.4)}
+.btn-blue:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(29,78,216,.55)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn svg{width:16px;height:16px}
+
+/* Nav */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(0,30,60,.55);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:var(--display);font-size:23px;font-weight:800;letter-spacing:-.04em;color:#fff}
+.logo span{color:var(--blue)}
+.nav-menu{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-menu a{font-size:15px;color:rgba(255,255,255,.85);font-weight:500;transition:color .2s}
+.nav-menu a:hover{color:var(--blue)}
+.nav-r{display:flex;align-items:center;gap:14px}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+
+/* Hero */
+.hero{padding:170px 0 80px;position:relative;overflow:hidden;background:transparent;text-align:center}
+.hero h1{color:#fff;max-width:100%!important}
+.hero p.lead{color:rgba(255,255,255,.8)}
+.hero-meta{border-top-color:rgba(255,255,255,.2)}
+.hero-meta .n{color:#fff}
+.hero-meta .l{color:rgba(255,255,255,.6)}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--sky);background:rgba(96,165,250,.15);border:1px solid rgba(125,211,252,.3);padding:8px 16px;border-radius:50px;margin-bottom:26px}
+.hero .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(22,163,74,.15)}
+.hero h1{font-size:clamp(48px,8.5vw,110px)}
+.hero h1 .grad{background:linear-gradient(115deg,#F72585,#FF6EB4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.lead{font-size:clamp(17px,2vw,21px);color:var(--ink-2);max-width:60ch;margin:28px auto 36px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.hero-meta{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:54px;padding-top:34px;border-top:1px solid var(--line)}
+.hero-meta .n{font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.04em}
+.hero-meta .l{font-size:14px;color:var(--muted)}
+
+/* Marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;background:var(--bg-soft)}
+.marquee-track{display:flex;gap:54px;white-space:nowrap;width:max-content;animation:scrollx 34s linear infinite}
+.marquee-track span{font-family:var(--display);font-size:18px;font-weight:600;color:var(--ink-2);display:inline-flex;align-items:center;gap:54px}
+.marquee-track span::after{content:"✦";color:var(--blue-2)}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* Section shell */
+section{padding:108px 0}
+.sec-head{max-width:760px;margin-bottom:56px}
+.sec-head.center{margin:0 auto 56px;text-align:center}
+.tag{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.sec-head.center .tag{justify-content:center}
+.tag::before{content:"";width:26px;height:1px;background:rgba(255,255,255,.5)}
+.sec-head.center .tag::before{display:none}
+.sec-head h2{font-size:clamp(32px,4.6vw,56px)}
+.sec-head p{font-size:18px;color:var(--muted);margin-top:18px}
+.soft{background:var(--bg-soft)}
+
+/* Services — big numbered rows */
+.srv-row{display:grid;grid-template-columns:80px 1fr auto;gap:28px;align-items:center;padding:34px 8px;border-top:1px solid var(--line);transition:padding-left .3s,background .3s;cursor:default}
+.srv-row:last-child{border-bottom:1px solid var(--line)}
+.srv-row:hover{padding-left:24px;background:linear-gradient(90deg,rgba(96,165,250,.12),transparent)}
+.srv-num{font-family:var(--display);font-size:18px;font-weight:600;color:var(--blue)}
+.srv-row h3{font-size:clamp(24px,3vw,34px)}
+.srv-row p{color:var(--muted);margin-top:8px;max-width:60ch;font-size:15px}
+.srv-arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s;flex-shrink:0}
+.srv-row:hover .srv-arrow{background:rgba(196,181,253,.25);color:#fff;border-color:#F72585;transform:rotate(-45deg)}
+
+/* Booking modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,10,30,.7);backdrop-filter:blur(6px);z-index:2000;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-box{background:rgba(5,20,55,.92);border:1px solid rgba(96,165,250,.25);border-radius:24px;padding:40px 36px;max-width:420px;width:90%;text-align:center;animation:modalIn .25s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.modal-box h3{font-size:22px;color:#fff;margin-bottom:8px}
+.modal-box p{color:var(--muted);font-size:15px;margin-bottom:28px}
+.modal-choices{display:flex;flex-direction:column;gap:14px}
+.modal-choice{display:flex;align-items:center;gap:16px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2);border-radius:14px;padding:18px 20px;color:#fff;font-family:var(--display);font-weight:600;font-size:16px;cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s}
+.modal-choice:hover{background:rgba(96,165,250,.22);border-color:var(--sky)}
+.modal-choice svg{width:28px;height:28px;flex-shrink:0}
+.modal-choice .choice-sub{font-size:12px;font-weight:400;color:var(--muted);display:block;margin-top:2px}
+.modal-close{margin-top:20px;background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;font-family:var(--body)}
+.modal-close:hover{color:#fff}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.team-card{display:flex;gap:22px;align-items:flex-start;background:rgba(0,20,55,.5);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px 26px;transition:transform .25s,box-shadow .25s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
+.team-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:22px;font-weight:800;flex-shrink:0;overflow:hidden}
+.team-avatar-photo{background:none;border:2px solid rgba(247,37,133,.5)}
+.team-avatar-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.team-info h3{font-size:18px;margin-bottom:4px}
+.team-role{font-size:13px;font-weight:600;color:var(--blue);font-family:var(--display);letter-spacing:.03em;display:block;margin-bottom:10px}
+.team-info p{font-size:14px;color:var(--muted);line-height:1.55}
+.team-links{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.team-social{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;font-family:var(--display);color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:6px 13px;transition:color .2s,background .2s}
+.team-social:hover{color:#F72585;background:rgba(247,37,133,.12);border-color:rgba(247,37,133,.3)}
+
+/* Work grid */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work-card{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;padding:32px 28px;color:#fff;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);transition:transform .3s,box-shadow .3s}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.25)}
+.work-card .ico{font-size:38px;margin-bottom:18px;line-height:1}
+.work-card .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--display);margin-bottom:10px;display:block}
+.work-card h3{color:#fff;font-size:22px;margin:0 0 10px}
+.work-card p{font-size:14px;color:rgba(255,255,255,.7);margin:0;line-height:1.55}
+.wc1{background:rgba(29,78,216,.25);border-color:rgba(29,78,216,.35)}.wc1 .k{color:#93C5FD}
+.wc2{background:rgba(147,51,234,.25);border-color:rgba(147,51,234,.35)}.wc2 .k{color:#D8B4FE}
+.wc3{background:rgba(234,88,12,.2);border-color:rgba(234,88,12,.3)}.wc3 .k{color:#FDB57D}
+.wc4{background:rgba(5,150,105,.2);border-color:rgba(5,150,105,.3)}.wc4 .k{color:#6EE7B7}
+.wc5{background:rgba(2,132,199,.2);border-color:rgba(2,132,199,.3)}.wc5 .k{color:#7DD3FC}
+.wc6{background:rgba(247,37,133,.18);border-color:rgba(247,37,133,.3)}.wc6 .k{color:#FF6EB4}
+
+/* Process */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.proc{padding:30px;border-radius:var(--r);background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);transition:.25s}
+.proc:hover{border-color:var(--blue-2);transform:translateY(-4px);box-shadow:0 18px 40px rgba(29,78,216,.1)}
+.proc .s{font-family:var(--display);font-size:14px;font-weight:600;color:var(--blue);margin-bottom:18px}
+.proc h3{font-size:20px;margin-bottom:10px}
+.proc p{font-size:14px;color:var(--muted)}
+
+/* Pricing */
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+@media(max-width:1080px){.tiers{grid-template-columns:repeat(2,1fr)}}
+.tier{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:22px;padding:32px 26px;position:relative;transition:.25s}
+.tier:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(10,26,48,.1)}
+.tier.feat{background:rgba(247,37,133,.12);border-color:rgba(247,37,133,.4);box-shadow:0 0 40px rgba(247,37,133,.15)}
+.tier.feat *{color:#fff}
+.tier.feat .price{color:#fff}
+.tier .pop{position:absolute;top:-13px;left:30px;background:linear-gradient(120deg,var(--blue),var(--sky));color:#fff;font-family:var(--display);font-size:12px;font-weight:600;padding:6px 15px;border-radius:50px}
+.tier .cat{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tier.feat .cat{color:var(--sky)}
+.tier .name{font-family:var(--display);font-size:27px;font-weight:800;letter-spacing:-.03em;margin:6px 0 14px}
+.tier .price{font-family:var(--display);font-size:42px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.tier .price small{font-size:15px;font-weight:500;color:var(--muted)}
+.tier.feat .price small{color:rgba(255,255,255,.6)}
+.tier .desc{font-size:14px;color:var(--ink-2);margin:16px 0 22px;min-height:62px}
+.tier.feat .desc{color:rgba(255,255,255,.78)}
+.tier ul{list-style:none;margin-bottom:26px}
+.tier li{font-size:14.5px;padding:9px 0 9px 28px;position:relative;border-top:1px solid var(--line)}
+.tier.feat li{border-color:rgba(255,255,255,.12)}
+.tier li:first-child{border-top:none}
+.tier li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:8px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg)}
+.tier.feat li::before{border-color:var(--sky)}
+.tier .btn{width:100%;justify-content:center}
+
+/* Quote */
+.quote-sec{background:linear-gradient(135deg,var(--blue),#0B2E8A);color:#fff;border-radius:0}
+.quote{max-width:900px;margin:0 auto;text-align:center}
+.quote .stars{color:#FFD166;font-size:18px;letter-spacing:3px;margin-bottom:24px}
+.quote blockquote{font-family:var(--display);font-size:clamp(24px,3.4vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.18;color:#fff}
+.quote .who{margin-top:28px;font-size:15px;color:rgba(255,255,255,.8)}
+.quote .who strong{color:#fff}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:26px 0;font-family:var(--display);font-size:19px;font-weight:600;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--body);font-size:26px;font-weight:300;color:var(--blue);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 0 26px;color:var(--ink-2);font-size:15.5px;line-height:1.75;max-width:68ch}
+.faq .ans strong{color:var(--ink)}
+
+/* CTA */
+.cta{text-align:center}
+.cta h2{font-size:clamp(38px,6vw,78px);max-width:16ch;margin:0 auto}
+.cta p{font-size:19px;color:var(--muted);max-width:52ch;margin:24px auto 38px}
+.cta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .feats{display:flex;gap:14px 30px;justify-content:center;flex-wrap:wrap;margin-top:34px;font-size:14px;color:var(--ink-2)}
+.cta .feats span{display:inline-flex;align-items:center;gap:8px}
+.cta .feats span::before{content:"✓";color:var(--green);font-weight:700}
+
+/* Footer */
+footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.1);color:#fff;padding:70px 0 36px}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-top .logo{color:#fff;font-size:26px}
+.foot-top .logo span{color:#F72585}
+.foot-brand p{color:rgba(255,255,255,.6);max-width:34ch;margin-top:14px;font-size:14.5px}
+.foot-cols{display:flex;gap:64px;flex-wrap:wrap}
+.foot-col h4{font-family:var(--display);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px;font-weight:600}
+.foot-col a{display:block;color:rgba(255,255,255,.82);font-size:14.5px;padding:5px 0;transition:color .2s}
+.foot-col a:hover{color:var(--sky)}
+.foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:13px;color:rgba(255,255,255,.5)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* WhatsApp float */
+.wa{position:fixed;bottom:24px;right:24px;z-index:900;display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:var(--display);font-weight:600;font-size:14px;padding:13px 19px;border-radius:50px;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .2s}
+.wa:hover{transform:translateY(-2px)}
+
+/* Contact float */
+.contact-float{position:fixed;bottom:24px;left:24px;z-index:900;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;font-family:var(--display);font-weight:600;font-size:14px;padding:13px 19px;border-radius:50px;box-shadow:0 10px 30px rgba(10,26,48,.25);transition:transform .2s,background .2s}
+.contact-float:hover{transform:translateY(-2px);background:var(--blue)}
+
+@media(max-width:900px){
+  .nav-menu{display:none;position:fixed;top:74px;left:0;right:0;flex-direction:column;background:rgba(2,10,35,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1);padding:18px 28px;gap:0}
+  .nav-menu.open{display:flex}
+  .nav-menu li{width:100%;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .burger{display:flex}
+  .work-grid,.proc-grid,.tiers,.srv-cats,.hero-grid,.proj-grid,.ups-grid{grid-template-columns:1fr}
+  .srv-row{grid-template-columns:1fr;gap:8px}
+  .srv-arrow{display:none}
+  .hero-meta{gap:26px}
+  section{padding:74px 0}
+}
+
+.hero-center{text-align:center;padding-top:150px}
+.hero-center .wrap{max-width:1040px}
+.hero-center h1{margin:0 auto;max-width:none;font-size:clamp(48px,9.5vw,112px)}
+.hero-center .lead{margin-left:auto;margin-right:auto}
+.hero-center .hero-cta,.hero-center .hero-meta{justify-content:center}
+.rotator{display:block}
+.rotator .word{display:inline-block;font-size:clamp(56px,10vw,130px);font-weight:800;letter-spacing:-.04em;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:rotIn .5s cubic-bezier(.16,1,.3,1)}
+@keyframes rotIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:none scale(1)}}
+.srv-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-cat{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:var(--r);padding:30px 28px;transition:.25s}
+.srv-cat:hover{border-color:var(--blue-2);box-shadow:0 18px 40px rgba(29,78,216,.08);transform:translateY(-4px)}
+.srv-cat .ico{margin-bottom:14px}.srv-cat .ico img{width:48px;height:48px}.proc .s img.vico{width:34px;height:34px}
+.srv-cat h3{font-size:22px;margin-bottom:16px}.srv-cat ul{list-style:none}
+.srv-cat li{font-size:15px;color:var(--ink-2);padding:9px 0;border-top:1px solid var(--line);display:flex;align-items:center;gap:9px;transition:color .2s}
+.srv-cat li:first-child{border-top:none}.srv-cat li:hover{color:var(--blue)}
+.srv-cat li::before{content:"→";color:var(--blue);font-size:13px;font-weight:600}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj-grid-2{grid-template-columns:repeat(2,1fr);max-width:860px}
+.proj-thumb-link{display:block;overflow:hidden;border-radius:var(--r) var(--r) 0 0}
+.proj-logo-thumb{height:220px;display:flex;align-items:center;justify-content:center;transition:transform .4s ease;padding:32px}
+.proj:hover .proj-logo-thumb{transform:scale(1.03)}
+.proj-logo-lifeos{background:linear-gradient(135deg,#0F0C29,#302B63,#24243e)}
+.proj-logo-arena{background:linear-gradient(135deg,#0a0000,#1a0000,#7a0000)}
+.proj-logo-thumb svg{width:100%;max-width:320px;height:auto}
+.proj-link{display:inline-block;margin-top:12px;font-size:13px;font-weight:600;font-family:var(--display);color:var(--accent);letter-spacing:.02em}
+.proj{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:var(--r);overflow:hidden;transition:.25s}
+.proj:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(10,26,48,.12);border-color:var(--blue-2)}
+.proj-thumb{height:160px;display:flex;align-items:center;justify-content:center}
+.proj-thumb img{width:60px;height:60px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+.proj-body{padding:22px}.proj-tag{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--blue)}
+.proj-body h3{font-size:21px;margin:6px 0 8px}.proj-body p{font-size:14px;color:var(--muted)}
+.pt1{background:linear-gradient(150deg,#0F2A6B,#2563EB)}.pt2{background:linear-gradient(150deg,#1D4ED8,#38BDF8)}.pt3{background:linear-gradient(150deg,#0B3B66,#0EA5E9)}.pt4{background:linear-gradient(150deg,#13315C,#3B82F6)}.pt5{background:linear-gradient(150deg,#1E40AF,#60A5FA)}.pt6{background:linear-gradient(150deg,#0C4A6E,#38BDF8)}
+.ups-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:900px;margin:0 auto}
+.ups{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:20px;padding:30px 28px;transition:.25s}
+.ups:hover{transform:translateY(-4px);box-shadow:0 20px 46px rgba(10,26,48,.1);border-color:var(--blue-2)}
+.ups-ico img{width:42px;height:42px;margin-bottom:14px}.ups h3{font-size:22px;margin-bottom:8px}
+.ups-price{display:inline-block;font-family:var(--display);font-weight:800;font-size:16px;color:#fff;background:linear-gradient(120deg,#D4A017,#F5C518);padding:5px 14px;border-radius:50px;margin-bottom:14px}
+.ups p{font-size:14.5px;color:var(--ink-2);line-height:1.7;margin-bottom:20px}.ups p strong{color:var(--ink)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+.contact-info h3{font-size:28px;margin-bottom:18px}
+.contact-info p{font-size:15.5px;color:var(--ink-2);line-height:1.75;margin-bottom:28px}
+.contact-detail{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.contact-detail a{display:inline-flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-2);font-weight:500;transition:color .2s}
+.contact-detail a:hover{color:var(--blue)}
+.contact-detail .cd-icon{width:38px;height:38px;border-radius:50%;background:var(--bg-blue);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.contact-form{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:22px;padding:36px 32px}
+.contact-form h3{font-family:var(--display);font-size:22px;font-weight:700;margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.form-group label{font-family:var(--display);font-size:13px;font-weight:600;color:var(--ink-2)}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:13px 15px;font-family:var(--body);font-size:15px;color:#fff;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.45)}
+.form-group label{color:rgba(255,255,255,.8)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,78,216,.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-success{display:none;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.4);border-radius:12px;padding:18px 20px;color:#4ADE80;font-size:15px;margin-top:14px;font-weight:500}
+
+/* ══════════════════════════════════════════
+   BANDEAU RGPD / CONSENT MODE v2
+   ══════════════════════════════════════════ */
+#cnil-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:rgba(3,10,30,.97);border-top:1px solid rgba(96,165,250,.25);
+  backdrop-filter:blur(20px);padding:22px 28px;
+  transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 -8px 40px rgba(0,0,0,.5)
+}
+#cnil-banner.visible{transform:translateY(0)}
+.cnil-inner{max-width:1200px;margin:0 auto;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.cnil-text{flex:1;min-width:260px}
+.cnil-text p{font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.6;margin:0}
+.cnil-text p strong{color:#fff}
+.cnil-text a{color:var(--sky);text-decoration:underline;font-size:13px}
+.cnil-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;align-items:center}
+.cnil-accept{background:linear-gradient(120deg,#2563EB,#3B82F6);color:#fff;border:none;border-radius:50px;padding:11px 22px;font-family:var(--display);font-weight:600;font-size:14px;cursor:pointer;transition:.2s;white-space:nowrap}
+.cnil-accept:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(37,99,235,.4)}
+.cnil-refuse{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:11px 22px;font-family:var(--display);font-weight:600;font-size:14px;cursor:pointer;transition:.2s;white-space:nowrap}
+.cnil-refuse:hover{background:rgba(255,255,255,.14);color:#fff}
+.cnil-custom{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;cursor:pointer;font-family:var(--body);text-decoration:underline;padding:4px;white-space:nowrap}
+.cnil-custom:hover{color:rgba(255,255,255,.85)}
+
+/* Modal personnalisation */
+#cnil-modal{
+  display:none;position:fixed;inset:0;z-index:10000;
+  background:rgba(0,5,20,.75);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center
+}
+#cnil-modal.open{display:flex}
+.cnil-modal-box{
+  background:rgba(5,18,50,.98);border:1px solid rgba(96,165,250,.25);
+  border-radius:24px;padding:36px 32px;max-width:480px;width:90%;
+  max-height:90vh;overflow-y:auto;
+  animation:modalIn .25s ease
+}
+.cnil-modal-box h3{font-family:var(--display);font-size:21px;font-weight:700;color:#fff;margin-bottom:8px}
+.cnil-modal-box>p{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:24px;line-height:1.6}
+.cnil-toggle-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1)}
+.cnil-toggle-row:first-of-type{border-top:none}
+.cnil-toggle-label{flex:1}
+.cnil-toggle-label strong{display:block;font-family:var(--display);font-size:15px;font-weight:600;color:#fff;margin-bottom:4px}
+.cnil-toggle-label span{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+/* Toggle switch */
+.cnil-switch{position:relative;width:44px;height:24px;flex-shrink:0;margin-top:2px}
+.cnil-switch input{opacity:0;width:0;height:0;position:absolute}
+.cnil-slider{position:absolute;inset:0;border-radius:50px;background:rgba(255,255,255,.15);cursor:pointer;transition:.25s}
+.cnil-slider::before{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.25s}
+.cnil-switch input:checked+.cnil-slider{background:#2563EB}
+.cnil-switch input:checked+.cnil-slider::before{transform:translateX(20px)}
+.cnil-switch input:disabled+.cnil-slider{opacity:.5;cursor:not-allowed}
+.cnil-modal-actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.cnil-save{background:linear-gradient(120deg,#2563EB,#3B82F6);color:#fff;border:none;border-radius:50px;padding:12px 24px;font-family:var(--display);font-weight:600;font-size:14px;cursor:pointer;flex:1;transition:.2s}
+.cnil-save:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(37,99,235,.4)}
+.cnil-modal-refuse{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:12px 20px;font-family:var(--display);font-weight:600;font-size:14px;cursor:pointer;transition:.2s}
+.cnil-modal-refuse:hover{background:rgba(255,255,255,.14)}
+
+/* Lien "Gérer les cookies" dans le footer */
+.cnil-reopen{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;cursor:pointer;font-family:var(--body);padding:5px 0;display:block;transition:color .2s}
+.cnil-reopen:hover{color:var(--sky)}
+</style>
+<link rel="canonical" href="https://pixelstudio.xyz/">
+<meta property="og:url" content="https://pixelstudio.xyz/">
+<meta property="og:site_name" content="Pixel Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pixel Studio — Agence & studio web à Reims et Paris">
+<meta name="twitter:description" content="Création de sites web qui convertissent à Reims et Paris.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Pixel Studio","description":"Studio de web design : création de sites web qui convertissent, à Reims et Paris.","url":"https://pixelstudio.xyz/","telephone":"+33620757517","priceRange":"€€","areaServed":["Reims","Paris","France"],"address":{"@type":"PostalAddress","addressLocality":"Reims","addressCountry":"FR"}}
+</script>
+</head>
+<body>
+
+<div id="vanta-bg"></div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="logo">Pixel<span> Studio</span></a>
+    <ul class="nav-menu" id="menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#work">Réalisations</a></li>
+      <li><a href="#offres">Offres</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-r">
+      <a class="btn btn-blue" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20de%20site%20web%20%F0%9F%91%8B">Démarrer un projet</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero hero-center" id="hero-bg">
+  <div class="wrap">
+    <h1 class="reveal">Des sites web pour<br><span class="rotator"><span class="word" id="rotator">restaurants</span></span></h1>
+    <p class="lead reveal">Restaurants, pizzerias, kebabs, agences, SaaS, startups, artisans, shops e-commerce… On crée le site qui fait vendre le vôtre. Sur mesure, livré en 72h à 2 semaines.</p>
+    <div class="hero-cta reveal">
+      <button class="btn btn-blue" onclick="document.getElementById('bookingModal').classList.add('open')">Réserver un appel gratuit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <a class="btn btn-ghost" href="#projets">Voir nos projets</a>
+    </div>
+    <div class="hero-meta reveal">
+      <div><div class="n">100%</div><div class="l">Délais respectés</div></div>
+      <div><div class="n">72h</div><div class="l">à 2 semaines</div></div>
+      <div><div class="n">4.9<span style="color:var(--sky)">★</span></div><div class="l">Note clients</div></div>
+      <div><div class="n">100%</div><div class="l">Sur mesure</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Design premium<span></span>Copywriting inclus<span></span>SEO local<span></span>Shop e-commerce<span></span>Livraison 72h–2 sem.<span></span>Mobile first<span></span>Restaurants<span></span>Artisans<span></span>Coiffeurs<span></span>Hôtels<span></span></span>
+    <span aria-hidden="true">Design premium<span></span>Copywriting inclus<span></span>SEO local<span></span>Livraison 72h–2 sem.<span></span>Mobile first<span></span>Restaurants<span></span>Artisans<span></span>Coiffeurs<span></span>Hôtels<span></span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Ce qu'on fait</div>
+      <h2>Un studio, tous vos projets digitaux.</h2>
+      <p>Du site web à l'app mobile, de l'IA au montage vidéo — une seule équipe.</p>
+    </div>
+    <div class="srv-cats">
+      <div class="srv-cat reveal"><div class="ico"><img alt="Dév" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%92%BB?style=apple"></div><h3>Développement</h3><ul><li>Développement de sites web</li><li>Développement d'applications mobiles</li><li>Développement de chatbots</li></ul></div>
+      <div class="srv-cat reveal"><div class="ico"><img alt="IA" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%A4%96?style=apple"></div><h3>Intelligence artificielle</h3><ul><li>Applications mobiles IA</li><li>Sites web IA & logiciel</li><li>Chatbots d'IA</li><li>Intégrations IA</li><li>Agents intelligents</li><li>Conseil en technologie IA</li></ul></div>
+      <div class="srv-cat reveal"><div class="ico"><img alt="Montage" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%8E%AC?style=apple"></div><h3>Services montage</h3><ul><li>Montage vidéo</li><li>Effets spéciaux</li><li>Intro & outro vidéo</li><li>Sous-titres & légendes</li><li>Publicités vidéo</li><li>Vidéos réseaux sociaux</li><li>Clips musicaux</li><li>Vidéos diaporama</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Réalisations</div>
+      <h2>Spécialisés par secteur. Et ça se voit.</h2>
+      <p>Chaque industrie a ses codes. On les maîtrise — voici l'univers qu'on crée pour le vôtre.</p>
+    </div>
+    <div class="work-grid">
+      <a class="work-card wc1 reveal" href="https://wa.me/33620757517"><div class="ico">🍽️</div><span class="k">Restauration</span><h3>Remplir les tables</h3><p>Réservation en ligne, menu digital, commande directe sans commission.</p></a>
+      <a class="work-card wc2 reveal" href="https://wa.me/33620757517"><div class="ico">💅</div><span class="k">Beauté</span><h3>Agenda toujours plein</h3><p>Prise de RDV 24/7, galerie premium, rappels anti no-show.</p></a>
+      <a class="work-card wc3 reveal" href="https://wa.me/33620757517"><div class="ico">🔧</div><span class="k">Artisans</span><h3>Des leads qualifiés</h3><p>Devis en ligne, portfolio avant/après, 0 % de commission.</p></a>
+      <a class="work-card wc4 reveal" href="https://wa.me/33620757517"><div class="ico">💪</div><span class="k">Sport & Santé</span><h3>Vendre ses programmes</h3><p>Réservation de séances, vente en ligne, image qui inspire confiance.</p></a>
+      <a class="work-card wc5 reveal" href="https://wa.me/33620757517"><div class="ico">🏨</div><span class="k">Hôtellerie</span><h3>Récupérer ses marges</h3><p>Réservation directe, fini les 18 % de commission Booking.</p></a>
+      <a class="work-card wc6 reveal" href="https://wa.me/33620757517"><div class="ico">🛍️</div><span class="k">Commerce local</span><h3>Exister en ligne</h3><p>Boutique vitrine, nouveautés, visible partout dans votre ville.</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="tag">Portfolio</div><h2>Nos meilleurs projets.</h2><p>Un aperçu de ce qu'on conçoit — du resto de quartier à la startup SaaS.</p></div>
+    <div class="proj-grid proj-grid-2">
+      <article class="proj reveal">
+        <a href="https://www.lifeosapp.site/" target="_blank" class="proj-thumb-link">
+          <div class="proj-logo-thumb proj-logo-lifeos">
+            <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lg1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+              </defs>
+              <circle cx="44" cy="60" r="34" fill="url(#lg1)"/>
+              <path d="M32 60l10 10 16-18" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="94" y="70" font-family="system-ui,sans-serif" font-weight="900" font-size="46" fill="#fff" letter-spacing="-2">LifeOS</text>
+              <text x="96" y="92" font-family="system-ui,sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,.45)" letter-spacing="4">APP · SAAS</text>
+            </svg>
+          </div>
+        </a>
+        <div class="proj-body">
+          <span class="proj-tag">App · SaaS</span>
+          <h3>LifeOS App</h3>
+          <p>Application web livrée — interface épurée et expérience utilisateur soignée.</p>
+          <a href="https://www.lifeosapp.site/" target="_blank" class="proj-link">Voir le site →</a>
+        </div>
+      </article>
+      <article class="proj reveal">
+        <a href="https://arena-pizza-kebab.vercel.app/" target="_blank" class="proj-thumb-link">
+          <div class="proj-logo-thumb proj-logo-arena">
+            <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lg2" x1="0" y1="0" x2="320" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#FF4444"/><stop offset="1" stop-color="#FF8C00"/></linearGradient>
+              </defs>
+              <text x="0" y="52" font-family="system-ui,sans-serif" font-weight="900" font-size="50" fill="#fff" letter-spacing="-2">ARENA</text>
+              <text x="2" y="96" font-family="system-ui,sans-serif" font-weight="900" font-size="40" fill="url(#lg2)" letter-spacing="-1">PIZZA</text>
+              <text x="188" y="96" font-family="system-ui,sans-serif" font-weight="900" font-size="40" fill="rgba(255,255,255,.25)" letter-spacing="-1">KEBAB</text>
+              <text x="265" y="52" font-family="system-ui,sans-serif" font-size="36">🍕</text>
+            </svg>
+          </div>
+        </a>
+        <div class="proj-body">
+          <span class="proj-tag">Restaurateur · Fast food</span>
+          <h3>Arena Pizza Kebab</h3>
+          <p>Site vitrine pour restaurant — menu en ligne, design mobile-first, livraison rapide.</p>
+          <a href="https://arena-pizza-kebab.vercel.app/" target="_blank" class="proj-link">Voir le site →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- QUI SOMMES-NOUS -->
+<section id="about" class="soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Qui sommes-nous</div>
+      <h2>Une agence qui casse les codes — et les prix.</h2>
+      <p>Fondée en 2026, Pixel Studio est née d'un constat simple : les agences traditionnelles facturent entre <strong>8 000 et 10 000 €</strong> pour de simples landing pages. On a décidé que ça devait changer.</p>
+    </div>
+
+    <div class="about-vision reveal" style="background:rgba(29,78,216,.08);border:1px solid rgba(29,78,216,.18);border-radius:var(--r);padding:36px 40px;max-width:820px;margin-bottom:64px">
+      <div class="tag" style="margin-bottom:14px">Notre mission</div>
+      <p style="font-size:19px;color:var(--ink);font-family:var(--display);font-weight:600;line-height:1.5;letter-spacing:-.02em">"Révolutionner le web design et permettre à tout particulier ou entrepreneur d'accéder à un site premium — sans se ruiner."</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar team-avatar-photo"><img src="WhatsApp Image 2026-05-07 at 02.13.36 (16).jpeg" alt="Reda HMAMOUCHI" width="64" height="64" loading="lazy"></div>
+        <div class="team-info">
+          <h3>Reda HMAMOUCHI</h3>
+          <span class="team-role">Fondateur &amp; Lead Dev</span>
+          <p>Étudiant ingénieur ayant livré des dizaines de projets web. Pilote chaque projet de bout en bout avec rigueur et exigence.</p>
+          <div class="team-links">
+            <a href="https://instagram.com/redahmamouchii" target="_blank" class="team-social">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @redahmamouchii
+            </a>
+            <a href="https://linkedin.com/in/reda-hmamouchi" target="_blank" class="team-social">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#7C3AED,#A78BFA)">D</div>
+        <div class="team-info">
+          <h3>Nos designers</h3>
+          <span class="team-role">Partenaires créatifs</span>
+          <p>Un réseau de designers sélectionnés pour leur sens du détail et leur capacité à produire des interfaces qui convertissent.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#059669,#34D399)">C</div>
+        <div class="team-info">
+          <h3>Nos copywriters</h3>
+          <span class="team-role">Partenaires éditoriaux</span>
+          <p>Des plumes expertes en persuasion digitale. Chaque mot est pensé pour capter l'attention et pousser à l'action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">La méthode</div>
+      <h2>De zéro à un site en ligne. En 72h à 2 semaines.</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="s">Étape 01</div><h3>Cadrage</h3><p>Un appel de 45 min pour comprendre votre business, vos clients et vos objectifs.</p></div>
+      <div class="proc reveal"><div class="s">Étape 02</div><h3>Message & structure</h3><p>On structure chaque page avec un objectif clair. Le texte est pensé pour convaincre.</p></div>
+      <div class="proc reveal"><div class="s">Étape 03</div><h3>Design & dev</h3><p>Maquette livrée vite, vous validez, on développe. Premium, rapide, mobile-first.</p></div>
+      <div class="proc reveal"><div class="s">Étape 04</div><h3>Mise en ligne</h3><p>Hébergement, domaine, SSL, analytics. Vous recevez les clés. Votre site tourne.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="offres" class="soft">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Offres</div>
+      <h2>Des tarifs clairs. Pas de surprise.</h2>
+      <p>Quatre formules, du lancement au projet sur mesure. Tout est personnalisé — <strong style="color:var(--ink)">prix négociables selon votre projet.</strong></p>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal"><div class="cat">Présence</div><div class="name">Démarrage</div><div class="price">900€ <small>HT</small></div><div class="desc">Vos concurrents ont un site. Vous pas encore. On règle ça — proprement, vite, sans vous ruiner.</div><ul><li>1 à 2 pages claires</li><li>Design propre, mobile-first</li><li>Formulaire de contact + Maps</li><li>Hébergement configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20D%C3%A9marrage%20%C3%A0%20900%E2%82%AC">Démarrer</a></div>
+      <div class="tier reveal"><div class="cat">Visibilité</div><div class="name">Tremplin</div><div class="price">2 100€ <small>HT</small></div><div class="desc">Chaque mois, des clients cherchent votre service sur Google. La question : est-ce qu'ils tombent sur vous — ou sur votre concurrent ?</div><ul><li>Jusqu'à 3 pages stratégiques</li><li>Copywriting inclus</li><li>SEO local optimisé</li><li>Google My Business configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Tremplin%20%C3%A0%202100%E2%82%AC">Démarrer</a></div>
+      <div class="tier feat reveal"><div class="pop">★ Le plus choisi</div><div class="cat">Conversion</div><div class="name">Moteur</div><div class="price">2 900€ <small>HT</small></div><div class="desc">Votre meilleur commercial — disponible 24h/24, payé une seule fois. Il prend les RDV, filtre les curieux, attire les sérieux.</div><ul><li>5 à 7 pages orientées conversion</li><li>Copywriting avancé inclus</li><li>Design premium 100% sur mesure</li><li>SEO on-page complet + schema</li><li>Prise de RDV intégrée</li><li>2 révisions post-livraison</li></ul><a class="btn btn-blue" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Moteur%20%C3%A0%202900%E2%82%AC">Je veux le Moteur</a></div>
+      <div class="tier reveal"><div class="cat">Sur-mesure</div><div class="name">Premium</div><div class="price">14 000€ <small>HT</small></div><div class="desc">Pour ceux qui savent qu'un site exceptionnel n'est pas une dépense — c'est un actif. On construit quelque chose qui travaille pour vous pendant des années.</div><ul><li>Site immersif (animations, 3D, scroll narratif)</li><li>Site ou application sur mesure</li><li>Pages illimitées / e-commerce</li><li>Intégrations IA & automatisations</li><li>Identité visuelle complète</li><li>SEO avancé + performance</li><li>Accompagnement & suivi dédiés</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Premium%20%C3%A0%2014000%E2%82%AC">En parler</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONS -->
+<section id="options" class="soft">
+  <div class="wrap">
+    <div class="sec-head center reveal"><div class="tag">Options</div><h2>Boostez votre site.</h2><p>Des add-ons pour aller plus loin une fois votre site en ligne.</p></div>
+    <div class="ups-grid">
+      <div class="ups reveal"><div class="ups-ico"><img alt="ADS" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%93%A3?style=apple"></div><h3>Pack design ADS / LinkedIn</h3><div class="ups-price">+390€</div><p>Des créatives pro pour vos pubs et posts (Meta, LinkedIn, Google). Visuels prêts à publier, déclinés à votre identité.</p><button class="btn btn-ghost" onclick="openOptionModal('Pack design ADS / LinkedIn · +390€')">Ajouter</button></div>
+      <div class="ups reveal"><div class="ups-ico"><img alt="Google Ads" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%94%8D?style=apple"></div><h3>Campagne Google Ads</h3><div class="ups-price">+750€</div><p><strong>Le principe :</strong> on crée et configure vos campagnes pour apparaître tout en haut de Google quand vos clients cherchent votre service. Ciblage mots-clés + zone, annonces optimisées, suivi des conversions — vous payez Google au clic, on pilote la stratégie.</p><button class="btn btn-blue" onclick="openOptionModal('Campagne Google Ads · +750€')">En parler</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-sec">
+  <div class="wrap quote reveal">
+    <div class="stars">★★★★★</div>
+    <blockquote>« Un site beau, rapide et qui rapporte vraiment. Livré dans les délais, et l'accompagnement derrière fait toute la différence. »</blockquote>
+    <div class="who"><strong>Thomas V.</strong> — Électricien, Nantes · 1ʳᵉ position Google local</div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Pourquoi nous</div>
+      <h2>Un studio à taille humaine. Pas une usine.</h2>
+      <p>On prend le temps de comprendre votre business, on écrit vos textes, on livre vite et on explique tout sans jargon. Pas d'abonnement caché, pas de surprise — juste un interlocuteur qui répond.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="s"><img class="vico" alt="🎯" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%8E%AF?style=apple"></div><h3>Orienté résultats</h3><p>Chaque section a un but. On pense à vos clients avant de penser aux couleurs.</p></div>
+      <div class="proc reveal"><div class="s"><img class="vico" alt="✍️" loading="lazy" src="https://emojicdn.elk.sh/%E2%9C%8D%EF%B8%8F?style=apple"></div><h3>Copywriting inclus</h3><p>Vous ne rédigez rien. On écrit un message clair qui parle à vos prospects.</p></div>
+      <div class="proc reveal"><div class="s"><img class="vico" alt="⚡" loading="lazy" src="https://emojicdn.elk.sh/%E2%9A%A1?style=apple"></div><h3>Vraiment rapide</h3><p>72h à 2 semaines, délais respectés. Votre temps a de la valeur, le nôtre aussi.</p></div>
+      <div class="proc reveal"><div class="s"><img class="vico" alt="🤝" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%A4%9D?style=apple"></div><h3>Accompagnement simple</h3><p>Un seul interlocuteur, des réponses rapides, jamais de jargon.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="soft">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">FAQ</div>
+      <h2>Les vraies questions.</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Quels sont les délais de livraison ?</summary><div class="ans">Entre <strong>72h pour une vitrine simple</strong> et <strong>2 semaines pour un site complet</strong>. On fixe le délai exact lors de l'appel, selon la taille du projet.</div></details>
+      <details><summary>Vous rédigez vraiment mes textes ?</summary><div class="ans">On pose les bonnes questions lors de l'appel et on s'occupe de tout. <strong>Vous recevez des textes prêts à publier</strong>, pensés pour convaincre. Vous relisez, on ajuste. Inclus dans toutes les offres.</div></details>
+      <details><summary>Pourquoi pas un Wix ou Squarespace à 15€/mois ?</summary><div class="ans">Wix est bien pour tester une idée. Mais vos clients voient la différence en 3 secondes. Un site sur mesure dit <strong>« je suis un professionnel sérieux »</strong> — et ça change le taux de conversion.</div></details>
+      <details><summary>Je peux modifier le site moi-même ensuite ?</summary><div class="ans">Oui. On vous forme en 20 minutes. <strong>Changer un texte, une photo, un prix</strong> se fait depuis votre téléphone en quelques secondes.</div></details>
+      <details><summary>Y a-t-il des frais cachés ?</summary><div class="ans">Non. Le site est à vous. L'hébergement coûte environ <strong>5–10€/mois</strong> que vous payez directement. Maintenance optionnelle si vous voulez qu'on gère tout.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Contact</div>
+      <h2>Parlons de votre projet.</h2>
+      <p>Répondez en quelques secondes — on vous recontacte sous 24h.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>On est à votre écoute.</h3>
+        <p>Que vous ayez une idée précise ou juste l'envie d'un site, on prend le temps de comprendre votre situation. Un appel de 30 minutes suffit souvent à tout cadrer — et c'est gratuit.</p>
+        <div class="contact-detail">
+          <a href="https://wa.me/33620757517"><div class="cd-icon">💬</div>WhatsApp · 06 20 75 75 17</a>
+          <a href="mailto:mredahmamouchi@gmail.com"><div class="cd-icon">✉️</div>mredahmamouchi@gmail.com</a>
+          <a href="#"><div class="cd-icon">📍</div>Reims &amp; Paris · France</a>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:24px">
+          <p style="font-size:14px;color:var(--muted);margin-bottom:0">Temps de réponse habituel : <strong style="color:var(--ink)">moins de 2h</strong> en semaine.</p>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3>Envoyez-nous un message</h3>
+        <form id="contactForm" onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Votre prénom</label>
+              <input type="text" id="cf-name" placeholder="Jean" required>
+            </div>
+            <div class="form-group">
+              <label for="cf-company">Votre entreprise</label>
+              <input type="text" id="cf-company" placeholder="Mon Resto">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" placeholder="jean@monresto.fr" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Téléphone (optionnel)</label>
+            <input type="tel" id="cf-phone" placeholder="06 XX XX XX XX">
+          </div>
+          <div class="form-group">
+            <label for="cf-service">Vous cherchez…</label>
+            <select id="cf-service">
+              <option value="">— Choisir un service</option>
+              <option>Site vitrine (Démarrage · 900€)</option>
+              <option>Site avec SEO local (Tremplin · 2 100€)</option>
+              <option>Site de conversion (Moteur · 2 900€)</option>
+              <option>Projet sur-mesure (Premium · 14 000€)</option>
+              <option>Application mobile / IA</option>
+              <option>Montage vidéo</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Décrivez votre projet</label>
+            <textarea id="cf-message" placeholder="Mon restaurant est ouvert depuis 2 ans, je n'ai pas encore de site…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-blue" style="width:100%;justify-content:center;margin-top:4px">Envoyer le message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="form-success" id="formSuccess">✓ Message envoyé ! On vous répond dans les 2h.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>On parle de votre projet ?</h2>
+    <p>Si vous êtes encore là, c'est que vous cherchez quelqu'un de sérieux. En 30 minutes, on analyse votre situation et on vous dit honnêtement ce qu'un site bien fait peut changer — <strong style="color:var(--ink)">généralement 3 à 10 clients supplémentaires par mois selon votre niche.</strong> On ne vend pas de rêve : c'est ce qu'on constate, et c'est ce qu'on vise pour vous.</p>
+    <div class="row">
+      <button class="btn btn-blue" onclick="document.getElementById('bookingModal').classList.add('open')">Réserver un appel gratuit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <a class="btn btn-ghost" href="https://wa.me/33620757517">Écrire sur WhatsApp</a>
+    </div>
+    <div class="feats">
+      <span>Réponse rapide</span>
+      <span>Zéro engagement</span>
+      <span>Livré en 72h à 2 semaines</span>
+      <span>Copywriting inclus</span>
+      <span>Données protégées</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="logo">Pixel<span> Studio</span></a>
+        <p>Studio de web design à Reims et Paris. On crée des sites qui travaillent vraiment pour les pros.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Services</h4>
+          <a href="#services">Sites vitrine</a>
+          <a href="#services">Refonte & UX</a>
+          <a href="#services">SEO local</a>
+          <a href="#services">Maintenance</a>
+        </div>
+        <div class="foot-col">
+          <h4>Secteurs</h4>
+          <a href="#work">Restauration</a>
+          <a href="#work">Beauté</a>
+          <a href="#work">Artisans</a>
+          <a href="#work">Hôtellerie</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="https://wa.me/33620757517">WhatsApp · 06 20 75 75 17</a>
+          <a href="#offres">Nos offres</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Pixel Studio · Studio web · France</span>
+      <span>Sites web qui convertissent</span>
+      <button class="cnil-reopen" id="cnilReopen" aria-label="Gérer les cookies">🍪 Gérer les cookies</button>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Options (Pack ADS / Google Ads) -->
+<div class="modal-overlay" id="optionModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <h3>Qui choisir ?</h3>
+    <p id="optionModalSub" style="color:var(--muted);font-size:15px;margin-bottom:28px"></p>
+    <div class="modal-choices">
+      <a class="modal-choice" id="optionCalendly" href="https://calendly.com/mredahmamouchi/30min" target="_blank" onclick="document.getElementById('optionModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>
+          Calendly
+          <span class="choice-sub">Réservez un créneau dans mon agenda</span>
+        </span>
+      </a>
+      <a class="modal-choice" id="optionWhatsapp" href="#" target="_blank" onclick="document.getElementById('optionModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.408A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        <span>
+          WhatsApp
+          <span class="choice-sub">Message direct sur +33 6 20 75 75 17</span>
+        </span>
+      </a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('optionModal').classList.remove('open')">Annuler</button>
+  </div>
+</div>
+
+<!-- Booking modal -->
+<div class="modal-overlay" id="bookingModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <h3>Réserver un appel gratuit</h3>
+    <p>30 min, sans engagement. Choisissez votre moyen préféré :</p>
+    <div class="modal-choices">
+      <a class="modal-choice" href="https://calendly.com/mredahmamouchi/30min" target="_blank" onclick="document.getElementById('bookingModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>
+          Calendly
+          <span class="choice-sub">Choisissez un créneau dans mon agenda</span>
+        </span>
+      </a>
+      <a class="modal-choice" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20souhaite%20un%20appel%20gratuit%20avec%20Pixel%20Studio%20%F0%9F%91%8B" target="_blank" onclick="document.getElementById('bookingModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.408A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        <span>
+          WhatsApp
+          <span class="choice-sub">Message direct sur +33 6 20 75 75 17</span>
+        </span>
+      </a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('bookingModal').classList.remove('open')">Annuler</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     BANDEAU RGPD — CNIL CONFORME
+     ══════════════════════════════════════════ -->
+<div id="cnil-banner" role="region" aria-label="Gestion des cookies" aria-live="polite">
+  <div class="cnil-inner">
+    <div class="cnil-text">
+      <p>
+        <strong>🍪 Cookies &amp; confidentialité</strong><br>
+        Nous utilisons des cookies pour mesurer l'audience et optimiser nos publicités. Vos données restent anonymisées.
+        <a href="#faq" onclick="document.getElementById('cnil-banner').classList.remove('visible')"> En savoir plus</a>
+      </p>
+    </div>
+    <div class="cnil-btns">
+      <button class="cnil-accept" id="cnilAccept">Tout accepter</button>
+      <button class="cnil-refuse" id="cnilRefuse">Tout refuser</button>
+      <button class="cnil-custom" id="cnilCustom">Personnaliser ▾</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal personnalisation cookies -->
+<div id="cnil-modal" role="dialog" aria-modal="true" aria-labelledby="cnilModalTitle">
+  <div class="cnil-modal-box">
+    <h3 id="cnilModalTitle">Personnaliser mes choix</h3>
+    <p>Choisissez les types de cookies que vous acceptez. Vous pouvez modifier ces préférences à tout moment depuis le lien en bas de page.</p>
+
+    <!-- Cookies nécessaires — toujours actifs -->
+    <div class="cnil-toggle-row">
+      <div class="cnil-toggle-label">
+        <strong>Cookies nécessaires</strong>
+        <span>Indispensables au fonctionnement du site (session, sécurité). Ils ne peuvent pas être désactivés.</span>
+      </div>
+      <label class="cnil-switch">
+        <input type="checkbox" checked disabled>
+        <span class="cnil-slider"></span>
+      </label>
+    </div>
+
+    <!-- Analytics -->
+    <div class="cnil-toggle-row">
+      <div class="cnil-toggle-label">
+        <strong>Mesure d'audience (Analytics)</strong>
+        <span>Google Analytics — nous aide à comprendre comment les visiteurs utilisent le site, de façon anonyme.</span>
+      </div>
+      <label class="cnil-switch">
+        <input type="checkbox" id="toggleAnalytics">
+        <span class="cnil-slider"></span>
+      </label>
+    </div>
+
+    <!-- Marketing -->
+    <div class="cnil-toggle-row">
+      <div class="cnil-toggle-label">
+        <strong>Publicité &amp; retargeting</strong>
+        <span>Google Ads &amp; Meta Pixel — permet de mesurer l'efficacité de nos campagnes et de vous re-cibler.</span>
+      </div>
+      <label class="cnil-switch">
+        <input type="checkbox" id="toggleMarketing">
+        <span class="cnil-slider"></span>
+      </label>
+    </div>
+
+    <div class="cnil-modal-actions">
+      <button class="cnil-save" id="cnilSave">Enregistrer mes choix</button>
+      <button class="cnil-modal-refuse" id="cnilModalRefuse">Tout refuser</button>
+    </div>
+  </div>
+</div>
+
+<a class="wa" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20%F0%9F%91%8B">💬 WhatsApp</a>
+<a class="contact-float" href="#contact">✉️ Nous contacter</a>
+
+<script>
+function openOptionModal(label){
+  const waTexts = {
+    'Pack design ADS / LinkedIn · +390€': 'Je%20veux%20le%20Pack%20design%20ADS%2FLinkedIn%20%C3%A0%20%2B390%E2%82%AC',
+    'Campagne Google Ads · +750€': 'Je%20veux%20la%20campagne%20Google%20Ads%20%C3%A0%20%2B750%E2%82%AC'
+  };
+  document.getElementById('optionModalSub').textContent = label;
+  document.getElementById('optionWhatsapp').href =
+    'https://wa.me/33620757517?text=' + (waTexts[label] || 'Je%20veux%20en%20savoir%20plus');
+  document.getElementById('optionModal').classList.add('open');
+}
+
+const header=document.getElementById('header');
+const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%5*40)+'ms';io.observe(el);});
+
+const words=['restaurants','pizzerias','kebabs','agences','SaaS','startups','artisans','coachs','hôtels','commerces'];
+const rotColors=[
+  'linear-gradient(115deg,#F72585,#FF6EB4)',
+  'linear-gradient(115deg,#7B2FFF,#C084FC)',
+  'linear-gradient(115deg,#00C9FF,#92FE9D)',
+  'linear-gradient(115deg,#F59E0B,#FDE68A)',
+  'linear-gradient(115deg,#EF4444,#FB923C)',
+  'linear-gradient(115deg,#06B6D4,#6EE7B7)',
+  'linear-gradient(115deg,#8B5CF6,#F472B6)',
+  'linear-gradient(115deg,#10B981,#34D399)',
+  'linear-gradient(115deg,#F97316,#FACC15)',
+  'linear-gradient(115deg,#3B82F6,#A5F3FC)',
+];
+let wi=0;const rot=document.getElementById('rotator');
+if(rot){
+  rot.style.background=rotColors[0];
+  rot.style.webkitBackgroundClip='text';
+  rot.style.backgroundClip='text';
+  setInterval(()=>{
+    wi=(wi+1)%words.length;
+    rot.style.animation='none';
+    void rot.offsetWidth;
+    rot.textContent=words[wi];
+    rot.style.background=rotColors[wi%rotColors.length];
+    rot.style.webkitBackgroundClip='text';
+    rot.style.backgroundClip='text';
+    rot.style.animation='';
+  },2000);
+}
+
+function handleContact(e){
+  e.preventDefault();
+  const name=document.getElementById('cf-name').value;
+  const company=document.getElementById('cf-company').value;
+  const email=document.getElementById('cf-email').value;
+  const phone=document.getElementById('cf-phone').value;
+  const service=document.getElementById('cf-service').value;
+  const msg=document.getElementById('cf-message').value;
+  const text=`Bonjour Pixel Studio 👋\n\nNom : ${name}${company?' ('+company+')':''}\nEmail : ${email}${phone?'\nTél : '+phone:''}\n${service?'Service : '+service+'\n':''}\nMessage :\n${msg}`;
+  window.open('https://wa.me/33620757517?text='+encodeURIComponent(text),'_blank');
+  document.getElementById('formSuccess').style.display='block';
+  e.target.reset();
+}
+</script>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   PIXEL STUDIO — CONSENT MANAGER (RGPD / CNIL / CMv2)
+   ══════════════════════════════════════════════════════════
+   Logique :
+   - Lit le consentement stocké dans localStorage
+   - Si absent → affiche le bandeau après 600ms
+   - Accepter tout → grant analytics + marketing
+   - Refuser tout → tout reste denied
+   - Personnaliser → modal granulaire
+   - Applique gtag('consent','update') à chaque décision
+   ══════════════════════════════════════════════════════════ */
+
+const CNIL_KEY = 'ps_consent_v1'; // Incrémenter si la politique change
+
+function cnilGetStored() {
+  try { return JSON.parse(localStorage.getItem(CNIL_KEY)); } catch(e){ return null; }
+}
+function cnilStore(prefs) {
+  try { localStorage.setItem(CNIL_KEY, JSON.stringify({ ...prefs, ts: Date.now() })); } catch(e){}
+}
+
+function cnilApply(analytics, marketing) {
+  // Met à jour Consent Mode v2
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', {
+      'analytics_storage':  analytics  ? 'granted' : 'denied',
+      'ad_storage':         marketing  ? 'granted' : 'denied',
+      'ad_user_data':       marketing  ? 'granted' : 'denied',
+      'ad_personalization': marketing  ? 'granted' : 'denied'
+    });
+  }
+  // Ici : charger GTM ou d'autres scripts si besoin
+  // if (marketing && !window._metaPixelLoaded) { /* init Meta Pixel */ }
+}
+
+function cnilHideBanner() {
+  document.getElementById('cnil-banner').classList.remove('visible');
+}
+function cnilCloseModal() {
+  document.getElementById('cnil-modal').classList.remove('open');
+}
+
+function cnilAcceptAll() {
+  cnilStore({ analytics: true, marketing: true });
+  cnilApply(true, true);
+  cnilHideBanner();
+  cnilCloseModal();
+}
+function cnilRefuseAll() {
+  cnilStore({ analytics: false, marketing: false });
+  cnilApply(false, false);
+  cnilHideBanner();
+  cnilCloseModal();
+}
+function cnilSaveCustom() {
+  const analytics = document.getElementById('toggleAnalytics').checked;
+  const marketing = document.getElementById('toggleMarketing').checked;
+  cnilStore({ analytics, marketing });
+  cnilApply(analytics, marketing);
+  cnilHideBanner();
+  cnilCloseModal();
+}
+
+// Initialisation
+(function() {
+  const stored = cnilGetStored();
+  if (stored) {
+    // Consentement déjà donné → applique silencieusement
+    cnilApply(stored.analytics, stored.marketing);
+  } else {
+    // Affiche le bandeau après 600ms (laisse LCP se charger)
+    setTimeout(() => {
+      document.getElementById('cnil-banner').classList.add('visible');
+    }, 600);
+  }
+
+  // Boutons du bandeau principal
+  document.getElementById('cnilAccept').addEventListener('click', cnilAcceptAll);
+  document.getElementById('cnilRefuse').addEventListener('click', cnilRefuseAll);
+
+  // Ouvrir le modal personnalisation
+  document.getElementById('cnilCustom').addEventListener('click', function() {
+    const stored = cnilGetStored();
+    if (stored) {
+      document.getElementById('toggleAnalytics').checked = !!stored.analytics;
+      document.getElementById('toggleMarketing').checked = !!stored.marketing;
+    }
+    document.getElementById('cnil-modal').classList.add('open');
+  });
+
+  // Boutons dans le modal
+  document.getElementById('cnilSave').addEventListener('click', cnilSaveCustom);
+  document.getElementById('cnilModalRefuse').addEventListener('click', cnilRefuseAll);
+
+  // Fermer le modal en cliquant l'overlay
+  document.getElementById('cnil-modal').addEventListener('click', function(e) {
+    if (e.target === this) cnilCloseModal();
+  });
+
+  // Lien "Gérer les cookies" dans le footer
+  document.getElementById('cnilReopen').addEventListener('click', function() {
+    const stored = cnilGetStored();
+    if (stored) {
+      document.getElementById('toggleAnalytics').checked = !!stored.analytics;
+      document.getElementById('toggleMarketing').checked = !!stored.marketing;
+    }
+    document.getElementById('cnil-banner').classList.add('visible');
+    document.getElementById('cnil-modal').classList.add('open');
+  });
+
+  // Fermer avec Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { cnilCloseModal(); }
+  });
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+<script>
+VANTA.WAVES({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x5588,
+  shininess: 30,
+  waveHeight: 15,
+  waveSpeed: 1,
+  zoom: 1
+});
+</script>
+</body>
+</html>

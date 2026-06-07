@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEBcraft — Agence Web · Sites livrés en 48h</title>
+<meta name="description" content="WEBcraft crée des sites web qui convertissent pour restaurants, artisans, coiffeurs et commerces locaux. Livraison en 48h, design premium, copywriting inclus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --bg2:#EEF4FF;
+  --bg3:#F4F8FF;
+  --ink:#0F1E33;
+  --muted:#5A6B82;
+  --blue:#2563EB;
+  --blue-l:#3B82F6;
+  --sky:#0EA5E9;
+  --sky-l:#38BDF8;
+  --border:rgba(37,99,235,.16);
+  --green:#16A34A;
+  --font:'Bricolage Grotesque',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--blue-l);border-radius:4px}
+
+/* Boutons */
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--blue),var(--sky-l));color:#fff;font-size:14px;font-weight:700;letter-spacing:.3px;padding:15px 28px;border-radius:50px;transition:all .25s;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(37,99,235,.25)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,99,235,.35)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-size:14px;font-weight:600;padding:14px 26px;border-radius:50px;border:1px solid var(--border);transition:all .2s;cursor:pointer}
+.btn-g:hover{border-color:var(--blue-l);color:var(--blue)}
+.grad{background:linear-gradient(135deg,var(--blue) 0%,var(--sky-l) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);padding:6px 14px;border-radius:50px;margin-bottom:24px}
+.badge::before{content:'';width:6px;height:6px;background:var(--sky);border-radius:50%}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:22px;font-weight:800;letter-spacing:-1px}
+.logo em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--sky-l));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:#25D366;color:#fff!important;padding:9px 18px;border-radius:50px;font-weight:700}
+.burger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--ink)}
+
+/* Sections */
+section{padding:90px 0}
+.sec-hd{text-align:center;max-width:640px;margin:0 auto 48px}
+.sec-hd .eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.sec-hd h2{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
+.sec-hd p{font-size:17px;color:var(--muted)}
+
+/* Hero */
+#hero{position:relative;padding:150px 0 80px;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(59,130,246,.12) 0%,transparent 70%),#fff;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+#hero h1{font-size:clamp(36px,5.5vw,60px);font-weight:800;letter-spacing:-2px;line-height:1.05;margin-bottom:22px}
+.hero-sub{font-size:19px;color:var(--muted);margin-bottom:32px;max-width:480px}
+.hero-sub strong{color:var(--ink);font-weight:700}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.hs-num{font-size:30px;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--blue),var(--sky-l));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hs-lbl{font-size:13px;color:var(--muted)}
+.hero-visual{position:relative}
+.hero-img{width:100%;border-radius:22px;box-shadow:0 24px 70px rgba(37,99,235,.18);border:1px solid rgba(59,130,246,.2)}
+.hero-badge{position:absolute;bottom:-16px;left:-16px;background:#fff;border:1px solid rgba(59,130,246,.25);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(37,99,235,.12)}
+.hb-dot{width:9px;height:9px;background:var(--green);border-radius:50%;flex-shrink:0}
+.hb-t{font-size:12px;font-weight:700}
+.hb-s{font-size:11px;color:var(--muted)}
+
+/* Proof strip */
+.proof{padding:24px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.proof-in{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 28px;font-size:14px;color:var(--muted)}
+.proof-in strong{color:var(--ink)}
+.proof-sep{color:var(--blue-l)}
+
+/* Grilles cartes */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:18px;padding:28px;transition:all .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(37,99,235,.3);box-shadow:0 18px 44px rgba(37,99,235,.12)}
+.card .ico{font-size:30px;margin-bottom:14px}
+.card h3{font-size:19px;font-weight:700;margin-bottom:10px}
+.card p{font-size:14px;color:var(--muted);line-height:1.6}
+.card .res{display:inline-block;margin-top:12px;font-size:13px;font-weight:600;color:var(--blue)}
+
+/* Secteurs */
+.alt{background:var(--bg2)}
+
+/* Témoignages chat */
+.chats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.chat{background:#fff;border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:0 12px 34px rgba(37,99,235,.07)}
+.chat-h{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.chat-h img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.chat-h .n{font-weight:700;font-size:15px}
+.chat-h .r{font-size:12px;color:var(--muted)}
+.bubble{font-size:14px;line-height:1.5;padding:10px 14px;border-radius:14px;margin-bottom:8px;max-width:88%}
+.bubble.them{background:var(--bg2);border-bottom-left-radius:4px}
+.bubble.me{background:linear-gradient(135deg,var(--blue),var(--blue-l));color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.chat-t{font-size:11px;color:var(--muted);text-align:right;margin-top:6px}
+
+/* Pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.tier{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px 26px;position:relative;transition:all .25s}
+.tier:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(37,99,235,.12)}
+.tier.feat{border:2px solid var(--blue);box-shadow:0 18px 50px rgba(37,99,235,.18)}
+.tier .pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--blue),var(--sky-l));color:#fff;font-size:11px;font-weight:700;padding:5px 16px;border-radius:50px;white-space:nowrap}
+.tier .cat{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.tier .name{font-size:24px;font-weight:800;margin-bottom:10px}
+.tier .price{font-size:34px;font-weight:800;letter-spacing:-1px;margin-bottom:14px;background:linear-gradient(135deg,var(--blue),var(--sky-l));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.tier .price small{font-size:15px;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+.tier .desc{font-size:13px;color:var(--muted);margin-bottom:18px;min-height:54px}
+.tier ul{list-style:none;margin-bottom:22px}
+.tier li{font-size:14px;padding:7px 0 7px 26px;position:relative;color:var(--ink)}
+.tier li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.tier .btn-p,.tier .btn-g{width:100%;justify-content:center}
+
+/* Méthode */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.step{background:var(--bg3);border:1px solid var(--border);border-radius:18px;padding:28px}
+.step .stp{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--blue);margin-bottom:12px}
+.step .ico{font-size:28px;margin-bottom:12px}
+.step h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.step p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* Avis */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.review{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px}
+.rev-h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rev-h img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.rev-h .n{font-weight:700;font-size:14px}
+.rev-h .d{font-size:12px;color:var(--muted)}
+.stars{color:#F59E0B;font-size:14px;margin-bottom:10px;letter-spacing:2px}
+.review p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* FAQ */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-q{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q summary{padding:20px 24px;font-size:16px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q summary::-webkit-details-marker{display:none}
+.faq-q summary::after{content:'+';font-size:24px;color:var(--blue);font-weight:400;transition:transform .2s}
+.faq-q[open] summary::after{transform:rotate(45deg)}
+.faq-q .a{padding:0 24px 22px;font-size:14px;color:var(--muted);line-height:1.7}
+.faq-q .a strong{color:var(--ink)}
+
+/* CTA final */
+#cta{background:linear-gradient(135deg,var(--blue) 0%,var(--sky) 100%);color:#fff;text-align:center;border-radius:0}
+#cta h2{font-size:clamp(28px,4.5vw,46px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:18px;max-width:760px;margin-left:auto;margin-right:auto}
+#cta p{font-size:17px;opacity:.92;max-width:580px;margin:0 auto 32px}
+#cta .btn-w{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;padding:16px 32px;border-radius:50px;font-size:15px;transition:transform .2s}
+#cta .btn-w:hover{transform:translateY(-2px)}
+.cta-feats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 28px;margin-top:30px;font-size:14px;opacity:.95}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-grid img{border-radius:20px;box-shadow:0 20px 50px rgba(37,99,235,.14)}
+.about-grid h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.12;margin-bottom:20px}
+.about-grid p{color:var(--muted);margin-bottom:16px;line-height:1.7}
+.about-grid p strong{color:var(--ink)}
+
+/* Footer */
+footer{background:var(--bg2);padding:48px 0;border-top:1px solid var(--border)}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.foot-copy{font-size:13px;color:var(--muted);margin-top:18px;text-align:center;width:100%}
+
+/* WhatsApp float */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:14px;font-weight:700;padding:13px 20px;border-radius:50px;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s}
+.wa-float:hover{transform:translateY(-2px)}
+
+@media(max-width:880px){
+  .hero-grid,.about-grid{grid-template-columns:1fr;gap:36px}
+  .grid3,.grid2,.chats,.tiers,.steps,.reviews{grid-template-columns:1fr}
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;flex-direction:column;background:rgba(255,255,255,.98);backdrop-filter:blur(18px);padding:20px 24px;gap:0;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;padding:12px 0;border-bottom:1px solid var(--border)}
+  .burger{display:block}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="logo">WEB<em>craft</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#secteurs">Secteurs</a></li>
+      <li><a href="#offres">Offres</a></li>
+      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a class="nav-cta" href="https://wa.me/33620757517">💬 Discutons</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">Agence web · France · Disponible maintenant</span>
+      <h1>Votre site web doit <span class="grad">vendre.</span> Pas juste exister.</h1>
+      <p class="hero-sub">On crée des sites qui transforment vos visiteurs en clients. <strong>Design premium, message qui convertit, livraison en 48h.</strong></p>
+      <div class="hero-btns">
+        <a class="btn-p" href="https://wa.me/33620757517">📅 Réserver un appel gratuit</a>
+        <a class="btn-g" href="#offres">Voir les offres</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hs-num">48h</div><div class="hs-lbl">Livraison garantie</div></div>
+        <div><div class="hs-num">100%</div><div class="hs-lbl">Sur mesure</div></div>
+        <div><div class="hs-num">3×</div><div class="hs-lbl">Plus de contacts</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Équipe WEBcraft au travail">
+      <div class="hero-badge">
+        <span class="hb-dot"></span>
+        <div><div class="hb-t">Projet en cours</div><div class="hb-s">Site livré ce matin ✓</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="wrap proof-in">
+    <span>⭐ <strong>4.9/5</strong> · avis clients</span>
+    <span class="proof-sep">·</span>
+    <span>🚀 <strong>+60 sites</strong> livrés en France</span>
+    <span class="proof-sep">·</span>
+    <span>⏱ Délai moyen <strong>48h</strong></span>
+    <span class="proof-sep">·</span>
+    <span>🤝 <strong>Copywriting</strong> inclus</span>
+  </div>
+</div>
+
+<!-- SECTEURS -->
+<section id="secteurs">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">Nos spécialités</div>
+      <h2>Experts dans <span class="grad">votre secteur.</span></h2>
+      <p>On ne fait pas des sites génériques. On est spécialisés par industrie — et ça se voit.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="ico">🍽️</div><h3>Restauration</h3><p>Pizzerias, restaurants gastronomiques, coffee shops, boulangeries. Des sites qui remplissent les tables.</p><span class="res">Voir les offres resto →</span></div>
+      <div class="card"><div class="ico">💅</div><h3>Beauté</h3><p>Salons de coiffure, instituts, spas, nail art. Des sites premium qui remplissent votre agenda.</p><span class="res">Voir les offres beauté →</span></div>
+      <div class="card"><div class="ico">💪</div><h3>Sport & Santé</h3><p>Coachs, salles de sport, kinés, nutritionnistes. Un site qui remplit votre agenda et vend vos programmes.</p><span class="res">Voir les offres sport →</span></div>
+      <div class="card"><div class="ico">🔨</div><h3>Artisans</h3><p>Plombiers, électriciens, peintres, maçons. Des leads qualifiés sans passer par les plateformes.</p><span class="res">Voir les offres artisans →</span></div>
+      <div class="card"><div class="ico">🛍️</div><h3>Commerce local</h3><p>Fleuristes, cavistes, chocolatiers, librairies. Votre boutique unique, visible partout.</p><span class="res">Voir les offres commerce →</span></div>
+      <div class="card"><div class="ico">🏨</div><h3>Hôtellerie</h3><p>Hôtels, gîtes, B&B, campings. Réduisez les commissions Booking et récupérez vos marges.</p><span class="res">Voir les offres hôtellerie →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="alt" id="temoignages">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">Ils l'ont dit eux-mêmes</div>
+      <h2>De vrais <span class="grad">messages.</span></h2>
+      <p>Ce que nos clients nous envoient après livraison.</p>
+    </div>
+    <div class="chats">
+      <div class="chat">
+        <div class="chat-h"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Marco"><div><div class="n">Marco B.</div><div class="r">Pizzeria Il Vesuvio · Lyon</div></div></div>
+        <div class="bubble them">Franchement j'y croyais pas trop au début…</div>
+        <div class="bubble them">Mais là c'est dingue. Plein de commandes directes cette semaine.</div>
+        <div class="bubble me">Trop bien ! Le site tourne depuis combien de temps ?</div>
+        <div class="bubble them">12 jours. Merci encore vraiment.</div>
+        <div class="chat-t">Il y a 4 jours · WhatsApp</div>
+      </div>
+      <div class="chat">
+        <div class="chat-h"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&q=80" alt="Sophie"><div><div class="n">Sophie D.</div><div class="r">Spa Éclat · Paris 16e</div></div></div>
+        <div class="bubble them">J'ai l'agenda rempli pour les prochaines semaines 🙂</div>
+        <div class="bubble me">Sérieux ?? Depuis le lancement du site ?</div>
+        <div class="bubble them">Ouais. Les clientes réservent toutes seules le soir, je me réveille avec des RDV.</div>
+        <div class="chat-t">Il y a 1 semaine · WhatsApp</div>
+      </div>
+      <div class="chat">
+        <div class="chat-h"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="Karim"><div><div class="n">Karim M.</div><div class="r">Plombier · Marseille</div></div></div>
+        <div class="bubble them">Plusieurs demandes de devis cette semaine via le site.</div>
+        <div class="bubble me">Et la qualité des demandes ?</div>
+        <div class="bubble them">Bien mieux. Les gens ont déjà vu les tarifs, ils savent à quoi s'attendre.</div>
+        <div class="chat-t">Il y a 2 jours · WhatsApp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRES -->
+<section id="offres">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">Nos offres</div>
+      <h2>L'offre qui vous <span class="grad">ressemble.</span></h2>
+      <p>On a structuré nos offres pour que vous trouviez exactement ce qu'il vous faut.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <div class="cat">Présence</div>
+        <div class="name">Démarrage</div>
+        <div class="price">290€ <small>HT</small></div>
+        <div class="desc">Pour celui qui n'a rien en ligne et veut une vitrine propre dont il n'a pas honte.</div>
+        <ul>
+          <li>1 page claire qui dit qui vous êtes</li>
+          <li>Design propre, mobile-first</li>
+          <li>Formulaire de contact + Maps</li>
+          <li>Hébergement configuré</li>
+          <li>Livraison en 48h</li>
+        </ul>
+        <a class="btn-g" href="https://wa.me/33620757517">Démarrer →</a>
+      </div>
+      <div class="tier feat">
+        <div class="pop">⭐ Le plus choisi</div>
+        <div class="cat">Conversion</div>
+        <div class="name">Moteur</div>
+        <div class="price">1 400€ <small>HT</small></div>
+        <div class="desc">Pour le pro qui veut que son site travaille à sa place — prospects qualifiés, RDV automatiques, image premium.</div>
+        <ul>
+          <li>5 à 7 pages orientées conversion</li>
+          <li>Copywriting avancé — chaque mot compte</li>
+          <li>Design premium 100% sur mesure</li>
+          <li>SEO on-page complet + schema</li>
+          <li>Prise de RDV intégrée</li>
+          <li>2 révisions post-livraison incluses</li>
+        </ul>
+        <a class="btn-p" href="https://wa.me/33620757517">Je veux le Moteur →</a>
+      </div>
+      <div class="tier">
+        <div class="cat">Visibilité</div>
+        <div class="name">Tremplin</div>
+        <div class="price">590€ <small>HT</small></div>
+        <div class="desc">Pour le pro local qui veut que Google lui envoie des clients sans payer de pub.</div>
+        <ul>
+          <li>Jusqu'à 3 pages stratégiques</li>
+          <li>Copywriting inclus — on écrit pour vous</li>
+          <li>SEO local optimisé</li>
+          <li>Google My Business configuré</li>
+          <li>Livraison en 48h</li>
+        </ul>
+        <a class="btn-g" href="https://wa.me/33620757517">Démarrer →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTHODE -->
+<section class="alt" id="methode">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">Notre méthode</div>
+      <h2>Simple. Rapide. <span class="grad">Sans prise de tête.</span></h2>
+      <p>De zéro à un site en ligne en 48h chrono.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="stp">ÉTAPE 01</div><div class="ico">💬</div><h3>Cadrage</h3><p>Un appel de 45 min pour comprendre votre business, vos clients et vos objectifs.</p></div>
+      <div class="step"><div class="stp">ÉTAPE 02</div><div class="ico">✍️</div><h3>Message & Structure</h3><p>On structure chaque page avec un objectif clair. Le texte est pensé pour convaincre.</p></div>
+      <div class="step"><div class="stp">ÉTAPE 03</div><div class="ico">⚡</div><h3>Design & Dev</h3><p>Maquette livrée rapidement. Vous validez. On développe. Premium, rapide, mobile-first.</p></div>
+      <div class="step"><div class="stp">ÉTAPE 04</div><div class="ico">🚀</div><h3>Mise en ligne</h3><p>On gère hébergement, domaine, SSL et analytics. Vous recevez les clés.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS -->
+<section>
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">Pourquoi nous</div>
+      <h2>On ne vend pas du design. <span class="grad">On vend des résultats.</span></h2>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="ico">🎯</div><h3>Orienté conversion</h3><p>Chaque section a un but précis. On pense à vos clients avant de penser aux couleurs.</p></div>
+      <div class="card"><div class="ico">✍️</div><h3>Copywriting inclus</h3><p>Pas besoin de rédiger vos textes. On écrit un message clair qui parle à vos prospects.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>Livraison rapide</h3><p>48h. On respecte les délais parce que votre temps a de la valeur.</p></div>
+      <div class="card"><div class="ico">🔍</div><h3>SEO propre dès le départ</h3><p>Structure technique soignée, balises optimisées, vitesse au top.</p></div>
+      <div class="card"><div class="ico">💎</div><h3>Image premium</h3><p>Vos clients vous jugent en 3 secondes. Ces 3 secondes doivent inspirer confiance.</p></div>
+      <div class="card"><div class="ico">🤝</div><h3>Accompagnement simple</h3><p>Un interlocuteur unique, des réponses rapides. Pas de jargon, jamais de surprises.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="alt" id="avis">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">Avis vérifiés</div>
+      <h2>4.9 ★ <span class="grad">sur Google.</span></h2>
+      <p>Ce que disent les pros qu'on a accompagnés.</p>
+    </div>
+    <div class="reviews">
+      <div class="review"><div class="rev-h"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt=""><div><div class="n">Marco Bernardi</div><div class="d">il y a 2 semaines</div></div></div><div class="stars">★★★★★</div><p>J'avais déjà payé cher pour un site qui ne m'apportait rien. WEBcraft m'a livré quelque chose de beau et efficace en 48h. Dès la première semaine, des commandes directes.</p></div>
+      <div class="review"><div class="rev-h"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&q=80" alt=""><div><div class="n">Sophie Delacroix</div><div class="d">il y a 1 mois</div></div></div><div class="stars">★★★★★</div><p>Ils ont tout de suite compris l'univers de mon spa. Le site est élégant, il rassure mes clientes. Mon agenda se remplit en ligne et mon assistante n'est plus scotchée au téléphone.</p></div>
+      <div class="review"><div class="rev-h"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt=""><div><div class="n">Thomas Vidal</div><div class="d">il y a 3 semaines</div></div></div><div class="stars">★★★★★</div><p>Bien positionné sur Google « électricien Nantes » en quelques jours. Avant je payais des plateformes qui me bouffaient la marge. Maintenant les clients viennent à moi directement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section>
+  <div class="wrap about-grid">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80" alt="L'équipe WEBcraft">
+    <div>
+      <h2>Un studio à taille humaine. <span class="grad">Pas une usine.</span></h2>
+      <p>On est une petite équipe passionnée — pas une agence avec 50 commerciaux et des projets livrés à la chaîne.</p>
+      <p>On a lancé ça parce qu'on en avait marre de voir des restos, des coiffeurs, des artisans se faire facturer une fortune pour un site monté en 2h avec un template.</p>
+      <p><strong>WEBcraft c'est le contraire :</strong> on prend le temps de comprendre votre business, on écrit vos textes, on livre vite, et on vous explique tout sans jargon. Pas d'abonnement caché. Pas de surprise.</p>
+      <a class="btn-p" href="https://wa.me/33620757517">💬 Parlez-nous maintenant</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="eyebrow">FAQ</div>
+      <h2>Les vraies <span class="grad">questions.</span></h2>
+    </div>
+    <div class="faq-wrap">
+      <details class="faq-q"><summary>C'est vraiment livré en 48h ?</summary><div class="a">Oui. Un appel pour caler le brief, on rédige les textes, on design, on développe. <strong>48h après l'appel, le site est en ligne.</strong> Si vous avez une urgence, dites-le nous.</div></details>
+      <details class="faq-q"><summary>Vous rédigez vraiment mes textes ?</summary><div class="a">On pose les bonnes questions lors de l'appel, et on s'occupe de tout. <strong>Vous recevez des textes prêts à publier</strong>, pensés pour convaincre. Vous relisez, on ajuste. Inclus dans toutes les offres.</div></details>
+      <details class="faq-q"><summary>Et si mon site ne convertit pas après livraison ?</summary><div class="a">On ne vous abandonne pas. On suit les résultats ensemble les premières semaines. <strong>Si quelque chose ne marche pas, on retravaille.</strong></div></details>
+      <details class="faq-q"><summary>Pourquoi pas un Wix ou Squarespace à 15€/mois ?</summary><div class="a">Wix c'est bien pour tester une idée. Mais vos clients voient la différence en 3 secondes. Un site sur mesure dit <strong>« je suis un professionnel sérieux ».</strong></div></details>
+      <details class="faq-q"><summary>Puis-je modifier le site moi-même ?</summary><div class="a">Oui. On vous forme en 20 minutes. <strong>Changer un texte, une photo, un prix</strong> — vous le faites depuis votre téléphone en quelques secondes.</div></details>
+      <details class="faq-q"><summary>Y a-t-il des frais cachés ?</summary><div class="a">Non. Le site est à vous. L'hébergement coûte environ <strong>5–10€/mois</strong> que vous payez directement. Maintenance optionnelle si vous voulez qu'on gère tout.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="wrap">
+    <h2>Pendant que vous hésitez, votre concurrent nous appelle.</h2>
+    <p>30 minutes. Gratuit. Sans engagement. On regarde votre situation et on vous dit honnêtement ce qu'on peut faire.</p>
+    <a class="btn-w" href="https://wa.me/33620757517">💬 Écrire sur WhatsApp maintenant</a>
+    <div class="cta-feats">
+      <span>✓ Réponse rapide</span>
+      <span>✓ Zéro engagement</span>
+      <span>✓ Site livré en 48h</span>
+      <span>✓ Copywriting inclus</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="#" class="logo">WEB<em>craft</em></a>
+      <div class="foot-links">
+        <a href="#secteurs">Restauration</a>
+        <a href="#secteurs">Beauté</a>
+        <a href="#secteurs">Artisans</a>
+        <a href="#secteurs">Sport</a>
+        <a href="#secteurs">Hôtellerie</a>
+        <a href="https://wa.me/33620757517">💬 06 20 75 75 17</a>
+      </div>
+    </div>
+    <div class="foot-copy">© 2026 WEBcraft · Sites web qui convertissent · France</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/33620757517">💬 WhatsApp</a>
+
+<script>
+  const burger=document.getElementById('burger');
+  const links=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+</script>
+</body>
+</html>
