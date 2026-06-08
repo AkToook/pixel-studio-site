@@ -163,18 +163,24 @@ section{padding:120px 0}
 .modal-close{margin-top:20px;background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;font-family:var(--body)}
 .modal-close:hover{color:#fff}
 
-/* Team */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
-.team-card{display:flex;gap:22px;align-items:flex-start;background:rgba(0,20,55,.5);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px 26px;transition:transform .25s,box-shadow .25s}
-.team-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
-.team-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:22px;font-weight:800;flex-shrink:0;overflow:hidden}
-.team-avatar-photo{background:none;border:2px solid rgba(247,37,133,.5)}
-.team-avatar-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.team-info h3{font-size:18px;margin-bottom:4px}
-.team-role{font-size:13px;font-weight:600;color:var(--blue);font-family:var(--display);letter-spacing:.03em;display:block;margin-bottom:10px}
-.team-info p{font-size:14px;color:var(--muted);line-height:1.55}
-.team-links{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
-.team-social{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;font-family:var(--display);color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:6px 13px;transition:color .2s,background .2s}
+/* Team portraits */
+.team-label{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.portrait-grid{display:grid;gap:20px}
+.portrait-grid-3{grid-template-columns:repeat(3,1fr)}
+.portrait-grid-4{grid-template-columns:repeat(4,1fr)}
+.portrait-card{border-radius:16px;overflow:hidden;background:rgba(0,20,55,.5);border:1px solid rgba(255,255,255,.1);transition:transform .25s,box-shadow .25s}
+.portrait-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.portrait-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.portrait-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.portrait-initials{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:52px;font-weight:800;color:#fff}
+.portrait-card.portrait-sm .portrait-initials{font-size:36px}
+.portrait-card.portrait-sm .portrait-img{aspect-ratio:1/1}
+.portrait-info{padding:16px 18px}
+.portrait-info strong{display:block;font-family:var(--display);font-size:17px;font-weight:700;color:#fff;margin-bottom:3px}
+.portrait-info span{font-size:13px;color:rgba(255,255,255,.55)}
+.portrait-founder .portrait-img{border-bottom:2px solid rgba(247,37,133,.4)}
+.team-links{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.team-social{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;font-family:var(--display);color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:5px 11px;transition:color .2s,background .2s}
 .team-social:hover{color:#F72585;background:rgba(247,37,133,.12);border-color:rgba(247,37,133,.3)}
 
 /* Work grid */
@@ -286,6 +292,28 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
   .srv-arrow{display:none}
   .hero-meta{gap:26px}
   section{padding:74px 0}
+  .contact-float{display:none}
+}
+
+@media(max-width:600px){
+  .hero-center{padding-top:90px}
+  .hero{padding:90px 0 50px}
+  .hero-center h1{font-size:clamp(38px,11vw,72px)}
+  .rotator .word{font-size:clamp(42px,12vw,72px)}
+  .hero p.lead{font-size:16px;margin:18px auto 26px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .hero-meta{gap:16px;margin-top:32px;padding-top:24px}
+  .hero-meta .n{font-size:28px}
+  .hero-meta .l{font-size:12px}
+  .sec-head h2{font-size:clamp(26px,8vw,42px)}
+  .wrap{padding:0 18px}
+  .tier{padding:24px 20px}
+  .foot-top{flex-direction:column;gap:24px}
+  .foot-cols{flex-direction:column;gap:24px}
+  .cta h2{font-size:clamp(30px,9vw,56px)}
+  section{padding:60px 0}
+  .wa{padding:13px 16px;font-size:13px}
 }
 
 .hero-center{text-align:center;padding-top:150px}
@@ -594,41 +622,44 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <p style="font-size:19px;color:var(--ink);font-family:var(--display);font-weight:600;line-height:1.5;letter-spacing:-.02em">"Révolutionner le web design et permettre à tout particulier ou entrepreneur d'accéder à un site premium — sans se ruiner."</p>
     </div>
 
-    <div class="team-grid">
-      <div class="team-card reveal">
-        <div class="team-avatar team-avatar-photo"><img src="WhatsApp Image 2026-05-07 at 02.13.36 (16).jpeg" alt="Reda HMAMOUCHI" width="64" height="64" loading="lazy"></div>
-        <div class="team-info">
-          <h3>Reda HMAMOUCHI</h3>
-          <span class="team-role">Fondateur &amp; Lead Dev</span>
-          <p>Étudiant ingénieur ayant livré des dizaines de projets web. Pilote chaque projet de bout en bout avec rigueur et exigence.</p>
-          <div class="team-links">
-            <a href="https://instagram.com/redahmamouchii" target="_blank" class="team-social">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-              @redahmamouchii
-            </a>
-            <a href="https://linkedin.com/in/reda-hmamouchi" target="_blank" class="team-social">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
+    <!-- Direction -->
+    <div class="team-label reveal">Direction</div>
+    <div class="portrait-grid portrait-grid-3">
+      <div class="portrait-card reveal portrait-founder">
+        <div class="portrait-img"><img src="WhatsApp Image 2026-05-07 at 02.13.36 (16).jpeg" alt="Reda"></div>
+        <div class="portrait-info">
+          <strong>Reda</strong>
+          <span>Fondateur &amp; Lead Dev</span>
+          <div class="team-links" style="margin-top:8px">
+            <a href="https://instagram.com/redahmamouchii" target="_blank" class="team-social"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@redahmamouchii</a>
+            <a href="https://linkedin.com/in/reda-hmamouchi" target="_blank" class="team-social"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
           </div>
         </div>
       </div>
-      <div class="team-card reveal">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#7C3AED,#A78BFA)">D</div>
-        <div class="team-info">
-          <h3>Nos designers</h3>
-          <span class="team-role">Partenaires créatifs</span>
-          <p>Un réseau de designers sélectionnés pour leur sens du détail et leur capacité à produire des interfaces qui convertissent.</p>
-        </div>
+      <div class="portrait-card reveal">
+        <div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#0EA5E9,#6366F1)">A</div>
+        <div class="portrait-info"><strong>Antoine</strong><span>Responsable vente</span></div>
       </div>
-      <div class="team-card reveal">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#059669,#34D399)">C</div>
-        <div class="team-info">
-          <h3>Nos copywriters</h3>
-          <span class="team-role">Partenaires éditoriaux</span>
-          <p>Des plumes expertes en persuasion digitale. Chaque mot est pensé pour capter l'attention et pousser à l'action.</p>
-        </div>
+      <div class="portrait-card reveal">
+        <div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">M</div>
+        <div class="portrait-info"><strong>Marc</strong><span>Responsable design</span></div>
       </div>
+    </div>
+
+    <!-- Développement -->
+    <div class="team-label reveal" style="margin-top:48px">Développement</div>
+    <div class="portrait-grid portrait-grid-4">
+      <div class="portrait-card portrait-sm reveal"><div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#1D4ED8,#06B6D4)">T</div><div class="portrait-info"><strong>Thomas</strong><span>Dev</span></div></div>
+      <div class="portrait-card portrait-sm reveal"><div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#059669,#0EA5E9)">L</div><div class="portrait-info"><strong>Lucas</strong><span>Dev</span></div></div>
+      <div class="portrait-card portrait-sm reveal"><div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#7C3AED,#2563EB)">K</div><div class="portrait-info"><strong>Karim</strong><span>Dev</span></div></div>
+      <div class="portrait-card portrait-sm reveal"><div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#DC2626,#7C3AED)">N</div><div class="portrait-info"><strong>Nathan</strong><span>Dev</span></div></div>
+    </div>
+
+    <!-- Design -->
+    <div class="team-label reveal" style="margin-top:48px">Design</div>
+    <div class="portrait-grid portrait-grid-4">
+      <div class="portrait-card portrait-sm reveal"><div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#F72585,#7C3AED)">S</div><div class="portrait-info"><strong>Sofia</strong><span>Designer</span></div></div>
+      <div class="portrait-card portrait-sm reveal"><div class="portrait-img portrait-initials" style="background:linear-gradient(135deg,#F59E0B,#EC4899)">J</div><div class="portrait-info"><strong>Julie</strong><span>Designer</span></div></div>
     </div>
   </div>
 </section>
@@ -997,16 +1028,16 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(
 
 const words=['restaurants','pizzerias','kebabs','agences','SaaS','startups','artisans','coachs','hôtels','commerces'];
 const rotColors=[
-  'linear-gradient(115deg,#F72585,#FF6EB4)',
-  'linear-gradient(115deg,#7B2FFF,#C084FC)',
-  'linear-gradient(115deg,#00C9FF,#92FE9D)',
-  'linear-gradient(115deg,#F59E0B,#FDE68A)',
-  'linear-gradient(115deg,#EF4444,#FB923C)',
-  'linear-gradient(115deg,#06B6D4,#6EE7B7)',
-  'linear-gradient(115deg,#8B5CF6,#F472B6)',
-  'linear-gradient(115deg,#10B981,#34D399)',
-  'linear-gradient(115deg,#F97316,#FACC15)',
-  'linear-gradient(115deg,#3B82F6,#A5F3FC)',
+  'linear-gradient(115deg,#F72585,#FF9ECD)',
+  'linear-gradient(115deg,#FACC15,#FDE68A)',
+  'linear-gradient(115deg,#4ADE80,#86EFAC)',
+  'linear-gradient(115deg,#FB923C,#FDE68A)',
+  'linear-gradient(115deg,#E879F9,#F0ABFC)',
+  'linear-gradient(115deg,#22D3EE,#A5F3FC)',
+  'linear-gradient(115deg,#F87171,#FCA5A5)',
+  'linear-gradient(115deg,#A78BFA,#DDD6FE)',
+  'linear-gradient(115deg,#34D399,#A7F3D0)',
+  'linear-gradient(115deg,#FBBF24,#FEF08A)',
 ];
 let wi=0;const rot=document.getElementById('rotator');
 if(rot){
