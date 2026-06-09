@@ -438,6 +438,57 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 /* Lien "Gérer les cookies" dans le footer */
 .cnil-reopen{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;cursor:pointer;font-family:var(--body);padding:5px 0;display:block;transition:color .2s}
 .cnil-reopen:hover{color:var(--sky)}
+
+/* ══ SEARCH SIMULATOR ══ */
+.search-sim{max-width:700px;margin:0 auto 48px}
+.search-bar-mock{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:16px 24px;display:flex;align-items:center;gap:12px;margin-bottom:18px;backdrop-filter:blur(10px)}
+.search-bar-mock svg{color:rgba(255,255,255,.45);flex-shrink:0;width:20px;height:20px}
+.search-typed{font-family:var(--display);font-size:19px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;flex:1;flex-wrap:wrap}
+.srch-niche{color:var(--blue-2);transition:opacity .25s}
+.srch-city{color:var(--sky);transition:opacity .25s}
+.srch-cursor{display:inline-block;width:2px;height:20px;background:#fff;border-radius:2px;vertical-align:middle;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.serp-mock{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden}
+.serp-head{background:rgba(255,255,255,.04);padding:11px 20px;font-size:12px;color:var(--muted)}
+.serp-item{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.serp-badge{display:inline-block;font-size:10px;font-weight:700;color:#FACC15;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.25);padding:2px 7px;border-radius:4px;margin-right:8px}
+.serp-item-url{font-size:12px;color:var(--muted);margin-bottom:3px}
+.serp-item-title{font-size:15px;font-weight:600;color:#7DD3FC;margin-bottom:3px;transition:opacity .25s}
+.serp-item-desc{font-size:12px;color:var(--muted)}
+.serp-absent{background:rgba(239,68,68,.07);border-top:1px solid rgba(239,68,68,.15);padding:16px 20px;display:flex;align-items:center;gap:12px}
+.serp-absent-dot{width:10px;height:10px;border-radius:50%;background:#EF4444;flex-shrink:0;animation:bl 2s infinite}
+.serp-absent-txt{font-size:14px;font-weight:600;color:#FCA5A5}
+.vis-punch{text-align:center;margin-top:48px}
+.vis-punch h3{font-family:var(--display);font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
+.vis-punch p{font-size:16px;color:var(--muted);max-width:52ch;margin:0 auto 28px;line-height:1.7}
+/* ══ HOW IT WORKS ══ */
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+@media(max-width:700px){.how-grid{grid-template-columns:1fr}}
+.how-card{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:20px;padding:32px 28px}
+.how-num{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.how-card h3{font-size:22px;margin-bottom:12px}
+.how-card p{font-size:14.5px;color:var(--muted);line-height:1.75}
+.how-result{margin-top:20px;font-size:13px;font-weight:700;color:var(--green);display:flex;align-items:center;gap:7px}
+.how-result::before{content:"→"}
+.how-ads{border-color:rgba(247,37,133,.25)!important;background:rgba(247,37,133,.06)!important}
+.how-ads .how-num{color:var(--accent)}
+/* ══ CLIENTS TRUST ══ */
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+@media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.trust-grid{grid-template-columns:1fr}}
+.trust-card{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:18px;padding:26px 22px;text-align:center;transition:.25s;text-decoration:none;display:block}
+.trust-card:hover{transform:translateY(-4px);border-color:var(--blue-2)}
+.trust-logo{font-size:36px;margin-bottom:12px}
+.trust-name{font-family:var(--display);font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.trust-niche{font-size:12px;color:var(--muted)}
+.trust-cta{background:rgba(247,37,133,.07);border:2px dashed rgba(247,37,133,.3);border-radius:18px;padding:26px 22px;text-align:center;transition:.25s;display:block;text-decoration:none}
+.trust-cta:hover{background:rgba(247,37,133,.14);border-color:var(--accent);transform:translateY(-4px)}
+.trust-cta .tc-ico{font-size:30px;margin-bottom:10px}
+.trust-cta strong{font-family:var(--display);font-size:16px;font-weight:700;display:block;color:var(--ink);margin-bottom:5px}
+.trust-cta p{font-size:13px;color:var(--muted);margin:0}
+/* ══ PRIX BARRÉS ══ */
+.price-was{font-family:var(--display);font-size:16px;font-weight:500;color:var(--muted);text-decoration:line-through;margin-bottom:4px;display:block}
+.price-save{display:inline-block;font-family:var(--display);font-size:11px;font-weight:700;color:#fff;background:linear-gradient(120deg,#EF4444,#F97316);padding:3px 10px;border-radius:50px;margin-left:8px;vertical-align:middle}
 </style>
 <link rel="canonical" href="https://pixelstudio.xyz/">
 <meta property="og:url" content="https://pixelstudio.xyz/">
@@ -500,6 +551,78 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
     <span aria-hidden="true">Design premium<span></span>Copywriting inclus<span></span>SEO local<span></span>Livraison 72h–2 sem.<span></span>Mobile first<span></span>Restaurants<span></span>Artisans<span></span>Coiffeurs<span></span>Hôtels<span></span></span>
   </div>
 </div>
+
+<!-- VISIBILITÉ LOCALE -->
+<section id="visibilite">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Visibilité locale</div>
+      <h2>Vos clients vous cherchent.<br>Sont-ils chez vous — ou chez votre concurrent ?</h2>
+      <p>En ce moment, des gens tapent exactement ça sur Google.</p>
+    </div>
+    <div class="search-sim reveal">
+      <div class="search-bar-mock">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <div class="search-typed">
+          <span id="vis-niche" class="srch-niche">restaurant</span>&nbsp;<span id="vis-city" class="srch-city">Reims</span>
+          <span class="srch-cursor"></span>
+        </div>
+      </div>
+      <div class="serp-mock">
+        <div class="serp-head">Environ 52 400 résultats (0,38 secondes)</div>
+        <div class="serp-item">
+          <div class="serp-item-url"><span class="serp-badge">Annonce</span>leboncoin.fr › restauration</div>
+          <div class="serp-item-title" id="serp-t1">Meilleur restaurant à Reims — Réservez en ligne</div>
+          <div class="serp-item-desc">Ouvert 7j/7 · Livraison · Plus de 500 avis ⭐⭐⭐⭐⭐ · Commandez maintenant</div>
+        </div>
+        <div class="serp-item">
+          <div class="serp-item-url">tripadvisor.fr › Reims › Restaurants</div>
+          <div class="serp-item-title" id="serp-t2">Les meilleurs restaurants à Reims — TripAdvisor</div>
+          <div class="serp-item-desc">Consultez 1 240 avis sur les restaurants à Reims · Filtrer par cuisine, prix, quartier…</div>
+        </div>
+        <div class="serp-item">
+          <div class="serp-item-url">google.com › maps</div>
+          <div class="serp-item-title" id="serp-t3">Restaurants à Reims — Google Maps</div>
+          <div class="serp-item-desc">Trouvez les restaurants proches de vous · Horaires · Itinéraire · Appeler</div>
+        </div>
+        <div class="serp-absent">
+          <div class="serp-absent-dot"></div>
+          <div class="serp-absent-txt">Votre établissement n'apparaît pas dans ces résultats</div>
+        </div>
+      </div>
+    </div>
+    <div class="vis-punch reveal">
+      <h3>Vos clients vous cherchent. Vous n'êtes pas là.</h3>
+      <p>Chaque jour, des centaines de personnes tapent votre métier et votre ville sur Google. Si vous n'êtes pas visible, ils vont directement chez votre concurrent. On règle ça.</p>
+      <button class="btn btn-blue" onclick="document.getElementById('bookingModal').classList.add('open')">Réserver un appel gratuit →</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ON VOUS REND VISIBLE -->
+<section id="comment" class="soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Comment ça marche</div>
+      <h2>Deux leviers pour apparaître en tête de Google.</h2>
+      <p>Quand un client tape « <span id="how-query">restaurant Reims</span> » — voilà comment on vous rend visible.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num">Levier 01 · Durable</div>
+        <h3>Référencement SEO local</h3>
+        <p>On optimise votre site pour que Google comprenne exactement ce que vous faites et où vous êtes. Balises, contenu, vitesse, fiche Google My Business… Résultat : vous apparaissez naturellement quand vos clients cherchent votre service dans votre ville — sans payer par clic.</p>
+        <div class="how-result">Visible en 4 à 12 semaines · gratuit à long terme</div>
+      </div>
+      <div class="how-card how-ads reveal">
+        <div class="how-num">Levier 02 · Immédiat</div>
+        <h3>Campagne Google Ads</h3>
+        <p>On configure vos annonces pour apparaître en position 1 dès le premier jour. Vous payez uniquement quand quelqu'un clique. Ciblage ultra-précis : votre métier + votre ville + les mots-clés qui convertissent. Résultats dès 48h.</p>
+        <div class="how-result" style="color:var(--accent)">Visible dès 48h · résultats immédiats</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -608,6 +731,39 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
   </div>
 </section>
 
+<!-- ILS NOUS FONT CONFIANCE -->
+<section id="clients">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Références</div>
+      <h2>Ils nous ont fait confiance.<br>Pourquoi pas vous ?</h2>
+      <p>Des restaurateurs, entrepreneurs et startups qui ont franchi le pas.</p>
+    </div>
+    <div class="trust-grid">
+      <a href="https://www.lifeosapp.site/" target="_blank" class="trust-card reveal">
+        <div class="trust-logo">🤖</div>
+        <div class="trust-name">LifeOS App</div>
+        <div class="trust-niche">Application SaaS</div>
+      </a>
+      <a href="https://arena-pizza-kebab.vercel.app/" target="_blank" class="trust-card reveal">
+        <div class="trust-logo">🍕</div>
+        <div class="trust-name">Arena Pizza Kebab</div>
+        <div class="trust-niche">Restaurateur · Fast food</div>
+      </a>
+      <a href="https://aktoook.github.io/croc-meal/" target="_blank" class="trust-card reveal">
+        <div class="trust-logo">🥙</div>
+        <div class="trust-name">Croc Meal</div>
+        <div class="trust-niche">Kebab halal · Reims</div>
+      </a>
+      <a href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20site%20web%20%F0%9F%91%8B" target="_blank" class="trust-cta reveal">
+        <div class="tc-ico">✨</div>
+        <strong>Et vous ?</strong>
+        <p>Rejoignez nos clients — appel gratuit</p>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- QUI SOMMES-NOUS -->
 <section id="about" class="soft">
   <div class="wrap">
@@ -689,10 +845,10 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <p>Quatre formules, du lancement au projet sur mesure. Tout est personnalisé — <strong style="color:var(--ink)">prix négociables selon votre projet.</strong></p>
     </div>
     <div class="tiers">
-      <div class="tier reveal"><div class="cat">Présence</div><div class="name">Démarrage</div><div class="price">900€ <small>HT</small></div><div class="desc">Vos concurrents ont un site. Vous pas encore. On règle ça — proprement, vite, sans vous ruiner.</div><ul><li>1 à 2 pages claires</li><li>Design propre, mobile-first</li><li>Formulaire de contact + Maps</li><li>Hébergement configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20D%C3%A9marrage%20%C3%A0%20900%E2%82%AC">Démarrer</a></div>
-      <div class="tier reveal"><div class="cat">Visibilité</div><div class="name">Tremplin</div><div class="price">2 100€ <small>HT</small></div><div class="desc">Chaque mois, des clients cherchent votre service sur Google. La question : est-ce qu'ils tombent sur vous — ou sur votre concurrent ?</div><ul><li>Jusqu'à 3 pages stratégiques</li><li>Copywriting inclus</li><li>SEO local optimisé</li><li>Google My Business configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Tremplin%20%C3%A0%202100%E2%82%AC">Démarrer</a></div>
-      <div class="tier feat reveal"><div class="pop">★ Le plus choisi</div><div class="cat">Conversion</div><div class="name">Moteur</div><div class="price">2 900€ <small>HT</small></div><div class="desc">Votre meilleur commercial — disponible 24h/24, payé une seule fois. Il prend les RDV, filtre les curieux, attire les sérieux.</div><ul><li>5 à 7 pages orientées conversion</li><li>Copywriting avancé inclus</li><li>Design premium 100% sur mesure</li><li>SEO on-page complet + schema</li><li>Prise de RDV intégrée</li><li>2 révisions post-livraison</li></ul><a class="btn btn-blue" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Moteur%20%C3%A0%202900%E2%82%AC">Je veux le Moteur</a></div>
-      <div class="tier reveal"><div class="cat">Sur-mesure</div><div class="name">Premium</div><div class="price">14 000€ <small>HT</small></div><div class="desc">Pour ceux qui savent qu'un site exceptionnel n'est pas une dépense — c'est un actif. On construit quelque chose qui travaille pour vous pendant des années.</div><ul><li>Site immersif (animations, 3D, scroll narratif)</li><li>Site ou application sur mesure</li><li>Pages illimitées / e-commerce</li><li>Intégrations IA & automatisations</li><li>Identité visuelle complète</li><li>SEO avancé + performance</li><li>Accompagnement & suivi dédiés</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Premium%20%C3%A0%2014000%E2%82%AC">En parler</a></div>
+      <div class="tier reveal"><div class="cat">Présence</div><div class="name">Démarrage</div><div class="price"><span class="price-was">1 800€</span>900€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Vos concurrents ont un site. Vous pas encore. On règle ça — proprement, vite, sans vous ruiner.</div><ul><li>1 à 2 pages claires</li><li>Design propre, mobile-first</li><li>Formulaire de contact + Maps</li><li>Hébergement configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20D%C3%A9marrage%20%C3%A0%20900%E2%82%AC">Démarrer</a></div>
+      <div class="tier reveal"><div class="cat">Visibilité</div><div class="name">Tremplin</div><div class="price"><span class="price-was">4 200€</span>2 100€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Chaque mois, des clients cherchent votre service sur Google. La question : est-ce qu'ils tombent sur vous — ou sur votre concurrent ?</div><ul><li>Jusqu'à 3 pages stratégiques</li><li>Copywriting inclus</li><li>SEO local optimisé</li><li>Google My Business configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Tremplin%20%C3%A0%202100%E2%82%AC">Démarrer</a></div>
+      <div class="tier feat reveal"><div class="pop">★ Le plus choisi</div><div class="cat">Conversion</div><div class="name">Moteur</div><div class="price"><span class="price-was">5 800€</span>2 900€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Votre meilleur commercial — disponible 24h/24, payé une seule fois. Il prend les RDV, filtre les curieux, attire les sérieux.</div><ul><li>5 à 7 pages orientées conversion</li><li>Copywriting avancé inclus</li><li>Design premium 100% sur mesure</li><li>SEO on-page complet + schema</li><li>Prise de RDV intégrée</li><li>2 révisions post-livraison</li></ul><a class="btn btn-blue" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Moteur%20%C3%A0%202900%E2%82%AC">Je veux le Moteur</a></div>
+      <div class="tier reveal"><div class="cat">Sur-mesure</div><div class="name">Premium</div><div class="price"><span class="price-was">28 000€</span>14 000€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Pour ceux qui savent qu'un site exceptionnel n'est pas une dépense — c'est un actif. On construit quelque chose qui travaille pour vous pendant des années.</div><ul><li>Site immersif (animations, 3D, scroll narratif)</li><li>Site ou application sur mesure</li><li>Pages illimitées / e-commerce</li><li>Intégrations IA & automatisations</li><li>Identité visuelle complète</li><li>SEO avancé + performance</li><li>Accompagnement & suivi dédiés</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Premium%20%C3%A0%2014000%E2%82%AC">En parler</a></div>
     </div>
   </div>
 </section>
@@ -1055,6 +1211,29 @@ if(rot){
     rot.style.animation='';
   },2000);
 }
+
+// Search simulator rotation
+const visNiches=['restaurant','pizzeria','kebab','coiffeur','plombier','électricien','coach sportif','hôtel','agence immobilière','dentiste','boulangerie','salle de sport','garage auto','tatoueur','photographe','traiteur','pharmacie','opticien'];
+const visCities=['Reims','Paris','Lyon','Marseille','Bordeaux','Nantes','Toulouse','Lille','Strasbourg','Nice'];
+let visNi=0,visCi=0;
+function updateVisSearch(){
+  const nEl=document.getElementById('vis-niche');
+  const cEl=document.getElementById('vis-city');
+  const hq=document.getElementById('how-query');
+  const t1=document.getElementById('serp-t1');
+  const t2=document.getElementById('serp-t2');
+  const t3=document.getElementById('serp-t3');
+  const n=visNiches[visNi],c=visCities[visCi];
+  if(nEl){nEl.style.opacity=0;setTimeout(()=>{nEl.textContent=n;nEl.style.opacity=1;},200);}
+  if(cEl){cEl.style.opacity=0;setTimeout(()=>{cEl.textContent=c;cEl.style.opacity=1;},200);}
+  if(hq) hq.textContent=n+' '+c;
+  const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+  if(t1){t1.style.opacity=0;setTimeout(()=>{t1.textContent=cap(n)+' à '+c+' — Réservez en ligne';t1.style.opacity=1;},200);}
+  if(t2){t2.style.opacity=0;setTimeout(()=>{t2.textContent='Les meilleurs '+n+'s à '+c+' — TripAdvisor';t2.style.opacity=1;},200);}
+  if(t3){t3.style.opacity=0;setTimeout(()=>{t3.textContent=cap(n)+' à '+c+' — Google Maps';t3.style.opacity=1;},200);}
+}
+setInterval(()=>{visNi=(visNi+1)%visNiches.length;updateVisSearch();},2600);
+setInterval(()=>{visCi=(visCi+1)%visCities.length;updateVisSearch();},3900);
 
 function handleContact(e){
   e.preventDefault();
