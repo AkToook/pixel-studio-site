@@ -267,13 +267,45 @@ section{padding:120px 0}
 .wc5{background:rgba(2,132,199,.2);border-color:rgba(2,132,199,.3)}.wc5 .k{color:#7DD3FC}
 .wc6{background:rgba(247,37,133,.18);border-color:rgba(247,37,133,.3)}.wc6 .k{color:#FF6EB4}
 
-/* Process */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.proc{padding:30px;border-radius:var(--r);background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);transition:.25s}
-.proc:hover{border-color:var(--blue-2);transform:translateY(-4px);box-shadow:0 18px 40px rgba(29,78,216,.1)}
-.proc .s{font-family:var(--display);font-size:14px;font-weight:600;color:var(--blue);margin-bottom:18px}
-.proc h3{font-size:20px;margin-bottom:10px}
-.proc p{font-size:14px;color:var(--muted)}
+/* Process — méthode timeline */
+.meth-list{border:1px solid rgba(255,255,255,.1);border-radius:24px;overflow:hidden}
+.meth-row{display:grid;grid-template-columns:170px 1fr;background:rgba(0,15,45,.45);border-bottom:1px solid rgba(255,255,255,.07);transition:.25s;backdrop-filter:blur(10px)}
+.meth-row:last-child{border-bottom:none}
+.meth-row:hover{background:rgba(0,28,72,.6)}
+.meth-left{padding:36px 32px;border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:10px}
+.meth-num{font-family:var(--display);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.meth-badge{font-family:var(--display);font-size:11.5px;font-weight:600;color:var(--sky);background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.18);padding:5px 11px;border-radius:50px;display:inline-block;white-space:nowrap;width:fit-content}
+.meth-right{padding:36px 40px}
+.meth-right h3{font-family:var(--display);font-size:clamp(19px,2.3vw,25px);font-weight:800;color:#fff;margin-bottom:11px}
+.meth-right p{font-size:15px;color:var(--muted);line-height:1.65;max-width:58ch}
+.meth-chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.meth-chip{font-family:var(--display);font-size:11.5px;font-weight:600;color:rgba(255,255,255,.65);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:5px 12px;border-radius:50px}
+@media(max-width:768px){
+.meth-row{grid-template-columns:1fr}
+.meth-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:22px 24px;flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px}
+.meth-right{padding:22px 24px}
+}
+
+/* Règles */
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rule-card{background:rgba(0,15,45,.5);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 28px;display:flex;gap:22px;align-items:flex-start;transition:.25s}
+.rule-card:hover{border-color:rgba(247,37,133,.28);background:rgba(247,37,133,.04)}
+.rule-num{font-family:var(--display);font-size:40px;font-weight:900;line-height:1;color:rgba(247,37,133,.22);flex-shrink:0;min-width:44px}
+.rule-card h4{font-family:var(--display);font-size:clamp(16px,1.8vw,19px);font-weight:700;color:#fff;margin-bottom:9px}
+.rule-card p{font-size:14px;color:var(--muted);line-height:1.65}
+@media(max-width:768px){.rules-grid{grid-template-columns:1fr}}
+
+/* Tech stack */
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tech-fam{background:rgba(0,15,45,.5);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px 24px;transition:.25s}
+.tech-fam:hover{border-color:rgba(96,165,250,.28);transform:translateY(-3px)}
+.tech-fam-ico{font-size:28px;margin-bottom:12px}
+.tech-fam-label{font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
+.tech-fam h4{font-family:var(--display);font-size:16px;font-weight:800;color:#fff;margin-bottom:14px}
+.tech-pills{display:flex;flex-wrap:wrap;gap:6px}
+.tech-pill{font-size:12px;font-weight:500;color:rgba(255,255,255,.68);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:4px 11px;border-radius:50px}
+@media(max-width:900px){.tech-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tech-grid{grid-template-columns:1fr}}
 
 /* Pricing */
 .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
@@ -891,6 +923,96 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
   </div>
 </section>
 
+<!-- TECH STACK -->
+<section id="tech" class="soft">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Technologies</div>
+      <h2>6 familles de technologie.<br>Aucune religion.</h2>
+      <p>On choisit les outils adaptés à votre projet — pas ceux qui nous arrangent. Chaque stack est choisi pour la rapidité, la scalabilité et la maintenabilité à long terme.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-fam reveal">
+        <div class="tech-fam-ico">🖥️</div>
+        <div class="tech-fam-label">Famille 01</div>
+        <h4>Frontend</h4>
+        <div class="tech-pills">
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">Next.js</span>
+          <span class="tech-pill">TypeScript</span>
+          <span class="tech-pill">Tailwind CSS</span>
+          <span class="tech-pill">Framer Motion</span>
+          <span class="tech-pill">Vue.js</span>
+        </div>
+      </div>
+      <div class="tech-fam reveal">
+        <div class="tech-fam-ico">⚙️</div>
+        <div class="tech-fam-label">Famille 02</div>
+        <h4>Backend</h4>
+        <div class="tech-pills">
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">NestJS</span>
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">GraphQL</span>
+          <span class="tech-pill">REST API</span>
+        </div>
+      </div>
+      <div class="tech-fam reveal">
+        <div class="tech-fam-ico">📱</div>
+        <div class="tech-fam-label">Famille 03</div>
+        <h4>Mobile</h4>
+        <div class="tech-pills">
+          <span class="tech-pill">React Native</span>
+          <span class="tech-pill">Flutter</span>
+          <span class="tech-pill">Swift</span>
+          <span class="tech-pill">Kotlin</span>
+          <span class="tech-pill">Expo</span>
+        </div>
+      </div>
+      <div class="tech-fam reveal">
+        <div class="tech-fam-ico">🗄️</div>
+        <div class="tech-fam-label">Famille 04</div>
+        <h4>Base de données</h4>
+        <div class="tech-pills">
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">MongoDB</span>
+          <span class="tech-pill">Supabase</span>
+          <span class="tech-pill">Firebase</span>
+          <span class="tech-pill">Redis</span>
+          <span class="tech-pill">Prisma</span>
+        </div>
+      </div>
+      <div class="tech-fam reveal">
+        <div class="tech-fam-ico">☁️</div>
+        <div class="tech-fam-label">Famille 05</div>
+        <h4>Cloud &amp; Infra</h4>
+        <div class="tech-pills">
+          <span class="tech-pill">Vercel</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">Docker</span>
+          <span class="tech-pill">GitHub CI/CD</span>
+          <span class="tech-pill">Railway</span>
+          <span class="tech-pill">Cloudflare</span>
+        </div>
+      </div>
+      <div class="tech-fam reveal">
+        <div class="tech-fam-ico">🛒</div>
+        <div class="tech-fam-label">Famille 06</div>
+        <h4>E-commerce &amp; CMS</h4>
+        <div class="tech-pills">
+          <span class="tech-pill">Shopify</span>
+          <span class="tech-pill">WordPress</span>
+          <span class="tech-pill">Strapi</span>
+          <span class="tech-pill">Sanity</span>
+          <span class="tech-pill">Webflow</span>
+          <span class="tech-pill">WooCommerce</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- QUI SOMMES-NOUS -->
 <section id="about" class="soft">
   <div class="wrap">
@@ -920,13 +1042,112 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="tag">La méthode</div>
-      <h2>De zéro à un site en ligne. En 72h à 2 semaines.</h2>
+      <h2>De zéro à un site en ligne.<br>En 72h à 4 semaines.</h2>
+      <p>Pas d'intermédiaire. Vous parlez directement avec le fondateur — du premier appel à la livraison.</p>
     </div>
-    <div class="proc-grid">
-      <div class="proc reveal"><div class="s">Étape 01</div><h3>Cadrage</h3><p>Un appel de 45 min pour comprendre votre business, vos clients et vos objectifs.</p></div>
-      <div class="proc reveal"><div class="s">Étape 02</div><h3>Message & structure</h3><p>On structure chaque page avec un objectif clair. Le texte est pensé pour convaincre.</p></div>
-      <div class="proc reveal"><div class="s">Étape 03</div><h3>Design & dev</h3><p>Maquette livrée vite, vous validez, on développe. Premium, rapide, mobile-first.</p></div>
-      <div class="proc reveal"><div class="s">Étape 04</div><h3>Mise en ligne</h3><p>Hébergement, domaine, SSL, analytics. Vous recevez les clés. Votre site tourne.</p></div>
+    <div class="meth-list reveal">
+      <div class="meth-row">
+        <div class="meth-left">
+          <div class="meth-num">Temps 01</div>
+          <div class="meth-badge">Jour 1 · 45 min</div>
+        </div>
+        <div class="meth-right">
+          <h3>On écoute</h3>
+          <p>Un appel direct avec le fondateur. Pas d'intermédiaire qui prend des notes pour les transmettre à une équipe. On comprend votre business, vos clients, vos objectifs — et on cadre ensemble le projet.</p>
+          <div class="meth-chips">
+            <span class="meth-chip">Gratuit</span>
+            <span class="meth-chip">Sans engagement</span>
+            <span class="meth-chip">Appel ou WhatsApp</span>
+          </div>
+        </div>
+      </div>
+      <div class="meth-row">
+        <div class="meth-left">
+          <div class="meth-num">Temps 02</div>
+          <div class="meth-badge">Sous 48h · Offert</div>
+        </div>
+        <div class="meth-right">
+          <h3>On livre la maquette</h3>
+          <p>Maquette Figma interactive, devis ligne par ligne, proposition claire. Vous voyez exactement ce que vous allez avoir — avant de valider quoi que ce soit. On ne touche pas au code tant que vous n'êtes pas 100% satisfait du design.</p>
+          <div class="meth-chips">
+            <span class="meth-chip">Figma interactif</span>
+            <span class="meth-chip">Devis ligne par ligne</span>
+            <span class="meth-chip">Design validé avant le code</span>
+          </div>
+        </div>
+      </div>
+      <div class="meth-row">
+        <div class="meth-left">
+          <div class="meth-num">Temps 03</div>
+          <div class="meth-badge">72h à 4 semaines</div>
+        </div>
+        <div class="meth-right">
+          <h3>On construit</h3>
+          <p>Sprints de 2 semaines, démos régulières, preview live à chaque étape. Appels de suivi selon vos disponibilités — au moins une fois par semaine ou deux fois par mois — pour voir l'avancée et ajuster ensemble.</p>
+          <div class="meth-chips">
+            <span class="meth-chip">Appels de suivi réguliers</span>
+            <span class="meth-chip">Preview live</span>
+            <span class="meth-chip">Itérations rapides</span>
+          </div>
+        </div>
+      </div>
+      <div class="meth-row">
+        <div class="meth-left">
+          <div class="meth-num">Temps 04</div>
+          <div class="meth-badge">Jour J + 3 mois</div>
+        </div>
+        <div class="meth-right">
+          <h3>On livre — et on reste</h3>
+          <p>Mise en production sans coupure, hébergement configuré, SSL, analytics. Code source GitHub + accès admin complet pour modifier votre site vous-même quand vous voulez. Les 3 premiers mois : bugs et retouches gratuits. Vous appelez quand vous voulez.</p>
+          <div class="meth-chips">
+            <span class="meth-chip">Code source à vous</span>
+            <span class="meth-chip">Accès admin complet</span>
+            <span class="meth-chip">3 mois gratuits</span>
+            <span class="meth-chip">0 frais cachés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÈGLES -->
+<section id="regles" class="soft">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Nos engagements</div>
+      <h2>4 règles qu'on n'a jamais<br>cessé de respecter.</h2>
+      <p>Une grosse agence vous facture cher. Nous, on livre. Et on le prouve avec des règles concrètes, pas du marketing.</p>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-card reveal">
+        <div class="rule-num">01</div>
+        <div>
+          <h4>Maquette validée avant le code</h4>
+          <p>On vous envoie la maquette de design interactive (Figma). Vous validez que vous aimez — on ne code pas une seule ligne tant que le design n'est pas approuvé.</p>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-num">02</div>
+        <div>
+          <h4>Appels de suivi réguliers</h4>
+          <p>On s'appelle selon vos disponibilités — au moins une fois par semaine ou deux fois par mois. Vous voyez l'avancée en temps réel, pas à la livraison finale.</p>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-num">03</div>
+        <div>
+          <h4>Le code est à vous — pas à nous</h4>
+          <p>On vous livre le code source complet + un accès admin pour modifier votre site quand vous voulez, même quand on n'est plus là. Pas de dépendance, pas d'abonnement forcé.</p>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-num">04</div>
+        <div>
+          <h4>Zéro frais cachés</h4>
+          <p>Vous payez uniquement la maintenance mensuelle et l'hébergement. Pas de facturation à la modification. Les 3 premiers mois : bugs et retouches sont gratuits. Vous appelez quand vous voulez.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
