@@ -459,6 +459,10 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 .serp-absent-dot{width:10px;height:10px;border-radius:50%;background:#EF4444;flex-shrink:0;animation:bl 2s infinite}
 .serp-absent-txt{font-size:14px;font-weight:600;color:#FCA5A5}
 .vis-punch{text-align:center;margin-top:48px}
+.vis-reasons{display:flex;flex-direction:column;gap:12px;margin:28px auto;max-width:600px;text-align:left}
+.vis-reason{display:flex;align-items:center;gap:16px;font-family:var(--display);font-size:clamp(17px,2.2vw,22px);font-weight:700;color:#fff;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 24px;backdrop-filter:blur(8px)}
+.vis-num{color:var(--accent);font-size:1.3em;font-weight:800;flex-shrink:0}
+.txt-red{color:#FF3B3B;font-weight:800}
 .vis-punch h3{font-family:var(--display);font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
 .vis-punch p{font-size:16px;color:rgba(255,255,255,.92);max-width:52ch;margin:0 auto 28px;line-height:1.7}
 /* ══ HOW IT WORKS ══ */
@@ -557,8 +561,12 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
   <div class="wrap">
     <div class="sec-head center reveal">
       <div class="tag">Visibilité locale</div>
-      <h2>Vos clients vous cherchent.<br>Sont-ils chez vous — ou chez votre concurrent ?</h2>
-      <p>En ce moment, des gens tapent exactement ça sur Google.</p>
+      <h2>Vos clients cherchent un service —<br>mais tombent sur votre concurrent car :</h2>
+      <div class="vis-reasons">
+        <div class="vis-reason"><span class="vis-num">1/</span><span>Vous n'avez <span class="txt-red">pas de site web</span></span></div>
+        <div class="vis-reason"><span class="vis-num">2/</span><span>Votre site est <span class="txt-red">mal fait</span> et <span class="txt-red">invisible sur Google</span></span></div>
+      </div>
+      <p>Voilà ce que tapent vos clients en ce moment même.</p>
     </div>
     <div class="search-sim reveal">
       <div class="search-bar-mock">
