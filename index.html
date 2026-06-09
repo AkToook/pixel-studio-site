@@ -67,8 +67,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:#050810;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 #vanta-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 /* Hero only shows Vanta — all other sections have solid bg for readability */
-.soft{background:#090e1e!important}
-.marquee{background:#090e1e!important;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.soft{background:rgba(6,10,20,.86)!important}
+.marquee{background:rgba(6,10,20,.88)!important;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -127,7 +127,7 @@ header.scrolled{background:rgba(5,8,16,.97);backdrop-filter:blur(20px);border-bo
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
 /* Section shell */
-section{padding:120px 0;background:#050810;position:relative;z-index:1}
+section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 .sec-head{max-width:760px;margin-bottom:56px}
 .sec-head.center{margin:0 auto 56px;text-align:center}
 .tag{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:10px}
@@ -166,7 +166,7 @@ section{padding:120px 0;background:#050810;position:relative;z-index:1}
 /* ══ DUAL HERO ══ */
 .hero-short h1{font-size:clamp(38px,5.5vw,76px)}
 .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:0 auto 44px;text-align:left;max-width:1120px}
-.dual-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(4px);border-radius:24px;padding:38px 32px 32px;transition:.3s;display:flex;flex-direction:column}
+.dual-card{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:24px;padding:38px 32px 32px;transition:.3s;display:flex;flex-direction:column}
 .dual-card:hover{border-color:rgba(96,165,250,.35);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .dual-card-dev{border-color:rgba(247,37,133,.15);background:rgba(247,37,133,.04)}
 .dual-card-dev:hover{border-color:rgba(247,37,133,.45)}
@@ -269,9 +269,9 @@ section{padding:120px 0;background:#050810;position:relative;z-index:1}
 
 /* Process — méthode timeline */
 .meth-list{border:1px solid rgba(255,255,255,.1);border-radius:24px;overflow:hidden}
-.meth-row{display:grid;grid-template-columns:170px 1fr;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.07);transition:.25s}
+.meth-row{display:grid;grid-template-columns:170px 1fr;background:rgba(4,8,20,.65);border-bottom:1px solid rgba(255,255,255,.07);transition:.25s;backdrop-filter:blur(10px)}
 .meth-row:last-child{border-bottom:none}
-.meth-row:hover{background:rgba(255,255,255,.06)}
+.meth-row:hover{background:rgba(4,8,20,.8)}
 .meth-left{padding:36px 32px;border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:10px}
 .meth-num{font-family:var(--display);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .meth-badge{font-family:var(--display);font-size:11.5px;font-weight:600;color:var(--sky);background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.18);padding:5px 11px;border-radius:50px;display:inline-block;white-space:nowrap;width:fit-content}
@@ -310,7 +310,7 @@ section{padding:120px 0;background:#050810;position:relative;z-index:1}
 /* Pricing */
 .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
 @media(max-width:1080px){.tiers{grid-template-columns:repeat(2,1fr)}}
-.tier{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:32px 26px;position:relative;transition:.25s}
+.tier{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:22px;padding:32px 26px;position:relative;transition:.25s}
 .tier:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(10,26,48,.1)}
 .tier.feat{background:rgba(247,37,133,.12);border-color:rgba(247,37,133,.4);box-shadow:0 0 40px rgba(247,37,133,.15)}
 .tier.feat *{color:#fff}
@@ -1864,11 +1864,11 @@ VANTA.WAVES({
   minWidth: 200.00,
   scale: 1.00,
   scaleMobile: 1.00,
-  color: 0x5588,
-  shininess: 30,
-  waveHeight: 15,
-  waveSpeed: 1,
-  zoom: 1
+  color: 0x0e1e3c,
+  shininess: 12,
+  waveHeight: 18,
+  waveSpeed: 0.65,
+  zoom: 0.88
 });
 </script>
 </body>
