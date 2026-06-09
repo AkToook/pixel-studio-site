@@ -232,12 +232,22 @@ section{padding:120px 0}
 .tier .btn{width:100%;justify-content:center}
 
 /* Quote */
-.quote-sec{background:linear-gradient(135deg,var(--blue),#0B2E8A);color:#fff;border-radius:0}
-.quote{max-width:900px;margin:0 auto;text-align:center}
-.quote .stars{color:#FFD166;font-size:18px;letter-spacing:3px;margin-bottom:24px}
-.quote blockquote{font-family:var(--display);font-size:clamp(24px,3.4vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.18;color:#fff}
-.quote .who{margin-top:28px;font-size:15px;color:rgba(255,255,255,.8)}
+.quote-sec{background:linear-gradient(135deg,rgba(29,78,216,.25),rgba(11,46,138,.35));backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);color:#fff;border-radius:0}
+.quote{max-width:860px;margin:0 auto;text-align:center}
+.quote .verified{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);padding:6px 14px;border-radius:50px;margin-bottom:22px}
+.quote .stars{color:#FFD166;font-size:22px;letter-spacing:4px;margin-bottom:20px}
+.quote blockquote{font-family:var(--display);font-size:clamp(22px,3.2vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.22;color:#fff}
+.quote .who{margin-top:28px;font-size:15px;color:rgba(255,255,255,.75)}
 .quote .who strong{color:#fff}
+/* ══ GUARANTEE ══ */
+.guarantee{background:linear-gradient(135deg,rgba(22,163,74,.1),rgba(5,150,105,.06));border:1px solid rgba(74,222,128,.22);border-radius:24px;padding:52px 44px;text-align:center;max-width:820px;margin:0 auto}
+@media(max-width:600px){.guarantee{padding:36px 22px}}
+.guarantee-shield{font-size:58px;margin-bottom:18px;line-height:1}
+.guarantee h3{font-family:var(--display);font-size:clamp(24px,3.5vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:18px}
+.guarantee p{font-size:16px;color:rgba(255,255,255,.85);max-width:56ch;margin:0 auto 32px;line-height:1.8}
+.guarantee-items{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.g-item{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-size:13px;font-weight:600;color:var(--green);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);padding:10px 18px;border-radius:50px}
+.g-item::before{content:"✓";font-weight:800}
 
 /* FAQ */
 .faq{max-width:820px;margin:0 auto}
@@ -843,9 +853,27 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 <!-- QUOTE -->
 <section class="quote-sec">
   <div class="wrap quote reveal">
+    <div class="verified">✓ Avis client vérifié</div>
     <div class="stars">★★★★★</div>
     <blockquote>« Un site beau, rapide et qui rapporte vraiment. Livré dans les délais, et l'accompagnement derrière fait toute la différence. »</blockquote>
     <div class="who"><strong>Thomas V.</strong> — Électricien, Nantes · 1ʳᵉ position Google local</div>
+  </div>
+</section>
+
+<!-- GARANTIE -->
+<section class="soft">
+  <div class="wrap">
+    <div class="guarantee reveal">
+      <div class="guarantee-shield">🛡️</div>
+      <h3>Notre garantie : satisfait ou remboursé.</h3>
+      <p>Si votre site n'est pas livré dans les délais convenus, ou si le résultat ne vous convient pas après 2 révisions incluses — <strong>on vous rembourse intégralement</strong>. Sans condition, sans question. On s'engage uniquement si on est sûr de pouvoir vous livrer.</p>
+      <div class="guarantee-items">
+        <span class="g-item">Délais garantis</span>
+        <span class="g-item">2 révisions incluses</span>
+        <span class="g-item">Remboursement intégral</span>
+        <span class="g-item">Zéro frais caché</span>
+      </div>
+    </div>
   </div>
 </section>
 
