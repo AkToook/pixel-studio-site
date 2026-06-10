@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:rgba(0,15,40,.0);
@@ -658,6 +658,27 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 /* ══ PRIX BARRÉS ══ */
 .price-was{font-family:var(--display);font-size:26px;font-weight:700;color:#EF4444;text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#EF4444;margin-bottom:6px;display:block;opacity:.85}
 .price-save{display:inline-block;font-family:var(--display);font-size:17px;font-weight:800;color:#fff;background:linear-gradient(120deg,#EF4444,#F97316);padding:6px 16px;border-radius:50px;margin-left:10px;vertical-align:middle;box-shadow:0 4px 16px rgba(239,68,68,.45);letter-spacing:.02em}
+/* ══ LANG SWITCHER ══ */
+.lang-sw{display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.06);border-radius:50px;padding:4px;border:1px solid rgba(255,255,255,.1);margin-right:4px}
+.lang-btn{background:none;border:none;color:rgba(255,255,255,.45);font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 9px;border-radius:50px;cursor:pointer;transition:.2s;line-height:1}
+.lang-btn.active{background:rgba(255,255,255,.14);color:#fff}
+.lang-btn:hover:not(.active){color:rgba(255,255,255,.8)}
+/* ══ RTL ══ */
+[dir="rtl"] body{font-family:'Noto Sans Arabic','Inter',system-ui,sans-serif}
+[dir="rtl"] .wrap.nav{flex-direction:row-reverse}
+[dir="rtl"] .nav-menu{flex-direction:row-reverse}
+[dir="rtl"] .sec-head,.sec-head p{text-align:right}
+[dir="rtl"] .sec-head.center{text-align:center}
+[dir="rtl"] .dual-card-list li{text-align:right}
+[dir="rtl"] .how-result{text-align:right}
+[dir="rtl"] .meth-right{text-align:right}
+[dir="rtl"] .contact-grid{direction:rtl}
+[dir="rtl"] .faq details summary{text-align:right}
+[dir="rtl"] .vis-reason{flex-direction:row-reverse}
+[dir="rtl"] .hero{direction:rtl}
+[dir="rtl"] .hero h1,[dir="rtl"] .hero .lead{text-align:right}
+[dir="rtl"] .hero-meta{direction:rtl}
+[dir="rtl"] .foot-bot-top{flex-direction:row-reverse}
 </style>
 <link rel="canonical" href="https://pixelstudioo.fr/">
 <meta property="og:url" content="https://pixelstudio.xyz/">
@@ -685,6 +706,11 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <li><a href="#contact">Contact</a></li>
       <li><a href="recrutement.html" style="color:var(--green);font-weight:600">On recrute</a></li>
     </ul>
+    <div class="lang-sw" aria-label="Language">
+      <button class="lang-btn active" id="lb-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="lb-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="lb-ar" onclick="setLang('ar')">ع</button>
+    </div>
     <div class="nav-r">
       <a class="btn btn-blue" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20de%20site%20web%20%F0%9F%91%8B">Démarrer un projet</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -2070,6 +2096,269 @@ function cnilSaveCustom() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') { cnilCloseModal(); }
   });
+})();
+</script>
+
+<!-- ══ I18N MODULE ══ -->
+<script>
+(function(){
+  var SVG_ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var en={
+    '#menu > li:nth-child(1) > a':'Services',
+    '#menu > li:nth-child(2) > a':'Projects',
+    '#menu > li:nth-child(3) > a':'Portfolio',
+    '#menu > li:nth-child(4) > a':'Pricing',
+    '#menu > li:nth-child(5) > a':'FAQ',
+    '#menu > li:nth-child(6) > a':'Contact',
+    '#menu > li:nth-child(7) > a':"We're hiring",
+    '.nav-r .btn-blue':'Start a project',
+    '#hero-bg .eyebrow':'<span class="dot"></span>Web agency & dev — Reims · Paris',
+    '#hero-bg h1':'We build your<br><span class="grad">digital presence.</span>',
+    '#hero-bg .lead':'Websites that convert + Custom apps.<br>We handle everything — design, code, SEO, launch.',
+    '.mockup-cta-txt strong':'Get a free mockup of your website',
+    '.mockup-cta-txt span':'No commitment · Reply within 24h',
+    '.mockup-cta-btn':'I want my free mockup →',
+    '.dual-card:first-child .dual-tag':'🌐 Websites',
+    '.dual-card:first-child h3':'A site that attracts & converts,<br>tailored to your business',
+    '.dual-card:first-child .dual-btn':'Book a free call →',
+    '.dual-card:last-child .dual-tag':'⚙️ Apps & Dev',
+    '.dual-card:last-child h3':'We code your project<br>from scratch, end to end',
+    '.dual-card:last-child .dual-btn':'Discuss my project →',
+    '.hero-meta > div:nth-child(1) .l':'On-time delivery',
+    '.hero-meta > div:nth-child(2) .l':'to 2 weeks',
+    '.hero-meta > div:nth-child(3) .l':'Client rating',
+    '.hero-meta > div:nth-child(4) .l':'Custom-made',
+    '#visibilite .tag':'Local visibility',
+    '#visibilite .sec-head h2':"Your clients are searching —<br>but finding your competitor because:",
+    '#visibilite .vis-punch h3':"Your clients are looking for you. You're not there.",
+    '#visibilite .vis-punch .btn':'Book a free call →',
+    '#comment .tag':'How it works',
+    '#comment .sec-head h2':'Two levers to appear at the top of Google.',
+    '#comment .how-grid .how-card:first-child .how-num':'Lever 01 · Long-term',
+    '#comment .how-grid .how-card:first-child h3':'Local SEO',
+    '#comment .how-grid .how-card:last-child .how-num':'Lever 02 · Instant',
+    '#comment .how-grid .how-card:last-child h3':'Google Ads Campaign',
+    '#services .tag':'What we do',
+    '#services .sec-head h2':'One studio, all your digital projects.',
+    '#services .sec-head p':'From website to mobile app, from AI to video editing — one team.',
+    '#work .tag':'Portfolio',
+    '#work .sec-head h2':'Specialized by industry. And it shows.',
+    '#work .sec-head p':"Every industry has its codes. We master them.",
+    '.work-card.wc1 .k':'Restaurants',
+    '.work-card.wc1 h3':'Fill the tables',
+    '.work-card.wc1 p':'Online booking, digital menu, direct ordering with no commission.',
+    '.work-card.wc2 .k':'Beauty',
+    '.work-card.wc2 h3':'Always fully booked',
+    '.work-card.wc2 p':'24/7 booking, premium gallery, no-show reminder.',
+    '.work-card.wc3 .k':'Craftsmen',
+    '.work-card.wc3 h3':'Qualified leads',
+    '.work-card.wc3 p':'Online quotes, before/after portfolio, 0% commission.',
+    '.work-card.wc4 .k':'Sports & Health',
+    '.work-card.wc4 h3':'Sell your programs',
+    '.work-card.wc4 p':'Session booking, online sales, image that inspires trust.',
+    '.work-card.wc5 .k':'Hospitality',
+    '.work-card.wc5 h3':'Recover your margins',
+    '.work-card.wc5 p':'Direct booking, no more 18% Booking commission.',
+    '.work-card.wc6 .k':'Local retail',
+    '.work-card.wc6 h3':'Exist online',
+    '.work-card.wc6 p':'Showcase store, new arrivals, visible everywhere in your city.',
+    '#process .tag':'The method',
+    '#process .sec-head h2':'From zero to a live website.<br>In 72h to 4 weeks.',
+    '#process .sec-head p':'No middlemen. You speak directly with the founder — from first call to delivery.',
+    '.meth-list .meth-row:nth-child(1) .meth-num':'Step 01',
+    '.meth-list .meth-row:nth-child(1) .meth-badge':'Day 1 · 45 min',
+    '.meth-list .meth-row:nth-child(1) h3':'We listen',
+    '.meth-list .meth-row:nth-child(2) .meth-num':'Step 02',
+    '.meth-list .meth-row:nth-child(2) .meth-badge':'Within 48h · Free',
+    '.meth-list .meth-row:nth-child(2) h3':'We deliver the mockup',
+    '.meth-list .meth-row:nth-child(3) .meth-num':'Step 03',
+    '.meth-list .meth-row:nth-child(3) .meth-badge':'72h to 4 weeks',
+    '.meth-list .meth-row:nth-child(3) h3':'We build',
+    '.meth-list .meth-row:nth-child(4) .meth-num':'Step 04',
+    '.meth-list .meth-row:nth-child(4) .meth-badge':'Day 0 + 3 months',
+    '.meth-list .meth-row:nth-child(4) h3':'We deliver — and stay',
+    '#projets .tag':'Portfolio',
+    '#projets .sec-head h2':'Our best projects.',
+    '#projets .sec-head p':"A glimpse of what we design — from local restaurant to SaaS startup.",
+    '#offres .tag':'Pricing',
+    '#offres .sec-head h2':'Simple. Transparent.<br>No surprises.',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) .price-simple-tag':'🌐 Websites',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) h3':'Websites that convert',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) .price-simple-from':'Starting from',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) .dual-btn':'Get my free quote →',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .price-simple-tag':'⚙️ Apps & Dev',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) h3':'Custom apps & projects',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .price-simple-from':'Custom quote',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .price-simple-num':'Free · Within 48h',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .dual-btn':'Discuss my project →',
+    '#offres .price-simple-grid .price-simple-card:nth-child(3) .price-simple-tag':'✨ Motion Design',
+    '#offres .price-simple-grid .price-simple-card:nth-child(3) h3':'Ultra-animated & immersive site',
+    '#offres .price-simple-grid .price-simple-card:nth-child(3) .price-simple-from':'Starting from',
+    '#faq .tag':'FAQ',
+    '#faq .sec-head h2':'The real questions.',
+    '#faq .faq details:nth-child(1) summary':'What are the delivery timelines?',
+    '#faq .faq details:nth-child(2) summary':'Do you really write my copy?',
+    '#faq .faq details:nth-child(3) summary':'Why not use Wix or Squarespace at €15/month?',
+    '#faq .faq details:nth-child(4) summary':'Can I edit the site myself afterwards?',
+    '#faq .faq details:nth-child(5) summary':'Are there hidden fees?',
+    '#contact .tag':'Contact',
+    '#contact .sec-head h2':"Let's talk about your project.",
+    '#contact .sec-head p':"Answer in a few seconds — we'll get back to you within 24h.",
+    '#contact .contact-info h3':"We're listening.",
+    '#contact .contact-form h3':'Send us a message',
+    'label[for="cf-name"]':'Your first name',
+    'label[for="cf-company"]':'Your company',
+    'label[for="cf-phone"]':'Phone (optional)',
+    'label[for="cf-service"]':"You're looking for…",
+    'label[for="cf-message"]':'Describe your project',
+    '#contact .contact-form button[type="submit"]':'Send message '+SVG_ARROW,
+    '.foot-bot-top span:first-child':'© 2026 Pixel Studio · Web studio · France',
+    '.foot-bot-top span:last-child':'Websites that convert'
+  };
+  var ar={
+    '#menu > li:nth-child(1) > a':'الخدمات',
+    '#menu > li:nth-child(2) > a':'المشاريع',
+    '#menu > li:nth-child(3) > a':'أعمالنا',
+    '#menu > li:nth-child(4) > a':'العروض',
+    '#menu > li:nth-child(5) > a':'أسئلة شائعة',
+    '#menu > li:nth-child(6) > a':'اتصل بنا',
+    '#menu > li:nth-child(7) > a':'نوظف',
+    '.nav-r .btn-blue':'ابدأ مشروعك',
+    '#hero-bg .eyebrow':'<span class="dot"></span>وكالة ويب وتطوير — رانس · باريس',
+    '#hero-bg h1':'نبني<br><span class="grad">حضورك الرقمي.</span>',
+    '#hero-bg .lead':'مواقع تحول الزوار إلى عملاء + تطبيقات مخصصة.<br>نتكفل بكل شيء — تصميم، برمجة، SEO، إطلاق.',
+    '.mockup-cta-txt strong':'احصل مجانًا على نموذج لموقعك',
+    '.mockup-cta-txt span':'بدون التزام · رد خلال 24 ساعة',
+    '.mockup-cta-btn':'أريد نموذجي المجاني →',
+    '.dual-card:first-child .dual-tag':'🌐 مواقع الويب',
+    '.dual-card:first-child h3':'موقع يجذب ويحوّل،<br>مناسب لمجال عملك',
+    '.dual-card:first-child .dual-btn':'احجز مكالمة مجانية →',
+    '.dual-card:last-child .dual-tag':'⚙️ تطبيقات وتطوير',
+    '.dual-card:last-child h3':'نبرمج مشروعك<br>من الصفر حتى الإطلاق',
+    '.dual-card:last-child .dual-btn':'ناقش مشروعي →',
+    '.hero-meta > div:nth-child(1) .l':'التسليم في الوقت',
+    '.hero-meta > div:nth-child(2) .l':'إلى أسبوعين',
+    '.hero-meta > div:nth-child(3) .l':'تقييم العملاء',
+    '.hero-meta > div:nth-child(4) .l':'مخصص بالكامل',
+    '#visibilite .tag':'الظهور المحلي',
+    '#visibilite .sec-head h2':'عملاؤك يبحثون عن خدمة —<br>لكنهم يجدون منافسيك لأن:',
+    '#visibilite .vis-punch h3':'عملاؤك يبحثون عنك. أنت غير موجود.',
+    '#visibilite .vis-punch .btn':'احجز مكالمة مجانية →',
+    '#comment .tag':'كيف يعمل',
+    '#comment .sec-head h2':'رافعتان للظهور في مقدمة جوجل.',
+    '#comment .how-grid .how-card:first-child .how-num':'الرافعة 01 · طويل الأمد',
+    '#comment .how-grid .how-card:first-child h3':'تحسين محركات البحث المحلي',
+    '#comment .how-grid .how-card:last-child .how-num':'الرافعة 02 · فوري',
+    '#comment .how-grid .how-card:last-child h3':'حملة إعلانات جوجل',
+    '#services .tag':'ما نقدمه',
+    '#services .sec-head h2':'استوديو واحد، كل مشاريعك الرقمية.',
+    '#services .sec-head p':'من موقع الويب إلى التطبيق، من الذكاء الاصطناعي إلى المونتاج — فريق واحد.',
+    '#work .tag':'أعمالنا',
+    '#work .sec-head h2':'متخصصون حسب القطاع. ويظهر ذلك.',
+    '#work .sec-head p':'لكل صناعة أكوادها. نتقنها.',
+    '.work-card.wc1 .k':'المطاعم',
+    '.work-card.wc1 h3':'ملء الطاولات',
+    '.work-card.wc1 p':'حجز عبر الإنترنت، قائمة رقمية، طلب مباشر بدون عمولة.',
+    '.work-card.wc2 .k':'الجمال',
+    '.work-card.wc2 h3':'جدول ممتلئ دائمًا',
+    '.work-card.wc2 p':'حجز مواعيد 24/7، معرض متميز، تذكيرات لمنع الغياب.',
+    '.work-card.wc3 .k':'الحرفيون',
+    '.work-card.wc3 h3':'عملاء محتملون مؤهلون',
+    '.work-card.wc3 p':'عروض أسعار عبر الإنترنت، معرض قبل/بعد، 0% عمولة.',
+    '.work-card.wc4 .k':'الرياضة والصحة',
+    '.work-card.wc4 h3':'بيع برامجك',
+    '.work-card.wc4 p':'حجز الجلسات، بيع عبر الإنترنت، صورة تلهم الثقة.',
+    '.work-card.wc5 .k':'الضيافة',
+    '.work-card.wc5 h3':'استرداد هوامشك',
+    '.work-card.wc5 p':'حجز مباشر، لا مزيد من عمولة 18٪ من Booking.',
+    '.work-card.wc6 .k':'التجارة المحلية',
+    '.work-card.wc6 h3':'الوجود عبر الإنترنت',
+    '.work-card.wc6 p':'واجهة تجارية، مستجدات، مرئي في مدينتك.',
+    '#process .tag':'المنهجية',
+    '#process .sec-head h2':'من الصفر إلى موقع حي.<br>في 72 ساعة إلى 4 أسابيع.',
+    '#process .sec-head p':'بدون وسطاء. تتحدث مباشرة مع المؤسس — من المكالمة الأولى حتى التسليم.',
+    '.meth-list .meth-row:nth-child(1) .meth-num':'المرحلة 01',
+    '.meth-list .meth-row:nth-child(1) .meth-badge':'اليوم 1 · 45 دقيقة',
+    '.meth-list .meth-row:nth-child(1) h3':'نستمع',
+    '.meth-list .meth-row:nth-child(2) .meth-num':'المرحلة 02',
+    '.meth-list .meth-row:nth-child(2) .meth-badge':'خلال 48 ساعة · مجاني',
+    '.meth-list .meth-row:nth-child(2) h3':'نسلم النموذج',
+    '.meth-list .meth-row:nth-child(3) .meth-num':'المرحلة 03',
+    '.meth-list .meth-row:nth-child(3) .meth-badge':'72 ساعة إلى 4 أسابيع',
+    '.meth-list .meth-row:nth-child(3) h3':'نبني',
+    '.meth-list .meth-row:nth-child(4) .meth-num':'المرحلة 04',
+    '.meth-list .meth-row:nth-child(4) .meth-badge':'اليوم 0 + 3 أشهر',
+    '.meth-list .meth-row:nth-child(4) h3':'نسلم — ونبقى',
+    '#projets .tag':'المحفظة',
+    '#projets .sec-head h2':'أفضل مشاريعنا.',
+    '#projets .sec-head p':'لمحة عما نصممه — من مطعم الحي إلى شركة SaaS.',
+    '#offres .tag':'العروض',
+    '#offres .sec-head h2':'واضح. شفاف.<br>بلا مفاجآت.',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) .price-simple-tag':'🌐 مواقع الويب',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) h3':'مواقع تحول الزوار',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) .price-simple-from':'ابتداءً من',
+    '#offres .price-simple-grid .price-simple-card:nth-child(1) .dual-btn':'احصل على عرضي المجاني →',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .price-simple-tag':'⚙️ تطبيقات وتطوير',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) h3':'تطبيقات ومشاريع مخصصة',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .price-simple-from':'عرض مخصص',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .price-simple-num':'مجاني · خلال 48 ساعة',
+    '#offres .price-simple-grid .price-simple-card:nth-child(2) .dual-btn':'ناقش مشروعي →',
+    '#offres .price-simple-grid .price-simple-card:nth-child(3) .price-simple-tag':'✨ موشن ديزاين',
+    '#offres .price-simple-grid .price-simple-card:nth-child(3) h3':'موقع متحرك وغامر',
+    '#offres .price-simple-grid .price-simple-card:nth-child(3) .price-simple-from':'ابتداءً من',
+    '#faq .tag':'أسئلة شائعة',
+    '#faq .sec-head h2':'الأسئلة الحقيقية.',
+    '#faq .faq details:nth-child(1) summary':'ما هي مواعيد التسليم؟',
+    '#faq .faq details:nth-child(2) summary':'هل تكتبون نصوصي فعلًا؟',
+    '#faq .faq details:nth-child(3) summary':'لماذا لا أستخدم Wix أو Squarespace؟',
+    '#faq .faq details:nth-child(4) summary':'هل يمكنني تعديل الموقع بنفسي لاحقًا؟',
+    '#faq .faq details:nth-child(5) summary':'هل هناك رسوم خفية؟',
+    '#contact .tag':'اتصل بنا',
+    '#contact .sec-head h2':'لنتحدث عن مشروعك.',
+    '#contact .sec-head p':'أجب في ثوانٍ — سنعاود الاتصال بك خلال 24 ساعة.',
+    '#contact .contact-info h3':'نحن هنا للاستماع.',
+    '#contact .contact-form h3':'أرسل لنا رسالة',
+    'label[for="cf-name"]':'اسمك الأول',
+    'label[for="cf-company"]':'شركتك',
+    'label[for="cf-phone"]':'الهاتف (اختياري)',
+    'label[for="cf-service"]':'أنت تبحث عن…',
+    'label[for="cf-message"]':'صف مشروعك',
+    '#contact .contact-form button[type="submit"]':'إرسال الرسالة '+SVG_ARROW,
+    '.foot-bot-top span:first-child':'© 2026 Pixel Studio · استوديو ويب · فرنسا',
+    '.foot-bot-top span:last-child':'مواقع تحول الزوار إلى عملاء'
+  };
+
+  var orig={};
+
+  function init(){
+    Object.keys(en).forEach(function(sel){
+      var el=document.querySelector(sel);
+      if(el) orig[sel]=el.innerHTML;
+    });
+    var saved=localStorage.getItem('ps_lang')||'fr';
+    applyLang(saved);
+  }
+
+  function applyLang(lang){
+    var map=lang==='fr'?orig:(lang==='en'?en:ar);
+    Object.keys(map).forEach(function(sel){
+      var el=document.querySelector(sel);
+      if(!el) return;
+      var val=map[sel];
+      if(/<[a-zA-Z]/.test(val)) el.innerHTML=val;
+      else el.textContent=val;
+    });
+    var isRTL=lang==='ar';
+    document.documentElement.dir=isRTL?'rtl':'ltr';
+    document.documentElement.lang=lang;
+    localStorage.setItem('ps_lang',lang);
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
+    var btn=document.getElementById('lb-'+lang);
+    if(btn) btn.classList.add('active');
+  }
+
+  window.setLang=applyLang;
+  document.addEventListener('DOMContentLoaded',init);
 })();
 </script>
 
