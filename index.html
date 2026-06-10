@@ -271,7 +271,7 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 .intake-step h3{font-size:clamp(20px,3vw,26px);color:#fff;margin-bottom:6px}
 .intake-step>p{font-size:15px;color:var(--muted);margin-bottom:22px}
 .intake-types{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:26px}
-.intake-type{border:1.5px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 16px 14px;cursor:pointer;transition:.2s;color:#fff;background:rgba(255,255,255,.04);user-select:none}
+.intake-type{border:1.5px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 16px 14px;cursor:pointer;transition:.2s;color:#fff;background:rgba(255,255,255,.04);user-select:none;width:100%;text-align:left;font-family:var(--body);touch-action:manipulation;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;appearance:none}
 .intake-type:hover{border-color:var(--sky);background:rgba(96,165,250,.08)}
 .intake-type.selected{border-color:var(--accent);background:rgba(247,37,133,.1)}
 .intake-type .it-icon{font-size:26px;margin-bottom:7px;display:block}
@@ -1780,36 +1780,36 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <h3>Quel type de projet avez-vous ?</h3>
       <p>Choisissez le plus proche de votre besoin :</p>
       <div class="intake-types">
-        <div class="intake-type" data-value="ecommerce" onclick="selectIntakeType(this)">
+        <button type="button" class="intake-type" data-value="ecommerce" onclick="selectIntakeType(this)">
           <span class="it-icon">🛒</span>
           <span class="it-label">Site e-commerce</span>
           <span class="it-sub">Vente de produits en ligne</span>
-        </div>
-        <div class="intake-type" data-value="vitrine" onclick="selectIntakeType(this)">
+        </button>
+        <button type="button" class="intake-type" data-value="vitrine" onclick="selectIntakeType(this)">
           <span class="it-icon">🌐</span>
           <span class="it-label">Site vitrine / produit</span>
           <span class="it-sub">Présence web, landing page</span>
-        </div>
-        <div class="intake-type" data-value="b2b" onclick="selectIntakeType(this)">
+        </button>
+        <button type="button" class="intake-type" data-value="b2b" onclick="selectIntakeType(this)">
           <span class="it-icon">🏢</span>
           <span class="it-label">B2B</span>
           <span class="it-sub">Entreprise vers entreprise</span>
-        </div>
-        <div class="intake-type" data-value="b2c" onclick="selectIntakeType(this)">
+        </button>
+        <button type="button" class="intake-type" data-value="b2c" onclick="selectIntakeType(this)">
           <span class="it-icon">👥</span>
           <span class="it-label">B2C</span>
           <span class="it-sub">Entreprise vers particuliers</span>
-        </div>
-        <div class="intake-type" data-value="app" onclick="selectIntakeType(this)">
+        </button>
+        <button type="button" class="intake-type" data-value="app" onclick="selectIntakeType(this)">
           <span class="it-icon">📱</span>
           <span class="it-label">Application mobile native</span>
           <span class="it-sub">iOS, Android</span>
-        </div>
-        <div class="intake-type" data-value="saas" onclick="selectIntakeType(this)">
+        </button>
+        <button type="button" class="intake-type" data-value="saas" onclick="selectIntakeType(this)">
           <span class="it-icon">⚙️</span>
           <span class="it-label">SaaS / outil web</span>
           <span class="it-sub">Plateforme, CRM, MVP</span>
-        </div>
+        </button>
       </div>
       <div class="intake-actions">
         <button class="modal-close" onclick="closeIntake()">Annuler</button>
