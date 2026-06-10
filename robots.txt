@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /recrutement.html
 
-Sitemap: https://pixelstudio.xyz/sitemap.xml
+Sitemap: https://pixelstudioo.fr/sitemap.xml
