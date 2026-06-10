@@ -322,30 +322,27 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 @media(max-width:900px){.tech-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.tech-grid{grid-template-columns:1fr}}
 
-/* Pricing */
-.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
-@media(max-width:1080px){.tiers{grid-template-columns:repeat(2,1fr)}}
-.tier{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:22px;padding:32px 26px;position:relative;transition:.25s}
-.tier:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(10,26,48,.1)}
-.tier.feat{background:rgba(247,37,133,.12);border-color:rgba(247,37,133,.4);box-shadow:0 0 40px rgba(247,37,133,.15)}
-.tier.feat *{color:#fff}
-.tier.feat .price{color:#fff}
-.tier .pop{position:absolute;top:-13px;left:30px;background:linear-gradient(120deg,var(--blue),var(--sky));color:#fff;font-family:var(--display);font-size:12px;font-weight:600;padding:6px 15px;border-radius:50px}
-.tier .cat{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.tier.feat .cat{color:var(--sky)}
-.tier .name{font-family:var(--display);font-size:27px;font-weight:800;letter-spacing:-.03em;margin:6px 0 14px}
-.tier .price{font-family:var(--display);font-size:42px;font-weight:800;letter-spacing:-.04em;line-height:1}
-.tier .price small{font-size:15px;font-weight:500;color:var(--muted)}
-.tier.feat .price small{color:rgba(255,255,255,.6)}
-.tier .desc{font-size:14px;color:var(--ink-2);margin:16px 0 22px;min-height:62px}
-.tier.feat .desc{color:rgba(255,255,255,.78)}
-.tier ul{list-style:none;margin-bottom:26px}
-.tier li{font-size:14.5px;padding:9px 0 9px 28px;position:relative;border-top:1px solid var(--line)}
-.tier.feat li{border-color:rgba(255,255,255,.12)}
-.tier li:first-child{border-top:none}
-.tier li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:8px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg)}
-.tier.feat li::before{border-color:var(--sky)}
-.tier .btn{width:100%;justify-content:center}
+/* Pricing simple */
+.price-simple-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:28px}
+.price-simple-card{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:24px;padding:40px 36px;display:flex;flex-direction:column;transition:.25s}
+.price-simple-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.price-simple-card.featured{border-color:rgba(247,37,133,.28);background:rgba(247,37,133,.06)}
+.price-simple-tag{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--sky);background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2);padding:6px 14px;border-radius:50px;width:fit-content;margin-bottom:22px}
+.price-simple-card.featured .price-simple-tag{color:#FF6EB4;background:rgba(247,37,133,.1);border-color:rgba(247,37,133,.25)}
+.price-simple-card h3{font-family:var(--display);font-size:clamp(19px,2.2vw,24px);font-weight:800;color:#fff;margin-bottom:22px}
+.price-simple-amount{margin-bottom:26px}
+.price-simple-from{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.price-simple-num{font-family:var(--display);font-size:clamp(42px,5.5vw,62px);font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1}
+.price-simple-num small{font-size:17px;font-weight:500;color:var(--muted)}
+.price-simple-num.on-devis{font-size:clamp(28px,3.5vw,40px);color:rgba(255,255,255,.9)}
+.price-simple-list{list-style:none;margin-bottom:32px;flex:1}
+.price-simple-list li{font-size:14px;color:rgba(255,255,255,.72);padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:10px}
+.price-simple-list li:last-child{border-bottom:none}
+.price-simple-list li::before{content:"✓";color:var(--green);font-weight:800;font-size:13px;flex-shrink:0}
+.price-foot{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.price-foot p{font-size:13.5px;color:var(--muted)}
+.price-foot strong{color:rgba(255,255,255,.85)}
+@media(max-width:768px){.price-simple-grid{grid-template-columns:1fr}}
 
 /* Quote */
 .quote-sec{background:linear-gradient(135deg,rgba(247,37,133,.08),rgba(96,165,250,.06));border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);color:#fff;border-radius:0}
@@ -1171,15 +1168,49 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 <section id="offres" class="soft">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <div class="tag">Offres</div>
-      <h2>Des tarifs clairs. Pas de surprise.</h2>
-      <p>Quatre formules, du lancement au projet sur mesure. Tout est personnalisé — <strong style="color:var(--ink)">prix négociables selon votre projet.</strong></p>
+      <div class="tag">Tarifs</div>
+      <h2>Simple. Transparent.<br>Sans surprise.</h2>
+      <p>Pas de grille compliquée. On vous envoie un devis précis après avoir compris votre projet — <strong style="color:rgba(255,255,255,.9)">gratuit, sous 48h.</strong></p>
     </div>
-    <div class="tiers">
-      <div class="tier reveal"><div class="cat">Présence</div><div class="name">Démarrage</div><div class="price"><span class="price-was">1 800€</span>900€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Vos concurrents ont un site. Vous pas encore. On règle ça — proprement, vite, sans vous ruiner.</div><ul><li>1 à 2 pages claires</li><li>Design propre, mobile-first</li><li>Formulaire de contact + Maps</li><li>Hébergement configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20D%C3%A9marrage%20%C3%A0%20900%E2%82%AC">Démarrer</a></div>
-      <div class="tier reveal"><div class="cat">Visibilité</div><div class="name">Tremplin</div><div class="price"><span class="price-was">4 200€</span>2 100€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Chaque mois, des clients cherchent votre service sur Google. La question : est-ce qu'ils tombent sur vous — ou sur votre concurrent ?</div><ul><li>Jusqu'à 3 pages stratégiques</li><li>Copywriting inclus</li><li>SEO local optimisé</li><li>Google My Business configuré</li><li>Livraison en 72h à 2 semaines</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Tremplin%20%C3%A0%202100%E2%82%AC">Démarrer</a></div>
-      <div class="tier feat reveal"><div class="pop">★ Le plus choisi</div><div class="cat">Conversion</div><div class="name">Moteur</div><div class="price"><span class="price-was">5 800€</span>2 900€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Votre meilleur commercial — disponible 24h/24, payé une seule fois. Il prend les RDV, filtre les curieux, attire les sérieux.</div><ul><li>5 à 7 pages orientées conversion</li><li>Copywriting avancé inclus</li><li>Design premium 100% sur mesure</li><li>SEO on-page complet + schema</li><li>Prise de RDV intégrée</li><li>2 révisions post-livraison</li></ul><a class="btn btn-blue" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Moteur%20%C3%A0%202900%E2%82%AC">Je veux le Moteur</a></div>
-      <div class="tier reveal"><div class="cat">Sur-mesure</div><div class="name">Premium</div><div class="price"><span class="price-was">28 000€</span>14 000€ <small>HT</small><span class="price-save">-50%</span></div><div class="desc">Pour ceux qui savent qu'un site exceptionnel n'est pas une dépense — c'est un actif. On construit quelque chose qui travaille pour vous pendant des années.</div><ul><li>Site immersif (animations, 3D, scroll narratif)</li><li>Site ou application sur mesure</li><li>Pages illimitées / e-commerce</li><li>Intégrations IA & automatisations</li><li>Identité visuelle complète</li><li>SEO avancé + performance</li><li>Accompagnement & suivi dédiés</li></ul><a class="btn btn-ghost" href="https://wa.me/33620757517?text=Je%20veux%20l%27offre%20Premium%20%C3%A0%2014000%E2%82%AC">En parler</a></div>
+    <div class="price-simple-grid">
+      <div class="price-simple-card reveal">
+        <div class="price-simple-tag">🌐 Sites web</div>
+        <h3>Sites web qui convertissent</h3>
+        <div class="price-simple-amount">
+          <span class="price-simple-from">À partir de</span>
+          <div class="price-simple-num">900€ <small>HT</small></div>
+        </div>
+        <ul class="price-simple-list">
+          <li>Design premium sur mesure</li>
+          <li>Copywriting inclus</li>
+          <li>SEO local optimisé</li>
+          <li>Mobile-first, rapide</li>
+          <li>Livraison 72h à 2 semaines</li>
+          <li>3 mois de support inclus</li>
+        </ul>
+        <button class="dual-btn dual-btn-blue" onclick="openIntake()">Obtenir mon devis gratuit →</button>
+      </div>
+      <div class="price-simple-card featured reveal">
+        <div class="price-simple-tag">⚙️ Applications &amp; Dev</div>
+        <h3>Applications &amp; projets sur mesure</h3>
+        <div class="price-simple-amount">
+          <span class="price-simple-from">Devis personnalisé</span>
+          <div class="price-simple-num on-devis">Gratuit · Sous 48h</div>
+        </div>
+        <ul class="price-simple-list">
+          <li>SaaS, CRM, MVP startup</li>
+          <li>Applications mobiles iOS &amp; Android</li>
+          <li>Outils internes d'entreprise</li>
+          <li>Intégrations IA &amp; automatisations</li>
+          <li>E-commerce avancé</li>
+          <li>Code source livré à vous</li>
+        </ul>
+        <button class="dual-btn dual-btn-pink" onclick="openIntake()">Discuter de mon projet →</button>
+      </div>
+    </div>
+    <div class="price-foot reveal">
+      <p><strong>Inclus dans tous les projets :</strong> hébergement configuré · SSL · analytics · accès admin · 3 mois de support</p>
+      <p>Maintenance optionnelle : <strong>à partir de 29€ / mois</strong></p>
     </div>
   </div>
 </section>
