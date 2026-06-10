@@ -343,7 +343,8 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 @media(max-width:560px){.tech-grid{grid-template-columns:1fr}}
 
 /* Pricing simple */
-.price-simple-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:28px}
+.price-simple-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:28px}
+@media(max-width:1000px){.price-simple-grid{grid-template-columns:1fr 1fr}}
 .price-simple-card{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:24px;padding:40px 36px;display:flex;flex-direction:column;transition:.25s}
 .price-simple-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .price-simple-card.featured{border-color:rgba(247,37,133,.28);background:rgba(247,37,133,.06)}
@@ -362,7 +363,7 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 .price-foot{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .price-foot p{font-size:13.5px;color:var(--muted)}
 .price-foot strong{color:rgba(255,255,255,.85)}
-@media(max-width:768px){.price-simple-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.price-simple-grid{grid-template-columns:1fr}}
 
 /* Quote */
 .quote-sec{background:linear-gradient(135deg,rgba(247,37,133,.08),rgba(96,165,250,.06));border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);color:#fff;border-radius:0}
@@ -480,21 +481,36 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 .srv-cat li{font-size:15px;color:var(--ink-2);padding:9px 0;border-top:1px solid var(--line);display:flex;align-items:center;gap:9px;transition:color .2s}
 .srv-cat li:first-child{border-top:none}.srv-cat li:hover{color:var(--blue)}
 .srv-cat li::before{content:"→";color:var(--blue);font-size:13px;font-weight:600}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.proj-grid-2{grid-template-columns:repeat(2,1fr);max-width:860px}
-.proj-thumb-link{display:block;overflow:hidden;border-radius:var(--r) var(--r) 0 0}
-.proj-logo-thumb{height:220px;display:flex;align-items:center;justify-content:center;transition:transform .4s ease;padding:32px}
-.proj:hover .proj-logo-thumb{transform:scale(1.03)}
+/* ══ PORTFOLIO CARDS ══ */
+.proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.proj-filter-btn{font-family:var(--display);font-size:13px;font-weight:700;padding:10px 18px;border-radius:50px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.55);cursor:pointer;transition:.2s;display:flex;align-items:center;gap:7px}
+.proj-filter-btn .proj-count{font-size:11px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);padding:2px 7px;border-radius:50px;font-weight:800}
+.proj-filter-btn:hover{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.22)}
+.proj-filter-btn.active{background:#fff;color:#050810;border-color:#fff}
+.proj-filter-btn.active .proj-count{background:rgba(0,0,0,.12);color:#050810}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj-card{background:#0d1117;border-radius:16px;overflow:hidden;transition:.3s}
+.proj-card:hover{transform:translateY(-5px);box-shadow:0 28px 64px rgba(0,0,0,.55)}
+.proj-card-link{display:block;text-decoration:none;color:inherit}
+.browser-frame{border-radius:12px 12px 0 0;overflow:hidden}
+.browser-bar{background:#1a1f2e;padding:9px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.07)}
+.browser-dots{display:flex;gap:5px;flex-shrink:0}
+.browser-dot{width:10px;height:10px;border-radius:50%}
+.bd-r{background:#FF5F57}.bd-y{background:#FFBD2E}.bd-g{background:#28CA41}
+.browser-url-bar{flex:1;background:rgba(255,255,255,.07);border-radius:50px;padding:4px 12px;font-size:11px;color:rgba(255,255,255,.38);font-family:'Inter',monospace;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.browser-arrow{margin-left:6px;color:rgba(255,255,255,.28);font-size:14px;flex-shrink:0;transition:.2s}
+.proj-card:hover .browser-arrow{color:var(--accent)}
+.browser-screen{height:200px;display:flex;align-items:center;justify-content:center;padding:28px}
 .proj-logo-lifeos{background:linear-gradient(135deg,#0F0C29,#302B63,#24243e)}
 .proj-logo-arena{background:linear-gradient(135deg,#0a0000,#1a0000,#7a0000)}
-.proj-logo-thumb svg{width:100%;max-width:320px;height:auto}
-.proj-link{display:inline-block;margin-top:12px;font-size:13px;font-weight:600;font-family:var(--display);color:var(--accent);letter-spacing:.02em}
-.proj{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:var(--r);overflow:hidden;transition:.25s}
-.proj:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(10,26,48,.12);border-color:var(--blue-2)}
-.proj-thumb{height:160px;display:flex;align-items:center;justify-content:center}
-.proj-thumb img{width:60px;height:60px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
-.proj-body{padding:22px}.proj-tag{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--blue)}
-.proj-body h3{font-size:21px;margin:6px 0 8px}.proj-body p{font-size:14px;color:var(--muted)}
+.proj-card-info{padding:18px 20px 20px}
+.proj-live-row{display:flex;align-items:center;gap:6px;margin-bottom:9px}
+.proj-live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:pdot 2s ease-in-out infinite}
+.proj-live-label{font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#22c55e}
+.proj-card-name{font-family:var(--display);font-size:17px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:3px}
+.proj-card-cat{font-size:13px;color:rgba(255,255,255,.4)}
+@media(max-width:800px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.proj-grid{grid-template-columns:1fr}}
 .pt1{background:linear-gradient(150deg,#0F2A6B,#2563EB)}.pt2{background:linear-gradient(150deg,#1D4ED8,#38BDF8)}.pt3{background:linear-gradient(150deg,#0B3B66,#0EA5E9)}.pt4{background:linear-gradient(150deg,#13315C,#3B82F6)}.pt5{background:linear-gradient(150deg,#1E40AF,#60A5FA)}.pt6{background:linear-gradient(150deg,#0C4A6E,#38BDF8)}
 .ups-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:900px;margin:0 auto}
 .ups{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:30px 28px;transition:.25s}
@@ -859,70 +875,91 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 <section id="projets">
   <div class="wrap">
     <div class="sec-head reveal"><div class="tag">Portfolio</div><h2>Nos meilleurs projets.</h2><p>Un aperçu de ce qu'on conçoit — du resto de quartier à la startup SaaS.</p></div>
-    <div class="proj-grid">
-      <article class="proj reveal">
-        <a href="https://www.lifeosapp.site/" target="_blank" class="proj-thumb-link">
-          <div class="proj-logo-thumb proj-logo-lifeos">
-            <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="lg1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
-              </defs>
-              <circle cx="44" cy="60" r="34" fill="url(#lg1)"/>
-              <path d="M32 60l10 10 16-18" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="94" y="70" font-family="system-ui,sans-serif" font-weight="900" font-size="46" fill="#fff" letter-spacing="-2">LifeOS</text>
-              <text x="96" y="92" font-family="system-ui,sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,.45)" letter-spacing="4">APP · SAAS</text>
-            </svg>
+    <div class="proj-filters reveal">
+      <button class="proj-filter-btn active" onclick="filterProjects('tous',this)">Tous <span class="proj-count">3</span></button>
+      <button class="proj-filter-btn" onclick="filterProjects('restauration',this)">Restauration <span class="proj-count">2</span></button>
+      <button class="proj-filter-btn" onclick="filterProjects('saas',this)">SaaS <span class="proj-count">1</span></button>
+    </div>
+    <div class="proj-grid" id="projGrid">
+
+      <div class="proj-card reveal" data-cat="saas">
+        <a href="https://www.lifeosapp.site/" target="_blank" class="proj-card-link">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <div class="browser-dots"><span class="browser-dot bd-r"></span><span class="browser-dot bd-y"></span><span class="browser-dot bd-g"></span></div>
+              <span class="browser-url-bar">lifeosapp.site</span>
+              <span class="browser-arrow">↗</span>
+            </div>
+            <div class="browser-screen proj-logo-lifeos">
+              <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
+                <defs><linearGradient id="lg1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs>
+                <circle cx="44" cy="60" r="34" fill="url(#lg1)"/>
+                <path d="M32 60l10 10 16-18" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="94" y="70" font-family="system-ui,sans-serif" font-weight="900" font-size="46" fill="#fff" letter-spacing="-2">LifeOS</text>
+                <text x="96" y="92" font-family="system-ui,sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,.45)" letter-spacing="4">APP · SAAS</text>
+              </svg>
+            </div>
+          </div>
+          <div class="proj-card-info">
+            <div class="proj-live-row"><span class="proj-live-dot"></span><span class="proj-live-label">Live</span></div>
+            <div class="proj-card-name">LifeOS App</div>
+            <div class="proj-card-cat">Application SaaS</div>
           </div>
         </a>
-        <div class="proj-body">
-          <span class="proj-tag">App · SaaS</span>
-          <h3>LifeOS App</h3>
-          <p>Application web livrée — interface épurée et expérience utilisateur soignée.</p>
-          <a href="https://www.lifeosapp.site/" target="_blank" class="proj-link">Voir le site →</a>
-        </div>
-      </article>
-      <article class="proj reveal">
-        <a href="https://arena-pizza-kebab.vercel.app/" target="_blank" class="proj-thumb-link">
-          <div class="proj-logo-thumb proj-logo-arena">
-            <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="lg2" x1="0" y1="0" x2="320" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#FF4444"/><stop offset="1" stop-color="#FF8C00"/></linearGradient>
-              </defs>
-              <text x="0" y="52" font-family="system-ui,sans-serif" font-weight="900" font-size="50" fill="#fff" letter-spacing="-2">ARENA</text>
-              <text x="2" y="96" font-family="system-ui,sans-serif" font-weight="900" font-size="40" fill="url(#lg2)" letter-spacing="-1">PIZZA</text>
-              <text x="188" y="96" font-family="system-ui,sans-serif" font-weight="900" font-size="40" fill="rgba(255,255,255,.25)" letter-spacing="-1">KEBAB</text>
-              <text x="265" y="52" font-family="system-ui,sans-serif" font-size="36">🍕</text>
-            </svg>
+      </div>
+
+      <div class="proj-card reveal" data-cat="restauration">
+        <a href="https://arena-pizza-kebab.vercel.app/" target="_blank" class="proj-card-link">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <div class="browser-dots"><span class="browser-dot bd-r"></span><span class="browser-dot bd-y"></span><span class="browser-dot bd-g"></span></div>
+              <span class="browser-url-bar">arena-pizza-kebab.vercel.app</span>
+              <span class="browser-arrow">↗</span>
+            </div>
+            <div class="browser-screen proj-logo-arena">
+              <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
+                <defs><linearGradient id="lg2" x1="0" y1="0" x2="320" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#FF4444"/><stop offset="1" stop-color="#FF8C00"/></linearGradient></defs>
+                <text x="0" y="52" font-family="system-ui,sans-serif" font-weight="900" font-size="50" fill="#fff" letter-spacing="-2">ARENA</text>
+                <text x="2" y="96" font-family="system-ui,sans-serif" font-weight="900" font-size="40" fill="url(#lg2)" letter-spacing="-1">PIZZA</text>
+                <text x="188" y="96" font-family="system-ui,sans-serif" font-weight="900" font-size="40" fill="rgba(255,255,255,.25)" letter-spacing="-1">KEBAB</text>
+                <text x="265" y="52" font-family="system-ui,sans-serif" font-size="36">🍕</text>
+              </svg>
+            </div>
+          </div>
+          <div class="proj-card-info">
+            <div class="proj-live-row"><span class="proj-live-dot"></span><span class="proj-live-label">Live</span></div>
+            <div class="proj-card-name">Arena Pizza Kebab</div>
+            <div class="proj-card-cat">Restauration · Fast food</div>
           </div>
         </a>
-        <div class="proj-body">
-          <span class="proj-tag">Restaurateur · Fast food</span>
-          <h3>Arena Pizza Kebab</h3>
-          <p>Site vitrine pour restaurant — menu en ligne, design mobile-first, livraison rapide.</p>
-          <a href="https://arena-pizza-kebab.vercel.app/" target="_blank" class="proj-link">Voir le site →</a>
-        </div>
-      </article>
-      <article class="proj reveal">
-        <a href="https://aktoook.github.io/croc-meal/#carte" target="_blank" class="proj-thumb-link">
-          <div class="proj-logo-thumb" style="background:linear-gradient(135deg,#1a0800,#3d1200,#7a2800)">
-            <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="lg3" x1="0" y1="0" x2="320" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#ff5a1f"/><stop offset="1" stop-color="#ffb800"/></linearGradient>
-              </defs>
-              <text x="8" y="56" font-family="system-ui,sans-serif" font-weight="900" font-size="52" fill="url(#lg3)" letter-spacing="-2">Croc</text>
-              <text x="8" y="105" font-family="system-ui,sans-serif" font-weight="900" font-size="52" fill="#fff" letter-spacing="-2">Meal</text>
-              <text x="188" y="62" font-family="system-ui,sans-serif" font-size="52">🥙</text>
-              <text x="188" y="112" font-family="system-ui,sans-serif" font-size="36">🍕</text>
-            </svg>
+      </div>
+
+      <div class="proj-card reveal" data-cat="restauration">
+        <a href="https://aktoook.github.io/croc-meal/#carte" target="_blank" class="proj-card-link">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <div class="browser-dots"><span class="browser-dot bd-r"></span><span class="browser-dot bd-y"></span><span class="browser-dot bd-g"></span></div>
+              <span class="browser-url-bar">aktoook.github.io/croc-meal</span>
+              <span class="browser-arrow">↗</span>
+            </div>
+            <div class="browser-screen" style="background:linear-gradient(135deg,#1a0800,#3d1200,#7a2800)">
+              <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
+                <defs><linearGradient id="lg3" x1="0" y1="0" x2="320" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#ff5a1f"/><stop offset="1" stop-color="#ffb800"/></linearGradient></defs>
+                <text x="8" y="56" font-family="system-ui,sans-serif" font-weight="900" font-size="52" fill="url(#lg3)" letter-spacing="-2">Croc</text>
+                <text x="8" y="105" font-family="system-ui,sans-serif" font-weight="900" font-size="52" fill="#fff" letter-spacing="-2">Meal</text>
+                <text x="188" y="62" font-family="system-ui,sans-serif" font-size="52">🥙</text>
+                <text x="188" y="112" font-family="system-ui,sans-serif" font-size="36">🍕</text>
+              </svg>
+            </div>
+          </div>
+          <div class="proj-card-info">
+            <div class="proj-live-row"><span class="proj-live-dot"></span><span class="proj-live-label">Live</span></div>
+            <div class="proj-card-name">Croc Meal — Reims</div>
+            <div class="proj-card-cat">Restauration · SEO local</div>
           </div>
         </a>
-        <div class="proj-body">
-          <span class="proj-tag">Restaurateur · Kebab · SEO local</span>
-          <h3>Croc Meal — Reims</h3>
-          <p>Site kebab halal avec carte en ligne, commande directe et SEO local optimisé pour la gare de Reims.</p>
-          <a href="https://aktoook.github.io/croc-meal/#carte" target="_blank" class="proj-link">Voir le site →</a>
-        </div>
-      </article>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1231,6 +1268,23 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
           <li>Code source livré à vous</li>
         </ul>
         <button class="dual-btn dual-btn-pink" onclick="openIntake()">Discuter de mon projet →</button>
+      </div>
+      <div class="price-simple-card reveal" style="border-color:rgba(125,211,252,.2);background:rgba(125,211,252,.04)">
+        <div class="price-simple-tag" style="color:#7DD3FC;background:rgba(125,211,252,.1);border-color:rgba(125,211,252,.2)">✨ Motion Design</div>
+        <h3>Site ultra-animé &amp; immersif</h3>
+        <div class="price-simple-amount">
+          <span class="price-simple-from">À partir de</span>
+          <div class="price-simple-num">2 500€ <small>HT</small></div>
+        </div>
+        <ul class="price-simple-list">
+          <li>Animations 3D / WebGL sur mesure</li>
+          <li>Scroll storytelling cinématique</li>
+          <li>Transitions de pages fluides</li>
+          <li>Micro-interactions poussées</li>
+          <li>Expérience mobile optimisée</li>
+          <li>Code source livré à vous</li>
+        </ul>
+        <a href="examples.html" class="dual-btn dual-btn-blue" style="text-align:center;display:block">Voir les exemples →</a>
       </div>
     </div>
     <div class="price-foot reveal">
@@ -1845,6 +1899,7 @@ function handleContact(e){
   }, 4000);
 })();
 function closePromo(){document.getElementById('promoPopup').classList.remove('open');}
+function filterProjects(cat,btn){document.querySelectorAll('.proj-filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.proj-card').forEach(c=>{c.style.display=(cat==='tous'||c.dataset.cat===cat)?'':'none';});}
 function startPromoCountdown(){
   const el=document.getElementById('promoCountdown');
   if(!el) return;
