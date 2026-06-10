@@ -163,6 +163,23 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 .modal-close{margin-top:20px;background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer;font-family:var(--body)}
 .modal-close:hover{color:#fff}
 
+/* ══ BLOG ══ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.blog-card{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:18px;overflow:hidden;transition:.3s;text-decoration:none;display:flex;flex-direction:column}
+.blog-card:hover{border-color:rgba(247,37,133,.3);transform:translateY(-5px);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.blog-card-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:52px;border-bottom:1px solid rgba(255,255,255,.07)}
+.blog-card-img.c1{background:linear-gradient(135deg,rgba(247,37,133,.15),rgba(29,78,216,.1))}
+.blog-card-img.c2{background:linear-gradient(135deg,rgba(96,165,250,.12),rgba(79,209,197,.08))}
+.blog-card-img.c3{background:linear-gradient(135deg,rgba(74,222,128,.1),rgba(96,165,250,.08))}
+.blog-card-body{padding:22px 20px;flex:1;display:flex;flex-direction:column}
+.blog-cat{font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:9px}
+.blog-card h3{font-family:var(--display);font-size:clamp(15px,1.7vw,18px);font-weight:700;color:#fff;line-height:1.35;margin-bottom:10px;flex:1}
+.blog-excerpt{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}
+.blog-meta{display:flex;gap:12px;font-size:11.5px;color:rgba(255,255,255,.3);margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,.07)}
+.blog-all{display:flex;justify-content:center;margin-top:36px}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.blog-grid{grid-template-columns:1fr}}
+
 /* ══ PROMO POPUP ══ */
 #promoPopup{display:none;position:fixed;bottom:24px;right:24px;z-index:3000;pointer-events:none;max-width:380px;width:calc(100% - 32px)}
 #promoPopup.open{display:block;pointer-events:all}
@@ -1276,6 +1293,49 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <div class="proc reveal"><div class="s"><img class="vico" alt="✍️" loading="lazy" src="https://emojicdn.elk.sh/%E2%9C%8D%EF%B8%8F?style=apple"></div><h3>Copywriting inclus</h3><p>Vous ne rédigez rien. On écrit un message clair qui parle à vos prospects.</p></div>
       <div class="proc reveal"><div class="s"><img class="vico" alt="⚡" loading="lazy" src="https://emojicdn.elk.sh/%E2%9A%A1?style=apple"></div><h3>Vraiment rapide</h3><p>72h à 2 semaines, délais respectés. Votre temps a de la valeur, le nôtre aussi.</p></div>
       <div class="proc reveal"><div class="s"><img class="vico" alt="🤝" loading="lazy" src="https://emojicdn.elk.sh/%F0%9F%A4%9D?style=apple"></div><h3>Accompagnement simple</h3><p>Un seul interlocuteur, des réponses rapides, jamais de jargon.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Blog</div>
+      <h2>Conseils, méthodes<br>et ressources gratuites.</h2>
+      <p>Pour les entrepreneurs qui veulent comprendre le digital — pas juste le subir.</p>
+    </div>
+    <div class="blog-grid">
+      <a href="blog/restaurant-invisible-google.html" class="blog-card reveal">
+        <div class="blog-card-img c1">🍽️</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">Local &amp; Google</div>
+          <h3>Votre restaurant est invisible sur Google : voici pourquoi</h3>
+          <p class="blog-excerpt">Chaque jour, des dizaines de personnes cherchent un restaurant dans votre ville. Pourquoi tombent-elles sur vos concurrents — et pas sur vous ?</p>
+          <div class="blog-meta"><span>10 juin 2026</span><span>5 min</span></div>
+        </div>
+      </a>
+      <a href="blog/site-web-vs-instagram.html" class="blog-card reveal">
+        <div class="blog-card-img c2">📱</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">Sites web</div>
+          <h3>Site web vs page Instagram : lequel attire vraiment des clients ?</h3>
+          <p class="blog-excerpt">Beaucoup de pros pensent qu'une page Instagram remplace un site web. Voici pourquoi c'est une erreur qui coûte des clients chaque semaine.</p>
+          <div class="blog-meta"><span>8 juin 2026</span><span>6 min</span></div>
+        </div>
+      </a>
+      <a href="blog/combien-coute-site-web-pme.html" class="blog-card reveal">
+        <div class="blog-card-img c3">💰</div>
+        <div class="blog-card-body">
+          <div class="blog-cat">Tarifs</div>
+          <h3>Combien coûte vraiment un site web pour une PME en 2026 ?</h3>
+          <p class="blog-excerpt">Entre 500 € et 30 000 €, les prix varient énormément. On vous explique ce qui justifie la différence — et les red flags à éviter.</p>
+          <div class="blog-meta"><span>5 juin 2026</span><span>7 min</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="blog-all reveal">
+      <a href="blog.html" class="btn btn-ghost">Voir tous les articles →</a>
     </div>
   </div>
 </section>

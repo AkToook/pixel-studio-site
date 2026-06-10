@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre restaurant est invisible sur Google : voici pourquoi — Pixel Studio</title>
+<meta name="description" content="Chaque jour, des dizaines de clients cherchent un restaurant dans votre ville sur Google. Découvrez pourquoi vous n'apparaissez pas — et comment y remédier.">
+<meta property="og:title" content="Votre restaurant est invisible sur Google : voici pourquoi">
+<meta property="og:description" content="Les 4 vraies raisons pour lesquelles votre restaurant n'apparaît pas sur Google — et comment corriger ça rapidement.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://aktoook.github.io/pixel-studio-site/blog/restaurant-invisible-google.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Votre restaurant est invisible sur Google : voici pourquoi",
+  "description": "Les 4 vraies raisons pour lesquelles votre restaurant n'apparaît pas sur Google — et comment corriger ça rapidement.",
+  "author": {"@type": "Organization", "name": "Pixel Studio"},
+  "publisher": {"@type": "Organization", "name": "Pixel Studio"},
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10"
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#F72585;--sky:#7DD3FC;--green:#4ADE80;--muted:rgba(255,255,255,.55);--line:rgba(255,255,255,.1);--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#050810;color:#fff;font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+.wrap-wide{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* Nav */
+nav{background:rgba(5,8,16,.97);border-bottom:1px solid rgba(255,255,255,.08);padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.04em;color:#fff}
+.nav-logo span{color:var(--accent)}
+.nav-cta{background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;padding:10px 20px;border-radius:50px;transition:.2s}
+.nav-cta:hover{opacity:.88}
+
+/* Article */
+.article-header{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.article-cat{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:6px 14px;border-radius:50px;margin-bottom:24px}
+.article-header h1{font-family:var(--display);font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:#fff;margin-bottom:20px}
+.article-meta{display:flex;gap:18px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.article-meta span{display:flex;align-items:center;gap:6px}
+
+/* Body */
+.article-body{padding:56px 0 80px}
+.article-body h2{font-family:var(--display);font-size:clamp(20px,3vw,28px);font-weight:800;letter-spacing:-.03em;color:#fff;margin:48px 0 16px}
+.article-body h3{font-family:var(--display);font-size:clamp(17px,2.4vw,22px);font-weight:700;color:#fff;margin:32px 0 12px}
+.article-body p{color:rgba(255,255,255,.78);margin-bottom:20px;font-size:16px;line-height:1.75}
+.article-body ul,.article-body ol{padding-left:0;margin:0 0 22px;list-style:none}
+.article-body li{color:rgba(255,255,255,.75);font-size:15.5px;padding:8px 0 8px 26px;position:relative;border-bottom:1px solid rgba(255,255,255,.06)}
+.article-body li:last-child{border-bottom:none}
+.article-body li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700;font-size:13px}
+.article-body strong{color:#fff;font-weight:600}
+.article-body em{color:var(--sky);font-style:normal;font-weight:500}
+
+/* Callout */
+.callout{background:rgba(247,37,133,.07);border:1px solid rgba(247,37,133,.2);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0}
+.callout p{margin:0;color:rgba(255,255,255,.85)}
+
+/* Stat block */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px 18px;text-align:center}
+.stat .n{font-family:var(--display);font-size:36px;font-weight:900;color:#fff;letter-spacing:-.04em;display:block}
+.stat .l{font-size:12px;color:var(--muted);margin-top:4px}
+
+/* CTA box */
+.cta-box{background:linear-gradient(135deg,rgba(247,37,133,.12),rgba(29,78,216,.08));border:1px solid rgba(247,37,133,.25);border-radius:20px;padding:44px 36px;text-align:center;margin:56px 0}
+.cta-box h3{font-family:var(--display);font-size:clamp(22px,3.5vw,30px);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.03em}
+.cta-box p{color:var(--muted);font-size:15px;margin-bottom:28px}
+.btn-pink{background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;padding:15px 28px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;transition:.25s;box-shadow:0 8px 24px rgba(247,37,133,.3)}
+.btn-pink:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(247,37,133,.4)}
+
+/* Related */
+.related{border-top:1px solid var(--line);padding:56px 0}
+.related h4{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.related-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;transition:.2s}
+.related-card:hover{border-color:rgba(247,37,133,.28)}
+.related-card .rc-cat{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;font-family:var(--display)}
+.related-card h5{font-family:var(--display);font-size:15px;font-weight:700;color:#fff;line-height:1.35}
+
+/* Footer */
+footer{background:rgba(255,255,255,.03);border-top:1px solid var(--line);padding:32px 28px;text-align:center}
+footer p{font-size:13px;color:var(--muted)}
+footer a{color:var(--accent)}
+
+@media(max-width:600px){.stat-row{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}.cta-box{padding:32px 22px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Pixel<span>Studio</span></a>
+  <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20lu%20votre%20article%20sur%20le%20SEO%20restaurant%20et%20je%20voudrais%20un%20devis" class="nav-cta">Devis gratuit →</a>
+</nav>
+
+<article>
+  <div class="wrap">
+    <header class="article-header">
+      <div class="article-cat">🍽️ Local &amp; Google</div>
+      <h1>Votre restaurant est invisible sur Google : voici pourquoi</h1>
+      <div class="article-meta">
+        <span>📅 10 juin 2026</span>
+        <span>⏱ 5 min de lecture</span>
+        <span>✍️ Pixel Studio</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <p>Ouvrez Google et tapez <em>"restaurant [votre ville]"</em>. Vous apparaissez ? Si non, vous perdez des clients chaque jour — des dizaines de personnes qui cherchent exactement ce que vous proposez, et qui finissent chez vos concurrents.</p>
+
+      <p>Ce n'est pas une question de qualité de cuisine. C'est une question de <strong>visibilité digitale</strong>. Et la bonne nouvelle, c'est que ça se corrige.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="n">93%</span><div class="l">des expériences en ligne commencent sur Google</div></div>
+        <div class="stat"><span class="n">76%</span><div class="l">des recherches locales aboutissent à une visite sous 24h</div></div>
+        <div class="stat"><span class="n">28%</span><div class="l">de ces visites se convertissent en achat</div></div>
+      </div>
+
+      <h2>Raison n°1 — Vous n'avez pas de site web (juste Instagram)</h2>
+
+      <p>Instagram est utile. Mais Google n'indexe pas votre profil Instagram. Quand quelqu'un tape <em>"restaurant italien Reims"</em>, Google cherche des <strong>sites web avec du contenu textuel structuré</strong> — pas des photos de plats sur Instagram.</p>
+
+      <p>Sans site web, vous êtes littéralement absent des résultats de recherche. Vos concurrents qui ont un site — même basique — vous devancent automatiquement.</p>
+
+      <div class="callout">
+        <p><strong>Le problème concret :</strong> Un client qui ne vous connaît pas encore ne cherche pas votre nom sur Instagram. Il tape "restaurant près de moi" ou "restaurant [type] [ville]" sur Google. Si vous n'êtes pas là, vous n'existez pas pour lui.</p>
+      </div>
+
+      <h2>Raison n°2 — Votre Google My Business n'est pas optimisé</h2>
+
+      <p>Google My Business (GMB) est votre fiche sur Google Maps et dans le panneau latéral des résultats. C'est souvent la première chose que voit un client potentiel. Et beaucoup de restaurants font les mêmes erreurs :</p>
+
+      <ul>
+        <li>Horaires d'ouverture non renseignés ou incorrects</li>
+        <li>Photos de mauvaise qualité ou absentes</li>
+        <li>Aucune réponse aux avis clients (bons comme mauvais)</li>
+        <li>Description sans mots-clés pertinents</li>
+        <li>Catégories mal choisies (ex : "restaurant" au lieu de "restaurant italien" ou "pizzeria")</li>
+      </ul>
+
+      <p>Google utilise ces informations pour décider qui apparaît dans le <strong>Local Pack</strong> — les 3 premiers résultats avec carte qui apparaissent avant tout le reste. Un GMB bien rempli, c'est la moitié du travail SEO local.</p>
+
+      <h2>Raison n°3 — Votre site est trop lent ou pas mobile-friendly</h2>
+
+      <p>Si vous avez un site web mais qu'il met plus de 3 secondes à charger sur mobile, Google le pénalise dans ses résultats. <strong>Plus de 70% des recherches locales se font sur mobile.</strong></p>
+
+      <p>Les signes d'un site qui freine votre SEO :</p>
+
+      <ul>
+        <li>Images non compressées (> 500ko chacune)</li>
+        <li>Template WordPress avec 30 plugins actifs</li>
+        <li>Pas de HTTPS (le cadenas vert dans l'URL)</li>
+        <li>Police ou boutons trop petits sur mobile</li>
+        <li>Pas de balises title et meta description optimisées</li>
+      </ul>
+
+      <h2>Raison n°4 — Votre contenu ne parle pas aux bons mots-clés</h2>
+
+      <p>Google comprend votre site grâce au texte qu'il contient. Si votre site dit juste <em>"Bienvenue chez nous"</em> sans mentionner votre ville, votre type de cuisine, vos plats signature — Google ne sait pas pour quelles recherches vous afficher.</p>
+
+      <p>Un bon site de restaurant pour le SEO doit inclure :</p>
+
+      <ul>
+        <li>Le nom de votre ville dans le titre de la page</li>
+        <li>Le type de cuisine clairement mentionné (cuisine française, restaurant halal, végétarien...)</li>
+        <li>Des pages dédiées : menu, réservation, contact avec adresse complète</li>
+        <li>Des avis clients intégrés sur le site</li>
+        <li>Votre adresse en format texte (pas une image)</li>
+      </ul>
+
+      <h2>Et maintenant ? Comment corriger tout ça</h2>
+
+      <p>La bonne nouvelle : tout ça se règle. Le processus prend 2 à 4 semaines et les résultats sur Google se voient dans les 30 à 90 jours suivant la mise en ligne.</p>
+
+      <p>Le point de départ :</p>
+
+      <ul>
+        <li><strong>Étape 1</strong> — Créer (ou refaire) un site web optimisé SEO avec votre menu, vos horaires, vos photos et une page de réservation</li>
+        <li><strong>Étape 2</strong> — Optimiser complètement votre fiche Google My Business</li>
+        <li><strong>Étape 3</strong> — Inciter vos clients satisfaits à laisser des avis Google</li>
+        <li><strong>Étape 4</strong> — Publier du contenu régulier (posts GMB, actualités saisonnières)</li>
+      </ul>
+
+      <div class="cta-box">
+        <h3>On s'occupe de tout ça pour vous.</h3>
+        <p>Site web optimisé SEO + Google My Business configuré + copywriting inclus. Livraison en 72h à 2 semaines. Devis gratuit sous 48h.</p>
+        <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20lu%20l%27article%20restaurant%20invisible%20Google%20et%20je%20voudrais%20un%20devis%20pour%20mon%20restaurant" class="btn-pink">Obtenir mon devis gratuit →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="related">
+      <h4>Articles similaires</h4>
+      <div class="related-grid">
+        <a href="site-web-vs-instagram.html" class="related-card">
+          <div class="rc-cat">Sites web</div>
+          <h5>Site web vs page Instagram : lequel attire vraiment des clients ?</h5>
+        </a>
+        <a href="combien-coute-site-web-pme.html" class="related-card">
+          <div class="rc-cat">Tarifs</div>
+          <h5>Combien coûte vraiment un site web pour une PME en 2026 ?</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <p><a href="../index.html">← Retour au site Pixel Studio</a> &nbsp;·&nbsp; <a href="../blog.html">Tous les articles</a></p>
+</footer>
+
+</body>
+</html>
