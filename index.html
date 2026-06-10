@@ -345,7 +345,7 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 
 /* Pricing simple */
 .price-simple-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:28px}
-@media(max-width:1000px){.price-simple-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1000px){.price-simple-grid{grid-template-columns:1fr 1fr}.price-simple-grid .price-simple-card:nth-child(3){grid-column:1/-1;max-width:480px;margin:0 auto;width:100%}}
 .price-simple-card{background:rgba(4,8,20,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:24px;padding:40px 36px;display:flex;flex-direction:column;transition:.25s}
 .price-simple-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .price-simple-card.featured{border-color:rgba(247,37,133,.28);background:rgba(247,37,133,.06)}
@@ -432,11 +432,17 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 .contact-float{position:fixed;bottom:24px;left:24px;z-index:900;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;font-family:var(--display);font-weight:600;font-size:14px;padding:13px 19px;border-radius:50px;box-shadow:0 10px 30px rgba(10,26,48,.25);transition:transform .2s,background .2s}
 .contact-float:hover{transform:translateY(-2px);background:var(--blue)}
 
+@media(max-width:1050px){
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .srv-cats{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:900px){
   .nav-menu{display:none;position:fixed;top:74px;left:0;right:0;flex-direction:column;background:rgba(2,10,35,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1);padding:18px 28px;gap:0}
   .nav-menu.open{display:flex}
   .nav-menu li{width:100%;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
   .burger{display:flex}
+  .nav-cta-btn{display:none}
+  .lang-sw{margin-right:0}
   .work-grid,.proc-grid,.tiers,.srv-cats,.hero-grid,.proj-grid,.ups-grid{grid-template-columns:1fr}
   .srv-row{grid-template-columns:1fr;gap:8px}
   .srv-arrow{display:none}
@@ -706,13 +712,13 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <li><a href="#contact">Contact</a></li>
       <li><a href="recrutement.html" style="color:var(--green);font-weight:600">On recrute</a></li>
     </ul>
-    <div class="lang-sw" aria-label="Language">
-      <button class="lang-btn active" id="lb-fr" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" id="lb-en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" id="lb-ar" onclick="setLang('ar')">ع</button>
-    </div>
     <div class="nav-r">
-      <a class="btn btn-blue" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20de%20site%20web%20%F0%9F%91%8B">Démarrer un projet</a>
+      <div class="lang-sw" aria-label="Language">
+        <button class="lang-btn active" id="lb-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="lb-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="lb-ar" onclick="setLang('ar')">ع</button>
+      </div>
+      <a class="btn btn-blue nav-cta-btn" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20de%20site%20web%20%F0%9F%91%8B">Démarrer un projet</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -2111,7 +2117,7 @@ function cnilSaveCustom() {
     '#menu > li:nth-child(5) > a':'FAQ',
     '#menu > li:nth-child(6) > a':'Contact',
     '#menu > li:nth-child(7) > a':"We're hiring",
-    '.nav-r .btn-blue':'Start a project',
+    '.nav-cta-btn':'Start a project',
     '#hero-bg .eyebrow':'<span class="dot"></span>Web agency & dev — Reims · Paris',
     '#hero-bg h1':'We build your<br><span class="grad">digital presence.</span>',
     '#hero-bg .lead':'Websites that convert + Custom apps.<br>We handle everything — design, code, SEO, launch.',
@@ -2223,7 +2229,7 @@ function cnilSaveCustom() {
     '#menu > li:nth-child(5) > a':'أسئلة شائعة',
     '#menu > li:nth-child(6) > a':'اتصل بنا',
     '#menu > li:nth-child(7) > a':'نوظف',
-    '.nav-r .btn-blue':'ابدأ مشروعك',
+    '.nav-cta-btn':'ابدأ مشروعك',
     '#hero-bg .eyebrow':'<span class="dot"></span>وكالة ويب وتطوير — رانس · باريس',
     '#hero-bg h1':'نبني<br><span class="grad">حضورك الرقمي.</span>',
     '#hero-bg .lead':'مواقع تحول الزوار إلى عملاء + تطبيقات مخصصة.<br>نتكفل بكل شيء — تصميم، برمجة، SEO، إطلاق.',
