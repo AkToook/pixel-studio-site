@@ -84,6 +84,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:#050810;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 #vanta-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+/* Mobile / reduced-motion: beautiful CSS gradient — no WebGL */
+@media(max-width:767px),(prefers-reduced-motion:reduce){
+  #vanta-bg{background:radial-gradient(ellipse 70% 60% at 15% 40%,rgba(124,58,237,.2) 0%,transparent 100%),radial-gradient(ellipse 60% 50% at 85% 15%,rgba(247,37,133,.13) 0%,transparent 100%),radial-gradient(ellipse 80% 70% at 55% 90%,rgba(14,30,60,.9) 0%,transparent 100%),linear-gradient(160deg,#050810 0%,#0c1828 50%,#050810 100%)}
+}
 /* Hero only shows Vanta — all other sections have solid bg for readability */
 .soft{background:rgba(6,10,20,.86)!important}
 .marquee{background:rgba(6,10,20,.88)!important;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
@@ -2503,24 +2507,46 @@ function cnilSaveCustom() {
 })();
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 <script>
-VANTA.WAVES({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: 0x0e1e3c,
-  shininess: 12,
-  waveHeight: 18,
-  waveSpeed: 0.65,
-  zoom: 0.88
-});
+/* ══ VANTA — chargement conditionnel (desktop uniquement) ══ */
+(function(){
+  var mobile=window.innerWidth<768||/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(mobile||reduced)return; // CSS gradient fallback actif
+
+  function loadScript(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;document.body.appendChild(s);}
+
+  loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js',function(){
+    loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js',function(){
+      var fx=VANTA.WAVES({
+        el:'#vanta-bg',
+        mouseControls:true,
+        touchControls:false,
+        gyroControls:false,
+        minHeight:200,
+        minWidth:200,
+        scale:1,
+        color:0x0e1e3c,
+        shininess:12,
+        waveHeight:18,
+        waveSpeed:0.65,
+        zoom:0.88
+      });
+
+      // Pause quand l'onglet est caché → économise CPU/batterie
+      document.addEventListener('visibilitychange',function(){
+        if(!fx||!fx.renderer)return;
+        if(document.hidden){
+          fx.renderer.setAnimationLoop(null);
+        }else{
+          var loop=fx.animationLoop;
+          if(loop)fx.renderer.setAnimationLoop(loop.bind(fx));
+          else fx.resize();
+        }
+      });
+    });
+  });
+})();
 </script>
 <script>
 /* ══ CHATBOT ══ */
