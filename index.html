@@ -1773,8 +1773,26 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       </div>
       <div class="intake-actions">
         <button class="intake-back" onclick="nextIntakeStep(2)">← Retour</button>
-        <button class="intake-submit" onclick="submitIntake()">Envoyer ma demande →</button>
+        <button class="intake-submit" onclick="submitIntake()">Continuer →</button>
       </div>
+    </div>
+
+    <!-- Étape 4 : Choix de contact -->
+    <div class="intake-step" id="istep4">
+      <div class="intake-step-label">🎉 Presque terminé !</div>
+      <h3>Comment voulez-vous<br>être contacté ?</h3>
+      <p>Votre demande est prête — choisissez votre mode préféré.</p>
+      <div class="modal-choices" style="margin-top:8px">
+        <a class="modal-choice" href="https://calendly.com/mredahmamouchi/30min" target="_blank" onclick="closeIntake()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span>Calendly<span class="choice-sub">Réservez un créneau dans mon agenda</span></span>
+        </a>
+        <a class="modal-choice" id="intakeWhatsapp" href="#" target="_blank" onclick="closeIntake()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.408A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          <span>WhatsApp<span class="choice-sub">Message direct sur +33 6 20 75 75 17</span></span>
+        </a>
+      </div>
+      <button class="intake-back" style="margin-top:16px" onclick="nextIntakeStep(3)">← Modifier mes infos</button>
     </div>
   </div>
 </div>
@@ -1984,7 +2002,7 @@ function selectIntakeType(el){
 function nextIntakeStep(n){
   document.querySelectorAll('.intake-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('istep'+n).classList.add('active');
-  for(let i=1;i<=3;i++) document.getElementById('idot'+i).classList.toggle('done',i<=n);
+  for(let i=1;i<=3;i++) document.getElementById('idot'+i).classList.toggle('done',i<=Math.min(n,3));
 }
 
 function submitIntake(){
@@ -1998,8 +2016,8 @@ function submitIntake(){
   const labels={ecommerce:'Site e-commerce',vitrine:'Site vitrine / produit',b2b:'B2B',b2c:'B2C',app:'Application mobile',saas:'SaaS / outil web'};
   const typeLabel=labels[_intakeType]||'Non précisé';
   const text=`Bonjour Pixel Studio 👋\n\nDemande de maquette gratuite :\n\n• Type : ${typeLabel}\n• Activité : ${activity||'N/A'}\n• Budget : ${budget||'Non précisé'}\n• Projet : ${desc||'N/A'}\n\nNom : ${name}\nEmail : ${email}${phone?'\nTél : '+phone:''}`;
-  window.open('https://wa.me/33620757517?text='+encodeURIComponent(text),'_blank');
-  closeIntake();
+  document.getElementById('intakeWhatsapp').href='https://wa.me/33620757517?text='+encodeURIComponent(text);
+  nextIntakeStep(4);
 }
 </script>
 
