@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Création site web pour agence immobilière — Pixel Studio | Générez des mandats</title>
+<meta name="description" content="Site web pour agence immobilière : vitrine de biens, formulaire d'estimation, SEO local. Pixel Studio livre en 72h. Maquette gratuite avant paiement.">
+<link rel="canonical" href="https://pixelstudioo.fr/creation-site-immobilier.html">
+<meta property="og:title" content="Site web pour agence immobilière — Pixel Studio">
+<meta property="og:description" content="Site web pour agence immobilière : biens en vente, estimation en ligne, SEO local. Livraison 72h, maquette gratuite.">
+<meta property="og:url" content="https://pixelstudioo.fr/creation-site-immobilier.html">
+<meta property="og:image" content="https://pixelstudioo.fr/og-cover.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Pixel Studio","url":"https://pixelstudioo.fr/","image":"https://pixelstudioo.fr/og-cover.jpg","description":"Création de sites web pour agences immobilières et agents indépendants.","telephone":"+33620757517","priceRange":"€€","areaServed":["Reims","Paris","France"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#F72585;--sky:#7DD3FC;--green:#4ADE80;--muted:rgba(255,255,255,.55);--line:rgba(255,255,255,.1);--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#050810;color:#fff;font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:rgba(5,8,16,.97);border-bottom:1px solid rgba(255,255,255,.08);padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.04em;color:#fff}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:14px;color:rgba(255,255,255,.7);transition:.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;padding:10px 20px;border-radius:50px;transition:.2s}
+.nav-cta:hover{opacity:.88}
+@media(max-width:700px){.nav-links{display:none}}
+.hero-lp{padding:88px 0 72px;position:relative;overflow:hidden}
+.hero-lp::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 10% 60%,rgba(247,37,133,.14) 0%,transparent 100%),radial-gradient(ellipse 50% 40% at 90% 20%,rgba(125,211,252,.1) 0%,transparent 100%);pointer-events:none}
+.hero-lp .tag{display:inline-flex;align-items:center;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:6px 14px;border-radius:50px;margin-bottom:22px}
+.hero-lp h1{font-family:var(--display);font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;margin-bottom:20px;max-width:800px}
+.hero-lp h1 em{color:var(--accent);font-style:normal}
+.hero-lp .lead{font-size:18px;color:var(--muted);max-width:56ch;margin-bottom:36px;line-height:1.65}
+.btn-pink{background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;padding:15px 30px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;transition:.25s;box-shadow:0 8px 24px rgba(247,37,133,.3);border:none;cursor:pointer}
+.btn-pink:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(247,37,133,.4)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;font-family:var(--display);font-weight:600;font-size:15px;padding:15px 30px;border-radius:50px;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;gap:8px;transition:.25s}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:40px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.stat-n{font-family:var(--display);font-size:36px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+.stat-n span{color:var(--accent)}
+.stat-l{font-size:13px;color:var(--muted);margin-top:4px}
+section{padding:80px 0}
+.sec-tag{display:inline-flex;align-items:center;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:5px 13px;border-radius:50px;margin-bottom:16px}
+h2{font-family:var(--display);font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:#fff;margin-bottom:16px}
+.sec-lead{font-size:17px;color:var(--muted);max-width:56ch;line-height:1.65;margin-bottom:48px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.feat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 22px}
+.feat-icon{font-size:30px;margin-bottom:12px}
+.feat h3{font-family:var(--display);font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.feat p{font-size:13.5px;color:var(--muted);line-height:1.6}
+@media(max-width:700px){.features-grid{grid-template-columns:1fr}}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px;align-items:start}
+.pain-block h3{font-family:var(--display);font-size:20px;font-weight:700;color:#fff;margin-bottom:16px}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.pain-list li{font-size:15px;color:var(--muted);display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.pain-list li:last-child{border-bottom:none}
+.pain-list li .li-icon{font-size:20px;flex-shrink:0}
+@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
+.result-band{background:linear-gradient(135deg,rgba(125,211,252,.08),rgba(125,211,252,.04));border:1px solid rgba(125,211,252,.2);border-radius:20px;padding:40px 36px;margin:48px 0;display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.result-band .rn{font-family:var(--display);font-size:52px;font-weight:900;color:var(--sky);letter-spacing:-.04em;line-height:1;flex-shrink:0}
+.result-band h3{font-family:var(--display);font-size:20px;font-weight:700;color:#fff;margin-bottom:6px}
+.result-band p{font-size:14px;color:var(--muted);line-height:1.6}
+.faq{max-width:760px;margin:0 auto}
+details{border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0}
+details:first-of-type{border-top:1px solid rgba(255,255,255,.08)}
+summary{font-family:var(--display);font-size:16px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--accent);font-size:22px;font-weight:400;flex-shrink:0}
+details[open] summary::after{content:'−'}
+details p{font-size:14.5px;color:var(--muted);line-height:1.7;margin-top:14px}
+.cta-band{background:linear-gradient(135deg,rgba(247,37,133,.1),rgba(124,58,237,.08));border:1px solid rgba(247,37,133,.2);border-radius:24px;padding:64px 48px;text-align:center;margin:80px 0}
+.cta-band h2{margin-bottom:14px}
+.cta-band p{font-size:17px;color:var(--muted);margin-bottom:36px;max-width:50ch;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.internal-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:48px}
+.int-link{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:8px 18px;font-size:13px;color:rgba(255,255,255,.65);transition:.2s}
+.int-link:hover{border-color:rgba(247,37,133,.35);color:#fff}
+footer{background:rgba(255,255,255,.03);border-top:1px solid var(--line);padding:32px 28px;text-align:center}
+footer p{font-size:13px;color:var(--muted)}
+footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Pixel<span>Studio</span></a>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#projets">Projets</a>
+    <a href="blog.html">Blog</a>
+  </div>
+  <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20une%20agence%20immobili%C3%A8re%20et%20je%20veux%20un%20site%20web" class="nav-cta">Devis gratuit →</a>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero-lp">
+    <div class="tag">🏠 Site web pour agences immobilières</div>
+    <h1>Votre agence immobilière mérite<br>un site web qui <em>génère des mandats</em><br>— pas juste un profil sur SeLoger.</h1>
+    <p class="lead">Pixel Studio crée des sites web pour agences immobilières et agents indépendants. Vitrine de vos biens, formulaire d'estimation en ligne, blog local — pour capter les vendeurs qui cherchent à estimer leur bien sur Google.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20une%20agence%20immobili%C3%A8re%20et%20je%20veux%20un%20site%20web" class="btn-pink">Voir ma maquette gratuite →</a>
+      <a href="index.html#projets" class="btn-ghost">Voir des exemples</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">92<span>%</span></div><div class="stat-l">Des acheteurs commencent leur recherche en ligne</div></div>
+      <div><div class="stat-n">0<span>€</span></div><div class="stat-l">Maquette offerte avant paiement</div></div>
+      <div><div class="stat-n">72<span>h</span></div><div class="stat-l">Délai minimum de livraison</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">Le problème</div>
+    <h2>Pourquoi SeLoger seul<br>ne suffit pas pour grandir</h2>
+    <div class="pain-grid">
+      <div class="pain-block">
+        <h3>Sans site propre, vous perdez</h3>
+        <ul class="pain-list">
+          <li><span class="li-icon">❌</span><div><strong style="color:#fff">Votre personal branding</strong><br>Sur SeLoger, vous êtes une agence parmi des centaines. Impossible de vous différencier sur vos valeurs, votre expertise locale, votre façon de travailler — ce qui fidélise vraiment les clients.</div></li>
+          <li><span class="li-icon">❌</span><div><strong style="color:#fff">Les leads estimation</strong><br>"Estimer mon bien [ville]" est l'une des requêtes les plus cherchées en immobilier local. Sans page d'estimation, vous ratez ces vendeurs en phase de réflexion — avant même qu'ils aillent sur les portails.</div></li>
+          <li><span class="li-icon">❌</span><div><strong style="color:#fff">La maîtrise de vos données</strong><br>Vos contacts passent par les plateformes. Avec votre propre site, les leads vous arrivent directement — sans intermédiaire qui prend une commission.</div></li>
+        </ul>
+      </div>
+      <div class="pain-block">
+        <h3>Avec un site, vous obtenez</h3>
+        <ul class="pain-list">
+          <li><span class="li-icon">✅</span><div><strong style="color:#fff">Une image qui vous distingue</strong><br>Votre histoire, votre expertise du quartier, votre équipe — mis en valeur avec votre identité visuelle. Les vendeurs choisissent un agent autant pour sa personnalité que pour ses résultats.</div></li>
+          <li><span class="li-icon">✅</span><div><strong style="color:#fff">Des mandats en pilote automatique</strong><br>Formulaire d'estimation en ligne actif 24h/24. Un vendeur qui cherche à estimer son bien le soir après le travail remplit votre formulaire — vous le rappelez le lendemain matin.</div></li>
+          <li><span class="li-icon">✅</span><div><strong style="color:#fff">Leads directs sans commission</strong><br>Vos contacts arrivent directement dans votre boîte mail ou CRM. Aucune plateforme entre vous et vos prospects.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(255,255,255,.06);padding-top:80px">
+    <div class="sec-tag">Ce qu'on inclut</div>
+    <h2>Tout ce dont votre agence<br>a besoin pour dominer localement</h2>
+    <p class="sec-lead">Un site immobilier pensé pour générer des mandats — pas juste une belle vitrine que personne ne visite.</p>
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-icon">🏠</div>
+        <h3>Vitrine de vos biens</h3>
+        <p>Vos biens à vendre et à louer présentés avec photos, prix, description et formulaire de contact. Mis à jour facilement quand le portefeuille change.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📊</div>
+        <h3>Formulaire d'estimation</h3>
+        <p>Formulaire structuré pour capter les vendeurs : type de bien, surface, adresse, coordonnées. Chaque soumission = un lead vendeur à rappeler. La principale source de mandats.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">👤</div>
+        <h3>Équipe & expertise locale</h3>
+        <p>Présentation de vos agents avec leur secteur d'expertise, leurs réalisations, leurs contacts directs. Les vendeurs choisissent une personne avant de choisir une agence.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⭐</div>
+        <h3>Témoignages acheteurs & vendeurs</h3>
+        <p>Retours de vos clients satisfaits présentés par type de transaction. La preuve sociale est le facteur n°1 dans le choix d'une agence immobilière.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📰</div>
+        <h3>Blog marché local</h3>
+        <p>Articles sur le marché immobilier de votre secteur, les quartiers, les tendances de prix. Positionne votre agence comme l'expert local incontournable — et génère du trafic SEO longue durée.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📍</div>
+        <h3>SEO local "agence immobilière [ville]"</h3>
+        <p>Votre site optimisé pour les requêtes à forte intention : "agence immobilière [ville]", "estimer maison [ville]", "vendre appartement [quartier]".</p>
+      </div>
+    </div>
+
+    <div class="result-band">
+      <div class="rn">4×</div>
+      <div>
+        <h3>Plus de leads mandats vs SeLoger seul</h3>
+        <p>Les agences immobilières indépendantes qui combinent un site propre avec formulaire d'estimation et SEO local génèrent en moyenne 4 fois plus de demandes d'estimation que celles présentes uniquement sur les portails. Le formulaire d'estimation transforme des curieux en vendeurs potentiels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(255,255,255,.06);padding-top:80px">
+    <div class="sec-tag">FAQ</div>
+    <h2>Questions fréquentes<br>des agences immobilières</h2>
+    <div class="faq" style="margin-top:32px">
+      <details>
+        <summary>SeLoger et LeBonCoin me suffisent — pourquoi un site ?</summary>
+        <p>Les portails vous amènent des acheteurs — mais pas des vendeurs. Pour obtenir des mandats, vous devez capter les propriétaires en phase de réflexion ("comment estimer mon appartement à Reims"). Ces recherches se font sur Google, pas sur SeLoger. Votre site, avec un formulaire d'estimation bien placé, est le seul outil qui capture ces leads à froid.</p>
+      </details>
+      <details>
+        <summary>Peut-on afficher les biens disponibles et les mettre à jour facilement ?</summary>
+        <p>Oui. On crée une section "Nos biens" avec fiches détaillées (photos, prix, description, surface, DPE). Vous pouvez ajouter ou retirer des biens depuis une interface simple, sans toucher au code. Pour les agences avec un volume important de biens, on peut aussi connecter votre logiciel métier (APIMO, Adaptimmo, etc.).</p>
+      </details>
+      <details>
+        <summary>Combien coûte un site web pour agence immobilière ?</summary>
+        <p>Un site immobilier professionnel chez Pixel Studio démarre à 690€ pour une vitrine avec quelques biens, formulaire d'estimation et page équipe. Pour un site complet avec blog, module de biens plus avancé et SEO local poussé, comptez entre 1 000€ et 1 800€. Maquette gratuite avant tout engagement.</p>
+      </details>
+      <details>
+        <summary>Comment générer des mandats via mon site ?</summary>
+        <p>Trois éléments clés : un formulaire d'estimation bien visible (au moins une fois sur chaque page), des articles de blog sur "l'immobilier à [ville]" pour capter les recherches Google, et une fiche Google Business Profile optimisée. On intègre les deux premiers dans votre site et on vous guide sur le troisième.</p>
+      </details>
+      <details>
+        <summary>Combien de temps pour créer mon site ?</summary>
+        <p>Un site immobilier vitrine est livré en 5 à 7 jours. Un site complet avec module de biens, blog et SEO avancé prend 2 semaines. On fixe un délai ferme dès le départ.</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Vos futurs mandataires<br>vous cherchent sur Google.</h2>
+    <p>Maquette gratuite sous 48h. Devis personnalisé en 10 minutes. Sans engagement.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20une%20agence%20immobili%C3%A8re%20et%20je%20veux%20un%20site%20web" class="btn-pink">Voir ma maquette gratuite →</a>
+      <a href="https://calendly.com/mredahmamouchi/30min" target="_blank" class="btn-ghost">Réserver un appel</a>
+    </div>
+  </div>
+
+  <div style="padding-bottom:60px">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Autres services & pages :</p>
+    <div class="internal-links">
+      <a href="creation-site-avocat.html" class="int-link">Site web avocat →</a>
+      <a href="creation-site-medecin.html" class="int-link">Site web médecin →</a>
+      <a href="creation-site-restaurant.html" class="int-link">Site web restaurant →</a>
+      <a href="agence-web-reims.html" class="int-link">Agence web Reims →</a>
+      <a href="agence-web-paris.html" class="int-link">Agence web Paris →</a>
+      <a href="index.html" class="int-link">Accueil Pixel Studio →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">← Retour au site Pixel Studio</a> &nbsp;·&nbsp; <a href="agence-web-reims.html">Agence web Reims</a> &nbsp;·&nbsp; <a href="creation-site-restaurant.html">Site web restaurant</a> &nbsp;·&nbsp; © 2026 Pixel Studio</p>
+</footer>
+
+</body>
+</html>

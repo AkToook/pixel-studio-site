@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Création site web pour salle de sport — Pixel Studio | Convertissez les curieux en membres</title>
+<meta name="description" content="Site web pour salle de sport : abonnements, planning des cours, inscription en ligne, SEO local. Pixel Studio livre en 72h. Maquette gratuite.">
+<link rel="canonical" href="https://pixelstudioo.fr/creation-site-salle-de-sport.html">
+<meta property="og:title" content="Site web pour salle de sport — Pixel Studio">
+<meta property="og:description" content="Site web pour salle de sport : tarifs, planning, inscription en ligne, SEO local. Livraison 72h, maquette gratuite.">
+<meta property="og:url" content="https://pixelstudioo.fr/creation-site-salle-de-sport.html">
+<meta property="og:image" content="https://pixelstudioo.fr/og-cover.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Pixel Studio","url":"https://pixelstudioo.fr/","image":"https://pixelstudioo.fr/og-cover.jpg","description":"Création de sites web pour salles de sport, clubs de fitness et coachs sportifs.","telephone":"+33620757517","priceRange":"€€","areaServed":["Reims","Paris","France"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#F72585;--sky:#7DD3FC;--green:#4ADE80;--muted:rgba(255,255,255,.55);--line:rgba(255,255,255,.1);--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#050810;color:#fff;font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:rgba(5,8,16,.97);border-bottom:1px solid rgba(255,255,255,.08);padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.04em;color:#fff}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:14px;color:rgba(255,255,255,.7);transition:.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;padding:10px 20px;border-radius:50px;transition:.2s}
+.nav-cta:hover{opacity:.88}
+@media(max-width:700px){.nav-links{display:none}}
+.hero-lp{padding:88px 0 72px;position:relative;overflow:hidden}
+.hero-lp::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 10% 60%,rgba(74,222,128,.12) 0%,transparent 100%),radial-gradient(ellipse 50% 40% at 90% 20%,rgba(247,37,133,.12) 0%,transparent 100%);pointer-events:none}
+.hero-lp .tag{display:inline-flex;align-items:center;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:6px 14px;border-radius:50px;margin-bottom:22px}
+.hero-lp h1{font-family:var(--display);font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:#fff;margin-bottom:20px;max-width:800px}
+.hero-lp h1 em{color:var(--accent);font-style:normal}
+.hero-lp .lead{font-size:18px;color:var(--muted);max-width:56ch;margin-bottom:36px;line-height:1.65}
+.btn-pink{background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;padding:15px 30px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;transition:.25s;box-shadow:0 8px 24px rgba(247,37,133,.3);border:none;cursor:pointer}
+.btn-pink:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(247,37,133,.4)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;font-family:var(--display);font-weight:600;font-size:15px;padding:15px 30px;border-radius:50px;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;gap:8px;transition:.25s}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:40px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.stat-n{font-family:var(--display);font-size:36px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+.stat-n span{color:var(--accent)}
+.stat-l{font-size:13px;color:var(--muted);margin-top:4px}
+section{padding:80px 0}
+.sec-tag{display:inline-flex;align-items:center;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:5px 13px;border-radius:50px;margin-bottom:16px}
+h2{font-family:var(--display);font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:#fff;margin-bottom:16px}
+.sec-lead{font-size:17px;color:var(--muted);max-width:56ch;line-height:1.65;margin-bottom:48px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.feat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 22px}
+.feat-icon{font-size:30px;margin-bottom:12px}
+.feat h3{font-family:var(--display);font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.feat p{font-size:13.5px;color:var(--muted);line-height:1.6}
+@media(max-width:700px){.features-grid{grid-template-columns:1fr}}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px;align-items:start}
+.pain-block h3{font-family:var(--display);font-size:20px;font-weight:700;color:#fff;margin-bottom:16px}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.pain-list li{font-size:15px;color:var(--muted);display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.pain-list li:last-child{border-bottom:none}
+.pain-list li .li-icon{font-size:20px;flex-shrink:0}
+@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
+.result-band{background:linear-gradient(135deg,rgba(74,222,128,.08),rgba(74,222,128,.04));border:1px solid rgba(74,222,128,.2);border-radius:20px;padding:40px 36px;margin:48px 0;display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.result-band .rn{font-family:var(--display);font-size:52px;font-weight:900;color:var(--green);letter-spacing:-.04em;line-height:1;flex-shrink:0}
+.result-band h3{font-family:var(--display);font-size:20px;font-weight:700;color:#fff;margin-bottom:6px}
+.result-band p{font-size:14px;color:var(--muted);line-height:1.6}
+.faq{max-width:760px;margin:0 auto}
+details{border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0}
+details:first-of-type{border-top:1px solid rgba(255,255,255,.08)}
+summary{font-family:var(--display);font-size:16px;font-weight:700;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--accent);font-size:22px;font-weight:400;flex-shrink:0}
+details[open] summary::after{content:'−'}
+details p{font-size:14.5px;color:var(--muted);line-height:1.7;margin-top:14px}
+.cta-band{background:linear-gradient(135deg,rgba(247,37,133,.1),rgba(124,58,237,.08));border:1px solid rgba(247,37,133,.2);border-radius:24px;padding:64px 48px;text-align:center;margin:80px 0}
+.cta-band h2{margin-bottom:14px}
+.cta-band p{font-size:17px;color:var(--muted);margin-bottom:36px;max-width:50ch;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.internal-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:48px}
+.int-link{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:8px 18px;font-size:13px;color:rgba(255,255,255,.65);transition:.2s}
+.int-link:hover{border-color:rgba(247,37,133,.35);color:#fff}
+footer{background:rgba(255,255,255,.03);border-top:1px solid var(--line);padding:32px 28px;text-align:center}
+footer p{font-size:13px;color:var(--muted)}
+footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Pixel<span>Studio</span></a>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#projets">Projets</a>
+    <a href="blog.html">Blog</a>
+  </div>
+  <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20une%20salle%20de%20sport%20et%20je%20veux%20un%20site%20web" class="nav-cta">Devis gratuit →</a>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero-lp">
+    <div class="tag">💪 Site web pour salles de sport & coachs</div>
+    <h1>Votre salle de sport mérite<br>un site web qui <em>convertit les curieux en membres</em><br>— pas juste une page Facebook.</h1>
+    <p class="lead">Pixel Studio crée des sites web pour salles de sport, clubs de fitness et coachs sportifs indépendants. Abonnements clairs, planning des cours, inscription en ligne — pour que Google vous envoie de nouveaux membres chaque semaine.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20une%20salle%20de%20sport%20et%20je%20veux%20un%20site%20web" class="btn-pink">Voir ma maquette gratuite →</a>
+      <a href="index.html#projets" class="btn-ghost">Voir des exemples</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">65<span>%</span></div><div class="stat-l">Des gens cherchent une salle en ligne avant de visiter</div></div>
+      <div><div class="stat-n">0<span>€</span></div><div class="stat-l">Maquette offerte avant paiement</div></div>
+      <div><div class="stat-n">72<span>h</span></div><div class="stat-l">Délai minimum de livraison</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">Le problème</div>
+    <h2>Pourquoi votre salle<br>n'attire pas assez de nouveaux membres</h2>
+    <div class="pain-grid">
+      <div class="pain-block">
+        <h3>Sans site web, vous perdez</h3>
+        <ul class="pain-list">
+          <li><span class="li-icon">❌</span><div><strong style="color:#fff">Des conversions sur les tarifs</strong><br>Sans page de tarifs claire, les curieux appellent ou abandonnent. Quand les prix sont introuvables, les prospects vont à la salle d'à côté qui les affiche clairement.</div></li>
+          <li><span class="li-icon">❌</span><div><strong style="color:#fff">Les leads des nouveaux arrivants</strong><br>Quelqu'un qui déménage dans votre ville tape "salle de sport [ville]" sur Google. Si vous n'avez pas de site, il ne vous trouve pas — même si vous êtes à 200 mètres.</div></li>
+          <li><span class="li-icon">❌</span><div><strong style="color:#fff">Les inscriptions spontanées</strong><br>Sans formulaire d'essai gratuit, vous ratez les prospects qui veulent essayer avant de s'engager. Ces formulaires génèrent en moyenne 3× plus de conversions qu'un simple numéro de téléphone.</div></li>
+        </ul>
+      </div>
+      <div class="pain-block">
+        <h3>Avec un site, vous gagnez</h3>
+        <ul class="pain-list">
+          <li><span class="li-icon">✅</span><div><strong style="color:#fff">Tarifs transparents = plus de membres</strong><br>Vos formules d'abonnement clairement présentées : mensuel, trimestriel, annuel, cours à l'unité. Les visiteurs comprennent l'offre et s'inscrivent en autonomie.</div></li>
+          <li><span class="li-icon">✅</span><div><strong style="color:#fff">Visibilité locale 24h/24</strong><br>Votre site apparaît sur Google Maps quand quelqu'un cherche une salle dans votre zone. Les gens qui vous cherchent vous trouvent — même à 23h depuis leur téléphone.</div></li>
+          <li><span class="li-icon">✅</span><div><strong style="color:#fff">Leads qualifiés en automatique</strong><br>Formulaire d'inscription ou d'essai gratuit qui capte les coordonnées des intéressés. Vous n'avez plus qu'à les rappeler — ils sont déjà chauds.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(255,255,255,.06);padding-top:80px">
+    <div class="sec-tag">Ce qu'on inclut</div>
+    <h2>Tout ce dont votre salle<br>a besoin pour recruter en ligne</h2>
+    <p class="sec-lead">Un site fitness pensé pour convertir les visiteurs Google en membres — avec votre identité visuelle et votre ambiance.</p>
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-icon">💪</div>
+        <h3>Abonnements & tarifs clairs</h3>
+        <p>Toutes vos formules présentées clairement : durée, prix, ce qui est inclus (cours collectifs, coaching, accès libre). Les visiteurs comprennent et choisissent en autonomie.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📅</div>
+        <h3>Planning des cours en ligne</h3>
+        <p>Votre planning hebdomadaire affiché sur le site : cours collectifs, horaires, coachs intervenants, places disponibles. Mis à jour simplement quand le programme change.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🏋️</div>
+        <h3>Coachs & équipements</h3>
+        <p>Présentation de votre équipe de coachs et de vos équipements. Les prospects voient ce qui les attend avant de venir — et arrivent avec des attentes réalistes.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📸</div>
+        <h3>Galerie photos de la salle</h3>
+        <p>Vos espaces, équipements et ambiance en photos. Les gens veulent voir la salle avant de venir — montrez-leur ce qu'ils vont trouver.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📋</div>
+        <h3>Formulaire d'essai gratuit</h3>
+        <p>Un formulaire simple pour capturer les leads : nom, email, téléphone, type de séance souhaité. Vous les rappelez dans les 24h — taux de conversion moyen 40%.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📍</div>
+        <h3>SEO local "salle de sport [ville]"</h3>
+        <p>Votre site optimisé pour apparaître dans les 3 premiers résultats quand quelqu'un cherche une salle de sport dans votre ville ou quartier.</p>
+      </div>
+    </div>
+
+    <div class="result-band">
+      <div class="rn">+45%</div>
+      <div>
+        <h3>De demandes de renseignements via le formulaire</h3>
+        <p>Les salles qui ajoutent un formulaire d'essai gratuit à leur site voient en moyenne 40 à 50% de demandes supplémentaires par rapport à celles qui n'affichent qu'un numéro de téléphone. Le prospect s'engage sans se sentir forcé.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid rgba(255,255,255,.06);padding-top:80px">
+    <div class="sec-tag">FAQ</div>
+    <h2>Questions fréquentes<br>des gérants de salles de sport</h2>
+    <div class="faq" style="margin-top:32px">
+      <details>
+        <summary>J'utilise Mindbody ou Glofox — est-ce que j'ai besoin d'un site en plus ?</summary>
+        <p>Oui, pour la même raison que Doctolib pour les médecins : Mindbody et Glofox gèrent vos réservations, mais Google ne les indexe pas de la même façon qu'un vrai site. Votre propre site capte les recherches locales et redirige les visiteurs vers votre système de réservation. On intègre votre lien Mindbody ou Glofox directement dans le site.</p>
+      </details>
+      <details>
+        <summary>Puis-je mettre le planning des cours facilement à jour ?</summary>
+        <p>Oui. On crée une page planning simple que vous pouvez modifier sans toucher au code — soit via un fichier texte, soit via une interface d'administration basique selon votre niveau de confort. On vous forme en 15 minutes à la mise à jour.</p>
+      </details>
+      <details>
+        <summary>Combien coûte un site web pour salle de sport ?</summary>
+        <p>Un site fitness professionnel chez Pixel Studio démarre à 490€ pour une vitrine avec tarifs, planning et formulaire de contact. Pour un site complet avec planning interactif, galerie et formulaire d'essai, comptez entre 690€ et 1 000€. Maquette gratuite avant tout paiement.</p>
+      </details>
+      <details>
+        <summary>Comment apparaître en premier sur Google pour "salle de sport [ma ville]" ?</summary>
+        <p>Trois leviers : votre site optimisé SEO local, votre fiche Google Business Profile complète avec photos et avis, et des avis clients réguliers. On s'occupe du premier et on vous guide sur les deux autres. Les résultats apparaissent généralement en 4 à 8 semaines pour les villes moyennes, un peu plus pour Paris ou Lyon.</p>
+      </details>
+      <details>
+        <summary>Combien de temps pour créer mon site ?</summary>
+        <p>Un site salle de sport vitrine est livré en 72h à 5 jours. Un site complet avec planning et formulaire d'inscription prend 1 à 2 semaines. On fixe une date ferme dès le départ.</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Vos futurs membres<br>vous cherchent sur Google.</h2>
+    <p>Maquette gratuite sous 48h. Devis personnalisé en 10 minutes. Sans engagement.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/33620757517?text=Bonjour%2C%20j%27ai%20une%20salle%20de%20sport%20et%20je%20veux%20un%20site%20web" class="btn-pink">Voir ma maquette gratuite →</a>
+      <a href="https://calendly.com/mredahmamouchi/30min" target="_blank" class="btn-ghost">Réserver un appel</a>
+    </div>
+  </div>
+
+  <div style="padding-bottom:60px">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Autres services & pages :</p>
+    <div class="internal-links">
+      <a href="creation-site-coiffeur.html" class="int-link">Site web coiffeur →</a>
+      <a href="creation-site-restaurant.html" class="int-link">Site web restaurant →</a>
+      <a href="creation-site-immobilier.html" class="int-link">Site web immobilier →</a>
+      <a href="agence-web-reims.html" class="int-link">Agence web Reims →</a>
+      <a href="agence-web-paris.html" class="int-link">Agence web Paris →</a>
+      <a href="index.html" class="int-link">Accueil Pixel Studio →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">← Retour au site Pixel Studio</a> &nbsp;·&nbsp; <a href="agence-web-reims.html">Agence web Reims</a> &nbsp;·&nbsp; <a href="creation-site-restaurant.html">Site web restaurant</a> &nbsp;·&nbsp; © 2026 Pixel Studio</p>
+</footer>
+
+</body>
+</html>
