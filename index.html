@@ -476,6 +476,9 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .srv-cats{grid-template-columns:repeat(2,1fr)}
 }
+@media(max-width:1280px){
+  .srv-cats{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:900px){
   .nav-menu{display:none;position:fixed;top:74px;left:0;right:0;flex-direction:column;background:rgba(2,10,35,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1);padding:18px 28px;gap:0}
   .nav-menu.open{display:flex}
@@ -520,7 +523,7 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 .rotator{display:block}
 .rotator .word{display:inline-block;font-size:clamp(56px,10vw,130px);font-weight:800;letter-spacing:-.04em;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:rotIn .5s cubic-bezier(.16,1,.3,1)}
 @keyframes rotIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:none scale(1)}}
-.srv-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .srv-cat{background:rgba(0,20,50,.5);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:var(--r);padding:30px 28px;transition:.25s}
 .srv-cat:hover{border-color:var(--blue-2);box-shadow:0 18px 40px rgba(29,78,216,.08);transform:translateY(-4px)}
 .srv-cat .ico{margin-bottom:14px;font-size:40px;line-height:1}.ups-ico{font-size:36px;line-height:1;margin-bottom:14px}.proc .s .vico{font-size:28px;line-height:1;display:block}
@@ -581,7 +584,7 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
 @media(max-width:600px){.form-row{grid-template-columns:1fr}}
 .form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
 .form-group label{font-family:var(--display);font-size:13px;font-weight:600;color:var(--ink-2)}
-.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:13px 15px;font-family:var(--body);font-size:15px;color:#fff;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:13px 15px;font-family:var(--body);font-size:16px;color:#fff;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
 .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.45)}
 .form-group label{color:rgba(255,255,255,.8)}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,78,216,.1)}
