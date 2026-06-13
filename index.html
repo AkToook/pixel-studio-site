@@ -175,6 +175,15 @@ section{padding:120px 0;background:rgba(4,7,14,.82);position:relative;z-index:1}
 .srv-arrow{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s;flex-shrink:0}
 .srv-row:hover .srv-arrow{background:rgba(196,181,253,.25);color:#fff;border-color:#F72585;transform:rotate(-45deg)}
 
+/* Manifeste */
+.manifeste-sec{padding:80px 0;background:transparent;position:relative;z-index:1}
+.manifeste-inner{text-align:center;max-width:720px;margin:0 auto}
+.manifeste-tag{display:inline-flex;align-items:center;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-2);background:rgba(247,37,133,.08);border:1px solid rgba(247,37,133,.2);padding:7px 16px;border-radius:50px;margin-bottom:24px}
+.manifeste-title{font-size:clamp(28px,4.5vw,52px);color:#fff;margin-bottom:18px;letter-spacing:-.04em}
+.manifeste-sub{font-size:clamp(16px,1.8vw,19px);color:var(--muted);line-height:1.65;max-width:58ch;margin:0 auto 36px}
+.manifeste-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.manifeste-pills span{font-family:var(--display);font-size:13px;font-weight:600;color:var(--ink-2);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 18px;border-radius:50px}
+
 /* Booking modal */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,10,30,.7);backdrop-filter:blur(6px);z-index:2000;align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
@@ -998,6 +1007,23 @@ footer{background:rgba(0,10,30,.75);backdrop-filter:blur(12px);border-top:1px so
       <div class="srv-cat reveal"><div class="ico">⚙️</div><h3>Web Apps & CRM</h3><ul><li>Applications web sur mesure</li><li>CRM & outils internes</li><li>SaaS & MVP startup</li><li>Automatisations & intégrations</li><li>Applications mobiles iOS & Android</li></ul></div>
       <div class="srv-cat reveal"><div class="ico">🤖</div><h3>Intelligence artificielle</h3><ul><li>Chatbots IA & agents intelligents</li><li>Intégrations IA dans vos outils</li><li>Sites web IA & logiciels</li><li>Conseil en technologie IA</li></ul></div>
       <div class="srv-cat reveal"><div class="ico">📣</div><h3>Marketing digital</h3><ul><li>Google Ads — création & gestion</li><li>Meta Ads (Facebook / Instagram)</li><li>SEO local & national</li><li>Création de contenus visuels</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTE -->
+<section class="manifeste-sec">
+  <div class="wrap">
+    <div class="manifeste-inner reveal">
+      <div class="manifeste-tag">Notre philosophie</div>
+      <h2 class="manifeste-title">Chez Pixel Studio, rien n'est template.</h2>
+      <p class="manifeste-sub">Vous arrivez avec une idée, on repart avec un projet. Du design à la mise en ligne, chaque détail est pensé pour vous — pas pour le prochain client.</p>
+      <div class="manifeste-pills">
+        <span>✦ Design sur-mesure</span>
+        <span>✦ Code propriétaire</span>
+        <span>✦ Zéro copier-coller</span>
+        <span>✦ Livré clé en main</span>
+      </div>
     </div>
   </div>
 </section>
