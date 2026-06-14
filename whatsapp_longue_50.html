@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Studio — WA Longue (50)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f13; color: #e2e8f0; min-height: 100vh; }
+
+  .header { background: #1a1a2e; padding: 20px 24px; border-bottom: 1px solid #2d2d4e; position: sticky; top: 0; z-index: 50; }
+  .header-top { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 18px; font-weight: 700; }
+  .logo span { color: #25d366; }
+  .version-badge { background: rgba(37,211,102,0.15); color: #25d366; border: 1px solid rgba(37,211,102,0.3); padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .counter { font-size: 14px; color: #64748b; margin-top: 10px; }
+  .counter strong { color: #25d366; font-size: 22px; }
+  .progress-bar { height: 6px; background: #2d2d4e; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #25d366, #128c7e); border-radius: 3px; transition: width 0.4s ease; }
+
+  .list { padding: 16px; display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin: 0 auto; }
+
+  .card { background: #1a1a2e; border: 1px solid #2d2d4e; border-radius: 14px; padding: 16px; display: flex; align-items: center; gap: 14px; transition: border-color 0.2s; }
+  .card.sent { border-color: rgba(37,211,102,0.4); background: rgba(37,211,102,0.04); }
+  .card.sent .card-num { color: #25d366; }
+
+  .card-num { font-size: 13px; font-weight: 700; color: #4b5563; min-width: 28px; text-align: center; }
+
+  .card-info { flex: 1; min-width: 0; }
+  .card-nom { font-size: 15px; font-weight: 700; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card.sent .card-nom { color: #25d366; text-decoration: line-through; opacity: 0.7; }
+  .card-meta { font-size: 12px; color: #64748b; margin-top: 3px; }
+  .card-note { font-size: 12px; color: #fbbf24; margin-top: 2px; }
+
+  .card-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+
+  .btn-wa { display: flex; align-items: center; gap: 6px; background: #25d366; color: #fff; border: none; border-radius: 10px; padding: 10px 16px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
+  .btn-wa:hover { background: #1ebe5d; transform: scale(1.02); }
+  .btn-wa:active { transform: scale(0.98); }
+  .btn-wa svg { width: 18px; height: 18px; fill: white; flex-shrink: 0; }
+  .card.sent .btn-wa { background: #2d2d4e; color: #4b5563; cursor: default; }
+  .card.sent .btn-wa:hover { background: #2d2d4e; transform: none; }
+
+  .btn-check { width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid #2d2d4e; background: transparent; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
+  .btn-check:hover { border-color: #25d366; }
+  .card.sent .btn-check { border-color: #25d366; background: rgba(37,211,102,0.15); }
+
+  .sent-label { font-size: 11px; color: #25d366; font-weight: 600; display: none; }
+  .card.sent .sent-label { display: block; }
+
+  .reset-btn { display: block; margin: 20px auto; padding: 8px 20px; border: 1px solid #4b5563; background: transparent; color: #4b5563; border-radius: 8px; font-size: 12px; cursor: pointer; }
+  .reset-btn:hover { border-color: #ef4444; color: #ef4444; }
+
+  @media (max-width: 520px) {
+    .card { flex-wrap: wrap; }
+    .card-actions { width: 100%; justify-content: flex-end; }
+    .btn-wa { flex: 1; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="logo">Pixel <span>Studio</span> — Version Longue</div>
+    <span class="version-badge">50 prospects</span>
+  </div>
+  <div class="counter">Envoyés : <strong id="sentCount">0</strong> / 50</div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+</div>
+
+<div class="list" id="list"></div>
+<button class="reset-btn" onclick="resetAll()">↺ Réinitialiser la progression</button>
+
+<script>
+const MSG_LONG = (nom, type, note, avis) => {
+  const noteStr = (note && note !== '—') ? `J'ai vu votre fiche : ${note} sur ${avis} avis. Vous êtes clairement parmi les meilleurs de votre secteur dans la région. C'est exactement le profil qu'on a sélectionné — on a une réputation à tenir, on préfère ne pas prendre beaucoup de monde, on a même refusé des profils sans potentiel.` : `On a regardé votre activité à Reims et vous faites partie des profils qu'on a sélectionnés — on a une réputation à tenir, on préfère travailler avec des pros sérieux.`;
+  return `Bonjour, c'est Reda de Pixel Studio, agence web à Paris.
+
+Quand quelqu'un tape « ${type} Reims » sur Google, vous n'apparaissez pas. Vos concurrents raflent des clients qui auraient dû aller chez vous — pas parce qu'ils sont meilleurs, mais parce qu'ils se vendent mieux en ligne.
+
+On a été l'une des meilleures agences sur Paris, notamment dans le travail avec les professionnels indépendants et les petites entreprises. On s'implante maintenant à Reims (j'y habite donc c'est bien plus simple haha) et pour nos débuts ici, on a fait le tour des pros locaux pour choisir avec qui travailler.
+
+${noteStr}
+
+Notre boulot : vous créer un site bien fait — designers et ingénieurs, tout en interne — optimisé pour le référencement local. Résultat : quand quelqu'un tape « ${type} Reims », vous remontez en haut de Google et vous récupérez des clients que vous perdez aujourd'hui.
+
+Nos prix ne sont pas ceux des agences à 10 000–12 000€ — on a pu le voir, on est basés à Paris et on propose des tarifs très corrects. Paiements en plusieurs fois si besoin, garantie satisfait ou remboursé.
+
+Pour notre lancement à Reims, on vous envoie une maquette gratuite de votre futur site — il reste 7 places sur 15. On a juste besoin d'un rapide appel pour quelques infos. 5 min, pas plus.
+
+Ça vous dit ?`;
+};
+
+const KEYWORDS = {
+  "Garage auto":"garage","Plombier":"plombier","Artisan":"artisan","Négoce auto":"vente voiture",
+  "Chauffagiste":"chauffagiste","Transport/livraison":"transport","Peintre bâtiment":"peintre",
+  "Peintre en bâtiment":"peintre","Électricien":"électricien","Dépannage/remorquage":"dépannage",
+  "Rénovation":"rénovation","Coiffeur":"coiffeur","Barbier":"barbier","Massage/bien-être":"massage",
+  "Institut de beauté":"institut de beauté","Onglerie":"onglerie","Head spa/bien-être":"head spa",
+  "Beauté/soins":"salon de beauté","Commerce de proximité":"épicerie","Supérette":"supérette",
+  "Épicerie":"épicerie","Atelier-boutique":"boutique","Photographe":"photographe",
+  "Chambre d'hôtes":"chambre d'hôtes","Salle de réception":"salle de réception",
+  "Salle événementielle":"salle","Hébergement":"location","Gîte/location":"gîte",
+  "Hébergement/suites":"location","Hôtellerie/réceptif":"hôtel","Location":"location",
+  "Sandwicherie":"sandwicherie","Restaurant":"restaurant","Kebab/fast-food":"kebab",
+  "Food truck":"food truck","Friterie":"friterie","Sushi à emporter":"sushi",
+  "Ostéopathe":"ostéopathe","Praticien santé/sport":"kiné","Coach sportif":"coach sportif"
+};
+
+function toWAPhone(tel) {
+  return '33' + tel.replace(/\s/g,'').slice(1);
+}
+
+function waLink(tel, msg) {
+  return `https://wa.me/${toWAPhone(tel)}?text=${encodeURIComponent(msg)}`;
+}
+
+const PROSPECTS = [
+  {id:1, nom:"DG PRESTIGE AUTOMOBILE", type:"Garage auto", ville:"Reims", tel:"06 99 13 35 35", note:"4.9/5", avis:223},
+  {id:2, nom:"Castet Plomberie", type:"Plombier", ville:"Reims", tel:"06 22 46 30 34", note:"5/5", avis:207},
+  {id:3, nom:"Garage BT 27", type:"Garage auto", ville:"Reims", tel:"06 85 77 87 65", note:"4.9/5", avis:65},
+  {id:4, nom:"GARAGE JS MECANIQUE", type:"Garage auto", ville:"Reims", tel:"07 60 08 77 24", note:"4.3/5", avis:54},
+  {id:5, nom:"PCPX", type:"Artisan", ville:"Tinqueux", tel:"07 69 89 53 95", note:"4.9/5", avis:53},
+  {id:6, nom:"Venise Cars", type:"Négoce auto", ville:"Reims", tel:"06 58 14 40 96", note:"4.9/5", avis:39},
+  {id:7, nom:"Ac dépannage chauffage", type:"Chauffagiste", ville:"Reims", tel:"06 32 90 13 70", note:"5/5", avis:33},
+  {id:8, nom:"A.B PLOMBERIE CHAUFFAGE REIMS", type:"Plombier", ville:"Reims", tel:"06 25 87 33 15", note:"5/5", avis:29},
+  {id:9, nom:"Levon Transports", type:"Transport/livraison", ville:"Reims", tel:"07 49 67 74 14", note:"5/5", avis:24},
+  {id:10, nom:"Le Parfait Chauffagiste", type:"Chauffagiste", ville:"Reims", tel:"06 85 11 27 08", note:"4.8/5", avis:20},
+  {id:11, nom:"TP.peinture", type:"Peintre bâtiment", ville:"Reims", tel:"06 36 41 58 29", note:"5/5", avis:20},
+  {id:12, nom:"Garage Mécanique Automobile", type:"Garage auto", ville:"Reims", tel:"06 58 66 07 28", note:"5/5", avis:15},
+  {id:13, nom:"Legouge Vincent", type:"Artisan", ville:"Reims", tel:"06 11 11 18 05", note:"4.7/5", avis:11},
+  {id:14, nom:"KAD Motortech", type:"Garage auto", ville:"Reims", tel:"06 95 69 84 04", note:"5/5", avis:9},
+  {id:15, nom:"A.J Peinture", type:"Peintre bâtiment", ville:"Saint-Brice", tel:"06 89 67 15 78", note:"5/5", avis:7},
+  {id:16, nom:"O'chauf", type:"Chauffagiste", ville:"Reims", tel:"06 03 00 46 17", note:"5/5", avis:5},
+  {id:17, nom:"AMELEC ENERGIE", type:"Électricien", ville:"Bétheny", tel:"06 29 98 00 73", note:"5/5", avis:5},
+  {id:18, nom:"Kadana peinture", type:"Peintre bâtiment", ville:"Reims", tel:"07 69 09 88 90", note:"5/5", avis:5},
+  {id:19, nom:"New Look Habitat", type:"Rénovation", ville:"Reims", tel:"06 70 11 75 55", note:"3/5", avis:3},
+  {id:20, nom:"Chagaar Karim", type:"Artisan", ville:"Reims", tel:"06 82 30 79 05", note:"5/5", avis:3},
+  {id:21, nom:"FASSI ELECTRICITE", type:"Électricien", ville:"Reims", tel:"07 68 53 91 91", note:"5/5", avis:2},
+  {id:22, nom:"sas Bhn Company Hicham", type:"Artisan", ville:"Reims", tel:"06 21 11 05 26", note:"5/5", avis:2},
+  {id:23, nom:"Sylva's Tools", type:"Artisan", ville:"Reims", tel:"06 10 85 83 31", note:"5/5", avis:2},
+  {id:24, nom:"SPG PEINTURE GENERALE 51", type:"Peintre bâtiment", ville:"Reims", tel:"07 58 93 79 02", note:"5/5", avis:2},
+  {id:25, nom:"Erca Prestations", type:"Artisan", ville:"Reims", tel:"06 52 81 67 37", note:"5/5", avis:2},
+  {id:26, nom:"MON PETIT CAMION", type:"Transport/livraison", ville:"Tinqueux", tel:"06 40 27 21 33", note:"5/5", avis:2},
+  {id:27, nom:"Transports Sogny", type:"Transport/livraison", ville:"Reims", tel:"06 13 50 33 14", note:"5/5", avis:2},
+  {id:28, nom:"MC ELECTRICITE", type:"Électricien", ville:"Reims", tel:"06 27 63 14 87", note:"5/5", avis:1},
+  {id:29, nom:"Meunier Artisan", type:"Artisan", ville:"Reims", tel:"07 80 04 94 39", note:"5/5", avis:1},
+  {id:30, nom:"Aksa tech-elect", type:"Électricien", ville:"Reims", tel:"07 58 66 30 29", note:"—", avis:0},
+  {id:31, nom:"Sotin Nicolas Electricité", type:"Électricien", ville:"Reims", tel:"06 40 97 60 54", note:"—", avis:0},
+  {id:32, nom:"SADE-ELEC", type:"Artisan", ville:"Reims", tel:"07 82 57 28 47", note:"—", avis:0},
+  {id:33, nom:"Multi services 51", type:"Artisan", ville:"Reims", tel:"06 51 22 50 37", note:"—", avis:0},
+  {id:34, nom:"Nisbat", type:"Artisan", ville:"Reims", tel:"06 52 56 12 53", note:"—", avis:0},
+  {id:35, nom:"Remorquage 51 Reims", type:"Dépannage/remorquage", ville:"Saint-Brice", tel:"06 10 18 01 10", note:"—", avis:0},
+  {id:36, nom:"Quatre Pattes Transport", type:"Transport/livraison", ville:"Reims", tel:"06 17 12 34 34", note:"—", avis:0},
+  {id:37, nom:"L'Homme Tag", type:"Beauté/soins", ville:"Saint-Brice", tel:"07 81 45 54 50", note:"5/5", avis:661},
+  {id:38, nom:"Le Coiffeur du quartier", type:"Coiffeur", ville:"Reims", tel:"06 15 95 28 99", note:"3.8/5", avis:175},
+  {id:39, nom:"Le New Yorkais", type:"Beauté/soins", ville:"Reims", tel:"06 58 65 29 58", note:"3.9/5", avis:152},
+  {id:40, nom:"hair industry", type:"Coiffeur", ville:"Reims", tel:"06 95 07 73 02", note:"4.6/5", avis:101},
+  {id:41, nom:"07 Barbershop", type:"Barbier", ville:"Reims", tel:"06 95 87 56 04", note:"4.8/5", avis:96},
+  {id:42, nom:"King's Barber", type:"Barbier", ville:"Reims", tel:"07 75 95 62 78", note:"4.4/5", avis:90},
+  {id:43, nom:"Massage et soins Bio Reims", type:"Massage/bien-être", ville:"Reims", tel:"06 85 68 94 77", note:"5/5", avis:90},
+  {id:44, nom:"La main d'or barber", type:"Barbier", ville:"Bétheny", tel:"07 52 29 03 52", note:"4.8/5", avis:75},
+  {id:45, nom:"STUDIO BY M.", type:"Coiffeur", ville:"Reims", tel:"07 44 99 51 11", note:"5/5", avis:65},
+  {id:46, nom:"Luton BarberShop", type:"Barbier", ville:"Reims", tel:"06 51 67 58 57", note:"4.8/5", avis:55},
+  {id:47, nom:"Institut Tamara", type:"Institut de beauté", ville:"Reims", tel:"07 69 72 58 08", note:"5/5", avis:45},
+  {id:48, nom:"l'ateliers des ongles reims", type:"Onglerie", ville:"Reims", tel:"06 28 66 57 63", note:"4.4/5", avis:42},
+  {id:49, nom:"PAUSE VANILLE", type:"Institut de beauté", ville:"Reims", tel:"06 08 87 49 77", note:"5/5", avis:30},
+  {id:50, nom:"MELKA BARBER GAMBETTA", type:"Barbier", ville:"Reims", tel:"07 44 17 57 53", note:"3.9/5", avis:23},
+];
+
+let sent = {};
+try { sent = JSON.parse(localStorage.getItem('wa_longue') || '{}'); } catch(e) {}
+
+function saveSent() { localStorage.setItem('wa_longue', JSON.stringify(sent)); }
+
+function toggle(id) {
+  sent[id] = !sent[id];
+  saveSent();
+  render();
+}
+
+function updateCounter() {
+  const n = Object.values(sent).filter(Boolean).length;
+  document.getElementById('sentCount').textContent = n;
+  document.getElementById('progressFill').style.width = (n/50*100) + '%';
+}
+
+function render() {
+  updateCounter();
+  document.getElementById('list').innerHTML = PROSPECTS.map(p => {
+    const kw = KEYWORDS[p.type] || p.type.toLowerCase();
+    const msg = MSG_LONG(p.nom, kw, p.note, p.avis);
+    const link = waLink(p.tel, msg);
+    const isSent = !!sent[p.id];
+    return `<div class="card${isSent?' sent':''}" id="card${p.id}">
+      <div class="card-num">${p.id}</div>
+      <div class="card-info">
+        <div class="card-nom">${p.nom}</div>
+        <div class="card-meta">${p.type} • ${p.ville} • ${p.tel}</div>
+        ${p.note !== '—' ? `<div class="card-note">⭐ ${p.note} (${p.avis} avis)</div>` : ''}
+        <div class="sent-label">✓ Envoyé</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-wa" href="${isSent ? '#' : link}" target="${isSent ? '_self' : '_blank'}" onclick="${isSent ? `event.preventDefault()` : `toggle(${p.id})`}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ${isSent ? 'Envoyé' : 'Envoyer WA'}
+        </a>
+        <button class="btn-check" onclick="toggle(${p.id})" title="${isSent ? 'Marquer non envoyé' : 'Marquer envoyé'}">
+          ${isSent ? '✅' : '○'}
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function resetAll() {
+  if (!confirm('Réinitialiser toute la progression ?')) return;
+  sent = {};
+  saveSent();
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

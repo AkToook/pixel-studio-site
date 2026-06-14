@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Studio — WA Courte (64)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f13; color: #e2e8f0; min-height: 100vh; }
+
+  .header { background: #1a1a2e; padding: 20px 24px; border-bottom: 1px solid #2d2d4e; position: sticky; top: 0; z-index: 50; }
+  .header-top { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 18px; font-weight: 700; }
+  .logo span { color: #25d366; }
+  .version-badge { background: rgba(129,140,248,0.15); color: #818cf8; border: 1px solid rgba(129,140,248,0.3); padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .counter { font-size: 14px; color: #64748b; margin-top: 10px; }
+  .counter strong { color: #25d366; font-size: 22px; }
+  .progress-bar { height: 6px; background: #2d2d4e; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #25d366, #128c7e); border-radius: 3px; transition: width 0.4s ease; }
+
+  .list { padding: 16px; display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin: 0 auto; }
+
+  .card { background: #1a1a2e; border: 1px solid #2d2d4e; border-radius: 14px; padding: 16px; display: flex; align-items: center; gap: 14px; transition: border-color 0.2s; }
+  .card.sent { border-color: rgba(37,211,102,0.4); background: rgba(37,211,102,0.04); }
+
+  .card-num { font-size: 13px; font-weight: 700; color: #4b5563; min-width: 28px; text-align: center; }
+
+  .card-info { flex: 1; min-width: 0; }
+  .card-nom { font-size: 15px; font-weight: 700; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card.sent .card-nom { color: #25d366; text-decoration: line-through; opacity: 0.7; }
+  .card-meta { font-size: 12px; color: #64748b; margin-top: 3px; }
+  .card-note { font-size: 12px; color: #fbbf24; margin-top: 2px; }
+
+  .card-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+
+  .btn-wa { display: flex; align-items: center; gap: 6px; background: #25d366; color: #fff; border: none; border-radius: 10px; padding: 10px 16px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
+  .btn-wa:hover { background: #1ebe5d; transform: scale(1.02); }
+  .btn-wa:active { transform: scale(0.98); }
+  .btn-wa svg { width: 18px; height: 18px; fill: white; flex-shrink: 0; }
+  .card.sent .btn-wa { background: #2d2d4e; color: #4b5563; cursor: default; }
+  .card.sent .btn-wa:hover { background: #2d2d4e; transform: none; }
+
+  .btn-check { width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid #2d2d4e; background: transparent; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
+  .btn-check:hover { border-color: #25d366; }
+  .card.sent .btn-check { border-color: #25d366; background: rgba(37,211,102,0.15); }
+
+  .sent-label { font-size: 11px; color: #25d366; font-weight: 600; display: none; }
+  .card.sent .sent-label { display: block; }
+
+  .reset-btn { display: block; margin: 20px auto; padding: 8px 20px; border: 1px solid #4b5563; background: transparent; color: #4b5563; border-radius: 8px; font-size: 12px; cursor: pointer; }
+  .reset-btn:hover { border-color: #ef4444; color: #ef4444; }
+
+  @media (max-width: 520px) {
+    .card { flex-wrap: wrap; }
+    .card-actions { width: 100%; justify-content: flex-end; }
+    .btn-wa { flex: 1; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="logo">Pixel <span>Studio</span> — Version Courte</div>
+    <span class="version-badge">64 prospects</span>
+  </div>
+  <div class="counter">Envoyés : <strong id="sentCount">0</strong> / 64</div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+</div>
+
+<div class="list" id="list"></div>
+<button class="reset-btn" onclick="resetAll()">↺ Réinitialiser la progression</button>
+
+<script>
+const MSG_COURTE = (nom, type, note, avis) => {
+  const noteStr = (note && note !== '—') ? `j'ai vu votre fiche : ${note} sur ${avis} avis — vous faites partie des profils qu'on a retenus` : `votre activité correspond au profil qu'on recherche — vous faites partie des profils qu'on a retenus`;
+  return `Bonjour, c'est Reda de Pixel Studio, agence web à Paris.
+
+Quand quelqu'un tape « ${type} Reims » sur Google, vous n'apparaissez pas. Vos concurrents récupèrent des clients qui auraient dû venir chez vous.
+
+On s'implante à Reims — ${noteStr}.
+
+On vous crée le site — designers et devs, tout en interne. Nos prix ne sont pas ceux des agences à 10 000–12 000€, on a pu le constater. Des tarifs très corrects, paiements en plusieurs fois, garantie satisfait ou remboursé.
+
+Pour notre lancement : maquette gratuite, il reste 7 places sur 15. Un appel de 5 min suffit.
+
+Ça vous dit ?`;
+};
+
+const KEYWORDS = {
+  "Garage auto":"garage","Plombier":"plombier","Artisan":"artisan","Négoce auto":"vente voiture",
+  "Chauffagiste":"chauffagiste","Transport/livraison":"transport","Peintre bâtiment":"peintre",
+  "Électricien":"électricien","Dépannage/remorquage":"dépannage","Rénovation":"rénovation",
+  "Coiffeur":"coiffeur","Barbier":"barbier","Massage/bien-être":"massage",
+  "Institut de beauté":"institut de beauté","Onglerie":"onglerie","Head spa/bien-être":"head spa",
+  "Beauté/soins":"salon de beauté","Commerce de proximité":"épicerie","Supérette":"supérette",
+  "Épicerie":"épicerie","Atelier-boutique":"boutique","Photographe":"photographe",
+  "Chambre d'hôtes":"chambre d'hôtes","Salle de réception":"salle de réception",
+  "Salle événementielle":"salle","Hébergement":"location","Gîte/location":"gîte",
+  "Hébergement/suites":"location","Hôtellerie/réceptif":"hôtel","Location":"location",
+  "Sandwicherie":"sandwicherie","Restaurant":"restaurant","Kebab/fast-food":"kebab",
+  "Food truck":"food truck","Friterie":"friterie","Sushi à emporter":"sushi",
+  "Ostéopathe":"ostéopathe","Praticien santé/sport":"kiné","Coach sportif":"coach sportif"
+};
+
+function toWAPhone(tel) {
+  return '33' + tel.replace(/\s/g,'').slice(1);
+}
+function waLink(tel, msg) {
+  return `https://wa.me/${toWAPhone(tel)}?text=${encodeURIComponent(msg)}`;
+}
+
+const PROSPECTS = [
+  {id:51, nom:"House of Beauty 51", type:"Institut de beauté", ville:"Reims", tel:"06 09 06 43 41", note:"4.6/5", avis:21},
+  {id:52, nom:"Bulle de Soie head spa", type:"Head spa/bien-être", ville:"Reims", tel:"06 30 29 04 52", note:"5/5", avis:18},
+  {id:53, nom:"L'Atelier Osaline", type:"Institut de beauté", ville:"Reims", tel:"06 46 84 19 28", note:"5/5", avis:16},
+  {id:54, nom:"Zenova - Head Spa Reims", type:"Head spa/bien-être", ville:"Reims", tel:"06 31 64 17 38", note:"5/5", avis:11},
+  {id:55, nom:"Créativement Vôtre", type:"Beauté/soins", ville:"Reims", tel:"06 12 21 68 39", note:"4.9/5", avis:9},
+  {id:56, nom:"Noémie Leoncini - Réflexologue", type:"Massage/bien-être", ville:"Reims", tel:"07 49 97 05 71", note:"5/5", avis:9},
+  {id:57, nom:"Le barbier (Bétheny)", type:"Barbier", ville:"Bétheny", tel:"06 04 79 01 86", note:"2.4/5", avis:8},
+  {id:58, nom:"Maya salon de massage", type:"Massage/bien-être", ville:"Reims", tel:"06 02 84 84 57", note:"4/5", avis:7},
+  {id:59, nom:"ZENSO massage reims", type:"Massage/bien-être", ville:"Reims", tel:"06 88 76 05 83", note:"5/5", avis:5},
+  {id:60, nom:"massage relax reims", type:"Massage/bien-être", ville:"Reims", tel:"07 57 64 03 00", note:"3.8/5", avis:5},
+  {id:61, nom:"Reims beauty", type:"Institut de beauté", ville:"Reims", tel:"06 51 55 42 05", note:"3/5", avis:4},
+  {id:62, nom:"Lb Nails", type:"Onglerie", ville:"Cernay-lès-Reims", tel:"06 35 50 48 19", note:"5/5", avis:3},
+  {id:63, nom:"BEAUTE", type:"Institut de beauté", ville:"Reims", tel:"07 57 65 03 00", note:"5/5", avis:1},
+  {id:64, nom:"E.V.A Nails", type:"Onglerie", ville:"Reims", tel:"07 71 37 90 46", note:"—", avis:0},
+  {id:65, nom:"Orgeval City 51", type:"Commerce de proximité", ville:"Reims", tel:"07 83 45 15 69", note:"4.9/5", avis:79},
+  {id:66, nom:"CocciMarket", type:"Supérette", ville:"Reims", tel:"06 20 64 56 20", note:"4.2/5", avis:56},
+  {id:67, nom:"BAHIA", type:"Commerce de proximité", ville:"Reims", tel:"06 69 60 58 07", note:"4.9/5", avis:53},
+  {id:68, nom:"Epicerie Voltaire", type:"Épicerie", ville:"Reims", tel:"07 53 69 99 61", note:"4.4/5", avis:40},
+  {id:69, nom:"L'artichaut", type:"Commerce de proximité", ville:"Reims", tel:"06 65 74 05 99", note:"4.1/5", avis:30},
+  {id:70, nom:"Azimi Market", type:"Supérette", ville:"Reims", tel:"06 22 27 00 48", note:"3.5/5", avis:20},
+  {id:71, nom:"La Femme S'entête", type:"Atelier-boutique", ville:"Reims", tel:"07 86 99 44 03", note:"4.8/5", avis:18},
+  {id:72, nom:"Khalsa", type:"Commerce de proximité", ville:"Reims", tel:"06 51 33 40 72", note:"3.9/5", avis:17},
+  {id:73, nom:"Summer de Graines", type:"Commerce de proximité", ville:"Reims", tel:"06 46 17 69 64", note:"5/5", avis:9},
+  {id:74, nom:"Épicerie alimentation danton", type:"Épicerie", ville:"Reims", tel:"06 24 29 49 62", note:"4.7/5", avis:7},
+  {id:75, nom:"Harvey's", type:"Commerce de proximité", ville:"Reims", tel:"06 21 03 50 20", note:"5/5", avis:6},
+  {id:76, nom:"A&N Epicerie", type:"Épicerie", ville:"Reims", tel:"07 68 25 78 12", note:"—", avis:0},
+  {id:77, nom:"Carrefour Market Balourdet", type:"Supérette", ville:"Reims", tel:"06 14 83 30 27", note:"—", avis:0},
+  {id:78, nom:"Ana Gk Photographe", type:"Photographe", ville:"Reims", tel:"06 35 45 63 64", note:"5/5", avis:96},
+  {id:79, nom:"Chambre d'hôtes TGV Bezannes", type:"Chambre d'hôtes", ville:"Bezannes", tel:"06 74 49 85 05", note:"5/5", avis:80},
+  {id:80, nom:"Le Clos de la Robe", type:"Salle de réception", ville:"Vandeuil", tel:"06 75 08 32 50", note:"4.6/5", avis:44},
+  {id:81, nom:"Alliance Réception Reims", type:"Salle événementielle", ville:"Tinqueux", tel:"07 77 75 26 48", note:"4/5", avis:24},
+  {id:82, nom:"La Petite Maison de JANE", type:"Hébergement", ville:"Reims", tel:"06 62 98 98 52", note:"4.9/5", avis:15},
+  {id:83, nom:"LA LOGIA - GITES 20 PERSONNES", type:"Gîte/location", ville:"Rilly-la-Montagne", tel:"06 15 99 59 32", note:"5/5", avis:13},
+  {id:84, nom:"Aux Deux D", type:"Hébergement", ville:"Reims", tel:"06 70 51 78 51", note:"4.4/5", avis:7},
+  {id:85, nom:"Suites du général Leclerc", type:"Hébergement/suites", ville:"Reims", tel:"06 31 66 51 47", note:"4.5/5", avis:4},
+  {id:86, nom:"Le loft du cadran", type:"Location", ville:"Reims", tel:"06 59 59 04 47", note:"5/5", avis:2},
+  {id:87, nom:"Vranken Hospitality", type:"Hôtellerie/réceptif", ville:"Reims", tel:"06 14 36 21 88", note:"5/5", avis:2},
+  {id:88, nom:"Les visages des Tournelles", type:"Hébergement", ville:"Reims", tel:"06 40 92 87 89", note:"5/5", avis:1},
+  {id:89, nom:"Let's Sandwich", type:"Sandwicherie", ville:"Reims", tel:"06 14 38 80 53", note:"4.4/5", avis:240},
+  {id:90, nom:"Little Spoon", type:"Restaurant", ville:"Reims", tel:"06 67 83 39 59", note:"5/5", avis:204},
+  {id:91, nom:"Regal Kebab", type:"Kebab/fast-food", ville:"Reims", tel:"07 83 43 77 31", note:"3.5/5", avis:92},
+  {id:92, nom:"Chez Jeanne food truck", type:"Food truck", ville:"Les Mesneux", tel:"07 67 86 63 02", note:"4.8/5", avis:89},
+  {id:93, nom:"L'unique", type:"Restaurant", ville:"Bazancourt", tel:"06 12 89 18 34", note:"3.5/5", avis:63},
+  {id:94, nom:"Les Sales Gosses Bistroquet", type:"Restaurant", ville:"Reims", tel:"06 33 55 88 34", note:"4.3/5", avis:57},
+  {id:95, nom:"COCCI FRITES", type:"Friterie", ville:"Sézanne", tel:"06 50 12 80 18", note:"4.7/5", avis:46},
+  {id:96, nom:"Du côté de chez Swan (food truck)", type:"Food truck", ville:"Reims", tel:"07 68 08 90 12", note:"4.9/5", avis:44},
+  {id:97, nom:"Un Truck De Food", type:"Food truck", ville:"Rethel", tel:"06 01 09 58 03", note:"4.8/5", avis:18},
+  {id:98, nom:"Food Truck La Balade Gourmande", type:"Food truck", ville:"Reims", tel:"06 77 50 02 10", note:"2.6/5", avis:7},
+  {id:99, nom:"Sushi Master", type:"Sushi à emporter", ville:"Cormontreuil", tel:"06 28 25 66 98", note:"5/5", avis:1},
+  {id:100, nom:"La sandwicherie chez nanie", type:"Sandwicherie", ville:"Melrand", tel:"06 60 96 56 36", note:"5/5", avis:1},
+  {id:101, nom:"Lisa BRULE - Ostéopathie Pluri Des Sacres", type:"Ostéopathe", ville:"Reims", tel:"06 20 17 64 36", note:"5/5", avis:113},
+  {id:102, nom:"Pauline Chaumeil", type:"Praticien santé/sport", ville:"Reims", tel:"06 64 95 59 03", note:"4.9/5", avis:98},
+  {id:103, nom:"Ayse MUTLU Ostéopathe DO", type:"Ostéopathe", ville:"Reims", tel:"07 84 44 52 36", note:"5/5", avis:44},
+  {id:104, nom:"Alexandre Barrier Ostéopathe D.O.", type:"Ostéopathe", ville:"Reims", tel:"06 30 12 21 12", note:"4.9/5", avis:31},
+  {id:105, nom:"Lydie Roger - Ostéopathe", type:"Ostéopathe", ville:"Reims", tel:"06 17 72 66 49", note:"4.5/5", avis:16},
+  {id:106, nom:"Taiclet Nicolas, Kiné-Ostéopathe", type:"Ostéopathe", ville:"Reims", tel:"06 84 11 03 22", note:"5/5", avis:14},
+  {id:107, nom:"Alice Warhem", type:"Praticien santé/sport", ville:"Reims", tel:"06 82 73 04 98", note:"4.8/5", avis:12},
+  {id:108, nom:"Livie Garnier Coach Sportif", type:"Coach sportif", ville:"Reims", tel:"07 81 02 21 58", note:"5/5", avis:7},
+  {id:109, nom:"Ostéopathe Reims - Pierre Massias", type:"Ostéopathe", ville:"Reims", tel:"07 67 78 78 83", note:"5/5", avis:7},
+  {id:110, nom:"Spooner Vecchiali Fabienne", type:"Praticien santé/sport", ville:"Reims", tel:"06 08 96 41 90", note:"5/5", avis:7},
+  {id:111, nom:"Ostéopathe Clément BIEUX", type:"Ostéopathe", ville:"Reims", tel:"06 11 35 33 88", note:"5/5", avis:4},
+  {id:112, nom:"Trainsform", type:"Coach sportif", ville:"Reims", tel:"06 75 26 43 86", note:"5/5", avis:2},
+  {id:113, nom:"Cardante Mickael", type:"Praticien santé/sport", ville:"Reims", tel:"06 16 74 22 91", note:"5/5", avis:2},
+  {id:114, nom:"Dutel Sophie", type:"Praticien santé/sport", ville:"Reims", tel:"07 57 84 00 59", note:"5/5", avis:1},
+];
+
+let sent = {};
+try { sent = JSON.parse(localStorage.getItem('wa_courte') || '{}'); } catch(e) {}
+
+function saveSent() { localStorage.setItem('wa_courte', JSON.stringify(sent)); }
+
+function toggle(id) {
+  sent[id] = !sent[id];
+  saveSent();
+  render();
+}
+
+function updateCounter() {
+  const n = Object.values(sent).filter(Boolean).length;
+  document.getElementById('sentCount').textContent = n;
+  document.getElementById('progressFill').style.width = (n/64*100) + '%';
+}
+
+function render() {
+  updateCounter();
+  document.getElementById('list').innerHTML = PROSPECTS.map(p => {
+    const kw = KEYWORDS[p.type] || p.type.toLowerCase();
+    const msg = MSG_COURTE(p.nom, kw, p.note, p.avis);
+    const link = waLink(p.tel, msg);
+    const isSent = !!sent[p.id];
+    return `<div class="card${isSent?' sent':''}" id="card${p.id}">
+      <div class="card-num">${p.id}</div>
+      <div class="card-info">
+        <div class="card-nom">${p.nom}</div>
+        <div class="card-meta">${p.type} • ${p.ville} • ${p.tel}</div>
+        ${p.note !== '—' ? `<div class="card-note">⭐ ${p.note} (${p.avis} avis)</div>` : ''}
+        <div class="sent-label">✓ Envoyé</div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-wa" href="${isSent ? '#' : link}" target="${isSent ? '_self' : '_blank'}" onclick="${isSent ? `event.preventDefault()` : `toggle(${p.id})`}">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ${isSent ? 'Envoyé' : 'Envoyer WA'}
+        </a>
+        <button class="btn-check" onclick="toggle(${p.id})" title="${isSent ? 'Marquer non envoyé' : 'Marquer envoyé'}">
+          ${isSent ? '✅' : '○'}
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function resetAll() {
+  if (!confirm('Réinitialiser toute la progression ?')) return;
+  sent = {};
+  saveSent();
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
