@@ -1,0 +1,206 @@
+{
+  "niches": [
+    {
+      "slug": "restaurant",
+      "name": "Restaurant",
+      "nameLong": "restaurant, café ou bar",
+      "emoji": "🍽️",
+      "intro": "Les restaurants sans site web perdent en moyenne 30% de leurs réservations au profit de concurrents mieux référencés.",
+      "problems": [
+        { "icon": "📵", "title": "Pas de réservations en ligne", "text": "73% des clients cherchent un restaurant sur Google avant de réserver. Sans site avec formulaire ou lien de réservation, vous perdez ces clients au profit de concurrents qui ont cette fonctionnalité." },
+        { "icon": "🗺️", "title": "Invisible sur Google Maps", "text": "Les recherches \"restaurant [ville]\" génèrent 40% de clics sur les 3 premiers résultats Google Maps. Sans site web lié à votre fiche, vous n'apparaissez pas dans ce pack carte stratégique." },
+        { "icon": "📋", "title": "Carte introuvable en ligne", "text": "62% des clients consultent la carte d'un restaurant en ligne avant de décider. Une carte absente ou illisible sur mobile fait fuir vos prospects directement chez la concurrence." }
+      ],
+      "features": ["Carte en ligne responsive", "Réservation intégrée", "Galerie photos cuisine", "Horaires et accès", "Google Maps intégré", "Menu du jour modifiable"],
+      "faqs": [
+        { "q": "Combien coûte un site web pour un restaurant ?", "a": "Un site vitrine pour restaurant avec carte en ligne et formulaire de réservation démarre à 490€ chez Pixel Studio. La carte est modifiable vous-même depuis votre téléphone, sans frais supplémentaires." },
+        { "q": "Puis-je mettre à jour ma carte moi-même ?", "a": "Oui. On vous forme en 20 minutes. Modifier un plat, un prix ou le menu du jour se fait depuis votre smartphone en quelques secondes, même le soir avant le service." },
+        { "q": "Le site fonctionne-t-il sur mobile ?", "a": "100% oui. 78% des recherches de restaurants se font sur mobile. Votre site sera parfaitement lisible sur tous les écrans, avec la carte, les photos et le bouton de réservation mis en avant." }
+      ],
+      "stat": "78% des réservations restaurant passent d'abord par une recherche Google"
+    },
+    {
+      "slug": "coiffeur",
+      "name": "Coiffeur",
+      "nameLong": "salon de coiffure ou institut de beauté",
+      "emoji": "✂️",
+      "intro": "Les salons de coiffure avec un site web reçoivent en moyenne 2× plus de demandes de rendez-vous que ceux absents du web.",
+      "problems": [
+        { "icon": "📅", "title": "Prise de RDV uniquement par téléphone", "text": "68% des clients préfèrent prendre rendez-vous en ligne plutôt que d'appeler. Sans système de réservation web, vous ratez tous ces clients — surtout ceux qui cherchent le soir ou le week-end." },
+        { "icon": "📸", "title": "Portfolio de réalisations inexistant", "text": "Les clients choisissent leur coiffeur d'abord sur le visuel. Sans galerie photo de vos réalisations en ligne, vous perdez face à des concurrents qui montrent leur travail sur leur site." },
+        { "icon": "🔍", "title": "Absent des recherches locales", "text": "\"Coiffeur [votre ville]\" est tapé des centaines de fois par mois dans votre zone. Sans SEO local, ces recherches vont directement chez vos concurrents mieux référencés." }
+      ],
+      "features": ["Réservation en ligne 24h/24", "Galerie réalisations", "Liste des services et tarifs", "Équipe et stylistes", "Google Maps", "Avis clients intégrés"],
+      "faqs": [
+        { "q": "Un site web est-il utile pour un salon de coiffure ?", "a": "Indispensable. 68% des clients recherchent un coiffeur en ligne avant de prendre rendez-vous. Un site avec galerie et réservation en ligne peut augmenter votre clientèle de 30 à 50%." },
+        { "q": "Peut-on intégrer un système de réservation en ligne ?", "a": "Oui. On intègre Planity, Booksy ou un formulaire de réservation simple selon votre préférence. Vos clients réservent 24h/24, vous recevez une notification par email ou SMS." },
+        { "q": "Comment montrer mes réalisations sur le site ?", "a": "On crée une galerie photo optimisée, compatible Instagram. Vous pouvez ajouter de nouvelles photos depuis votre téléphone. C'est votre vitrine digitale — les clients voient votre style avant de venir." }
+      ],
+      "stat": "68% des clients préfèrent réserver leur salon de coiffure en ligne"
+    },
+    {
+      "slug": "plombier",
+      "name": "Plombier",
+      "nameLong": "plombier ou chauffagiste",
+      "emoji": "🔧",
+      "intro": "Un plombier avec un site web reçoit en moyenne 3× plus d'appels entrants qu'un plombier uniquement sur les Pages Jaunes.",
+      "problems": [
+        { "icon": "🚨", "title": "Clients perdus en urgence", "text": "\"Plombier urgence [ville]\" est l'une des recherches les plus fréquentes sur Google. Sans site optimisé pour ces requêtes, ces clients en détresse appellent votre concurrent qui apparaît en premier." },
+        { "icon": "💸", "title": "Dépendance aux plateformes payantes", "text": "Les annuaires type Pages Jaunes ou Trustpilot prennent une commission sur chaque appel ou vous font payer un abonnement mensuel. Un site propre vous appartient — zéro commission, zéro abonnement." },
+        { "icon": "📞", "title": "Pas de formulaire de devis", "text": "Les clients qui cherchent un plombier pour des travaux non urgents veulent déposer une demande de devis en ligne. Sans formulaire, ils passent au suivant qui a cette option." }
+      ],
+      "features": ["Bouton appel urgence visible", "Formulaire devis en ligne", "Zone d'intervention définie", "Services détaillés", "Certifications et labels", "Avis clients Google"],
+      "faqs": [
+        { "q": "Un site web peut-il vraiment m'amener des clients en tant que plombier ?", "a": "Oui, massivement. \"Plombier [ville]\" est tapé des centaines de fois par mois. Un site optimisé pour ces requêtes génère des appels entrants qualifiés — des clients qui ont besoin de vous maintenant, pas demain." },
+        { "q": "Comment gérer les demandes d'urgence via le site ?", "a": "On place un bouton d'appel direct bien visible en haut de page, visible sur mobile en 1 clic. Pour les demandes non urgentes, un formulaire de devis en ligne est inclus dans toutes nos offres." },
+        { "q": "Mes certifications peuvent-elles apparaître sur le site ?", "a": "Absolument. Qualibat, RGE, QualiPAC — vos certifications sont mises en avant pour rassurer vos clients et améliorer votre référencement. Google valorise les sites d'artisans certifiés." }
+      ],
+      "stat": "«Plombier urgence» génère plus de 10 000 recherches par mois en France"
+    },
+    {
+      "slug": "electricien",
+      "name": "Électricien",
+      "nameLong": "électricien ou installateur",
+      "emoji": "⚡",
+      "intro": "Les électriciens avec un site web reçoivent 40% de demandes de devis en plus que ceux qui n'en ont pas.",
+      "problems": [
+        { "icon": "🔍", "title": "Introuvable sur Google", "text": "\"Électricien [ville]\" est cherché des centaines de fois par mois dans votre zone. Sans SEO local, vous n'existez pas pour ces clients — ils appellent le concurrent qui apparaît en premier." },
+        { "icon": "📋", "title": "Pas de demande de devis en ligne", "text": "Les clients qui planifient des travaux électriques veulent envoyer une demande de devis en dehors des heures d'ouverture. Sans formulaire, vous perdez ces prospects." },
+        { "icon": "🏅", "title": "Certifications non visibles", "text": "Consuel, Qualifelec, RGE — vos certifications rassuren les clients et les obligent à vous choisir. En ligne, personne ne peut les voir si vous n'avez pas de site professionnel." }
+      ],
+      "features": ["Formulaire devis en ligne", "Certifications et habilitations", "Zone d'intervention", "Services résidentiel/pro", "Galerie chantiers", "Contact rapide"],
+      "faqs": [
+        { "q": "Est-ce rentable d'avoir un site web en tant qu'électricien ?", "a": "Très rentable. Un seul contrat de rénovation électrique obtenu via le site couvre souvent le coût total du site. Nos clients électriciens reçoivent en moyenne 5 à 15 demandes de devis par mois via leur site." },
+        { "q": "Puis-je afficher mes certifications RGE sur le site ?", "a": "Oui, et c'est essentiel. La certification RGE permet à vos clients de bénéficier d'aides MaPrimeRénov'. L'afficher sur votre site augmente vos demandes de devis de 35% selon nos observations." },
+        { "q": "Le site peut-il cibler les particuliers et les professionnels ?", "a": "Absolument. On crée deux sections distinctes — particuliers (rénovation, dépannage, installation) et professionnels (locaux commerciaux, chantiers). Chaque cible trouve immédiatement ce qu'elle cherche." }
+      ],
+      "stat": "«Électricien [ville]» génère plus de 8 000 recherches locales par mois en France"
+    },
+    {
+      "slug": "osteopathe",
+      "name": "Ostéopathe",
+      "nameLong": "ostéopathe ou kinésithérapeute",
+      "emoji": "🩺",
+      "intro": "85% des patients cherchent un ostéopathe ou kiné en ligne avant de prendre rendez-vous.",
+      "problems": [
+        { "icon": "📅", "title": "Agenda complet mais pas de liste d'attente en ligne", "text": "Vos patients actuels vous recommandent — mais sans site, les nouveaux patients ne savent pas s'inscrire en liste d'attente. Vous perdez ces prospects qui passent chez un confrère avec un site." },
+        { "icon": "🔍", "title": "Absent de Google pour votre spécialité", "text": "\"Ostéopathe pour bébé [ville]\", \"kiné du sport [ville]\" — des dizaines de requêtes spécifiques dans votre zone. Sans page dédiée, ces clients très qualifiés ne vous trouvent pas." },
+        { "icon": "📄", "title": "Pas d'informations claires en ligne", "text": "Les patients veulent savoir qui vous êtes, votre parcours, vos spécialités et vos tarifs avant de prendre RDV. Sans ces informations en ligne, ils choisissent un confrère plus transparent." }
+      ],
+      "features": ["Prise de RDV Doctolib/Calendly", "Présentation praticien", "Spécialités et techniques", "Tarifs et remboursements", "Adresse et parking", "Témoignages patients"],
+      "faqs": [
+        { "q": "Un ostéopathe a-t-il besoin d'un site web ?", "a": "Oui, même si vous travaillez sur recommandations. 85% des nouveaux patients vérifient votre présence en ligne avant d'appeler. Un site professionnel avec votre parcours et vos spécialités multiplie votre crédibilité." },
+        { "q": "Peut-on intégrer Doctolib ou Calendly pour les RDV ?", "a": "Oui. On intègre votre agenda Doctolib, Maiia ou Calendly directement dans votre site. Vos patients réservent en ligne, vous recevez une confirmation automatique. Zéro appel administratif." },
+        { "q": "Comment mettre en avant mes spécialités comme l'ostéo pour bébé ?", "a": "On crée des pages dédiées à chaque spécialité (bébé, femme enceinte, sportif, etc.). Ces pages ciblées se positionnent sur des requêtes spécifiques — \"ostéopathe bébé [ville]\" — et attirent des patients ultra-qualifiés." }
+      ],
+      "stat": "85% des nouveaux patients recherchent leur thérapeute sur Google avant le premier RDV"
+    },
+    {
+      "slug": "avocat",
+      "name": "Avocat",
+      "nameLong": "cabinet d'avocat ou juriste",
+      "emoji": "⚖️",
+      "intro": "72% des personnes cherchant un avocat commencent leur recherche sur Internet. Un cabinet sans site web perd ces clients dès le départ.",
+      "problems": [
+        { "icon": "🔍", "title": "Inexistant sur les recherches clés", "text": "\"Avocat droit du travail [ville]\", \"avocat divorce [ville]\" — des centaines de recherches chaque mois dans votre zone. Sans SEO, ces clients potentiels choisissent un confrère visible en ligne." },
+        { "icon": "🏛️", "title": "Image professionnelle insuffisante", "text": "Un avocat est jugé sur sa crédibilité avant même le premier contact. Sans site professionnel mettant en avant vos domaines d'expertise et votre parcours, vous perdez en autorité face aux grands cabinets." },
+        { "icon": "📞", "title": "Pas de consultation en ligne", "text": "Post-Covid, 45% des clients préfèrent une première consultation par visio. Sans cette option proposée sur votre site, vous perdez ces clients qui cherchent plus de flexibilité." }
+      ],
+      "features": ["Domaines d'expertise détaillés", "Présentation cabinet et avocats", "Formulaire de contact confidentiel", "Consultation en ligne", "Blog juridique SEO", "Références et palmarès"],
+      "faqs": [
+        { "q": "Un avocat peut-il faire de la publicité via son site web ?", "a": "Oui, dans le respect des règles déontologiques. Un site informatif présentant vos domaines d'expertise, votre parcours et vos coordonnées est parfaitement autorisé. On s'assure que votre site respecte les règles du Barreau." },
+        { "q": "Comment se démarquer des autres cabinets en ligne ?", "a": "Par la spécialisation et le contenu. Un blog juridique avec des articles sur votre domaine d'expertise positionne votre site sur des requêtes spécifiques et vous établit comme référence. Pixel Studio rédige ces articles inclus dans votre offre." },
+        { "q": "La confidentialité des formulaires de contact est-elle assurée ?", "a": "Absolument. Nos formulaires sont sécurisés (HTTPS, RGPD), sans stockage de données tiers. Les messages arrivent directement dans votre boîte mail professionnelle — aucune donnée client transmise à des plateformes tierces." }
+      ],
+      "stat": "72% des personnes cherchant un avocat commencent leur recherche sur Google"
+    },
+    {
+      "slug": "comptable",
+      "name": "Expert-comptable",
+      "nameLong": "expert-comptable ou cabinet comptable",
+      "emoji": "📊",
+      "intro": "Les cabinets comptables avec un site web professionnel reçoivent 3× plus de demandes de nouveaux clients que ceux absents du web.",
+      "problems": [
+        { "icon": "🔍", "title": "Invisible pour les créateurs d'entreprise", "text": "\"Expert-comptable création SASU [ville]\", \"comptable TPE [ville]\" — des requêtes à fort potentiel dans votre zone. Sans SEO local, ces futurs clients vous ignorent et vont directement chez un concurrent visible." },
+        { "icon": "📱", "title": "Pas d'espace client en ligne", "text": "Vos clients veulent transmettre leurs documents, suivre leur dossier et accéder à leurs bilans en ligne. Sans portail client ou lien vers votre outil, vous passez pour un cabinet old-school." },
+        { "icon": "🤝", "title": "Difficile de montrer votre valeur ajoutée", "text": "Tous les comptables font des bilans. Votre vraie valeur — conseil, optimisation fiscale, accompagnement dirigeant — est invisible sans site pour la mettre en avant avec des exemples concrets." }
+      ],
+      "features": ["Présentation des missions", "Secteurs d'activité servis", "Formulaire premier RDV", "Lien espace client", "Blog fiscal et conseils", "Témoignages dirigeants"],
+      "faqs": [
+        { "q": "Un expert-comptable a-t-il besoin d'un site web en 2026 ?", "a": "Oui. 78% des dirigeants cherchent leur expert-comptable en ligne. Un site professionnel qui met en avant vos spécialités sectorielles (restauration, BTP, professions libérales) attire des clients qui correspondent à votre expertise." },
+        { "q": "Peut-on intégrer notre logiciel comptable au site ?", "a": "On peut créer un bouton d'accès à votre espace client (MyUnisoft, Dext, Pennylane, ACD, etc.) mis en avant sur votre site. Vos clients accèdent à leur espace en un clic depuis votre page d'accueil." },
+        { "q": "Comment un site web peut-il amener de nouveaux clients ?", "a": "Via le SEO local. Des pages optimisées sur \"expert-comptable [ville]\" et des articles sur des thématiques fiscales attirent des dirigeants en recherche active. Pixel Studio inclut la rédaction SEO dans toutes les offres." }
+      ],
+      "stat": "78% des dirigeants TPE cherchent leur expert-comptable sur Internet"
+    },
+    {
+      "slug": "coach-sportif",
+      "name": "Coach sportif",
+      "nameLong": "coach sportif ou salle de sport",
+      "emoji": "💪",
+      "intro": "Le marché du coaching sportif en ligne a augmenté de 170% depuis 2020. Un site web est devenu indispensable pour capter cette demande.",
+      "problems": [
+        { "icon": "📲", "title": "Dépendance à Instagram", "text": "Instagram change constamment son algorithme. Un abonnement baisse, une vidéo ne performe pas — et vos revenus s'effondrent. Un site vous appartient : votre audience, vos leads, votre business." },
+        { "icon": "💳", "title": "Pas de vente de programmes en ligne", "text": "Vos clients veulent acheter vos programmes, s'abonner à vos cours et réserver leurs séances en ligne, 24h/24. Sans système de vente intégré, vous perdez ces ventes qui se font pendant que vous dormez." },
+        { "icon": "🎯", "title": "Pas de ciblage par spécialité", "text": "\"Coach perte de poids [ville]\", \"coach musculation débutant [ville]\" — des requêtes très spécifiques avec une forte intention d'achat. Sans pages dédiées à vos spécialités, vous ratez ces clients qualifiés." }
+      ],
+      "features": ["Présentation programmes", "Réservation séances en ligne", "Vente formations digitales", "Témoignages et transformations", "Calendrier de cours", "Blog conseils nutrition/sport"],
+      "faqs": [
+        { "q": "Un coach sportif a-t-il besoin d'un site web ou Instagram suffit ?", "a": "Un site est indispensable en complément d'Instagram. Les réseaux sociaux apportent de la visibilité, le site convertit en clients. Sans site, vous n'avez pas de contrôle sur votre acquisition client — un changement d'algorithme peut tout effacer." },
+        { "q": "Peut-on vendre des programmes en ligne directement depuis le site ?", "a": "Oui. On intègre un système de paiement en ligne (Stripe, PayPal) pour vendre vos programmes PDF, vidéos ou abonnements. Vos clients achètent 24h/24 — vous générez des revenus même pendant vos séances." },
+        { "q": "Comment mettre en avant mes résultats clients (before/after) ?", "a": "On crée une section témoignages avec photos avant/après (avec accord client), chiffres de résultats et avis. C'est votre argument de vente le plus puissant — et ça améliore votre référencement Google." }
+      ],
+      "stat": "Le marché du coaching en ligne a progressé de 170% en France depuis 2020"
+    },
+    {
+      "slug": "photographe",
+      "name": "Photographe",
+      "nameLong": "photographe professionnel ou studio photo",
+      "emoji": "📷",
+      "intro": "Un portfolio en ligne professionnel génère en moyenne 5× plus de demandes qu'une simple page Instagram pour un photographe.",
+      "problems": [
+        { "icon": "📸", "title": "Portfolio éparpillé sur les réseaux", "text": "Instagram compresse vos photos, limite leur durée de vie et ne vous appartient pas. Un site professionnel affiche vos images en haute qualité, dans l'ordre que vous choisissez — et vous appartient à 100%." },
+        { "icon": "🔍", "title": "Absent des recherches locales", "text": "\"Photographe mariage [ville]\", \"photographe entreprise [ville]\" — des requêtes à fort potentiel dans votre zone. Sans SEO, ces clients qui ont un budget et un besoin précis vont directement chez un confrère visible." },
+        { "icon": "📋", "title": "Pas de formulaire de demande de devis", "text": "Un client intéressé par votre travail veut pouvoir vous contacter immédiatement, préciser son projet et demander un devis. Sans formulaire, vous perdez des leads qui passent au suivant." }
+      ],
+      "features": ["Galerie haute résolution", "Portfolio par catégorie", "Formulaire de devis", "Tarifs et packages", "À propos et style", "Témoignages mariés/clients"],
+      "faqs": [
+        { "q": "Pourquoi avoir un site web quand on a Instagram ?", "a": "Instagram est un canal de découverte, pas de conversion. Votre site est votre vitrine professionnelle : photos en haute qualité non compressées, tarifs, formulaire de contact, référencement Google. Les clients sérieux (mariage, corporate) cherchent toujours un site avant de signer." },
+        { "q": "Comment afficher mes photos sans ralentir le site ?", "a": "On optimise chaque image automatiquement (format WebP, lazy loading, CDN). Votre galerie se charge en moins d'1 seconde — même avec 200 photos. Un site rapide améliore aussi votre référencement Google." },
+        { "q": "Puis-je avoir un site différent pour chaque spécialité (mariage, corporate) ?", "a": "Pas forcément besoin de plusieurs sites. On structure votre site avec des sections distinctes par univers — mariage, corporate, portrait — chacune optimisée SEO pour sa propre requête Google." }
+      ],
+      "stat": "Un portfolio web professionnel génère 5× plus de demandes qu'une page Instagram seule"
+    },
+    {
+      "slug": "auto-ecole",
+      "name": "Auto-école",
+      "nameLong": "auto-école ou centre de conduite",
+      "emoji": "🚗",
+      "intro": "87% des candidats au permis recherchent leur auto-école sur Google. Une auto-école sans site web perd cette majorité de prospects.",
+      "problems": [
+        { "icon": "🔍", "title": "Invisible sur \"auto-école [ville]\"", "text": "La requête \"auto-école [votre ville]\" est l'une des plus recherchées dans le secteur des services locaux. Sans site optimisé, vous n'apparaissez pas et perdez des dizaines de nouveaux élèves chaque mois." },
+        { "icon": "📋", "title": "Pas d'inscription en ligne", "text": "Les futurs élèves (18-25 ans) veulent tout faire en ligne : se renseigner sur les tarifs, comparer les formules et s'inscrire directement. Sans ce processus digital, vous perdez face aux auto-écoles en ligne." },
+        { "icon": "⭐", "title": "Avis Google non mis en valeur", "text": "Vous avez peut-être d'excellents avis Google mais si vous n'avez pas de site, personne ne les voit dans leur contexte. Un site qui intègre vos avis et votre taux de réussite est votre meilleur argument commercial." }
+      ],
+      "features": ["Formules et tarifs détaillés", "Inscription en ligne", "Taux de réussite affiché", "Moniteurs présentés", "Planning des cours", "Avis élèves intégrés"],
+      "faqs": [
+        { "q": "Pourquoi une auto-école a besoin d'un site web ?", "a": "87% des candidats au permis recherchent leur auto-école sur Google. Si vous n'apparaissez pas, ils choisissent un concurrent. Un site avec vos tarifs, votre taux de réussite et un formulaire d'inscription est votre meilleur commercial." },
+        { "q": "Peut-on afficher notre taux de réussite sur le site ?", "a": "Absolument, c'est votre argument principal. Un taux de réussite affiché clairement (ex : 89% au permis B en 2025) rassure les parents et les élèves. On le met en avant dès la page d'accueil." },
+        { "q": "Les élèves peuvent-ils s'inscrire directement en ligne ?", "a": "Oui. On intègre un formulaire d'inscription en ligne ou un lien vers votre logiciel (iCar, Autonopme, etc.). Les élèves s'inscrivent quand ils le souhaitent — même le soir ou le week-end." }
+      ],
+      "stat": "87% des candidats au permis cherchent leur auto-école sur Google"
+    }
+  ],
+  "cities": [
+    { "name": "Paris", "slug": "paris", "region": "Île-de-France", "dept": "75" },
+    { "name": "Lyon", "slug": "lyon", "region": "Auvergne-Rhône-Alpes", "dept": "69" },
+    { "name": "Marseille", "slug": "marseille", "region": "Provence-Alpes-Côte d'Azur", "dept": "13" },
+    { "name": "Toulouse", "slug": "toulouse", "region": "Occitanie", "dept": "31" },
+    { "name": "Bordeaux", "slug": "bordeaux", "region": "Nouvelle-Aquitaine", "dept": "33" },
+    { "name": "Nantes", "slug": "nantes", "region": "Pays de la Loire", "dept": "44" },
+    { "name": "Strasbourg", "slug": "strasbourg", "region": "Grand Est", "dept": "67" },
+    { "name": "Rennes", "slug": "rennes", "region": "Bretagne", "dept": "35" },
+    { "name": "Nice", "slug": "nice", "region": "Provence-Alpes-Côte d'Azur", "dept": "06" },
+    { "name": "Montpellier", "slug": "montpellier", "region": "Occitanie", "dept": "34" }
+  ]
+}
