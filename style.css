@@ -78,6 +78,22 @@ header.scrolled{background:rgba(7,7,15,.97);backdrop-filter:blur(20px);border-bo
 .hero-meta .n{font-family:var(--display);font-size:42px;font-weight:800;letter-spacing:-.04em}
 .hero-meta .l{font-size:14px;color:var(--muted)}
 
+/* City pins — hero floating labels */
+.city-pins{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.city-pin{position:absolute;display:inline-flex;align-items:center;gap:7px;background:rgba(124,92,252,.1);border:1px solid rgba(196,181,253,.22);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:9px 16px;border-radius:100px;font-size:13px;font-weight:600;font-family:var(--body);color:rgba(255,255,255,.8);white-space:nowrap;animation:pinFloat 5s ease-in-out infinite}
+.city-pin svg{color:var(--accent);flex-shrink:0}
+.pin-reims{top:26%;left:3%;animation-delay:0s}
+.pin-lyon{bottom:28%;left:5%;animation-delay:1.3s}
+.pin-casablanca{top:20%;right:4%;animation-delay:.7s}
+.pin-london{bottom:24%;right:3%;animation-delay:2s}
+@keyframes pinFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:900px){.city-pins{display:none}}
+
+/* Niche rotator */
+.niche-cycle{display:inline-block;transition:opacity .3s ease,transform .3s ease}
+.niche-cycle.niche-out{opacity:0;transform:translateY(-14px) scale(.95)}
+.niche-cycle.niche-in{opacity:0;transform:translateY(14px) scale(.95)}
+
 /* Marquee */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;background:var(--bg-soft)}
 .marquee-track{display:flex;gap:54px;white-space:nowrap;width:max-content;animation:scrollx 34s linear infinite}

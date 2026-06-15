@@ -129,10 +129,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- HERO -->
 <section class="hero hero-center hero-short" id="hero-bg">
+  <!-- Floating city pins -->
+  <div class="city-pins" aria-hidden="true">
+    <div class="city-pin pin-reims">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+      Reims
+    </div>
+    <div class="city-pin pin-lyon">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+      Lyon
+    </div>
+    <div class="city-pin pin-casablanca">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+      Casablanca
+    </div>
+    <div class="city-pin pin-london">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+      London
+    </div>
+  </div>
+
   <div class="wrap">
-    <div class="eyebrow reveal"><span class="dot"></span>Agence web &amp; dev — Reims · Paris</div>
-    <h1 class="reveal">Agence web Reims & Paris —<br><span class="grad">on construit votre présence digitale.</span></h1>
-    <p class="lead reveal">Sites web qui convertissent + Applications sur mesure.<br>On s'occupe de tout — design, code, référencement, mise en ligne.</p>
+    <h1 class="reveal">On crée le site<br>de votre <span class="niche-cycle grad" id="nicheWord">restaurant</span></h1>
+    <p class="lead reveal">Design sur mesure · Copywriting inclus · Livraison en 72h–2 semaines</p>
 
     <!-- Free mockup CTA banner -->
     <div class="mockup-cta reveal">
@@ -143,46 +162,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <button class="mockup-cta-btn" onclick="openIntake()">Je veux ma maquette gratuite →</button>
     </div>
 
-    <!-- Dual service cards -->
-    <div class="dual-grid reveal">
-      <!-- Card 1: Sites web -->
-      <div class="dual-card">
-        <div class="dual-tag">🌐 Sites web</div>
-        <h2>Un site qui attire &amp; convertit,<br>adapté à votre métier</h2>
-        <ul class="dual-card-list">
-          <li><strong>Restaurants</strong> — réservation de table, commande en ligne</li>
-          <li>Dentistes · Médecins · Chirurgiens</li>
-          <li>Avocats · Notaires · Experts-comptables</li>
-          <li>Coachs · Agences marketing · Immobilier</li>
-          <li>Barbiers · Salles de sport · Garages</li>
-          <li>Concessionnaires · Centres de loisirs</li>
-          <li>Sociétés industrielles · B2B</li>
-        </ul>
-        <button class="dual-btn dual-btn-blue" onclick="document.getElementById('bookingModal').classList.add('open')">Réserver un appel gratuit →</button>
-      </div>
-
-      <!-- Card 2: Dev / Apps -->
-      <div class="dual-card dual-card-dev">
-        <div class="dual-tag">⚙️ Applications &amp; Dev</div>
-        <h2>On vous code votre projet<br>sur mesure, de A à Z</h2>
-        <ul class="dual-card-list">
-          <li><strong>Plateformes SaaS</strong> — de l'idée au lancement</li>
-          <li>CRM sur mesure pour votre équipe</li>
-          <li>MVP pour startup — rapide &amp; scalable</li>
-          <li>Applications mobiles iOS &amp; Android</li>
-          <li>Outils internes d'entreprise</li>
-          <li>Intégrations IA &amp; automatisations</li>
-          <li>E-commerce avancé (Shopify, custom)</li>
-        </ul>
-        <button class="dual-btn dual-btn-pink" onclick="openIntake()">Discuter de mon projet →</button>
-      </div>
-    </div>
-
     <div class="hero-meta reveal">
-      <div><div class="n">100%</div><div class="l">Délais respectés</div></div>
+      <div><div class="n">100%</div><div class="l">Sur mesure</div></div>
       <div><div class="n">72h</div><div class="l">à 2 semaines</div></div>
       <div><div class="n">4.9<span style="color:var(--sky)">★</span></div><div class="l">Note clients</div></div>
-      <div><div class="n">100%</div><div class="l">Sur mesure</div></div>
+      <div><div class="n">+40</div><div class="l">Projets livrés</div></div>
     </div>
   </div>
 </section>

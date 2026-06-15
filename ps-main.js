@@ -1,5 +1,24 @@
 /* ── Pixel Studio — Shared JS ── */
 
+// Niche rotation in hero
+(function(){
+  const niches=['restaurant','barbier','médecin','avocat','hôtel','startup','e-commerce','architecte','coach','garage','salle de sport','dentiste'];
+  const el=document.getElementById('nicheWord');
+  if(!el) return;
+  let idx=0;
+  function next(){
+    el.classList.add('niche-out');
+    setTimeout(function(){
+      idx=(idx+1)%niches.length;
+      el.textContent=niches[idx];
+      el.classList.remove('niche-out');
+      el.classList.add('niche-in');
+      requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.remove('niche-in');});});
+    },320);
+  }
+  setInterval(next,2400);
+})();
+
 // Header scroll
 (function(){
   const h=document.getElementById('header');
