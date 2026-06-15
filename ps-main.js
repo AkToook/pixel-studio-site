@@ -2,7 +2,7 @@
 
 // Niche rotation in hero
 (function(){
-  const niches=['restaurant','barbier','médecin','avocat','hôtel','startup','e-commerce','architecte','coach','garage','salle de sport','dentiste'];
+  const niches=['restaurant','barbier','coiffeur','médecin','dentiste','chirurgien','kinésithérapeute','avocat','notaire','expert-comptable','architecte','immobilier','hôtel','traiteur','boulangerie','salle de sport','coach','photographe','artisan','garage','startup','e-commerce','agence','centre esthétique','association'];
   const el=document.getElementById('nicheWord');
   if(!el) return;
   let idx=0;
