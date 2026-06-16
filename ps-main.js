@@ -7,13 +7,20 @@
   if(!el) return;
   let idx=0;
   function next(){
-    el.classList.add('niche-out');
+    el.style.transition='opacity .3s ease,transform .3s ease';
+    el.style.opacity='0';
+    el.style.transform='translateY(-16px)';
     setTimeout(function(){
       idx=(idx+1)%niches.length;
       el.textContent=niches[idx];
-      el.classList.remove('niche-out');
-      el.classList.add('niche-in');
-      requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.remove('niche-in');});});
+      el.style.transition='none';
+      el.style.opacity='0';
+      el.style.transform='translateY(16px)';
+      requestAnimationFrame(function(){
+        el.style.transition='opacity .35s ease,transform .35s ease';
+        el.style.opacity='1';
+        el.style.transform='translateY(0)';
+      });
     },320);
   }
   setInterval(next,2400);

@@ -90,9 +90,7 @@ header.scrolled{background:rgba(7,7,15,.97);backdrop-filter:blur(20px);border-bo
 @media(max-width:1100px){.city-pins{display:none}}
 
 /* Niche rotator */
-.niche-cycle{display:inline-block;transition:opacity .3s ease,transform .3s ease}
-.niche-cycle.niche-out{opacity:0;transform:translateY(-14px) scale(.95)}
-.niche-cycle.niche-in{opacity:0;transform:translateY(14px) scale(.95)}
+.niche-cycle{display:inline-block}
 
 /* Marquee */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;background:var(--bg-soft)}
