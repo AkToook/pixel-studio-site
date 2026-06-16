@@ -1444,6 +1444,31 @@ function cnilSaveCustom() {
 .how-step h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.02em}
 .how-step p{font-size:14px;color:var(--muted);line-height:1.6}
 </style>
-<script src="ps-main.js"></script>
+<script>
+(function(){
+  var niches=['restaurant','barbier','coiffeur','médecin','dentiste','chirurgien','kinésithérapeute','avocat','notaire','expert-comptable','architecte','immobilier','hôtel','traiteur','boulangerie','salle de sport','coach','photographe','artisan','garage','startup','e-commerce','agence','centre esthétique','association'];
+  var el=document.getElementById('nicheWord');
+  if(!el) return;
+  var idx=0;
+  function next(){
+    el.style.transition='opacity .3s ease,transform .3s ease';
+    el.style.opacity='0';
+    el.style.transform='translateY(-16px)';
+    setTimeout(function(){
+      idx=(idx+1)%niches.length;
+      el.textContent=niches[idx];
+      el.style.transition='none';
+      el.style.opacity='0';
+      el.style.transform='translateY(16px)';
+      requestAnimationFrame(function(){
+        el.style.transition='opacity .35s ease,transform .35s ease';
+        el.style.opacity='1';
+        el.style.transform='translateY(0)';
+      });
+    },320);
+  }
+  setInterval(next,2400);
+})();
+</script>
 </body>
 </html>
