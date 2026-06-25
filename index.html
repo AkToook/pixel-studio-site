@@ -934,8 +934,11 @@ function submitIntake(){
   const labels={ecommerce:'Site e-commerce',vitrine:'Site vitrine / produit',b2b:'B2B',b2c:'B2C',app:'Application mobile',saas:'SaaS / outil web'};
   const typeLabel=labels[_intakeType]||'Non précisé';
   const text=`Bonjour Pixel Studio 👋\n\nDemande de maquette gratuite :\n\n• Type : ${typeLabel}\n• Activité : ${activity||'N/A'}\n• Budget : ${budget||'Non précisé'}\n• Projet : ${desc||'N/A'}\n\nNom : ${name}\nEmail : ${email}${phone?'\nTél : '+phone:''}`;
-  document.getElementById('intakeWhatsapp').href='https://wa.me/33620757517?text='+encodeURIComponent(text);
-  nextIntakeStep(4);
+  const a=document.createElement('a');
+  a.href='https://wa.me/33620757517?text='+encodeURIComponent(text);
+  a.target='_blank';a.rel='noopener noreferrer';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  closeIntake();
 }
 </script>
 
@@ -1339,7 +1342,7 @@ function cnilSaveCustom() {
         minHeight:200,
         minWidth:200,
         scale:1,
-        color:0x38BDF8,
+        color:0xF2C4A0,
         shininess:30,
         waveHeight:15,
         waveSpeed:1,
