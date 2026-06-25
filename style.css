@@ -789,16 +789,16 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   }
 
   /* ── Base ── */
-  body{background:#050810;color:#f0f4ff}
-  section{background:#050810}
+  body{background:#0d1628;color:#f0f4ff}
+  section{background:#0d1628}
   h1,h2,h3,h4{color:#f0f4ff}
   p{color:rgba(240,244,255,.72)}
-  .soft{background:rgba(4,8,18,.9)!important}
+  .soft{background:rgba(14,24,48,.85)!important}
   .marquee{background:rgba(6,10,20,.9)!important;border-color:rgba(255,255,255,.07)}
-  ::-webkit-scrollbar-track{background:#050810}
+  ::-webkit-scrollbar-track{background:#0d1628}
 
   /* ── Hero ── */
-  .hero{background:linear-gradient(140deg,#0d1530 0%,#080f1e 55%,#060d18 100%)!important}
+  .hero{background:linear-gradient(140deg,#162040 0%,#0f1a32 55%,#0b1526 100%)!important}
   .city-pin{background:rgba(10,18,36,.85);color:#f0f4ff;border-color:rgba(52,211,153,.3)}
   .city-pin svg{color:#34d399}
 
@@ -836,15 +836,15 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   .how-step p{color:rgba(240,244,255,.6)}
 
   /* ── Règles (rule-cards) ── */
-  .rule-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1);box-shadow:none}
+  .rule-card{background:rgba(14,24,44,.75);border-color:rgba(255,255,255,.1);box-shadow:none}
   .rule-card:hover{background:rgba(5,150,105,.18);border-color:rgba(52,211,153,.4);transform:translateY(-3px)}
   .rule-num{color:#34d399}
   .rule-card h4{color:#f0f4ff}
   .rule-card p{color:rgba(240,244,255,.6)}
 
   /* ── Google leviers (how-cards) ── */
-  .how-card{background:rgba(8,18,40,.7);border-color:rgba(96,165,250,.18)}
-  .how-card.how-ads{background:rgba(18,8,40,.7);border-color:rgba(52,211,153,.22)}
+  .how-card{background:rgba(14,26,50,.7);border-color:rgba(96,165,250,.18)}
+  .how-card.how-ads{background:rgba(22,14,50,.7);border-color:rgba(52,211,153,.22)}
   .how-card h3{color:#f0f4ff}
   .how-card p{color:rgba(240,244,255,.6)}
   .how-num{color:#60a5fa}
@@ -855,14 +855,14 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   .tech-pill{background:rgba(52,211,153,.1);color:#6ee7b7;border-color:rgba(52,211,153,.22)}
 
   /* ── Portfolio ── */
-  .proj-card{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.09)}
+  .proj-card{background:rgba(14,24,44,.78);border-color:rgba(255,255,255,.09)}
   .proj-card-name{color:#f0f4ff}
   .proj-card-cat{color:rgba(240,244,255,.5)}
   .browser-bar{background:rgba(14,22,42,.9);border-bottom:1px solid rgba(255,255,255,.08)}
   .browser-url-bar{color:rgba(240,244,255,.45)}
 
   /* ── Clients / Trust ── */
-  .trust-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1);color:#f0f4ff}
+  .trust-card{background:rgba(14,24,44,.75);border-color:rgba(255,255,255,.1);color:#f0f4ff}
   .trust-name{color:#f0f4ff}
   .trust-niche{color:rgba(240,244,255,.5)}
   .trust-cta{background:rgba(212,49,122,.12);border-color:rgba(212,49,122,.3);color:#f0f4ff}
@@ -880,7 +880,7 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   .vico{background:rgba(52,211,153,.1)}
 
   /* ── Tarifs ── */
-  .price-tease-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1);color:#f0f4ff}
+  .price-tease-card{background:rgba(14,24,44,.75);border-color:rgba(255,255,255,.1);color:#f0f4ff}
   .price-tease-card--hot{border-color:rgba(212,49,122,.4);background:rgba(212,49,122,.08)}
   .price-tease-name{color:#f0f4ff}
   .price-tease-amount strong{color:#f0f4ff}
@@ -892,13 +892,13 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   blockquote{color:#f0f4ff}
   .who{color:rgba(240,244,255,.5)}
   .stars{color:#fbbf24}
-  .guarantee{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.1)}
+  .guarantee{background:rgba(14,24,44,.78);border-color:rgba(255,255,255,.1)}
   .guarantee h3,.guarantee p{color:#f0f4ff}
   .guarantee p{color:rgba(240,244,255,.65)}
   .g-item{background:rgba(255,255,255,.06);color:#f0f4ff;border-color:rgba(255,255,255,.1)}
 
   /* ── Blog ── */
-  .blog-card{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.08);color:#f0f4ff}
+  .blog-card{background:rgba(14,24,44,.78);border-color:rgba(255,255,255,.08);color:#f0f4ff}
   .blog-card-body h3{color:#f0f4ff}
   .blog-cat{color:#34d399}
   .blog-excerpt{color:rgba(240,244,255,.55)}
@@ -906,12 +906,12 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   .blog-card-img{opacity:.9}
 
   /* ── FAQ ── */
-  .faq details{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.08)}
+  .faq details{background:rgba(14,24,44,.75);border-color:rgba(255,255,255,.08)}
   .faq summary{color:#f0f4ff}
   .ans{color:rgba(240,244,255,.65)}
 
   /* ── Contact panel ── */
-  .contact-panel-opt{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.1);color:#f0f4ff}
+  .contact-panel-opt{background:rgba(14,24,44,.78);border-color:rgba(255,255,255,.1);color:#f0f4ff}
   .contact-panel-opt:hover{background:rgba(52,211,153,.15);border-color:rgba(52,211,153,.4)}
   .cp-txt strong{color:#f0f4ff}
   .cp-txt span{color:rgba(240,244,255,.5)}
@@ -932,7 +932,7 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   .intake-step>p{color:rgba(240,244,255,.6)}
 
   /* ── Footer ── */
-  footer{background:#030508;border-top:1px solid rgba(255,255,255,.07)}
+  footer{background:#080f1e;border-top:1px solid rgba(255,255,255,.07)}
   .foot-col-title,.foot-links a,.foot-legal a{color:rgba(240,244,255,.6)}
   .foot-links a:hover{color:#f0f4ff}
 }
