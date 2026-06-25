@@ -82,6 +82,7 @@ header.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);bord
 .city-pins{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
 .city-pin{position:absolute;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.85);border:1.5px solid rgba(212,49,122,.2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:14px 24px;border-radius:100px;font-size:17px;font-weight:700;font-family:var(--display);color:#1A1A1A;white-space:nowrap;animation:pinFloat 5s ease-in-out infinite;box-shadow:0 8px 32px rgba(0,0,0,.08),0 0 0 1px rgba(212,49,122,.1)}
 .city-pin svg{color:#D4317A;flex-shrink:0;width:16px;height:16px}
+.pin-paris{top:38%;left:40%;animation-delay:.4s}
 .pin-reims{top:24%;left:2%;animation-delay:0s}
 .pin-lyon{bottom:26%;left:3%;animation-delay:1.3s}
 .pin-casablanca{top:18%;right:2%;animation-delay:.7s}
