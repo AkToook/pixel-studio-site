@@ -936,3 +936,11 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
   .foot-col-title,.foot-links a,.foot-legal a{color:rgba(240,244,255,.6)}
   .foot-links a:hover{color:#f0f4ff}
 }
+
+/* ── Patches dark desktop ── */
+@media(min-width:769px){
+  .hero h1{color:#ffffff!important}
+  .mockup-cta{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important}
+  .mockup-cta-txt strong{color:#ffffff!important}
+  .mockup-cta-txt span{color:rgba(255,255,255,.6)!important}
+}

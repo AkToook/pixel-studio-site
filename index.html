@@ -1591,11 +1591,14 @@ function cnilSaveCustom() {
     setTimeout(function(){
       idx=(idx+1)%niches.length;
       el.textContent=niches[idx];
+      el.style.transition='none';
+      el.style.opacity='0';
       el.style.transform='translateY(10px)';
       void el.offsetHeight;
+      el.style.transition='';
       el.style.opacity='1';
       el.style.transform='translateY(0)';
-    },400);
+    },420);
   },2800);
 })();
 </script>
