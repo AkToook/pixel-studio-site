@@ -78,7 +78,8 @@ header.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);bord
 @media(min-width:769px){.hero-cities{color:rgba(240,244,255,.45)}}
 
 /* Niche rotator */
-.niche-cycle{display:inline-block;transition:opacity .4s ease,transform .4s ease}
+.niche-cycle{display:inline-block;transition:opacity .35s ease,transform .35s ease}
+.niche-cycle.fade-out{opacity:0!important;transform:translateY(-8px)!important}
 
 /* Marquee */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;background:var(--bg-soft)}

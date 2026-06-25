@@ -94,6 +94,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 
 <!-- STICKY TIMER BAR — visible after popup is dismissed -->
+<!-- ══ COOKIE BANNER ══ -->
+<div id="cnil-banner" role="region" aria-label="Gestion des cookies">
+  <div class="cnil-inner">
+    <div class="cnil-text">
+      <p><strong>🍪 Ce site utilise des cookies</strong> — pour mesurer l'audience et personnaliser votre expérience. <a href="/politique-confidentialite.html">En savoir plus</a></p>
+    </div>
+    <div class="cnil-btns">
+      <button id="cnilCustom" class="cnil-custom">Personnaliser</button>
+      <button id="cnilRefuse" class="cnil-refuse">Refuser</button>
+      <button id="cnilAccept" class="cnil-accept">Accepter tout</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE MODAL ══ -->
+<div id="cnil-modal" role="dialog" aria-modal="true" aria-label="Préférences cookies">
+  <div class="cnil-modal-box">
+    <h3>Gérer mes préférences</h3>
+    <p>Choisissez les cookies que vous acceptez. Vous pouvez modifier vos choix à tout moment.</p>
+    <div class="cnil-toggle-row">
+      <div class="cnil-toggle-label"><strong>Essentiels</strong><span>Nécessaires au fonctionnement du site. Toujours actifs.</span></div>
+      <label class="cnil-switch"><input type="checkbox" disabled checked><span class="cnil-slider"></span></label>
+    </div>
+    <div class="cnil-toggle-row">
+      <div class="cnil-toggle-label"><strong>Analytiques</strong><span>Mesure d'audience anonyme (Google Analytics).</span></div>
+      <label class="cnil-switch"><input type="checkbox" id="toggleAnalytics"><span class="cnil-slider"></span></label>
+    </div>
+    <div class="cnil-toggle-row">
+      <div class="cnil-toggle-label"><strong>Marketing</strong><span>Publicités personnalisées (Meta Pixel, Google Ads).</span></div>
+      <label class="cnil-switch"><input type="checkbox" id="toggleMarketing"><span class="cnil-slider"></span></label>
+    </div>
+    <div class="cnil-modal-actions">
+      <button id="cnilModalRefuse" class="cnil-modal-refuse">Tout refuser</button>
+      <button id="cnilSave" class="cnil-save">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
 <div id="promo-bar">
   <span class="pbar-label">⏳ Offre gratuite expire dans</span>
   <span class="pbar-count" id="barCountdown">15:00</span>
@@ -139,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <strong>Recevez gratuitement une maquette de votre site web</strong>
         <span>Sans engagement · Réponse sous 24h</span>
       </div>
-      <button class="mockup-cta-btn" onclick="openIntake()">Je veux ma maquette gratuite →</button>
+      <button class="mockup-cta-btn" onclick="openMaquetteForm()">Je veux ma maquette gratuite →</button>
     </div>
 
     <div class="hero-meta reveal">
@@ -199,7 +237,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <div class="serp-absent">
           <div class="serp-absent-dot"></div>
-          <div class="serp-absent-txt">Votre établissement n'apparaît pas dans ces résultats</div>
+          <div class="serp-absent-txt">Vous n'êtes pas là. Vos concurrents encaissent à votre place.</div>
         </div>
       </div>
     </div>
@@ -460,8 +498,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="wrap quote reveal">
     <div class="verified">✓ Avis client vérifié</div>
     <div class="stars">★★★★★</div>
-    <blockquote>« Un site beau, rapide et qui rapporte vraiment. Livré dans les délais, et l'accompagnement derrière fait toute la différence. »</blockquote>
-    <div class="who"><strong>Thomas V.</strong> — Électricien, Nantes · 1ʳᵉ position Google local</div>
+    <blockquote>« Un site bien fait qui me permet de faire des réservations en ligne. On a lancé des Google Ads derrière — ça ramène du monde. Franchement, satisfait. »</blockquote>
+    <div class="who"><strong>Thomas V.</strong> — Électricien, Nantes</div>
   </div>
 </section>
 
@@ -661,6 +699,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <a class="wa" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20%F0%9F%91%8B">💬 WhatsApp</a>
 <a class="contact-float" href="contact.html">✉️ Nous contacter</a>
+
+<!-- Maquette simple form -->
+<div class="modal-overlay" id="maquetteModal" onclick="if(event.target===this)closeMaquette()">
+  <div class="modal-box" style="text-align:left;position:relative">
+    <button onclick="closeMaquette()" style="position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;color:rgba(255,255,255,.4);cursor:pointer;line-height:1">×</button>
+    <h3 style="margin-bottom:6px">Votre maquette gratuite</h3>
+    <p style="margin-bottom:20px">On vous envoie une première ébauche en 24h. Sans engagement.</p>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <input type="text" id="mq-name" placeholder="Votre nom *" class="intake-input">
+      <input type="email" id="mq-email" placeholder="Votre email *" class="intake-input">
+      <input type="tel" id="mq-phone" placeholder="WhatsApp / Téléphone (optionnel)" class="intake-input">
+      <textarea id="mq-desc" rows="3" placeholder="En 2 mots, quel site vous faut-il ?" class="intake-input" style="resize:vertical;min-height:70px"></textarea>
+    </div>
+    <button onclick="submitMaquette()" style="margin-top:16px;width:100%;background:linear-gradient(120deg,var(--accent),#E8A87C);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;padding:14px 20px;border-radius:50px;border:none;cursor:pointer;transition:.25s">Envoyer ma demande →</button>
+  </div>
+</div>
 
 <!-- Booking modal -->
 <div class="modal-overlay" id="bookingModal" onclick="if(event.target===this)this.classList.remove('open')">
@@ -885,6 +939,21 @@ function toggleContactPanel(btn){
   var open=panel.classList.toggle('open');
   btn.setAttribute('aria-expanded',open);
   panel.setAttribute('aria-hidden',!open);
+}
+function openMaquetteForm(){document.getElementById('maquetteModal').classList.add('open');}
+function closeMaquette(){document.getElementById('maquetteModal').classList.remove('open');}
+function submitMaquette(){
+  var name=document.getElementById('mq-name').value.trim();
+  var email=document.getElementById('mq-email').value.trim();
+  if(!name||!email){alert('Merci de renseigner votre nom et email.');return;}
+  var phone=document.getElementById('mq-phone').value.trim();
+  var desc=document.getElementById('mq-desc').value.trim();
+  var text='Bonjour Pixel Studio 👋\n\nDemande de maquette gratuite :\n\nNom : '+name+'\nEmail : '+email+(phone?'\nTél : '+phone:'')+(desc?'\n\nProjet : '+desc:'');
+  var a=document.createElement('a');
+  a.href='https://wa.me/33620757517?text='+encodeURIComponent(text);
+  a.target='_blank';a.rel='noopener noreferrer';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  closeMaquette();
 }
 function openIntake(){
   document.getElementById('intakeModal').classList.add('open');
@@ -1558,53 +1627,9 @@ function cnilSaveCustom() {
 .intake-prog-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:.25s}
 .intake-prog-dot.done{background:var(--accent)}
 @media(max-width:540px){.intake-types{grid-template-columns:1fr}#intakeModal .modal-box{padding:28px 18px}}
-
-/* ══ COOKIE BANNER ══ */
-#cnil-banner{position:fixed;bottom:0;left:0;right:0;z-index:9980;background:#fff;border-top:1px solid rgba(0,0,0,.1);padding:14px 20px;transform:translateY(100%);transition:transform .35s ease;box-shadow:0 -4px 20px rgba(0,0,0,.08)}
-#cnil-banner.visible{transform:translateY(0)}
-.cnil-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.cnil-txt{flex:1;min-width:200px;font-size:13px;color:rgba(26,26,26,.7);line-height:1.5}
-.cnil-txt strong{display:block;color:#1a1a1a;margin-bottom:2px;font-size:14px}
-.cnil-txt a{color:#2563EB;text-decoration:underline}
-.cnil-btns{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
-.cnil-btn{font-family:var(--display,'Space Grotesk',sans-serif);font-size:13px;font-weight:700;padding:9px 16px;border-radius:50px;border:1.5px solid rgba(0,0,0,.15);background:#fff;color:#1a1a1a;cursor:pointer;transition:.2s;white-space:nowrap}
-.cnil-btn:hover{background:#f5f5f5}
-.cnil-btn-accept{background:linear-gradient(120deg,#D4317A,#E8A87C)!important;color:#fff!important;border-color:transparent!important}
-.cnil-btn-accept:hover{opacity:.88;background:linear-gradient(120deg,#D4317A,#E8A87C)!important}
-/* Cookie modal */
-#cnil-modal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
-#cnil-modal.open{display:flex}
-.cnil-modal-box{background:#fff;border-radius:20px;padding:28px 24px;max-width:400px;width:100%;box-shadow:0 16px 48px rgba(0,0,0,.2)}
-.cnil-modal-box h4{font-family:var(--display,'Space Grotesk',sans-serif);font-size:18px;font-weight:800;color:#1a1a1a;margin-bottom:20px;letter-spacing:-.02em}
-.cnil-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.07)}
-.cnil-toggle-row:last-of-type{border-bottom:none}
-.cnil-toggle-row>div strong{display:block;font-size:14px;color:#1a1a1a;margin-bottom:2px}
-.cnil-toggle-row>div span{font-size:12px;color:rgba(26,26,26,.55)}
-.cnil-always-on{font-size:11px;font-weight:700;color:#2563EB;white-space:nowrap}
-.cnil-toggle{position:relative;width:40px;height:22px;flex-shrink:0}
-.cnil-toggle input{opacity:0;width:0;height:0}
-.cnil-toggle span{position:absolute;inset:0;background:#ddd;border-radius:22px;transition:.2s;cursor:pointer}
-.cnil-toggle input:checked+span{background:linear-gradient(120deg,#D4317A,#E8A87C)}
-.cnil-toggle span::before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
-.cnil-toggle input:checked+span::before{transform:translateX(18px)}
-.cnil-modal-btns{display:flex;gap:10px;margin-top:20px}
-.cnil-modal-btns .cnil-btn{flex:1;text-align:center}
-/* Dark desktop cookie */
-@media(min-width:769px){
-  #cnil-banner{background:#0d1628;border-color:rgba(255,255,255,.08);box-shadow:0 -4px 20px rgba(0,0,0,.4)}
-  .cnil-txt{color:rgba(240,244,255,.65)}
-  .cnil-txt strong{color:#f0f4ff}
-  .cnil-txt a{color:#60a5fa}
-  .cnil-btn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#f0f4ff}
-  .cnil-btn:hover{background:rgba(255,255,255,.1)}
-  .cnil-modal-box{background:#0d1628;border:1px solid rgba(255,255,255,.1)}
-  .cnil-modal-box h4{color:#f0f4ff}
-  .cnil-toggle-row{border-color:rgba(255,255,255,.08)}
-  .cnil-toggle-row>div strong{color:#f0f4ff}
-  .cnil-toggle-row>div span{color:rgba(240,244,255,.5)}
-  .cnil-always-on{color:#60a5fa}
-  .cnil-toggle span{background:rgba(255,255,255,.15)}
-}
+.intake-input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 16px;color:#fff;font-family:var(--body);font-size:14px;outline:none;transition:.2s;width:100%;box-sizing:border-box}
+.intake-input::placeholder{color:rgba(255,255,255,.3)}
+.intake-input:focus{border-color:var(--accent);background:rgba(212,49,122,.06)}
 
 /* ══ PROMO POPUP ══ */
 .promo-overlay{display:none;position:fixed;inset:0;z-index:9970;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px}
@@ -1638,43 +1663,6 @@ function cnilSaveCustom() {
 }
 @media(max-width:480px){.promo-box{padding:24px 20px}.promo-countdown{font-size:32px}}
 </style>
-<!-- ══ COOKIE BANNER ══ -->
-<div id="cnil-banner" role="region" aria-label="Gestion des cookies">
-  <div class="cnil-inner">
-    <div class="cnil-txt">
-      <strong>🍪 Ce site utilise des cookies</strong>
-      Pour mesurer l'audience et personnaliser votre expérience. <a href="/politique-confidentialite.html">En savoir plus</a>
-    </div>
-    <div class="cnil-btns">
-      <button id="cnilCustom" class="cnil-btn">Personnaliser</button>
-      <button id="cnilRefuse" class="cnil-btn">Refuser</button>
-      <button id="cnilAccept" class="cnil-btn cnil-btn-accept">Accepter tout</button>
-    </div>
-  </div>
-</div>
-
-<!-- ══ COOKIE MODAL ══ -->
-<div id="cnil-modal" role="dialog" aria-modal="true" aria-label="Préférences cookies">
-  <div class="cnil-modal-box">
-    <h4>Gérer mes préférences</h4>
-    <div class="cnil-toggle-row">
-      <div><strong>Cookies essentiels</strong><span>Nécessaires au fonctionnement du site.</span></div>
-      <span class="cnil-always-on">Toujours actif</span>
-    </div>
-    <div class="cnil-toggle-row">
-      <div><strong>Analytiques</strong><span>Mesure d'audience anonyme (Google Analytics).</span></div>
-      <label class="cnil-toggle"><input type="checkbox" id="toggleAnalytics"><span></span></label>
-    </div>
-    <div class="cnil-toggle-row">
-      <div><strong>Marketing</strong><span>Publicités personnalisées (Meta, Google Ads).</span></div>
-      <label class="cnil-toggle"><input type="checkbox" id="toggleMarketing"><span></span></label>
-    </div>
-    <div class="cnil-modal-btns">
-      <button id="cnilModalRefuse" class="cnil-btn">Tout refuser</button>
-      <button id="cnilSave" class="cnil-btn cnil-btn-accept">Enregistrer</button>
-    </div>
-  </div>
-</div>
 
 <!-- ══ PROMO POPUP ══ -->
 <div id="promoPopup" class="promo-overlay" role="dialog" aria-modal="true">
@@ -1713,19 +1701,12 @@ function cnilSaveCustom() {
   if(!el)return;
   var idx=0;
   setInterval(function(){
-    el.style.opacity='0';
-    el.style.transform='translateY(-10px)';
+    el.classList.add('fade-out');
     setTimeout(function(){
       idx=(idx+1)%niches.length;
       el.textContent=niches[idx];
-      el.style.transition='none';
-      el.style.opacity='0';
-      el.style.transform='translateY(10px)';
-      void el.offsetHeight;
-      el.style.transition='';
-      el.style.opacity='1';
-      el.style.transform='translateY(0)';
-    },420);
+      el.classList.remove('fade-out');
+    },370);
   },2800);
 })();
 </script>
