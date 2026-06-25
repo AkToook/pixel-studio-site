@@ -128,17 +128,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- HERO -->
 <section class="hero hero-center hero-short" id="hero-bg">
   <!-- Floating city pins -->
-  <div class="city-pins" aria-hidden="true">
-    <div class="city-pin pin-paris">📍 Paris</div>
-    <div class="city-pin pin-reims">📍 Reims</div>
-    <div class="city-pin pin-lyon">📍 Lyon</div>
-    <div class="city-pin pin-casablanca">📍 Casablanca</div>
-    <div class="city-pin pin-london">📍 London</div>
-  </div>
 
   <div class="wrap">
     <h1 class="reveal">On développe vos<br><span class="niche-cycle grad" id="nicheWord">sites webs</span></h1>
-    <p class="lead reveal">Design sur mesure · Copywriting inclus · Livraison en 72h–2 semaines</p>
+    <p class="lead reveal">Ne laissez plus vos idées au stade de concept.<br>Vous imaginez, nous codons. Votre concept, enfin réel.</p>
 
     <!-- Free mockup CTA banner -->
     <div class="mockup-cta reveal">
@@ -155,6 +148,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div><div class="n">4.9<span style="color:var(--sky)">★</span></div><div class="l">Note clients</div></div>
       <div><div class="n">+40</div><div class="l">Projets livrés</div></div>
     </div>
+    <div class="hero-cities reveal">📍 Paris &nbsp;·&nbsp; Lyon &nbsp;·&nbsp; Londres &nbsp;·&nbsp; Casablanca</div>
   </div>
 </section>
 
@@ -1032,7 +1026,8 @@ function cnilSaveCustom() {
   });
 
   // Lien "Gérer les cookies" dans le footer
-  document.getElementById('cnilReopen').addEventListener('click', function() {
+  var _cnilReopen = document.getElementById('cnilReopen');
+  if(_cnilReopen) _cnilReopen.addEventListener('click', function() {
     const stored = cnilGetStored();
     if (stored) {
       document.getElementById('toggleAnalytics').checked = !!stored.analytics;
@@ -1563,7 +1558,154 @@ function cnilSaveCustom() {
 .intake-prog-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:.25s}
 .intake-prog-dot.done{background:var(--accent)}
 @media(max-width:540px){.intake-types{grid-template-columns:1fr}#intakeModal .modal-box{padding:28px 18px}}
+
+/* ══ COOKIE BANNER ══ */
+#cnil-banner{position:fixed;bottom:0;left:0;right:0;z-index:9980;background:#fff;border-top:1px solid rgba(0,0,0,.1);padding:14px 20px;transform:translateY(100%);transition:transform .35s ease;box-shadow:0 -4px 20px rgba(0,0,0,.08)}
+#cnil-banner.visible{transform:translateY(0)}
+.cnil-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.cnil-txt{flex:1;min-width:200px;font-size:13px;color:rgba(26,26,26,.7);line-height:1.5}
+.cnil-txt strong{display:block;color:#1a1a1a;margin-bottom:2px;font-size:14px}
+.cnil-txt a{color:#2563EB;text-decoration:underline}
+.cnil-btns{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.cnil-btn{font-family:var(--display,'Space Grotesk',sans-serif);font-size:13px;font-weight:700;padding:9px 16px;border-radius:50px;border:1.5px solid rgba(0,0,0,.15);background:#fff;color:#1a1a1a;cursor:pointer;transition:.2s;white-space:nowrap}
+.cnil-btn:hover{background:#f5f5f5}
+.cnil-btn-accept{background:linear-gradient(120deg,#D4317A,#E8A87C)!important;color:#fff!important;border-color:transparent!important}
+.cnil-btn-accept:hover{opacity:.88;background:linear-gradient(120deg,#D4317A,#E8A87C)!important}
+/* Cookie modal */
+#cnil-modal{display:none;position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
+#cnil-modal.open{display:flex}
+.cnil-modal-box{background:#fff;border-radius:20px;padding:28px 24px;max-width:400px;width:100%;box-shadow:0 16px 48px rgba(0,0,0,.2)}
+.cnil-modal-box h4{font-family:var(--display,'Space Grotesk',sans-serif);font-size:18px;font-weight:800;color:#1a1a1a;margin-bottom:20px;letter-spacing:-.02em}
+.cnil-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.cnil-toggle-row:last-of-type{border-bottom:none}
+.cnil-toggle-row>div strong{display:block;font-size:14px;color:#1a1a1a;margin-bottom:2px}
+.cnil-toggle-row>div span{font-size:12px;color:rgba(26,26,26,.55)}
+.cnil-always-on{font-size:11px;font-weight:700;color:#2563EB;white-space:nowrap}
+.cnil-toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+.cnil-toggle input{opacity:0;width:0;height:0}
+.cnil-toggle span{position:absolute;inset:0;background:#ddd;border-radius:22px;transition:.2s;cursor:pointer}
+.cnil-toggle input:checked+span{background:linear-gradient(120deg,#D4317A,#E8A87C)}
+.cnil-toggle span::before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.cnil-toggle input:checked+span::before{transform:translateX(18px)}
+.cnil-modal-btns{display:flex;gap:10px;margin-top:20px}
+.cnil-modal-btns .cnil-btn{flex:1;text-align:center}
+/* Dark desktop cookie */
+@media(min-width:769px){
+  #cnil-banner{background:#0d1628;border-color:rgba(255,255,255,.08);box-shadow:0 -4px 20px rgba(0,0,0,.4)}
+  .cnil-txt{color:rgba(240,244,255,.65)}
+  .cnil-txt strong{color:#f0f4ff}
+  .cnil-txt a{color:#60a5fa}
+  .cnil-btn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#f0f4ff}
+  .cnil-btn:hover{background:rgba(255,255,255,.1)}
+  .cnil-modal-box{background:#0d1628;border:1px solid rgba(255,255,255,.1)}
+  .cnil-modal-box h4{color:#f0f4ff}
+  .cnil-toggle-row{border-color:rgba(255,255,255,.08)}
+  .cnil-toggle-row>div strong{color:#f0f4ff}
+  .cnil-toggle-row>div span{color:rgba(240,244,255,.5)}
+  .cnil-always-on{color:#60a5fa}
+  .cnil-toggle span{background:rgba(255,255,255,.15)}
+}
+
+/* ══ PROMO POPUP ══ */
+.promo-overlay{display:none;position:fixed;inset:0;z-index:9970;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px}
+.promo-overlay.open{display:flex}
+@keyframes promoIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.promo-box{background:#fff;border-radius:20px;padding:32px 28px;max-width:450px;width:100%;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.2);animation:promoIn .3s ease}
+.promo-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:rgba(0,0,0,.35);cursor:pointer;line-height:1;padding:4px 8px}
+.promo-close:hover{color:rgba(0,0,0,.7)}
+.promo-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--display,'Space Grotesk',sans-serif);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#D4317A;margin-bottom:14px}
+.promo-badge::before{content:'●';font-size:9px}
+.promo-box h3{font-family:var(--display,'Space Grotesk',sans-serif);font-size:clamp(20px,3vw,26px);font-weight:800;color:#1a1a1a;letter-spacing:-.03em;line-height:1.2;margin-bottom:12px}
+.promo-red{color:#D4317A}
+.promo-box>p{font-size:14px;color:rgba(26,26,26,.6);line-height:1.65;margin-bottom:20px}
+.promo-timer-box{background:#f5f5f5;border-radius:12px;padding:16px 20px;margin-bottom:20px}
+.promo-timer-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,26,.45);margin-bottom:6px}
+.promo-countdown{font-family:var(--display,'Space Grotesk',sans-serif);font-size:38px;font-weight:800;color:#1a1a1a;letter-spacing:-.04em;line-height:1}
+.promo-btn{display:block;background:linear-gradient(120deg,#D4317A,#E8A87C);color:#fff;font-family:var(--display,'Space Grotesk',sans-serif);font-weight:800;font-size:16px;padding:17px 24px;border-radius:50px;text-align:center;text-decoration:none;transition:.25s;box-shadow:0 6px 24px rgba(212,49,122,.3);margin-bottom:12px}
+.promo-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(212,49,122,.4)}
+.promo-note{font-size:12.5px;color:rgba(26,26,26,.4);text-align:center;margin:0;font-style:italic}
+/* Dark desktop promo */
+@media(min-width:769px){
+  .promo-box{background:#0d1628;border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 64px rgba(0,0,0,.5)}
+  .promo-close{color:rgba(255,255,255,.35)}
+  .promo-close:hover{color:rgba(255,255,255,.75)}
+  .promo-box h3{color:#ffffff}
+  .promo-box>p{color:rgba(240,244,255,.6)}
+  .promo-timer-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+  .promo-timer-label{color:rgba(240,244,255,.4)}
+  .promo-countdown{color:#ffffff}
+  .promo-note{color:rgba(240,244,255,.38)}
+}
+@media(max-width:480px){.promo-box{padding:24px 20px}.promo-countdown{font-size:32px}}
 </style>
+<!-- ══ COOKIE BANNER ══ -->
+<div id="cnil-banner" role="region" aria-label="Gestion des cookies">
+  <div class="cnil-inner">
+    <div class="cnil-txt">
+      <strong>🍪 Ce site utilise des cookies</strong>
+      Pour mesurer l'audience et personnaliser votre expérience. <a href="/politique-confidentialite.html">En savoir plus</a>
+    </div>
+    <div class="cnil-btns">
+      <button id="cnilCustom" class="cnil-btn">Personnaliser</button>
+      <button id="cnilRefuse" class="cnil-btn">Refuser</button>
+      <button id="cnilAccept" class="cnil-btn cnil-btn-accept">Accepter tout</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE MODAL ══ -->
+<div id="cnil-modal" role="dialog" aria-modal="true" aria-label="Préférences cookies">
+  <div class="cnil-modal-box">
+    <h4>Gérer mes préférences</h4>
+    <div class="cnil-toggle-row">
+      <div><strong>Cookies essentiels</strong><span>Nécessaires au fonctionnement du site.</span></div>
+      <span class="cnil-always-on">Toujours actif</span>
+    </div>
+    <div class="cnil-toggle-row">
+      <div><strong>Analytiques</strong><span>Mesure d'audience anonyme (Google Analytics).</span></div>
+      <label class="cnil-toggle"><input type="checkbox" id="toggleAnalytics"><span></span></label>
+    </div>
+    <div class="cnil-toggle-row">
+      <div><strong>Marketing</strong><span>Publicités personnalisées (Meta, Google Ads).</span></div>
+      <label class="cnil-toggle"><input type="checkbox" id="toggleMarketing"><span></span></label>
+    </div>
+    <div class="cnil-modal-btns">
+      <button id="cnilModalRefuse" class="cnil-btn">Tout refuser</button>
+      <button id="cnilSave" class="cnil-btn cnil-btn-accept">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROMO POPUP ══ -->
+<div id="promoPopup" class="promo-overlay" role="dialog" aria-modal="true">
+  <div class="promo-box">
+    <button class="promo-close" onclick="closePromo()" aria-label="Fermer">×</button>
+    <div class="promo-badge">Offre du jour</div>
+    <h3>Cahier, devis &amp; maquette<br><span class="promo-red">offerts sous 48 h.</span></h3>
+    <p>Les autres agences facturent ça <s>2 500 à 8 000 €</s>.<br>Chez nous, c'est gratuit pour les 2 prochaines places.</p>
+    <div class="promo-timer-box">
+      <div class="promo-timer-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Cette offre expire dans
+      </div>
+      <div class="promo-countdown" id="promoCountdown">15:00</div>
+    </div>
+    <a href="https://calendly.com/mredahmamouchi/30min" target="_blank" rel="noopener" class="promo-btn" onclick="closePromo()">Réserver ma place →</a>
+    <p class="promo-note">Sans engagement · 4 h de réponse maximum.</p>
+  </div>
+</div>
+
+<script>
+// Countdown dans le popup
+(function(){
+  var el=document.getElementById('promoCountdown');
+  if(!el)return;
+  var s=15*60,iv=null;
+  function tick(){s--;var m=Math.floor(s/60),sec=s%60;el.textContent=(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;if(s<=0){clearInterval(iv);el.textContent='Expiré';}}
+  new MutationObserver(function(ms){ms.forEach(function(m){if(m.target.classList.contains('open')&&!iv)iv=setInterval(tick,1000);});}).observe(document.getElementById('promoPopup'),{attributes:true,attributeFilter:['class']});
+})();
+</script>
+
 <script>
 (function(){
   var niches=['sites webs','applications mobiles','logiciels internes','SaaS & Startup'];

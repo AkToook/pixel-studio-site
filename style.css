@@ -73,16 +73,9 @@ header.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);bord
 .hero-meta .n{font-family:var(--display);font-size:42px;font-weight:800;letter-spacing:-.04em}
 .hero-meta .l{font-size:14px;color:var(--muted)}
 
-/* City pins — hero floating labels */
-.city-pins{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
-.city-pin{position:absolute;display:inline-flex;align-items:center;gap:10px;background:rgba(255,252,248,.92);border:1.5px solid rgba(212,49,122,.18);padding:12px 20px;border-radius:100px;font-size:16px;font-weight:700;font-family:var(--display);color:#1A1A1A;white-space:nowrap;box-shadow:0 4px 18px rgba(0,0,0,.07)}
-.city-pin svg{color:#D4317A;flex-shrink:0;width:16px;height:16px}
-.pin-paris{top:52%;right:3%;animation-delay:.4s}
-.pin-reims{top:24%;left:2%;animation-delay:0s}
-.pin-lyon{bottom:26%;left:3%;animation-delay:1.3s}
-.pin-casablanca{top:18%;right:2%;animation-delay:.7s}
-.pin-london{bottom:22%;right:2%;animation-delay:2s}
-@media(max-width:1100px){.city-pins{display:none}}
+/* Hero cities bar */
+.hero-cities{margin-top:18px;font-size:14px;color:rgba(26,26,26,.45);letter-spacing:.04em;font-family:var(--display)}
+@media(min-width:769px){.hero-cities{color:rgba(240,244,255,.45)}}
 
 /* Niche rotator */
 .niche-cycle{display:inline-block;transition:opacity .4s ease,transform .4s ease}
@@ -799,7 +792,6 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
 
   /* ── Hero ── */
   .hero{background:linear-gradient(140deg,#162040 0%,#0f1a32 55%,#0b1526 100%)!important}
-  .city-pin{background:rgba(10,18,36,.85);color:#f0f4ff;border-color:rgba(96,165,250,.3)}
 
   /* ── Header ── */
   header.scrolled{background:rgba(4,6,14,.96);border-bottom:1px solid rgba(255,255,255,.08)}
