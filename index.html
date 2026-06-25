@@ -93,8 +93,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 
-<div id="vanta-bg"></div>
-
 <!-- STICKY TIMER BAR — visible after popup is dismissed -->
 <div id="promo-bar">
   <span class="pbar-label">⏳ Offre gratuite expire dans</span>
@@ -119,7 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button class="lang-btn" id="lb-en" onclick="setLang('en')">EN</button>
         <button class="lang-btn" id="lb-ar" onclick="setLang('ar')">ع</button>
       </div>
-      <a class="btn btn-blue nav-cta-btn" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20de%20site%20web%20%F0%9F%91%8B">Démarrer un projet</a>
+      <a class="btn btn-blue nav-cta-btn" href="#contact">Démarrer un projet</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -229,7 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="vis-punch reveal">
       <h3>Vos clients vous cherchent. Vous n'êtes pas là.</h3>
       <p>Chaque jour, des centaines de personnes tapent votre métier et votre ville sur Google. Si vous n'êtes pas visible, ils vont directement chez votre concurrent. On règle ça.</p>
-      <button class="btn btn-blue" onclick="document.getElementById('bookingModal').classList.add('open')">Réserver un appel gratuit →</button>
+      <a class="btn btn-blue" href="#contact">Réserver un appel gratuit →</a>
     </div>
   </div>
 </section>
@@ -660,27 +658,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-head center reveal">
       <div class="tag">Contact</div>
       <h2>Parlons de votre projet.</h2>
-      <p>On répond en moins de 2h en semaine. Devis gratuit, sans engagement.</p>
+      <p>On vous répond en moins de 2h en semaine. Devis gratuit, sans engagement.</p>
     </div>
-    <div class="contact-options reveal">
-      <a class="contact-opt" href="https://calendly.com/mredahmamouchi/30min" target="_blank" rel="noopener">
-        <div class="contact-opt-ico">📅</div>
-        <div class="contact-opt-title">Réserver un appel</div>
-        <div class="contact-opt-sub">Choisissez un créneau dans mon agenda.<br>30 min, sans engagement.</div>
-        <div class="contact-opt-tag">Calendly</div>
-      </a>
-      <a class="contact-opt" href="https://wa.me/33620757517?text=Bonjour%20Pixel%20Studio%20%F0%9F%91%8B%20Je%20voudrais%20discuter%20d%27un%20projet" target="_blank" rel="noopener">
-        <div class="contact-opt-ico">💬</div>
-        <div class="contact-opt-title">WhatsApp</div>
-        <div class="contact-opt-sub">Réponse en moins de 2h en semaine.<br>+33 6 20 75 75 17</div>
-        <div class="contact-opt-tag">Message direct</div>
-      </a>
-      <a class="contact-opt" href="contact.html">
-        <div class="contact-opt-ico">✉️</div>
-        <div class="contact-opt-title">Formulaire de contact</div>
-        <div class="contact-opt-sub">Décrivez votre projet par écrit.<br>On revient vers vous rapidement.</div>
-        <div class="contact-opt-tag">Formulaire</div>
-      </a>
+    <div class="contact-cta-wrap reveal">
+      <button class="btn btn-pri btn-contact-main" onclick="toggleContactPanel(this)" aria-expanded="false">
+        Nous contacter
+        <svg class="contact-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="contact-panel" id="contactPanel" aria-hidden="true">
+        <a class="contact-panel-opt" href="https://calendly.com/mredahmamouchi/30min" target="_blank" rel="noopener">
+          <span class="cp-ico">📅</span>
+          <span class="cp-txt">
+            <strong>Réserver un appel</strong>
+            <span>30 min sur Calendly, sans engagement</span>
+          </span>
+        </a>
+        <a class="contact-panel-opt" href="https://wa.me/33620757517?text=Bonjour%20Pixel%20Studio%20%F0%9F%91%8B%20Je%20voudrais%20discuter%20d%27un%20projet" target="_blank" rel="noopener">
+          <span class="cp-ico">💬</span>
+          <span class="cp-txt">
+            <strong>WhatsApp</strong>
+            <span>Réponse en moins de 2h · +33 6 20 75 75 17</span>
+          </span>
+        </a>
+        <a class="contact-panel-opt" href="contact.html">
+          <span class="cp-ico">✉️</span>
+          <span class="cp-txt">
+            <strong>Formulaire de contact</strong>
+            <span>Décrivez votre projet par écrit</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -907,6 +914,12 @@ function startPromoCountdown(){
 // ══ INTAKE MODAL (maquette gratuite) ══
 let _intakeType='';
 
+function toggleContactPanel(btn){
+  var panel=document.getElementById('contactPanel');
+  var open=panel.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+  panel.setAttribute('aria-hidden',!open);
+}
 function openIntake(){
   document.getElementById('intakeModal').classList.add('open');
   _intakeType='';
@@ -1328,47 +1341,6 @@ function cnilSaveCustom() {
 </script>
 
 <script>
-/* ══ VANTA — chargement conditionnel (desktop uniquement) ══ */
-(function(){
-  var mobile=window.innerWidth<768||/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(mobile||reduced)return; // CSS gradient fallback actif
-
-  function loadScript(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;document.body.appendChild(s);}
-
-  loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js',function(){
-    loadScript('https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js',function(){
-      var fx=VANTA.WAVES({
-        el:'#vanta-bg',
-        mouseControls:true,
-        touchControls:false,
-        gyroControls:false,
-        minHeight:200,
-        minWidth:200,
-        scale:1,
-        color:0xF2C4A0,
-        shininess:30,
-        waveHeight:15,
-        waveSpeed:1,
-        zoom:1
-      });
-
-      // Pause quand l'onglet est caché → économise CPU/batterie
-      document.addEventListener('visibilitychange',function(){
-        if(!fx||!fx.renderer)return;
-        if(document.hidden){
-          fx.renderer.setAnimationLoop(null);
-        }else{
-          var loop=fx.animationLoop;
-          if(loop)fx.renderer.setAnimationLoop(loop.bind(fx));
-          else fx.resize();
-        }
-      });
-    });
-  });
-})();
-</script>
-<script>
 /* ══ CHATBOT ══ */
 (function(){
   var d={};
@@ -1576,14 +1548,19 @@ function cnilSaveCustom() {
 .modal-close:hover{color:#fff}
 
 /* ══ CONTACT — 3 options ══ */
-.contact-options{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.contact-opt{display:flex;flex-direction:column;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 24px;text-decoration:none;color:#fff;transition:.25s;text-align:center}
-.contact-opt:hover{border-color:var(--accent);background:rgba(247,37,133,.06);transform:translateY(-4px)}
-.contact-opt-ico{font-size:36px;line-height:1}
-.contact-opt-title{font-family:var(--display);font-size:18px;font-weight:700;color:#fff}
-.contact-opt-sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
-.contact-opt-tag{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:4px 12px;border-radius:50px}
-@media(max-width:768px){.contact-options{grid-template-columns:1fr}}
+.contact-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:40px}
+.btn-contact-main{font-size:17px;padding:18px 40px;gap:10px;min-width:220px;position:relative}
+.btn-contact-main .contact-chevron{transition:transform .25s ease}
+.btn-contact-main[aria-expanded="true"] .contact-chevron{transform:rotate(180deg)}
+.contact-panel{width:100%;max-width:520px;overflow:hidden;max-height:0;opacity:0;transition:max-height .35s ease,opacity .25s ease,margin-top .25s ease}
+.contact-panel.open{max-height:400px;opacity:1;margin-top:16px}
+.contact-panel-opt{display:flex;align-items:center;gap:18px;background:#fff;border:1.5px solid rgba(26,26,26,.09);border-radius:16px;padding:18px 22px;text-decoration:none;color:#1A1A1A;transition:.2s;margin-bottom:10px}
+.contact-panel-opt:last-child{margin-bottom:0}
+.contact-panel-opt:hover{border-color:var(--accent);background:#FFF5F9;transform:translateX(4px)}
+.cp-ico{font-size:28px;flex-shrink:0;width:44px;text-align:center}
+.cp-txt{display:flex;flex-direction:column;gap:3px;text-align:left}
+.cp-txt strong{font-family:var(--display);font-size:15px;font-weight:700;color:#1A1A1A}
+.cp-txt span{font-size:13px;color:rgba(26,26,26,.5)}
 
 /* ══ INTAKE MODAL ══ */
 #intakeModal .modal-box{max-width:580px;text-align:left;padding:40px 34px}

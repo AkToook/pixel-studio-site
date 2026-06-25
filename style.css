@@ -20,12 +20,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:#FFFFFF;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-#vanta-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-/* Mobile / reduced-motion: beautiful CSS gradient — no WebGL */
-@media(max-width:767px),(prefers-reduced-motion:reduce){
-  #vanta-bg{background:radial-gradient(ellipse 70% 60% at 15% 40%,rgba(212,49,122,.08) 0%,transparent 100%),radial-gradient(ellipse 60% 50% at 85% 15%,rgba(212,168,83,.1) 0%,transparent 100%),radial-gradient(ellipse 80% 70% at 55% 90%,rgba(247,240,230,.6) 0%,transparent 100%),linear-gradient(160deg,#FFFFFF 0%,#F7F0E6 50%,#FFFFFF 100%)}
-}
-/* Hero only shows Vanta — all other sections have solid bg for readability */
 .soft{background:#F7F0E6!important}
 .marquee{background:#F7F0E6!important;border-top:1px solid rgba(26,26,26,.08);border-bottom:1px solid rgba(26,26,26,.08)}
 a{color:inherit;text-decoration:none}
