@@ -1583,26 +1583,20 @@ function cnilSaveCustom() {
 (function(){
   var niches=['sites webs','applications mobiles','logiciels internes','SaaS & Startup'];
   var el=document.getElementById('nicheWord');
-  if(!el) return;
+  if(!el)return;
   var idx=0;
-  function next(){
-    el.style.transition='opacity .3s ease,transform .3s ease';
+  setInterval(function(){
     el.style.opacity='0';
-    el.style.transform='translateY(-16px)';
+    el.style.transform='translateY(-10px)';
     setTimeout(function(){
       idx=(idx+1)%niches.length;
       el.textContent=niches[idx];
-      el.style.transition='none';
-      el.style.opacity='0';
-      el.style.transform='translateY(16px)';
-      requestAnimationFrame(function(){
-        el.style.transition='opacity .35s ease,transform .35s ease';
-        el.style.opacity='1';
-        el.style.transform='translateY(0)';
-      });
-    },320);
-  }
-  setInterval(next,2400);
+      el.style.transform='translateY(10px)';
+      void el.offsetHeight;
+      el.style.opacity='1';
+      el.style.transform='translateY(0)';
+    },400);
+  },2800);
 })();
 </script>
 </body>
