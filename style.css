@@ -775,58 +775,164 @@ footer{background:#1A1A1A;backdrop-filter:blur(12px);border-top:1px solid rgba(2
 [dir="rtl"] .hero-meta{direction:rtl}
 [dir="rtl"] .foot-bot-top{flex-direction:row-reverse}
 
-/* ══════════════════════════════
-   DARK MODE — DESKTOP (≥769px)
-   Mobile garde le thème clair
-   ══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   DARK MODE — DESKTOP (≥769px) · Mobile = light
+   ══════════════════════════════════════════════════ */
 @media(min-width:769px){
+
+  /* ── Variables ── */
   :root{
-    --bg:#050810;
-    --bg-soft:rgba(6,10,20,.88);
-    --ink:#f0f4ff;
-    --ink-2:rgba(240,244,255,.82);
-    --muted:rgba(240,244,255,.48);
-    --line:rgba(255,255,255,.09);
+    --bg:#050810;--bg-soft:rgba(6,10,20,.88);
+    --ink:#f0f4ff;--ink-2:rgba(240,244,255,.82);
+    --muted:rgba(240,244,255,.48);--line:rgba(255,255,255,.09);
   }
+
+  /* ── Base ── */
   body{background:#050810;color:#f0f4ff}
   section{background:#050810}
+  h1,h2,h3,h4{color:#f0f4ff}
+  p{color:rgba(240,244,255,.72)}
   .soft{background:rgba(6,10,20,.88)!important}
-  .marquee{background:rgba(6,10,20,.9)!important;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
-  .hero{background:linear-gradient(140deg,#0d1530 0%,#080f1e 50%,#060d18 100%)!important}
-  header{background:transparent}
+  .marquee{background:rgba(6,10,20,.9)!important;border-color:rgba(255,255,255,.07)}
+  ::-webkit-scrollbar-track{background:#050810}
+
+  /* ── Hero ── */
+  .hero{background:linear-gradient(140deg,#0d1530 0%,#080f1e 55%,#060d18 100%)!important}
+  .city-pin{background:rgba(10,18,36,.85);color:#f0f4ff;border-color:rgba(167,139,250,.3)}
+  .city-pin svg{color:#a78bfa}
+
+  /* ── Header ── */
   header.scrolled{background:rgba(4,6,14,.96);border-bottom:1px solid rgba(255,255,255,.08)}
   .nav-menu a{color:rgba(240,244,255,.8)}
   .burger span{background:#f0f4ff}
+  #promo-bar{background:#0a1020;border-bottom:1px solid rgba(255,255,255,.08);color:#f0f4ff}
+  .pbar-label{color:rgba(240,244,255,.7)}
+
+  /* ── Tags ── */
   .tag{color:#a78bfa;background:rgba(167,139,250,.12);border-color:rgba(167,139,250,.25)}
-  .sec-head h2,.how-card h3,.rule-card h4,.proc h3{color:#f0f4ff}
-  .how-card{background:rgba(8,18,38,.7);border-color:rgba(96,165,250,.18)}
-  .how-card.how-ads{background:rgba(18,8,38,.7);border-color:rgba(167,139,250,.22)}
-  .how-num{color:#60a5fa}
-  .how-result{background:rgba(96,165,250,.08);color:#60a5fa}
+
+  /* ── Visibilité section ── */
+  .search-bar-mock{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+  .search-typed,.search-bar-mock svg{color:#f0f4ff}
+  .srch-cursor{background:#f0f4ff}
+  .serp-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+  .serp-head{color:rgba(240,244,255,.35)}
+  .serp-item-url{color:rgba(96,165,250,.7)}
+  .serp-item-title{color:#60a5fa}
+  .serp-item-desc{color:rgba(240,244,255,.5)}
+  .serp-badge{background:rgba(96,165,250,.15);color:#93c5fd;border-color:rgba(96,165,250,.3)}
+  .serp-absent{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2)}
+  .serp-absent-txt{color:rgba(240,244,255,.6)}
+  .vis-reason{color:#f0f4ff;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+  .vis-num{color:#a78bfa}
+  .vis-punch h3{color:#f0f4ff}
+  .vis-punch p{color:rgba(240,244,255,.65)}
+
+  /* ── Méthode (how-steps) ── */
+  .how-step{border-left-color:rgba(167,139,250,.25)}
+  .how-step .how-num{color:#a78bfa;background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25)}
+  .how-step h3{color:#f0f4ff}
+  .how-step p{color:rgba(240,244,255,.6)}
+
+  /* ── Règles (rule-cards) ── */
   .rule-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1);box-shadow:none}
-  .rule-card:hover{background:rgba(123,79,166,.18);border-color:rgba(167,139,250,.4)}
+  .rule-card:hover{background:rgba(123,79,166,.18);border-color:rgba(167,139,250,.4);transform:translateY(-3px)}
   .rule-num{color:#a78bfa}
-  .how-step .how-num{color:#a78bfa;border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.08)}
-  .btn-ghost{background:rgba(255,255,255,.06);color:#f0f4ff;border-color:rgba(255,255,255,.15)}
-  .btn-ghost:hover{background:rgba(255,255,255,.12)}
-  .city-pin{background:rgba(10,18,36,.85);color:#f0f4ff;border-color:rgba(167,139,250,.3)}
-  .price-tease-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1)}
+  .rule-card h4{color:#f0f4ff}
+  .rule-card p{color:rgba(240,244,255,.6)}
+
+  /* ── Google leviers (how-cards) ── */
+  .how-card{background:rgba(8,18,40,.7);border-color:rgba(96,165,250,.18)}
+  .how-card.how-ads{background:rgba(18,8,40,.7);border-color:rgba(167,139,250,.22)}
+  .how-card h3{color:#f0f4ff}
+  .how-card p{color:rgba(240,244,255,.6)}
+  .how-num{color:#60a5fa}
+  .how-result{background:rgba(96,165,250,.08);color:#60a5fa;border-color:rgba(96,165,250,.15)}
+  .how-ads .how-result{background:rgba(167,139,250,.08);color:#a78bfa}
+
+  /* ── Technologies ── */
+  .tech-pill{background:rgba(167,139,250,.1);color:#c4b5fd;border-color:rgba(167,139,250,.22)}
+
+  /* ── Portfolio ── */
+  .proj-card{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.09)}
+  .proj-card-name{color:#f0f4ff}
+  .proj-card-cat{color:rgba(240,244,255,.5)}
+  .browser-bar{background:rgba(14,22,42,.9);border-bottom:1px solid rgba(255,255,255,.08)}
+  .browser-url-bar{color:rgba(240,244,255,.45)}
+
+  /* ── Clients / Trust ── */
+  .trust-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1);color:#f0f4ff}
+  .trust-name{color:#f0f4ff}
+  .trust-niche{color:rgba(240,244,255,.5)}
+  .trust-cta{background:rgba(212,49,122,.12);border-color:rgba(212,49,122,.3);color:#f0f4ff}
+
+  /* ── Manifeste ── */
+  .manifeste-inner{background:rgba(10,18,40,.7);border-color:rgba(255,255,255,.08)}
+  .manifeste-title{color:#f0f4ff}
+  .manifeste-sub{color:rgba(240,244,255,.65)}
+  .manifeste-pills span{background:rgba(167,139,250,.1);color:#c4b5fd;border-color:rgba(167,139,250,.2)}
+
+  /* ── L'agence / Proc grid ── */
+  .proc{background:rgba(8,14,28,.7);border-color:rgba(255,255,255,.08)}
+  .proc h3{color:#f0f4ff}
+  .proc p{color:rgba(240,244,255,.6)}
+  .vico{background:rgba(167,139,250,.1)}
+
+  /* ── Tarifs ── */
+  .price-tease-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1);color:#f0f4ff}
   .price-tease-card--hot{border-color:rgba(212,49,122,.4);background:rgba(212,49,122,.08)}
-  .price-tease-name,.price-tease-amount strong{color:#f0f4ff}
-  .proj-card .browser-frame{border-color:rgba(255,255,255,.1)}
-  .trust-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1)}
-  .tech-pill{background:rgba(167,139,250,.1);color:#a78bfa;border-color:rgba(167,139,250,.2)}
+  .price-tease-name{color:#f0f4ff}
+  .price-tease-amount strong{color:#f0f4ff}
+  .price-tease-card p{color:rgba(240,244,255,.6)}
+  .price-tease-badge{background:rgba(212,49,122,.2);color:#f9a8d4}
+
+  /* ── Quote / Guarantee ── */
+  .quote-sec{background:rgba(6,10,20,.9)}
+  blockquote{color:#f0f4ff}
+  .who{color:rgba(240,244,255,.5)}
+  .stars{color:#fbbf24}
+  .guarantee{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.1)}
+  .guarantee h3,.guarantee p{color:#f0f4ff}
+  .guarantee p{color:rgba(240,244,255,.65)}
+  .g-item{background:rgba(255,255,255,.06);color:#f0f4ff;border-color:rgba(255,255,255,.1)}
+
+  /* ── Blog ── */
+  .blog-card{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.08);color:#f0f4ff}
+  .blog-card-body h3{color:#f0f4ff}
+  .blog-cat{color:#a78bfa}
+  .blog-excerpt{color:rgba(240,244,255,.55)}
+  .blog-meta{color:rgba(240,244,255,.35)}
+  .blog-card-img{opacity:.9}
+
+  /* ── FAQ ── */
   .faq details{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.08)}
   .faq summary{color:#f0f4ff}
+  .ans{color:rgba(240,244,255,.65)}
+
+  /* ── Contact panel ── */
   .contact-panel-opt{background:rgba(8,14,28,.85);border-color:rgba(255,255,255,.1);color:#f0f4ff}
   .contact-panel-opt:hover{background:rgba(167,139,250,.15);border-color:rgba(167,139,250,.4)}
   .cp-txt strong{color:#f0f4ff}
   .cp-txt span{color:rgba(240,244,255,.5)}
-  .guarantee{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.1)}
-  .blog-card{background:rgba(8,14,28,.8);border-color:rgba(255,255,255,.08)}
-  .blog-card-body h3{color:#f0f4ff}
+
+  /* ── Boutons ── */
+  .btn-ghost{background:rgba(255,255,255,.06);color:#f0f4ff;border-color:rgba(255,255,255,.15)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+  /* ── Intake modal ── */
+  .modal-box{background:rgba(5,8,18,.98);border-color:rgba(255,255,255,.12)}
+  .modal-box h3,.modal-box p{color:#f0f4ff}
+  .intake-field label{color:rgba(240,244,255,.8)}
+  .intake-field input,.intake-field select,.intake-field textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#f0f4ff}
+  .intake-type{color:#f0f4ff;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+  .intake-type.selected{border-color:var(--accent);background:rgba(212,49,122,.1)}
+  .intake-step-label{color:#a78bfa}
+  .intake-step h3{color:#f0f4ff}
+  .intake-step>p{color:rgba(240,244,255,.6)}
+
+  /* ── Footer ── */
   footer{background:#030508;border-top:1px solid rgba(255,255,255,.07)}
-  .foot-links a,.foot-legal a{color:rgba(240,244,255,.5)}
-  .modal-box{background:rgba(5,8,16,.98)}
-  ::-webkit-scrollbar-track{background:#050810}
+  .foot-col-title,.foot-links a,.foot-legal a{color:rgba(240,244,255,.6)}
+  .foot-links a:hover{color:#f0f4ff}
 }
