@@ -65,7 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="canonical" href="https://pixelstudioo.fr/">
 <meta property="og:url" content="https://pixelstudioo.fr/">
@@ -293,7 +293,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
             <div class="browser-screen proj-logo-lifeos">
               <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
-                <defs><linearGradient id="lg1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#6246EA"/></linearGradient></defs>
+                <defs><linearGradient id="lg1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#D4317A"/><stop offset="1" stop-color="#E8A87C"/></linearGradient></defs>
                 <circle cx="44" cy="60" r="34" fill="url(#lg1)"/>
                 <path d="M32 60l10 10 16-18" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                 <text x="94" y="70" font-family="system-ui,sans-serif" font-weight="900" font-size="46" fill="#fff" letter-spacing="-2">LifeOS</text>
@@ -669,6 +669,99 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="wa" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20%F0%9F%91%8B">💬 WhatsApp</a>
 <a class="contact-float" href="contact.html">✉️ Nous contacter</a>
 
+<!-- Booking modal -->
+<div class="modal-overlay" id="bookingModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <h3>Réserver un appel gratuit</h3>
+    <p>30 min, sans engagement. Choisissez votre moyen préféré :</p>
+    <div class="modal-choices">
+      <a class="modal-choice" href="https://calendly.com/mredahmamouchi/30min" target="_blank" onclick="document.getElementById('bookingModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>Calendly<span class="choice-sub">Choisissez un créneau dans mon agenda</span></span>
+      </a>
+      <a class="modal-choice" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20souhaite%20un%20appel%20gratuit%20avec%20Pixel%20Studio%20%F0%9F%91%8B" target="_blank" onclick="document.getElementById('bookingModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.408A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        <span>WhatsApp<span class="choice-sub">Message direct sur +33 6 20 75 75 17</span></span>
+      </a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('bookingModal').classList.remove('open')">Annuler</button>
+  </div>
+</div>
+
+<!-- Option modal (add-ons) -->
+<div class="modal-overlay" id="optionModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <h3>Ajouter une option</h3>
+    <p id="optionModalSub"></p>
+    <div class="modal-choices">
+      <a class="modal-choice" id="optionWhatsapp" href="#" target="_blank" onclick="document.getElementById('optionModal').classList.remove('open')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.408A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        <span>En parler sur WhatsApp<span class="choice-sub">+33 6 20 75 75 17</span></span>
+      </a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('optionModal').classList.remove('open')">Annuler</button>
+  </div>
+</div>
+
+<!-- Intake / Maquette gratuite modal -->
+<div class="modal-overlay" id="intakeModal" onclick="if(event.target===this)closeIntake()">
+  <div class="modal-box">
+    <div class="intake-progress">
+      <div class="intake-prog-dot done" id="idot1"></div>
+      <div class="intake-prog-dot" id="idot2"></div>
+      <div class="intake-prog-dot" id="idot3"></div>
+    </div>
+    <!-- Étape 1 -->
+    <div class="intake-step active" id="istep1">
+      <div class="intake-step-label">Étape 1 / 3 — Type de projet</div>
+      <h3>Quel type de projet avez-vous ?</h3>
+      <p>Choisissez le plus proche de votre besoin :</p>
+      <div class="intake-types">
+        <div class="intake-type" data-value="ecommerce" onclick="selectIntakeType(this)"><span class="it-icon">🛒</span><span class="it-label">Site e-commerce</span><span class="it-sub">Vente de produits en ligne</span></div>
+        <div class="intake-type" data-value="vitrine" onclick="selectIntakeType(this)"><span class="it-icon">🌐</span><span class="it-label">Site vitrine / produit</span><span class="it-sub">Présence web, landing page</span></div>
+        <div class="intake-type" data-value="b2b" onclick="selectIntakeType(this)"><span class="it-icon">🏢</span><span class="it-label">B2B</span><span class="it-sub">Entreprise vers entreprise</span></div>
+        <div class="intake-type" data-value="b2c" onclick="selectIntakeType(this)"><span class="it-icon">👥</span><span class="it-label">B2C</span><span class="it-sub">Entreprise vers particuliers</span></div>
+        <div class="intake-type" data-value="app" onclick="selectIntakeType(this)"><span class="it-icon">📱</span><span class="it-label">Application mobile native</span><span class="it-sub">iOS, Android</span></div>
+        <div class="intake-type" data-value="saas" onclick="selectIntakeType(this)"><span class="it-icon">⚙️</span><span class="it-label">SaaS / outil web</span><span class="it-sub">Plateforme, CRM, MVP</span></div>
+      </div>
+      <div class="intake-actions">
+        <button class="modal-close" onclick="closeIntake()">Annuler</button>
+        <button class="intake-submit" onclick="nextIntakeStep(2)">Continuer →</button>
+      </div>
+    </div>
+    <!-- Étape 2 -->
+    <div class="intake-step" id="istep2">
+      <div class="intake-step-label">Étape 2 / 3 — Votre activité</div>
+      <h3>Parlez-nous de votre projet</h3>
+      <p>Quelques infos pour personnaliser votre maquette.</p>
+      <div class="intake-form-fields">
+        <div class="intake-field"><label>Votre activité / secteur *</label><input type="text" id="i-activity" placeholder="Ex : restaurant, coach sportif, agence..."></div>
+        <div class="intake-field"><label>Budget estimé</label><select id="i-budget"><option value="">Sélectionner...</option><option>Moins de 500 €</option><option>500 – 1 000 €</option><option>1 000 – 3 000 €</option><option>3 000 – 7 000 €</option><option>7 000 € +</option><option>Je ne sais pas encore</option></select></div>
+        <div class="intake-field"><label>Décrivez brièvement votre projet</label><textarea id="i-desc" placeholder="Ex : Je veux un site pour mon restaurant avec la carte en ligne..."></textarea></div>
+      </div>
+      <div class="intake-actions">
+        <button class="intake-back" onclick="nextIntakeStep(1)">← Retour</button>
+        <button class="intake-submit" onclick="nextIntakeStep(3)">Continuer →</button>
+      </div>
+    </div>
+    <!-- Étape 3 -->
+    <div class="intake-step" id="istep3">
+      <div class="intake-step-label">Étape 3 / 3 — Vos coordonnées</div>
+      <h3>Où envoyer votre maquette ?</h3>
+      <p>On revient vers vous sous 24h avec une première ébauche gratuite.</p>
+      <div class="intake-form-fields">
+        <div class="intake-field"><label>Prénom &amp; nom *</label><input type="text" id="i-name" placeholder="Votre nom"></div>
+        <div class="intake-field"><label>Email *</label><input type="email" id="i-email" placeholder="votre@email.com"></div>
+        <div class="intake-field"><label>WhatsApp / Téléphone</label><input type="tel" id="i-phone" placeholder="+33 6 XX XX XX XX"></div>
+      </div>
+      <div class="intake-actions">
+        <button class="intake-back" onclick="nextIntakeStep(2)">← Retour</button>
+        <button class="intake-submit" onclick="submitIntake()">Envoyer ma demande →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 function openOptionModal(label){
   const waTexts = {
@@ -694,16 +787,16 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(
 
 const words=['restaurants','pizzerias','kebabs','agences','SaaS','startups','artisans','coachs','hôtels','commerces'];
 const rotColors=[
-  'linear-gradient(115deg,#7C5CFC,#FF9ECD)',
-  'linear-gradient(115deg,#FACC15,#FDE68A)',
-  'linear-gradient(115deg,#4ADE80,#86EFAC)',
-  'linear-gradient(115deg,#FB923C,#FDE68A)',
-  'linear-gradient(115deg,#A855F7,#E9D5FF)',
-  'linear-gradient(115deg,#22D3EE,#A5F3FC)',
-  'linear-gradient(115deg,#F87171,#FCA5A5)',
-  'linear-gradient(115deg,#A78BFA,#DDD6FE)',
-  'linear-gradient(115deg,#34D399,#A7F3D0)',
-  'linear-gradient(115deg,#FBBF24,#FEF08A)',
+  'linear-gradient(115deg,#D4317A,#F2C4A0)',
+  'linear-gradient(115deg,#D4A853,#F2C4A0)',
+  'linear-gradient(115deg,#E8A87C,#F7F0E6)',
+  'linear-gradient(115deg,#D4317A,#E8A87C)',
+  'linear-gradient(115deg,#D4A853,#E8A87C)',
+  'linear-gradient(115deg,#D4317A,#D4A853)',
+  'linear-gradient(115deg,#E8A87C,#F2C4A0)',
+  'linear-gradient(115deg,#D4317A,#F2C4A0)',
+  'linear-gradient(115deg,#D4A853,#F7F0E6)',
+  'linear-gradient(115deg,#E8A87C,#D4A853)',
 ];
 let wi=0;const rot=document.getElementById('rotator');
 if(rot){
@@ -1230,10 +1323,10 @@ function cnilSaveCustom() {
         minHeight:200,
         minWidth:200,
         scale:1,
-        color:0x0e1e3c,
-        shininess:12,
-        waveHeight:18,
-        waveSpeed:0.65,
+        color:0xF2C4A0,
+        shininess:25,
+        waveHeight:12,
+        waveSpeed:0.5,
         zoom:0.88
       });
 
@@ -1330,7 +1423,7 @@ function cnilSaveCustom() {
       +'<svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.408A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>'
       +'<div><strong>WhatsApp</strong><small>Message immédiat</small></div></a>'
       +'<a class="chat-ch" href="https://calendly.com/mredahmamouchi/30min" target="_blank" onclick="toggleChat()">'
-      +'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'
+      +'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4317A" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'
       +'<div><strong>Calendly</strong><small>Réserver un créneau</small></div></a>';
   }
 
@@ -1472,3 +1565,4 @@ function cnilSaveCustom() {
 </script>
 </body>
 </html>
+                                                  
