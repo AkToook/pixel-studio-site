@@ -658,9 +658,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2>Parlons de votre projet.</h2>
       <p>On répond en moins de 2h en semaine. Devis gratuit, sans engagement.</p>
     </div>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-      <a href="https://wa.me/33620757517?text=Bonjour%20Pixel%20Studio%2C%20je%20voudrais%20un%20devis" class="btn btn-primary reveal" target="_blank" rel="noopener">WhatsApp — 06 20 75 75 17</a>
-      <a href="contact.html" class="btn btn-ghost reveal">Formulaire de contact →</a>
+    <div class="contact-options reveal">
+      <a class="contact-opt" href="https://calendly.com/mredahmamouchi/30min" target="_blank" rel="noopener">
+        <div class="contact-opt-ico">📅</div>
+        <div class="contact-opt-title">Réserver un appel</div>
+        <div class="contact-opt-sub">Choisissez un créneau dans mon agenda.<br>30 min, sans engagement.</div>
+        <div class="contact-opt-tag">Calendly</div>
+      </a>
+      <a class="contact-opt" href="https://wa.me/33620757517?text=Bonjour%20Pixel%20Studio%20%F0%9F%91%8B%20Je%20voudrais%20discuter%20d%27un%20projet" target="_blank" rel="noopener">
+        <div class="contact-opt-ico">💬</div>
+        <div class="contact-opt-title">WhatsApp</div>
+        <div class="contact-opt-sub">Réponse en moins de 2h en semaine.<br>+33 6 20 75 75 17</div>
+        <div class="contact-opt-tag">Message direct</div>
+      </a>
+      <a class="contact-opt" href="contact.html">
+        <div class="contact-opt-ico">✉️</div>
+        <div class="contact-opt-title">Formulaire de contact</div>
+        <div class="contact-opt-sub">Décrivez votre projet par écrit.<br>On revient vers vous rapidement.</div>
+        <div class="contact-opt-tag">Formulaire</div>
+      </a>
     </div>
   </div>
 </section>
@@ -1536,6 +1552,61 @@ function cnilSaveCustom() {
 .how-num{font-family:var(--display);font-size:32px;font-weight:800;color:rgba(124,92,252,.2);line-height:1;flex-shrink:0;min-width:48px}
 .how-step h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.02em}
 .how-step p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ══ MODALS ══ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,5,18,.75);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+@keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.modal-box{background:rgba(8,12,26,.98);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:40px 36px;max-width:440px;width:100%;text-align:center;animation:modalIn .25s ease}
+.modal-box h3{font-family:var(--display);font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.03em}
+.modal-box p{color:rgba(255,255,255,.55);font-size:15px;margin-bottom:28px}
+.modal-choices{display:flex;flex-direction:column;gap:12px}
+.modal-choice{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:17px 20px;color:#fff;font-family:var(--display);font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;transition:.2s;text-align:left}
+.modal-choice:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}
+.modal-choice svg{width:26px;height:26px;flex-shrink:0}
+.choice-sub{font-size:12px;font-weight:400;color:rgba(255,255,255,.5);display:block;margin-top:2px}
+.modal-close{margin-top:18px;background:none;border:none;color:rgba(255,255,255,.4);font-size:14px;cursor:pointer;font-family:var(--body)}
+.modal-close:hover{color:#fff}
+
+/* ══ CONTACT — 3 options ══ */
+.contact-options{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.contact-opt{display:flex;flex-direction:column;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 24px;text-decoration:none;color:#fff;transition:.25s;text-align:center}
+.contact-opt:hover{border-color:var(--accent);background:rgba(247,37,133,.06);transform:translateY(-4px)}
+.contact-opt-ico{font-size:36px;line-height:1}
+.contact-opt-title{font-family:var(--display);font-size:18px;font-weight:700;color:#fff}
+.contact-opt-sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
+.contact-opt-tag{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2);padding:4px 12px;border-radius:50px}
+@media(max-width:768px){.contact-options{grid-template-columns:1fr}}
+
+/* ══ INTAKE MODAL ══ */
+#intakeModal .modal-box{max-width:580px;text-align:left;padding:40px 34px}
+.intake-step{display:none}.intake-step.active{display:block}
+.intake-step-label{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+.intake-step h3{font-family:var(--display);font-size:clamp(19px,2.5vw,24px);font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-.03em}
+.intake-step>p{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:20px}
+.intake-types{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.intake-type{border:1.5px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 14px 12px;cursor:pointer;transition:.2s;color:#fff;background:rgba(255,255,255,.04);user-select:none}
+.intake-type:hover{border-color:var(--sky);background:rgba(96,165,250,.07)}
+.intake-type.selected{border-color:var(--accent);background:rgba(247,37,133,.08)}
+.it-icon{font-size:24px;margin-bottom:6px;display:block}
+.it-label{font-family:var(--display);font-size:13px;font-weight:700;color:#fff;display:block;margin-bottom:2px}
+.it-sub{font-size:11px;color:rgba(255,255,255,.45)}
+.intake-form-fields{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.intake-field{display:flex;flex-direction:column;gap:4px}
+.intake-field label{font-family:var(--display);font-size:12px;font-weight:600;color:rgba(255,255,255,.6)}
+.intake-field input,.intake-field select,.intake-field textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 14px;color:#fff;font-size:14px;font-family:var(--body);outline:none;transition:.2s}
+.intake-field input:focus,.intake-field select:focus,.intake-field textarea:focus{border-color:var(--sky)}
+.intake-field select option{background:#0a0f1e;color:#fff}
+.intake-field textarea{resize:vertical;min-height:76px}
+.intake-actions{display:flex;gap:12px;align-items:center}
+.intake-back{background:none;border:none;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer;font-family:var(--body);padding:0;flex-shrink:0}
+.intake-back:hover{color:#fff}
+.intake-submit{flex:1;background:linear-gradient(120deg,var(--accent),#FF6EB4);color:#fff;font-family:var(--display);font-weight:700;font-size:14px;padding:13px 20px;border-radius:50px;border:none;cursor:pointer;transition:.25s}
+.intake-submit:hover{opacity:.88}
+.intake-progress{display:flex;gap:6px;margin-bottom:24px}
+.intake-prog-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:.25s}
+.intake-prog-dot.done{background:var(--accent)}
+@media(max-width:540px){.intake-types{grid-template-columns:1fr}#intakeModal .modal-box{padding:28px 18px}}
 </style>
 <script>
 (function(){
