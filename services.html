@@ -83,6 +83,75 @@
   </div>
 </section>
 
+<!-- MÉTHODE DÉTAIL -->
+<style>
+.meth-cards{display:grid;gap:16px;margin-top:40px}
+@media(min-width:769px){.meth-cards{grid-template-columns:repeat(3,1fr)}}
+.meth-svc-card{background:#111827;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.meth-svc-head{padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,.06)}
+.meth-svc-head h3{margin:0 0 6px;font-size:1.05rem;font-weight:700;font-family:var(--display);color:#fff}
+.meth-svc-head p{margin:0;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.45}
+.meth-svc-list{list-style:none;margin:0;padding:16px 24px 22px;display:flex;flex-direction:column;gap:10px}
+.meth-svc-list li{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.5}
+.meth-svc-list li::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(97,218,251,.12);border:1.5px solid rgba(97,218,251,.3);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l4 4 6-7' stroke='%2361dafc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:11px;margin-top:2px}
+.meth-svc-card--copy .meth-svc-list li::before{background-color:rgba(212,160,50,.1);border-color:rgba(212,160,50,.4);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l4 4 6-7' stroke='%23d4a032' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.meth-svc-card--copy .meth-svc-head{background:linear-gradient(135deg,rgba(212,160,50,.08) 0%,transparent 100%)}
+.meth-svc-card--copy .meth-svc-head h3{color:#d4a032}
+.meth-svc-card--design .meth-svc-list li::before{background-color:rgba(96,165,250,.1);border-color:rgba(96,165,250,.35);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l4 4 6-7' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.meth-svc-card--design .meth-svc-head{background:linear-gradient(135deg,rgba(96,165,250,.07) 0%,transparent 100%)}
+.meth-svc-card--design .meth-svc-head h3{color:#60a5fa}
+</style>
+<section>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Notre méthode</div>
+      <h2>Ce qu'on livre.<br>Pas ce qu'on survend.</h2>
+      <p>Trois piliers dans chaque projet — stratégie, mots, design. Les trois. Toujours.</p>
+    </div>
+    <div class="meth-cards">
+
+      <div class="meth-svc-card reveal">
+        <div class="meth-svc-head">
+          <h3>Recherche & Stratégie</h3>
+          <p>Chaque décision repose sur une intention.</p>
+        </div>
+        <ul class="meth-svc-list">
+          <li>Analyse de votre marché, vos concurrents et votre positionnement</li>
+          <li>Architecture de page structurée autour de vos objectifs de conversion</li>
+          <li>Identification des leviers de différenciation et de réassurance</li>
+        </ul>
+      </div>
+
+      <div class="meth-svc-card meth-svc-card--copy reveal">
+        <div class="meth-svc-head">
+          <h3>Copywriting</h3>
+          <p>Des mots qui vendent. Pas du remplissage.</p>
+        </div>
+        <ul class="meth-svc-list">
+          <li>Textes de vente rédigés par nos soins — zéro lorem ipsum</li>
+          <li>Accroche, proposition de valeur et appels à l'action optimisés</li>
+          <li>Ton adapté à votre secteur et votre cible</li>
+          <li>SEO intégré dans chaque page dès la rédaction</li>
+        </ul>
+      </div>
+
+      <div class="meth-svc-card meth-svc-card--design reveal">
+        <div class="meth-svc-head">
+          <h3>Design & Intégration</h3>
+          <p>Un design sur-mesure. Aucun template.</p>
+        </div>
+        <ul class="meth-svc-list">
+          <li>Direction artistique alignée sur votre identité de marque</li>
+          <li>Design UI premium, responsive et pixel-perfect</li>
+          <li>Intégration performante, légère et évolutive</li>
+          <li>Animations et micro-interactions pensées pour l'UX</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- TECH STACK -->
 <section>
   <div class="wrap">
