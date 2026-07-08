@@ -198,6 +198,395 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </div>
 
+<!-- ══ CUSTOM CURSOR ══ -->
+<div class="cc-dot" id="ccDot"></div>
+<div class="cc-ring" id="ccRing"></div>
+
+<style>
+/* ═══ CUSTOM CURSOR ═══ */
+@media(hover:hover){
+  body{cursor:none}
+  a,button,[onclick]{cursor:none}
+  .cc-dot{position:fixed;top:0;left:0;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .08s}
+  .cc-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid rgba(200,150,45,.45);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
+  .cc-ring.hover{width:56px;height:56px;border-color:var(--accent)}
+  .cc-dot.hover{transform:translate(-50%,-50%) scale(2.5);background:#fff;mix-blend-mode:difference}
+}
+@media(hover:none){.cc-dot,.cc-ring{display:none}}
+
+/* ═══ EXPERTISES SECTION ═══ */
+.exp-section{padding:80px 0 40px}
+.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.exp-card{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:36px 28px;text-align:center;overflow:hidden;transition:.4s cubic-bezier(.23,1,.32,1)}
+.exp-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.4s}
+.exp-card:hover{transform:translateY(-8px);border-color:rgba(200,150,45,.25);background:rgba(200,150,45,.04)}
+.exp-card:hover::before{opacity:1}
+.exp-icon{width:56px;height:56px;margin:0 auto 18px;background:linear-gradient(135deg,rgba(200,150,45,.12),rgba(200,150,45,.04));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;transition:.4s}
+.exp-card:hover .exp-icon{transform:scale(1.1) rotate(-4deg);background:linear-gradient(135deg,rgba(200,150,45,.2),rgba(200,150,45,.08))}
+.exp-card h3{font-family:var(--display);font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}
+.exp-card p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.5}
+.exp-card .exp-tag{display:inline-block;margin-top:14px;font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--accent);background:rgba(200,150,45,.08);border:1px solid rgba(200,150,45,.15);padding:5px 14px;border-radius:50px;transition:.3s}
+.exp-card:hover .exp-tag{background:rgba(200,150,45,.15)}
+@media(max-width:900px){.exp-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.exp-grid{grid-template-columns:1fr}}
+
+/* ═══ SECTEURS SECTION ═══ */
+.sect-section{padding:40px 0 80px}
+
+/* Fan SVG animation */
+.fan-wrap{margin:50px auto 0;max-width:900px;overflow:visible}
+.fan-svg{width:100%;height:auto;display:block}
+.fan-branch{stroke-dasharray:1000;stroke-dashoffset:1000;transition:none}
+.fan-wrap.active .fan-branch{animation:fanDraw 1.2s cubic-bezier(.4,0,.2,1) forwards;animation-delay:calc(var(--d,0) * .15s)}
+@keyframes fanDraw{to{stroke-dashoffset:0}}
+.fan-dot{opacity:0;transform:scale(0)}
+.fan-wrap.active .fan-dot{animation:fanPop .35s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:calc(.9s + var(--d,0) * .15s)}
+@keyframes fanPop{to{opacity:1;transform:scale(1)}}
+.fan-dot-center{filter:drop-shadow(0 0 12px rgba(255,45,45,.6))}
+.fan-pulse{animation:fanPulse 2s ease-in-out infinite}
+@keyframes fanPulse{0%,100%{r:18;opacity:.3}50%{r:26;opacity:.1}}
+@media(max-width:700px){.fan-wrap{display:none}}
+
+/* Sector cards */
+.sect-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:30px}
+.sect-card{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px 28px;overflow:hidden;transition:.4s cubic-bezier(.23,1,.32,1)}
+.sect-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at var(--mx,50%) var(--my,50%),rgba(255,45,45,.04) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.sect-card:hover{border-color:rgba(255,45,45,.2);transform:translateY(-6px)}
+.sect-card:hover::before{opacity:1}
+.sect-card-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sect-card-ico{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(200,150,45,.12),rgba(200,150,45,.04));display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;transition:.4s}
+.sect-card:hover .sect-card-ico{transform:scale(1.08) rotate(-3deg);background:linear-gradient(135deg,rgba(200,150,45,.2),rgba(200,150,45,.08))}
+.sect-card h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;letter-spacing:-.02em}
+
+/* RED flashy punchline */
+.sect-why{font-family:var(--display);font-size:16px;font-weight:800;color:#FF2D2D;letter-spacing:-.02em;line-height:1.35;margin-bottom:12px;text-shadow:0 0 20px rgba(255,45,45,.25)}
+
+.sect-card p{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.5)}
+.sect-card-line{height:2px;margin-top:20px;background:linear-gradient(90deg,#FF2D2D,transparent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.23,1,.32,1)}
+.sect-card:hover .sect-card-line{transform:scaleX(1)}
+.sect-feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.sect-feat{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-family:var(--display);font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,45,45,.05);border:1px solid rgba(255,45,45,.12);border-radius:50px;padding:5px 12px;transition:.3s}
+.sect-feat::before{content:"";width:6px;height:6px;border-radius:50%;background:#FF2D2D;flex-shrink:0}
+.sect-card:hover .sect-feat{background:rgba(255,45,45,.1);border-color:rgba(255,45,45,.2)}
+
+/* Hero card (Immobilier - full width with bg image) */
+.sect-card--hero{position:relative;padding:0;overflow:hidden;min-height:280px}
+.sect-card--hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,10,28,.92) 0%,rgba(6,10,28,.7) 50%,rgba(6,10,28,.45) 100%);z-index:1}
+.sect-card--hero-content{position:relative;z-index:2;padding:40px 36px}
+.sect-card--hero:hover{border-color:rgba(255,45,45,.25);transform:translateY(-4px)}
+.sect-card--hero::before{display:none}
+@media(max-width:700px){.sect-cards{grid-template-columns:1fr}}
+
+/* ═══ SITES IMMERSIFS 3D ═══ */
+.imm-section{padding:80px 0}
+.imm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.imm-card{display:block;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;text-decoration:none;transition:.4s cubic-bezier(.23,1,.32,1)}
+.imm-card:hover{border-color:rgba(255,45,45,.25);transform:translateY(-6px)}
+.imm-card-preview{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a0e1a}
+.imm-card-preview iframe{width:300%;height:300%;border:none;pointer-events:none;transform:scale(.3334);transform-origin:top left}
+.imm-card-overlay{position:absolute;inset:0;background:rgba(0,5,18,.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:.35s}
+.imm-card:hover .imm-card-overlay{opacity:1}
+.imm-card-overlay span{font-family:var(--display);font-weight:700;font-size:15px;color:#fff;background:rgba(255,45,45,.85);padding:10px 22px;border-radius:50px}
+.imm-card-info{padding:18px 20px}
+.imm-card-info h4{font-family:var(--display);font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.imm-card-info p{font-size:13px;color:rgba(255,255,255,.45)}
+.imm-badge{display:inline-block;margin-top:8px;font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FF2D2D;background:rgba(255,45,45,.08);border:1px solid rgba(255,45,45,.15);padding:4px 10px;border-radius:50px}
+@media(max-width:900px){.imm-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.imm-grid{grid-template-columns:1fr}}
+
+/* ═══ MAGNETIC BUTTONS ═══ */
+.btn-blue.magnetic,.btn-pink.magnetic,.mockup-cta-btn.magnetic{transition:transform .2s cubic-bezier(.23,1,.32,1)}
+
+/* ═══ TEXT REVEAL ═══ */
+.word-reveal .wr-word{display:inline-block;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.word-reveal .wr-word.visible{opacity:1;transform:translateY(0)}
+</style>
+
+<!-- ══ EXPERTISES ══ -->
+<section class="exp-section">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Nos expertises</div>
+      <h2 class="word-reveal">On ne fait pas que des sites web.<br>On construit votre outil digital.</h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-icon">🌐</div>
+        <h3>Sites web</h3>
+        <p>Vitrines, e-commerce, landing pages — design sur mesure, SEO inclus, livraison rapide.</p>
+        <span class="exp-tag">72h à 2 sem.</span>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">⚙️</div>
+        <h3>Logiciel & SaaS</h3>
+        <p>Applications web, dashboards, outils métiers — du MVP au produit scalable.</p>
+        <span class="exp-tag">Sur devis</span>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">📊</div>
+        <h3>CRM & Outils</h3>
+        <p>CRM sur mesure, automatisations, gestion client — fini les fichiers Excel.</p>
+        <span class="exp-tag">Sur devis</span>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon">📱</div>
+        <h3>App Mobile</h3>
+        <p>iOS & Android — React Native, Flutter. Design natif, performance maximale.</p>
+        <span class="exp-tag">Sur devis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTEURS D'ACTIVITÉ ══ -->
+<section class="sect-section soft" id="secteurs-fan">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag">Secteurs d'activité</div>
+      <h2 class="word-reveal">Le bouche-à-oreille ne suffit plus.<br>Votre image digitale fait la différence.</h2>
+      <p style="max-width:640px;margin:18px auto 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,.55)">Ne laissez pas une présence digitale fébrile faire fuir vos clients les plus ambitieux. Le bouche-à-oreille ouvre la porte, mais c'est votre image en ligne qui déclenche la signature des gros chèques.</p>
+      <button class="btn btn-blue" onclick="document.getElementById('discuterModal').style.display='flex'" style="margin-top:22px">En discuter →</button>
+    </div>
+
+    <!-- SVG Fan Animation -->
+    <div class="fan-wrap" id="fanWrap">
+      <svg class="fan-svg" viewBox="0 0 1000 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- Central glow dot -->
+        <circle cx="500" cy="28" r="10" fill="#FF2D2D" class="fan-dot-center"/>
+        <circle cx="500" cy="28" r="18" fill="none" stroke="#FF2D2D" stroke-width="1" opacity=".3" class="fan-pulse"/>
+        <!-- Branch 1 - Immobilier -->
+        <path class="fan-branch" d="M500,38 C500,120 80,140 80,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="80" cy="280" r="7" fill="#FF2D2D" class="fan-dot" style="--d:0"/>
+        <!-- Branch 2 - Restaurants -->
+        <path class="fan-branch" d="M500,38 C500,110 260,150 260,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="260" cy="280" r="7" fill="#FF2D2D" class="fan-dot" style="--d:1"/>
+        <!-- Branch 3 - Artisans -->
+        <path class="fan-branch" d="M500,38 C500,100 420,160 420,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="420" cy="280" r="7" fill="#FF2D2D" class="fan-dot" style="--d:2"/>
+        <!-- Branch 4 - Professions lib -->
+        <path class="fan-branch" d="M500,38 C500,100 580,160 580,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="580" cy="280" r="7" fill="#FF2D2D" class="fan-dot" style="--d:3"/>
+        <!-- Branch 5 - Entrepreneurs -->
+        <path class="fan-branch" d="M500,38 C500,110 740,150 740,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="740" cy="280" r="7" fill="#FF2D2D" class="fan-dot" style="--d:4"/>
+        <!-- Branch 6 - Startups -->
+        <path class="fan-branch" d="M500,38 C500,120 920,140 920,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="920" cy="280" r="7" fill="#FF2D2D" class="fan-dot" style="--d:5"/>
+        <defs>
+          <linearGradient id="fanGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FF2D2D"/>
+            <stop offset="100%" stop-color="#FF2D2D" stop-opacity=".25"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Sector Cards Grid -->
+    <div class="sect-cards">
+      <div class="sect-card sect-card--hero reveal" style="grid-column:1/-1;background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format');background-size:cover;background-position:center 40%">
+        <div class="sect-card--hero-overlay"></div>
+        <div class="sect-card--hero-content">
+          <div class="sect-card-head">
+            <div class="sect-card-ico">🏠</div>
+            <h3>Immobilier & Architecture</h3>
+          </div>
+          <div class="sect-why" style="font-size:20px">Un bien qui donne envie se vend plus vite, et plus cher.</div>
+          <p style="max-width:600px">On vous recommande, mais on ne vous trouve pas. Un investisseur qui projette des dizaines de milliers d'euros ne vous fera pas confiance sur une simple recommandation : s'il tape votre nom et qu'il ne trouve rien — vous perdez le client avant même d'avoir parlé.</p>
+          <div class="sect-feats">
+            <span class="sect-feat">Galerie projets HD</span>
+            <span class="sect-feat">Visite virtuelle 360°</span>
+            <span class="sect-feat">Estimation en ligne</span>
+            <span class="sect-feat">SEO local ciblé</span>
+            <span class="sect-feat">Capture de leads 24/7</span>
+          </div>
+          <div class="sect-card-line"></div>
+        </div>
+      </div>
+      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format');background-size:cover;background-position:center">
+        <div class="sect-card--hero-overlay"></div>
+        <div class="sect-card--hero-content">
+          <div class="sect-card-head">
+            <div class="sect-card-ico">🍽️</div>
+            <h3>Commerces & Restaurants</h3>
+          </div>
+          <div class="sect-why">Chaque réservation en ligne, c'est du chiffre en plus sans effort commercial.</div>
+          <p>Vos clients choisissent où manger en 3 secondes sur Google Maps : si votre menu est illisible ou vos photos sombres, ils choisissent le restaurant d'à côté alors que vous êtes techniquement meilleur.</p>
+          <div class="sect-feats">
+            <span class="sect-feat">Menu digital avec photos</span>
+            <span class="sect-feat">Réservation en ligne</span>
+            <span class="sect-feat">Commandes en ligne</span>
+            <span class="sect-feat">Click & Collect</span>
+            <span class="sect-feat">Avis Google intégrés</span>
+            <span class="sect-feat">Fiche Google optimisée</span>
+          </div>
+          <div class="sect-card-line"></div>
+        </div>
+      </div>
+      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format');background-size:cover;background-position:center">
+        <div class="sect-card--hero-overlay"></div>
+        <div class="sect-card--hero-content">
+          <div class="sect-card-head">
+            <div class="sect-card-ico">🔧</div>
+            <h3>Artisans & BTP</h3>
+          </div>
+          <div class="sect-why">Le premier devis envoyé, c'est souvent le chantier signé.</div>
+          <p>Faire entrer un inconnu chez soi pour des travaux coûteux fait peur. Si votre site ne montre pas vos chantiers finis, le client préfère payer un concurrent plus cher. Les gros contrats ont besoin de confiance — et la confiance commence sur votre vitrine digitale.</p>
+          <div class="sect-feats">
+            <span class="sect-feat">Galerie avant / après</span>
+            <span class="sect-feat">Demande de devis en ligne</span>
+            <span class="sect-feat">Zone d'intervention</span>
+            <span class="sect-feat">Certifications affichées</span>
+            <span class="sect-feat">Témoignages chantiers</span>
+          </div>
+          <div class="sect-card-line"></div>
+        </div>
+      </div>
+      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&auto=format');background-size:cover;background-position:center 30%">
+        <div class="sect-card--hero-overlay"></div>
+        <div class="sect-card--hero-content">
+          <div class="sect-card-head">
+            <div class="sect-card-ico">⚖️</div>
+            <h3>Professions libérales <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,.4)">(médecins, avocats, experts…)</span></h3>
+          </div>
+          <div class="sect-why">Un patient rassuré avant le rendez-vous, c'est moins d'annulations.</div>
+          <p>Votre expertise est intellectuelle et invisible. Sans un site rigoureux et institutionnel, le client doute de votre sérieux et part chez celui qui a une image d'autorité plus marquée que la vôtre.</p>
+          <div class="sect-feats">
+            <span class="sect-feat">Prise de RDV en ligne</span>
+            <span class="sect-feat">Blog d'autorité</span>
+            <span class="sect-feat">Pages spécialisations</span>
+            <span class="sect-feat">Design institutionnel</span>
+            <span class="sect-feat">Formulaire qualifié</span>
+          </div>
+          <div class="sect-card-line"></div>
+        </div>
+      </div>
+      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format');background-size:cover;background-position:center">
+        <div class="sect-card--hero-overlay"></div>
+        <div class="sect-card--hero-content">
+          <div class="sect-card-head">
+            <div class="sect-card-ico">✨</div>
+            <h3>Entrepreneurs, Artistes & Sportifs</h3>
+          </div>
+          <div class="sect-why">Votre image transforme des abonnés en clients qui payent.</div>
+          <p>Votre histoire, vos erreurs, votre parcours — c'est ça qui vend vos consultations. Laissez les gens mieux vous connaître pour mieux acheter chez vous.</p>
+          <div class="sect-feats">
+            <span class="sect-feat">Portfolio premium</span>
+            <span class="sect-feat">Booking en ligne</span>
+            <span class="sect-feat">Shop & billetterie</span>
+            <span class="sect-feat">Média kit téléchargeable</span>
+            <span class="sect-feat">Réseaux sociaux intégrés</span>
+          </div>
+          <div class="sect-card-line"></div>
+        </div>
+      </div>
+      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80&auto=format');background-size:cover;background-position:center">
+        <div class="sect-card--hero-overlay"></div>
+        <div class="sect-card--hero-content">
+          <div class="sect-card-head">
+            <div class="sect-card-ico">🚀</div>
+            <h3>Startups & SaaS</h3>
+          </div>
+          <div class="sect-why">Un site qui inspire confiance, c'est un prospect qui signe au lieu de fermer l'onglet.</div>
+          <p>Vous avez l'idée du prochain Uber, mais pas d'équipe technique ? Louez une équipe de 3 devs qui savent construire pour séduire un marché et générer de l'argent.</p>
+          <div class="sect-feats">
+            <span class="sect-feat">Équipe tech à louer</span>
+            <span class="sect-feat">Landing page conversion</span>
+            <span class="sect-feat">Onboarding fluide</span>
+            <span class="sect-feat">Pricing page optimisée</span>
+            <span class="sect-feat">Dashboard analytics</span>
+            <span class="sect-feat">Blog SEO acquisition</span>
+          </div>
+          <div class="sect-card-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SITES IMMERSIFS 3D ══ -->
+<section class="imm-section">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="tag" style="border-color:rgba(255,45,45,.3);color:#FF2D2D">Technologie nouvelle & inédite</div>
+      <h2 class="word-reveal">Sites immersifs 3D.<br>Une expérience que vos concurrents n'ont pas.</h2>
+      <p style="max-width:620px;margin:16px auto 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,.55)">Des sites animés au scroll, pensés comme un récit visuel. Chaque section se révèle au défilement — votre visiteur ne lit plus, il vit votre marque. Technologie exclusive, impossible à reproduire avec un template WordPress.</p>
+    </div>
+
+    <div class="imm-grid">
+      <a class="imm-card reveal" href="https://floriangravaudversion3.netlify.app/" target="_blank" rel="noopener">
+        <div class="imm-card-preview">
+          <iframe src="https://floriangravaudversion3.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Florian Gravaud - Immobilier"></iframe>
+          <div class="imm-card-overlay"><span>Voir le site ↗</span></div>
+        </div>
+        <div class="imm-card-info">
+          <h4>Florian Gravaud</h4>
+          <p>Conseil immobilier · Pays Basque</p>
+          <span class="imm-badge">Immersif 3D</span>
+        </div>
+      </a>
+      <a class="imm-card reveal" href="https://cantinepremiereversionv1.netlify.app/" target="_blank" rel="noopener">
+        <div class="imm-card-preview">
+          <iframe src="https://cantinepremiereversionv1.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="La Cantine du Château de Versailles"></iframe>
+          <div class="imm-card-overlay"><span>Voir le site ↗</span></div>
+        </div>
+        <div class="imm-card-info">
+          <h4>La Cantine du Château de Versailles</h4>
+          <p>Restaurant · Versailles</p>
+          <span class="imm-badge">Immersif 3D</span>
+        </div>
+      </a>
+      <a class="imm-card reveal" href="https://deadzonesecondeversionv2.netlify.app/" target="_blank" rel="noopener">
+        <div class="imm-card-preview">
+          <iframe src="https://deadzonesecondeversionv2.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Deadzone - Centre basket"></iframe>
+          <div class="imm-card-overlay"><span>Voir le site ↗</span></div>
+        </div>
+        <div class="imm-card-info">
+          <h4>Deadzone</h4>
+          <p>Centre de performance basket · Strasbourg</p>
+          <span class="imm-badge">Immersif 3D</span>
+        </div>
+      </a>
+      <a class="imm-card reveal" href="https://epiltherm.com/" target="_blank" rel="noopener">
+        <div class="imm-card-preview">
+          <iframe src="https://epiltherm.com/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Epiltherm"></iframe>
+          <div class="imm-card-overlay"><span>Voir le site ↗</span></div>
+        </div>
+        <div class="imm-card-info">
+          <h4>Épiltherm</h4>
+          <p>Épilation définitive · Lyon</p>
+          <span class="imm-badge">Immersif 3D</span>
+        </div>
+      </a>
+      <a class="imm-card reveal" href="https://ocroqvert.fr/" target="_blank" rel="noopener">
+        <div class="imm-card-preview">
+          <iframe src="https://ocroqvert.fr/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="O'Croq Vert"></iframe>
+          <div class="imm-card-overlay"><span>Voir le site ↗</span></div>
+        </div>
+        <div class="imm-card-info">
+          <h4>O'Croq Vert</h4>
+          <p>Bar à salade healthy · Marignane</p>
+          <span class="imm-badge">Immersif 3D</span>
+        </div>
+      </a>
+      <a class="imm-card reveal" href="https://fubizpremiereversionv1.netlify.app/" target="_blank" rel="noopener">
+        <div class="imm-card-preview">
+          <iframe src="https://fubizpremiereversionv1.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Fubiz Studio"></iframe>
+          <div class="imm-card-overlay"><span>Voir le site ↗</span></div>
+        </div>
+        <div class="imm-card-info">
+          <h4>Fubiz Studio</h4>
+          <p>Agence créative · Paris × New York</p>
+          <span class="imm-badge">Immersif 3D</span>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:36px" class="reveal">
+      <button class="btn btn-blue" onclick="document.getElementById('discuterModal').style.display='flex'">Je veux un site immersif →</button>
+    </div>
+  </div>
+</section>
+
 <!-- VISIBILITÉ LOCALE -->
 <section id="visibilite">
   <div class="wrap">
@@ -414,7 +803,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <span class="browser-url-bar">arenapizza-reims.fr</span>
               <span class="browser-arrow">↗</span>
             </div>
-            <div class="browser-screen" style="background:#fff;display:flex;align-items:center;justify-content:center;padding:8px">
+            <div class="browser-screen" style="background:rgba(14,24,44,.78);display:flex;align-items:center;justify-content:center;padding:8px">
               <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:240px">
                 <text x="130" y="18" font-family="system-ui,sans-serif" font-weight="700" font-size="9.5" fill="#555" text-anchor="middle" letter-spacing="3.5">ARENA PIZZA KEBAB</text>
                 <path d="M108,24 A22,22 0 0,1 152,24 L130,50 Z" fill="#c0392b"/>
@@ -500,7 +889,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <span class="browser-url-bar">pizzareims.fr</span>
               <span class="browser-arrow">↗</span>
             </div>
-            <div class="browser-screen" style="background:#fff;display:flex;align-items:center;justify-content:center;padding:8px">
+            <div class="browser-screen" style="background:rgba(14,24,44,.78);display:flex;align-items:center;justify-content:center;padding:8px">
               <svg viewBox="0 0 200 168" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:190px">
                 <circle cx="100" cy="84" r="76" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="6 3"/>
                 <circle cx="100" cy="84" r="66" fill="none" stroke="#c0392b" stroke-width="1"/>
@@ -810,6 +1199,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </a>
     </div>
     <button class="modal-close" onclick="document.getElementById('bookingModal').classList.remove('open')">Annuler</button>
+  </div>
+</div>
+
+<!-- Discuter modal (secteurs CTA) -->
+<div class="modal-overlay" id="discuterModal" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,5,18,.75);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:20px">
+  <div class="modal-box">
+    <h3>Discutons de votre projet</h3>
+    <p>Choisissez le canal qui vous convient le mieux.</p>
+    <div class="modal-choices">
+      <a class="modal-choice" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20digital%20%F0%9F%91%8B" target="_blank" rel="noopener" onclick="document.getElementById('discuterModal').style.display='none'">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.512 5.834L0 24l6.335-1.652A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.937 0-3.734-.557-5.26-1.513l-.378-.225-3.912 1.022 1.044-3.808-.248-.393A9.77 9.77 0 012.182 12c0-5.413 4.405-9.818 9.818-9.818S21.818 6.587 21.818 12 17.413 21.818 12 21.818z"/></svg>
+        WhatsApp
+      </a>
+      <a class="modal-choice" href="https://calendly.com/mredahmamouchi/30min" target="_blank" rel="noopener" onclick="document.getElementById('discuterModal').style.display='none'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Réserver un créneau
+      </a>
+      <a class="modal-choice" href="#contact" onclick="document.getElementById('discuterModal').style.display='none'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Formulaire de contact
+      </a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('discuterModal').style.display='none'">Annuler</button>
   </div>
 </div>
 
@@ -1668,13 +2080,13 @@ function cnilSaveCustom() {
 .btn-contact-main[aria-expanded="true"] .contact-chevron{transform:rotate(180deg)}
 .contact-panel{width:100%;max-width:520px;overflow:hidden;max-height:0;opacity:0;transition:max-height .35s ease,opacity .25s ease,margin-top .25s ease}
 .contact-panel.open{max-height:400px;opacity:1;margin-top:16px}
-.contact-panel-opt{display:flex;align-items:center;gap:18px;background:#fff;border:1.5px solid rgba(26,26,26,.09);border-radius:16px;padding:18px 22px;text-decoration:none;color:#1A1A1A;transition:.2s;margin-bottom:10px}
+.contact-panel-opt{display:flex;align-items:center;gap:18px;background:rgba(14,24,44,.78);border:1.5px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 22px;text-decoration:none;color:#f0f4ff;transition:.2s;margin-bottom:10px}
 .contact-panel-opt:last-child{margin-bottom:0}
 .contact-panel-opt:hover{border-color:var(--accent);background:#FFF5F9;transform:translateX(4px)}
 .cp-ico{font-size:28px;flex-shrink:0;width:44px;text-align:center}
 .cp-txt{display:flex;flex-direction:column;gap:3px;text-align:left}
-.cp-txt strong{font-family:var(--display);font-size:15px;font-weight:700;color:#1A1A1A}
-.cp-txt span{font-size:13px;color:rgba(26,26,26,.5)}
+.cp-txt strong{font-family:var(--display);font-size:15px;font-weight:700;color:#f0f4ff}
+.cp-txt span{font-size:13px;color:rgba(240,244,255,.48)}
 
 /* ══ INTAKE MODAL ══ */
 #intakeModal .modal-box{max-width:580px;text-align:left;padding:40px 34px}
@@ -1713,20 +2125,20 @@ function cnilSaveCustom() {
 .promo-overlay{display:none;position:fixed;inset:0;z-index:9970;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px}
 .promo-overlay.open{display:flex}
 @keyframes promoIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
-.promo-box{background:#fff;border-radius:20px;padding:32px 28px;max-width:450px;width:100%;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.2);animation:promoIn .3s ease}
+.promo-box{background:rgba(5,8,18,.98);border-radius:20px;padding:32px 28px;max-width:450px;width:100%;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.2);animation:promoIn .3s ease}
 .promo-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:rgba(0,0,0,.35);cursor:pointer;line-height:1;padding:4px 8px}
 .promo-close:hover{color:rgba(0,0,0,.7)}
 .promo-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--display,'Space Grotesk',sans-serif);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C8962D;margin-bottom:14px}
 .promo-badge::before{content:'●';font-size:9px}
 .promo-box h3{font-family:var(--display,'Space Grotesk',sans-serif);font-size:clamp(20px,3vw,26px);font-weight:800;color:#1a1a1a;letter-spacing:-.03em;line-height:1.2;margin-bottom:12px}
 .promo-red{color:#C8962D}
-.promo-box>p{font-size:14px;color:rgba(26,26,26,.6);line-height:1.65;margin-bottom:20px}
+.promo-box>p{font-size:14px;color:rgba(240,244,255,.6);line-height:1.65;margin-bottom:20px}
 .promo-timer-box{background:#f5f5f5;border-radius:12px;padding:16px 20px;margin-bottom:20px}
-.promo-timer-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(26,26,26,.45);margin-bottom:6px}
+.promo-timer-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,244,255,.45);margin-bottom:6px}
 .promo-countdown{font-family:var(--display,'Space Grotesk',sans-serif);font-size:38px;font-weight:800;color:#1a1a1a;letter-spacing:-.04em;line-height:1}
 .promo-btn{display:block;background:linear-gradient(120deg,#C8962D,#E8C87C);color:#fff;font-family:var(--display,'Space Grotesk',sans-serif);font-weight:800;font-size:16px;padding:17px 24px;border-radius:50px;text-align:center;text-decoration:none;transition:.25s;box-shadow:0 6px 24px rgba(200,150,45,.3);margin-bottom:12px}
 .promo-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(200,150,45,.4)}
-.promo-note{font-size:12.5px;color:rgba(26,26,26,.4);text-align:center;margin:0;font-style:italic}
+.promo-note{font-size:12.5px;color:rgba(240,244,255,.4);text-align:center;margin:0;font-style:italic}
 /* Dark desktop promo */
 @media(min-width:769px){
   .promo-box{background:#0d1628;border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 64px rgba(0,0,0,.5)}
@@ -1765,4 +2177,91 @@ function cnilSaveCustom() {
 // Countdown dans le popup
 (function(){
   var el=document.getElementById('promoCountdown');
+  if(!el)return;var t=900;function u(){var m=Math.floor(t/60),s=t%60;el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;if(t<=0){clearInterval(iv);el.textContent='00:00'}t--}var iv=setInterval(u,1e3);u()
+})();
+function closePromo(){document.getElementById('promoPopup').style.display='none'}
+setTimeout(function(){var p=document.getElementById('promoPopup');if(p)p.style.display='flex'},12e3);
+</script>
+
+<!-- ══ MODERN EFFECTS JS ══ -->
+<script>
+(function(){
+  /* ── Custom cursor ── */
+  if(window.matchMedia('(hover:hover)').matches){
+    var dot=document.getElementById('ccDot'),ring=document.getElementById('ccRing');
+    if(dot&&ring){
+      var mx=0,my=0,rx=0,ry=0;
+      document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+      (function raf(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(raf)})();
+      document.querySelectorAll('a,button,[onclick],.exp-card,.sect-pill').forEach(function(el){
+        el.addEventListener('mouseenter',function(){dot.classList.add('hover');ring.classList.add('hover')});
+        el.addEventListener('mouseleave',function(){dot.classList.remove('hover');ring.classList.remove('hover')});
+      });
+    }
+  }
+
+  /* ── Fan SVG scroll trigger ── */
+  var fanW=document.getElementById('fanWrap');
+  if(fanW){
+    var branches=fanW.querySelectorAll('.fan-branch');
+    branches.forEach(function(b,i){
+      var len=b.getTotalLength();
+      b.style.strokeDasharray=len;
+      b.style.strokeDashoffset=len;
+      b.style.setProperty('--d',i);
+    });
+    var fanObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){fanW.classList.add('active');fanObs.unobserve(fanW)}
+      });
+    },{threshold:.3});
+    fanObs.observe(fanW);
+  }
+
+  /* ── Glow follow on sect-cards ── */
+  document.querySelectorAll('.sect-card').forEach(function(c){
+    c.addEventListener('mousemove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+
+  /* ── Magnetic buttons ── */
+  document.querySelectorAll('.btn-blue,.btn-pink,.mockup-cta-btn').forEach(function(btn){
+    btn.classList.add('magnetic');
+    btn.addEventListener('mousemove',function(e){
+      var r=btn.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.25,y=(e.clientY-r.top-r.height/2)*.25;
+      btn.style.transform='translate('+x+'px,'+y+'px)';
+    });
+    btn.addEventListener('mouseleave',function(){btn.style.transform=''});
+  });
+
+  /* ── Word-by-word reveal ── */
+  document.querySelectorAll('.word-reveal').forEach(function(el){
+    var html=el.innerHTML;
+    var parts=html.split(/(<br\s*\/?>)/gi);
+    var out='';
+    parts.forEach(function(part){
+      if(/^<br/i.test(part)){out+=part;return}
+      part.split(/\s+/).forEach(function(w){if(w)out+='<span class="wr-word">'+w+'</span> '});
+    });
+    el.innerHTML=out;
+  });
+
+  var wObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var words=en.target.querySelectorAll('.wr-word');
+        words.forEach(function(w,i){setTimeout(function(){w.classList.add('visible')},i*70)});
+        wObs.unobserve(en.target);
+      }
+    });
+  },{threshold:.3});
+  document.querySelectorAll('.word-reveal').forEach(function(el){wObs.observe(el)});
+})();
+</script>
+
+</body>
+</html>
   
