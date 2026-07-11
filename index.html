@@ -245,11 +245,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .fan-dot-center{filter:drop-shadow(0 0 12px rgba(200,150,45,.6))}
 .fan-pulse{animation:fanPulse 2s ease-in-out infinite}
 @keyframes fanPulse{0%,100%{r:18;opacity:.3}50%{r:26;opacity:.1}}
+.fan-label{font-family:var(--display,'Space Grotesk',sans-serif);font-size:13px;font-weight:600;fill:rgba(240,244,255,.7);text-anchor:middle;opacity:0;transform:translateY(8px)}
+.fan-wrap.active .fan-label{animation:fanLabelIn .4s ease forwards;animation-delay:calc(1.1s + var(--d,0) * .15s)}
+@keyframes fanLabelIn{to{opacity:1;transform:translateY(0)}}
 @media(max-width:700px){.fan-wrap{display:none}}
 
 /* Sector cards */
 .sect-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:30px}
-.sect-card{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px 28px;overflow:hidden;transition:.4s cubic-bezier(.23,1,.32,1)}
+.sect-card{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:36px 32px 32px;overflow:hidden;transition:.4s cubic-bezier(.23,1,.32,1);text-align:center;display:flex;flex-direction:column;align-items:center}
 .sect-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at var(--mx,50%) var(--my,50%),rgba(200,150,45,.04) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .sect-card:hover{border-color:rgba(200,150,45,.2);transform:translateY(-6px)}
 .sect-card:hover::before{opacity:1}
@@ -351,28 +354,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- SVG Fan Animation -->
     <div class="fan-wrap" id="fanWrap">
-      <svg class="fan-svg" viewBox="0 0 1000 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <svg class="fan-svg" viewBox="0 0 1000 360" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
         <!-- Central glow dot -->
         <circle cx="500" cy="28" r="10" fill="#C8962D" class="fan-dot-center"/>
         <circle cx="500" cy="28" r="18" fill="none" stroke="#C8962D" stroke-width="1" opacity=".3" class="fan-pulse"/>
         <!-- Branch 1 - Immobilier -->
         <path class="fan-branch" d="M500,38 C500,120 80,140 80,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
         <circle cx="80" cy="280" r="7" fill="#C8962D" class="fan-dot" style="--d:0"/>
+        <text x="80" y="310" class="fan-label" style="--d:0">Immobilier</text>
         <!-- Branch 2 - Restaurants -->
         <path class="fan-branch" d="M500,38 C500,110 260,150 260,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
         <circle cx="260" cy="280" r="7" fill="#C8962D" class="fan-dot" style="--d:1"/>
+        <text x="260" y="310" class="fan-label" style="--d:1">Restaurants</text>
         <!-- Branch 3 - Artisans -->
         <path class="fan-branch" d="M500,38 C500,100 420,160 420,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
         <circle cx="420" cy="280" r="7" fill="#C8962D" class="fan-dot" style="--d:2"/>
+        <text x="420" y="310" class="fan-label" style="--d:2">Artisans</text>
         <!-- Branch 4 - Professions lib -->
         <path class="fan-branch" d="M500,38 C500,100 580,160 580,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
         <circle cx="580" cy="280" r="7" fill="#C8962D" class="fan-dot" style="--d:3"/>
+        <text x="580" y="310" class="fan-label" style="--d:3">Professions lib.</text>
         <!-- Branch 5 - Entrepreneurs -->
         <path class="fan-branch" d="M500,38 C500,110 740,150 740,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
         <circle cx="740" cy="280" r="7" fill="#C8962D" class="fan-dot" style="--d:4"/>
+        <text x="740" y="310" class="fan-label" style="--d:4">Entrepreneurs</text>
         <!-- Branch 6 - Startups -->
         <path class="fan-branch" d="M500,38 C500,120 920,140 920,280" stroke="url(#fanGrad)" stroke-width="2" stroke-linecap="round"/>
         <circle cx="920" cy="280" r="7" fill="#C8962D" class="fan-dot" style="--d:5"/>
+        <text x="920" y="310" class="fan-label" style="--d:5">Startups</text>
         <defs>
           <linearGradient id="fanGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#C8962D"/>
@@ -384,9 +393,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- Sector Cards Grid -->
     <div class="sect-cards">
-      <div class="sect-card sect-card--hero reveal" style="grid-column:1/-1;background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format');background-size:cover;background-position:center 40%">
-        <div class="sect-card--hero-overlay"></div>
-        <div class="sect-card--hero-content">
+      <div class="sect-card reveal" style="grid-column:1/-1">
           <div class="sect-card-head">
             <div class="sect-card-ico">Ⅰ</div>
             <h3>Immobilier & Architecture</h3>
@@ -402,11 +409,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="sect-feat">Capture de leads 24/7</span>
           </div>
           <div class="sect-card-line"></div>
-        </div>
       </div>
-      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format');background-size:cover;background-position:center">
-        <div class="sect-card--hero-overlay"></div>
-        <div class="sect-card--hero-content">
+      <div class="sect-card reveal">
           <div class="sect-card-head">
             <div class="sect-card-ico">Ⅱ</div>
             <h3>Commerces & Restaurants</h3>
@@ -423,11 +427,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="sect-feat">Fiche Google optimisée</span>
           </div>
           <div class="sect-card-line"></div>
-        </div>
       </div>
-      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format');background-size:cover;background-position:center">
-        <div class="sect-card--hero-overlay"></div>
-        <div class="sect-card--hero-content">
+      <div class="sect-card reveal">
           <div class="sect-card-head">
             <div class="sect-card-ico">Ⅲ</div>
             <h3>Artisans & BTP</h3>
@@ -443,14 +444,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="sect-feat">Témoignages chantiers</span>
           </div>
           <div class="sect-card-line"></div>
-        </div>
       </div>
-      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&auto=format');background-size:cover;background-position:center 30%">
-        <div class="sect-card--hero-overlay"></div>
-        <div class="sect-card--hero-content">
+      <div class="sect-card reveal">
           <div class="sect-card-head">
             <div class="sect-card-ico">Ⅳ</div>
-            <h3>Professions libérales <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,.4)">(médecins, avocats, experts…)</span></h3>
+            <h3>Professions libérales</h3>
           </div>
           <div class="sect-why">Un patient rassuré avant le rendez-vous, c'est moins d'annulations.</div>
           <p>Votre expertise est intellectuelle et invisible. Sans un site rigoureux et institutionnel, le client doute de votre sérieux et part chez celui qui a une image d'autorité plus marquée que la vôtre.</p>
@@ -463,11 +461,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="sect-feat">Formulaire qualifié</span>
           </div>
           <div class="sect-card-line"></div>
-        </div>
       </div>
-      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format');background-size:cover;background-position:center">
-        <div class="sect-card--hero-overlay"></div>
-        <div class="sect-card--hero-content">
+      <div class="sect-card reveal">
           <div class="sect-card-head">
             <div class="sect-card-ico">Ⅴ</div>
             <h3>Entrepreneurs, Artistes & Sportifs</h3>
@@ -483,11 +478,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="sect-feat">Réseaux sociaux intégrés</span>
           </div>
           <div class="sect-card-line"></div>
-        </div>
       </div>
-      <div class="sect-card sect-card--hero reveal" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80&auto=format');background-size:cover;background-position:center">
-        <div class="sect-card--hero-overlay"></div>
-        <div class="sect-card--hero-content">
+      <div class="sect-card reveal">
           <div class="sect-card-head">
             <div class="sect-card-ico">Ⅵ</div>
             <h3>Startups & SaaS</h3>
@@ -504,7 +496,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="sect-feat">Blog SEO acquisition</span>
           </div>
           <div class="sect-card-line"></div>
-        </div>
       </div>
     </div>
   </div>
