@@ -253,27 +253,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .sect-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at var(--mx,50%) var(--my,50%),rgba(200,150,45,.04) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .sect-card:hover{border-color:rgba(200,150,45,.2);transform:translateY(-6px)}
 .sect-card:hover::before{opacity:1}
-.sect-card-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
-.sect-card-ico{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(200,150,45,.12),rgba(200,150,45,.04));display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;transition:.4s}
-.sect-card:hover .sect-card-ico{transform:scale(1.08) rotate(-3deg);background:linear-gradient(135deg,rgba(200,150,45,.2),rgba(200,150,45,.08))}
-.sect-card h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.sect-card-head{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:12px;text-align:center}
+.sect-card-ico{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(200,150,45,.15),rgba(200,150,45,.05));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:.4s;font-family:'Georgia','Times New Roman',serif;font-weight:900;color:rgba(200,150,45,.85);letter-spacing:.02em;-webkit-text-stroke:.5px rgba(200,150,45,.3)}
+.sect-card:hover .sect-card-ico{transform:scale(1.08) rotate(-3deg);background:linear-gradient(135deg,rgba(200,150,45,.25),rgba(200,150,45,.1))}
+.sect-card h3{font-family:var(--display);font-size:17px;font-weight:700;color:#fff;letter-spacing:-.02em;text-align:center}
 
 /* RED flashy punchline */
-.sect-why{font-family:var(--display);font-size:16px;font-weight:800;color:#E8C87C;letter-spacing:-.02em;line-height:1.35;margin-bottom:12px;text-shadow:0 0 20px rgba(200,150,45,.2)}
+.sect-why{font-family:var(--display);font-size:16px;font-weight:800;color:#E8C87C;letter-spacing:-.02em;line-height:1.35;margin-bottom:12px;text-shadow:0 0 20px rgba(200,150,45,.2);text-align:center}
 
-.sect-card p{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.5)}
-.sect-card-line{height:2px;margin-top:20px;background:linear-gradient(90deg,#C8962D,transparent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.23,1,.32,1)}
+.sect-card p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.75);text-align:center;font-weight:600;max-width:100%}
+.sect-card-line{height:2px;margin-top:20px;background:linear-gradient(90deg,transparent,#C8962D,transparent);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .5s cubic-bezier(.23,1,.32,1);width:100%}
 .sect-card:hover .sect-card-line{transform:scaleX(1)}
-.sect-feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.sect-feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center}
 .sect-feat{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-family:var(--display);font-weight:600;color:rgba(255,255,255,.7);background:rgba(200,150,45,.05);border:1px solid rgba(200,150,45,.12);border-radius:50px;padding:5px 12px;transition:.3s}
 .sect-feat::before{content:"→";font-size:11px;font-weight:800;color:#C8962D;flex-shrink:0}
-.sect-feats-label{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,150,45,.7);margin-top:18px;margin-bottom:8px}
+.sect-feats-label{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,150,45,.7);margin-top:18px;margin-bottom:8px;text-align:center}
 .sect-card:hover .sect-feat{background:rgba(200,150,45,.1);border-color:rgba(200,150,45,.2)}
 
 /* Hero card (Immobilier - full width with bg image) */
 .sect-card--hero{position:relative;padding:0;overflow:hidden;min-height:280px}
 .sect-card--hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(6,10,28,.92) 0%,rgba(6,10,28,.7) 50%,rgba(6,10,28,.45) 100%);z-index:1}
-.sect-card--hero-content{position:relative;z-index:2;padding:40px 36px}
+.sect-card--hero-content{position:relative;z-index:2;padding:40px 36px;text-align:center;display:flex;flex-direction:column;align-items:center}
 .sect-card--hero:hover{border-color:rgba(200,150,45,.25);transform:translateY(-4px)}
 .sect-card--hero::before{display:none}
 @media(max-width:700px){.sect-cards{grid-template-columns:1fr}}
@@ -388,11 +388,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="sect-card--hero-overlay"></div>
         <div class="sect-card--hero-content">
           <div class="sect-card-head">
-            <div class="sect-card-ico">🏠</div>
+            <div class="sect-card-ico">Ⅰ</div>
             <h3>Immobilier & Architecture</h3>
           </div>
-          <div class="sect-why" style="font-size:20px">Un bien qui donne envie se vend plus vite, et plus cher.</div>
-          <p style="max-width:600px">On vous recommande, mais on ne vous trouve pas. Un investisseur qui projette des dizaines de milliers d'euros ne vous fera pas confiance sur une simple recommandation : s'il tape votre nom et qu'il ne trouve rien — vous perdez le client avant même d'avoir parlé.</p>
+          <div class="sect-why">Un bien qui donne envie se vend plus vite, et plus cher.</div>
+          <p>On vous recommande, mais on ne vous trouve pas. Un investisseur qui projette des dizaines de milliers d'euros ne vous fera pas confiance sur une simple recommandation : s'il tape votre nom et qu'il ne trouve rien — vous perdez le client avant même d'avoir parlé.</p>
           <div class="sect-feats-label">Utilités du site web</div>
           <div class="sect-feats">
             <span class="sect-feat">Galerie projets HD</span>
@@ -408,7 +408,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="sect-card--hero-overlay"></div>
         <div class="sect-card--hero-content">
           <div class="sect-card-head">
-            <div class="sect-card-ico">🍽️</div>
+            <div class="sect-card-ico">Ⅱ</div>
             <h3>Commerces & Restaurants</h3>
           </div>
           <div class="sect-why">Chaque réservation en ligne, c'est du chiffre en plus sans effort commercial.</div>
@@ -429,7 +429,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="sect-card--hero-overlay"></div>
         <div class="sect-card--hero-content">
           <div class="sect-card-head">
-            <div class="sect-card-ico">🔧</div>
+            <div class="sect-card-ico">Ⅲ</div>
             <h3>Artisans & BTP</h3>
           </div>
           <div class="sect-why">Le premier devis envoyé, c'est souvent le chantier signé.</div>
@@ -449,7 +449,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="sect-card--hero-overlay"></div>
         <div class="sect-card--hero-content">
           <div class="sect-card-head">
-            <div class="sect-card-ico">⚖️</div>
+            <div class="sect-card-ico">Ⅳ</div>
             <h3>Professions libérales <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,.4)">(médecins, avocats, experts…)</span></h3>
           </div>
           <div class="sect-why">Un patient rassuré avant le rendez-vous, c'est moins d'annulations.</div>
@@ -469,7 +469,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="sect-card--hero-overlay"></div>
         <div class="sect-card--hero-content">
           <div class="sect-card-head">
-            <div class="sect-card-ico">✨</div>
+            <div class="sect-card-ico">Ⅴ</div>
             <h3>Entrepreneurs, Artistes & Sportifs</h3>
           </div>
           <div class="sect-why">Votre image transforme des abonnés en clients qui payent.</div>
@@ -489,7 +489,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="sect-card--hero-overlay"></div>
         <div class="sect-card--hero-content">
           <div class="sect-card-head">
-            <div class="sect-card-ico">🚀</div>
+            <div class="sect-card-ico">Ⅵ</div>
             <h3>Startups & SaaS</h3>
           </div>
           <div class="sect-why">Un site qui inspire confiance, c'est un prospect qui signe au lieu de fermer l'onglet.</div>
