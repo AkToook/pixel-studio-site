@@ -2260,4 +2260,45 @@ function cnilSaveCustom() {
     entries.forEach(function(en){
       if(en.isIntersecting){
         var words=en.target.querySelectorAll('.wr-word');
+        words.forEach(function(w,i){setTimeout(function(){w.classList.add('visible')},i*70)});
+        wObs.unobserve(en.target);
+      }
+    });
+  },{threshold:.2});
+  document.querySelectorAll('.word-reveal').forEach(function(el){wObs.observe(el)});
+
+  /* ── Scroll reveal ── */
+  var rObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('visible');rObs.unobserve(en.target)}
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){rObs.observe(el)});
+
+})();
+</script>
+</body>
+</html>
+r.top-r.height/2)*.25;
+      btn.style.transform='translate('+x+'px,'+y+'px)';
+    });
+    btn.addEventListener('mouseleave',function(){btn.style.transform=''});
+  });
+
+  /* ── Word-by-word reveal ── */
+  document.querySelectorAll('.word-reveal').forEach(function(el){
+    var html=el.innerHTML;
+    var parts=html.split(/(<br\s*\/?>)/gi);
+    var out='';
+    parts.forEach(function(part){
+      if(/^<br/i.test(part)){out+=part;return}
+      part.split(/\s+/).forEach(function(w){if(w)out+='<span class="wr-word">'+w+'</span> '});
+    });
+    el.innerHTML=out;
+  });
+
+  var wObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var words=en.target.querySelectorAll('.wr-word');
         words.forEach(function(w,i){setTimeout(function(){w.classList.add('visible')},i*7
