@@ -25,6 +25,7 @@
 .imm-card:hover{border-color:rgba(200,150,45,.25);transform:translateY(-6px)}
 .imm-card-preview{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a0e1a}
 .imm-card-preview iframe{width:300%;height:300%;border:none;pointer-events:none;transform:scale(.3334);transform-origin:top left}
+.imm-card-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0e1a 0%,#141e35 50%,#1a2540 100%);font-family:var(--display);font-weight:700;font-size:14px;color:rgba(255,255,255,.35);letter-spacing:.5px;text-align:center;padding:20px}
 .imm-card-overlay{position:absolute;inset:0;background:rgba(0,5,18,.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:.35s}
 .imm-card:hover .imm-card-overlay{opacity:1}
 .imm-card-overlay span{font-family:var(--display);font-weight:700;font-size:15px;color:#fff;background:rgba(200,150,45,.85);padding:10px 22px;border-radius:50px}
@@ -86,7 +87,8 @@
     <div class="imm-grid">
       <a class="imm-card reveal" href="https://floriangravaudversion3.netlify.app/" target="_blank" rel="noopener">
         <div class="imm-card-preview">
-          <iframe src="https://floriangravaudversion3.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Florian Gravaud - Immobilier"></iframe>
+          <iframe data-src="https://floriangravaudversion3.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Florian Gravaud - Immobilier"></iframe>
+          <div class="imm-card-placeholder">Florian Gravaud</div>
           <div class="imm-card-overlay"><span>Voir le site</span></div>
         </div>
         <div class="imm-card-info">
@@ -97,7 +99,8 @@
       </a>
       <a class="imm-card reveal" href="https://cantinepremiereversionv1.netlify.app/" target="_blank" rel="noopener">
         <div class="imm-card-preview">
-          <iframe src="https://cantinepremiereversionv1.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="La Cantine du Château de Versailles"></iframe>
+          <iframe data-src="https://cantinepremiereversionv1.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="La Cantine du Château de Versailles"></iframe>
+          <div class="imm-card-placeholder">La Cantine de Versailles</div>
           <div class="imm-card-overlay"><span>Voir le site</span></div>
         </div>
         <div class="imm-card-info">
@@ -108,7 +111,8 @@
       </a>
       <a class="imm-card reveal" href="https://deadzonesecondeversionv2.netlify.app/" target="_blank" rel="noopener">
         <div class="imm-card-preview">
-          <iframe src="https://deadzonesecondeversionv2.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Deadzone - Centre basket"></iframe>
+          <iframe data-src="https://deadzonesecondeversionv2.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Deadzone - Centre basket"></iframe>
+          <div class="imm-card-placeholder">Deadzone</div>
           <div class="imm-card-overlay"><span>Voir le site</span></div>
         </div>
         <div class="imm-card-info">
@@ -119,7 +123,8 @@
       </a>
       <a class="imm-card reveal" href="https://epiltherm.com/" target="_blank" rel="noopener">
         <div class="imm-card-preview">
-          <iframe src="https://epiltherm.com/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Epiltherm"></iframe>
+          <iframe data-src="https://epiltherm.com/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Epiltherm"></iframe>
+          <div class="imm-card-placeholder">Epiltherm</div>
           <div class="imm-card-overlay"><span>Voir le site</span></div>
         </div>
         <div class="imm-card-info">
@@ -130,7 +135,8 @@
       </a>
       <a class="imm-card reveal" href="https://ocroqvert.fr/" target="_blank" rel="noopener">
         <div class="imm-card-preview">
-          <iframe src="https://ocroqvert.fr/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="O'Croq Vert"></iframe>
+          <iframe data-src="https://ocroqvert.fr/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="O'Croq Vert"></iframe>
+          <div class="imm-card-placeholder">O'Croq Vert</div>
           <div class="imm-card-overlay"><span>Voir le site</span></div>
         </div>
         <div class="imm-card-info">
@@ -141,7 +147,8 @@
       </a>
       <a class="imm-card reveal" href="https://fubizpremiereversionv1.netlify.app/" target="_blank" rel="noopener">
         <div class="imm-card-preview">
-          <iframe src="https://fubizpremiereversionv1.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Fubiz Studio"></iframe>
+          <iframe data-src="https://fubizpremiereversionv1.netlify.app/" loading="lazy" sandbox="allow-scripts allow-same-origin" title="Fubiz Studio"></iframe>
+          <div class="imm-card-placeholder">Fubiz Studio</div>
           <div class="imm-card-overlay"><span>Voir le site</span></div>
         </div>
         <div class="imm-card-info">
@@ -337,6 +344,22 @@ window.submitIntake=function(){
   window.open(waUrl,'_blank');
   closeIntake();
 };
+
+/* ── Lazy-load immersive iframes (desktop only) ── */
+var isMobile=window.innerWidth<900;
+if(!isMobile){
+  var ifrObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var iframe=en.target;
+        var src=iframe.getAttribute('data-src');
+        if(src&&!iframe.src){iframe.src=src;var ph=iframe.parentNode.querySelector('.imm-card-placeholder');if(ph)ph.style.display='none'}
+        ifrObs.unobserve(iframe);
+      }
+    });
+  },{rootMargin:'200px'});
+  document.querySelectorAll('.imm-card-preview iframe[data-src]').forEach(function(ifr){ifrObs.observe(ifr)});
+}
 
 /* ── Scroll reveal ── */
 var rObs=new IntersectionObserver(function(entries){
