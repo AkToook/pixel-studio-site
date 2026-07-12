@@ -2310,13 +2310,21 @@ function cnilSaveCustom() {
 
   /* ── Word reveal ── */
   document.querySelectorAll('.word-reveal').forEach(function(el){
-    var text=el.textContent;
+    var html=el.innerHTML;
+    var parts=html.split(/(<br\s*\/?>)/gi);
     el.innerHTML='';
-    text.split(' ').forEach(function(word){
-      var span=document.createElement('span');
-      span.className='wr-word';
-      span.textContent=word+' ';
-      el.appendChild(span);
+    parts.forEach(function(part){
+      if(part.match(/^<br/i)){
+        el.appendChild(document.createElement('br'));
+      } else {
+        part.replace(/<[^>]+>/g,'').split(' ').forEach(function(word){
+          if(!word) return;
+          var span=document.createElement('span');
+          span.className='wr-word';
+          span.textContent=word+' ';
+          el.appendChild(span);
+        });
+      }
     });
   });
 
