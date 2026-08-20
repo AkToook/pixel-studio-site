@@ -95,22 +95,22 @@ footer a{color:var(--accent)}
   <div class="sec-label"><h2>Réalisations en vidéo</h2></div>
   <div class="video-grid">
     <div class="video-card" onclick="toggleMute(this)">
-      <video src="assets/motion1.mp4" autoplay muted loop playsinline></video>
+      <video src="assets/motion1.mp4" muted loop playsinline preload="metadata"></video>
       <div class="video-overlay"><div class="video-play-btn">🔊</div></div>
       <div class="mute-badge">🔇 Cliquer pour le son</div>
     </div>
     <div class="video-card" onclick="toggleMute(this)">
-      <video src="assets/motion2.mp4" autoplay muted loop playsinline></video>
+      <video src="assets/motion2.mp4" muted loop playsinline preload="metadata"></video>
       <div class="video-overlay"><div class="video-play-btn">🔊</div></div>
       <div class="mute-badge">🔇 Cliquer pour le son</div>
     </div>
     <div class="video-card" onclick="toggleMute(this)">
-      <video src="assets/motion3.mp4" autoplay muted loop playsinline></video>
+      <video src="assets/motion3.mp4" muted loop playsinline preload="metadata"></video>
       <div class="video-overlay"><div class="video-play-btn">🔊</div></div>
       <div class="mute-badge">🔇 Cliquer pour le son</div>
     </div>
     <div class="video-card" onclick="toggleMute(this)">
-      <video src="assets/motion4.mp4" autoplay muted loop playsinline></video>
+      <video src="assets/motion4.mp4" muted loop playsinline preload="metadata"></video>
       <div class="video-overlay"><div class="video-play-btn">🔊</div></div>
       <div class="mute-badge">🔇 Cliquer pour le son</div>
     </div>
@@ -126,6 +126,16 @@ footer a{color:var(--accent)}
 <footer><a href="index.html">← Retour au site Pixel Studio</a> &nbsp;·&nbsp; © 2026 Pixel Studio</footer>
 
 <script>
+// Ne charge/joue chaque vidéo que lorsqu'elle entre dans le viewport (évite 6,6 Mo en autoplay simultané au chargement)
+const _videoIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const v = entry.target;
+    if (entry.isIntersecting) v.play().catch(() => {});
+    else v.pause();
+  });
+}, { threshold: 0.25 });
+document.querySelectorAll('.video-card video').forEach(v => _videoIO.observe(v));
+
 function toggleMute(card) {
   const video = card.querySelector('video');
   const badge = card.querySelector('.mute-badge');
