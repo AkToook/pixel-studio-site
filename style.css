@@ -774,3 +774,5 @@ footer{background:#F5F7FC;backdrop-filter:blur(12px);border-top:1px solid rgba(1
 .intake-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(11,11,15,.45);align-items:center;justify-content:center;padding:20px}
 .intake-modal.open{display:flex}
 .intake-box{background:#fff;border-radius:24px;padding:32px;max-width:560px;width:100%;max-height:92vh;overflow:auto;position:relative}
+
+.reveal.visible{opacity:1;transform:none}
