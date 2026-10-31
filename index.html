@@ -166,6 +166,16 @@ section{padding:120px 0}
 .note{text-align:center;color:var(--muted);font-size:14px;margin-top:28px}
 .note a{color:var(--blue);font-weight:600}
 
+.xoffers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.xoffer{background:linear-gradient(135deg,var(--blue),#3D7BFF);color:#fff;border-radius:var(--radius);padding:44px 40px;position:relative;overflow:hidden}
+.xoffer::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border:2px solid rgba(255,255,255,.18);border-radius:50%}
+.x-num{font-size:13px;font-weight:700;letter-spacing:.1em;opacity:.7}
+.xoffer h3{font-size:clamp(28px,3vw,38px);font-weight:900;letter-spacing:-.03em;margin:12px 0 8px}
+.x-sub{font-weight:600;opacity:.92;margin-bottom:18px}
+.xoffer ul{list-style:none;display:grid;gap:9px;margin-bottom:28px;font-size:15px;opacity:.9}
+.xoffer li::before{content:"→";margin-right:10px}
+@media(max-width:860px){.xoffers{grid-template-columns:1fr}.xoffer{padding:34px 26px}}
+
 /* Réalisations */
 .works{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .work{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;transition:box-shadow .3s,transform .3s}
@@ -408,6 +418,22 @@ footer{padding:80px 0 40px;border-top:1px solid var(--line);margin-top:120px}
         <div class="pill">Application mobile <b data-fr="sur devis" data-ma="dès 24 900 DH">sur devis</b></div>
       </article>
     </div>
+    <div class="xoffers">
+      <article class="xoffer">
+        <div class="x-num">04</div>
+        <h3>Refonte &amp; optimisation</h3>
+        <p class="x-sub">Votre site existe, mais il ne rapporte pas ? On le fait évoluer.</p>
+        <ul><li>Audit technique et UX offert sous 48 h</li><li>Nouveau design pensé pour convertir</li><li>Migration sans coupure du site</li><li>SEO et suivi après la mise en ligne</li></ul>
+        <button type="button" class="btn white" onclick="openIntake()">Demander un audit →</button>
+      </article>
+      <article class="xoffer">
+        <div class="x-num">05</div>
+        <h3>Conseil &amp; stratégie</h3>
+        <p class="x-sub">Un projet de SaaS ou d'application ? On réfléchit avant de coder.</p>
+        <ul><li>Analyse de votre idée et de votre marché</li><li>Définition du MVP et estimation</li><li>Feuille de route et priorités</li><li>Accompagnement tech et design</li></ul>
+        <a class="btn white" href="https://calendly.com/mredahmamouchi/30min" target="_blank" rel="noopener">Réserver un appel →</a>
+      </article>
+    </div>
     <p class="note">Prix de départ indicatifs. Devis gratuit et adapté à votre projet. <a href="tarifs.html">Voir le détail des tarifs →</a></p>
   </div>
 </section>
@@ -422,7 +448,7 @@ footer{padding:80px 0 40px;border-top:1px solid var(--line);margin-top:120px}
     </div>
     <div class="works">
       <a class="work" href="https://stohrer.fr/" target="_blank" rel="noopener"><div class="work-top t5">STOHRER</div><div class="work-info"><strong>Stohrer</strong><span>Pâtisserie · Boutique en ligne</span></div></a>
-      <a class="work" href="https://www.surpriz.paris/" target="_blank" rel="noopener"><div class="work-top t6">SÜRPRIZ</div><div class="work-info"><strong>Sürpriz</strong><span>Berliner kebab · Paris</span></div></a>
+      <a class="work" href="https://www.imobuycash.com/" target="_blank" rel="noopener"><div class="work-top t14">IMOBUYCASH</div><div class="work-info"><strong>Imobuycash</strong><span>Plateforme d'investissement immobilier</span></div></a>
       <a class="work" href="https://restaurant-leriad-reims.fr/" target="_blank" rel="noopener"><div class="work-top t7">LE RIAD</div><div class="work-info"><strong>Le Riad</strong><span>Restaurant oriental · Événements</span></div></a>
       <a class="work" href="https://reimsplomberie.net/" target="_blank" rel="noopener"><div class="work-top t8">PLOMBERIE</div><div class="work-info"><strong>Reims Plomberie</strong><span>Artisan plombier</span></div></a>
       <a class="work" href="https://www.lifeosapp.site/" target="_blank" rel="noopener"><div class="work-top t9">LifeOS</div><div class="work-info"><strong>LifeOS App</strong><span>Application SaaS</span></div></a>
