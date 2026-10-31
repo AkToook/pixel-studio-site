@@ -136,6 +136,9 @@ h1{font-size:clamp(44px,7.6vw,100px);font-weight:900;line-height:.96;letter-spac
 @media (prefers-reduced-motion:reduce){.sd-caret,.sd-dot{animation:none}.sd-res,.sd-miss{transition:none}}
 @media(max-width:860px){.band-points.two{grid-template-columns:1fr}.search-demo{padding:84px 0}.sd-bar{font-size:16px;padding:15px 20px}.sd-res,.sd-meta,.sd-miss{padding-left:18px;padding-right:18px}}
 
+.rot{display:inline-block;transition:opacity .3s,transform .3s}
+.rot.out{opacity:0;transform:translateY(12px)}
+
 /* Sections */
 section{padding:120px 0}
 .head{text-align:center;max-width:720px;margin:0 auto 64px}
@@ -321,7 +324,7 @@ footer{padding:80px 0 40px;border-top:1px solid var(--line);margin-top:120px}
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span>Agence web · Paris · Casablanca · Londres</div>
-    <h1>On crée votre site web<br><span class="em">à Paris &amp; Casablanca.</span></h1>
+    <h1>On crée votre <span class="rot" id="rotWord">site web</span><br><span class="em">à Paris &amp; Casablanca.</span></h1>
     <p class="lead">Sites web, web apps et applications mobiles sur mesure. Vous recevez une maquette gratuite sous 48 h, puis votre site en 72 h à 2 semaines.</p>
     <div class="cta-row">
       <button type="button" class="btn blue" onclick="openIntake()">Recevoir ma maquette gratuite →</button>
@@ -614,6 +617,14 @@ footer{padding:80px 0 40px;border-top:1px solid var(--line);margin-top:120px}
   var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
   apply(saved||(tz==='Africa/Casablanca'?'ma':'fr'));
   document.querySelectorAll('[data-market]').forEach(function(btn){btn.addEventListener('click',function(){apply(btn.dataset.market)})});
+})();
+
+/* Mot qui change dans le titre */
+(function(){
+  var el=document.getElementById('rotWord');if(!el)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var w=['site web','web app','landing page','site vitrine','logiciel interne'],i=0;
+  setInterval(function(){el.classList.add('out');setTimeout(function(){i=(i+1)%w.length;el.textContent=w[i];el.classList.remove('out')},300)},2400);
 })();
 
 /* Démo recherche Google : tape « métier + ville », affiche les concurrents */
