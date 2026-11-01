@@ -173,8 +173,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
           </div>
           <div>
             <div class="contact-card-label">WhatsApp</div>
-            <a href="https://wa.me/33620757517" class="contact-card-value" target="_blank" rel="noopener">+33 6 20 75 75 17</a>
-            <p class="contact-card-note">Réponse en moins de 2h en semaine</p>
+            <a href="https://wa.me/33620757517" data-wa-geo class="contact-card-value" target="_blank" rel="noopener"><span data-fr="+33 6 20 75 75 17" data-ma="07 88 33 04 13">+33 6 20 75 75 17</span></a>
+            <p class="contact-card-note">Réponse rapide, 7 jours sur 7</p>
           </div>
         </div>
 
@@ -184,7 +184,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
           </div>
           <div>
             <div class="contact-card-label">Email</div>
-            <a href="mailto:contact@pixelstudioo.fr" class="contact-card-value">contact@pixelstudioo.fr</a>
+            <a href="mailto:universalis.ndco@gmail.com" class="contact-card-value">universalis.ndco@gmail.com</a>
             <p class="contact-card-note">Pour les demandes détaillées ou les dossiers</p>
           </div>
         </div>
@@ -372,7 +372,7 @@ function handleContact(e){
   e.target.reset();
 }
 (function(){
-  function apply(mk){document.querySelectorAll('[data-fr]').forEach(function(el){el.textContent=el.getAttribute(mk==='ma'?'data-ma':'data-fr')})}
+  function apply(mk){document.querySelectorAll('[data-fr]').forEach(function(el){el.textContent=el.getAttribute(mk==='ma'?'data-ma':'data-fr')});document.querySelectorAll('a[data-wa-geo]').forEach(function(a){a.href=a.href.replace(/wa\.me\/\d+/,'wa.me/'+(mk==='ma'?'212788330413':'33620757517'))})}
   var mk='fr',c=null;try{mk=(Intl.DateTimeFormat().resolvedOptions().timeZone==='Africa/Casablanca')?'ma':'fr'}catch(e){}
   try{c=sessionStorage.getItem('pd_geo')}catch(e){}
   apply(c||mk);
