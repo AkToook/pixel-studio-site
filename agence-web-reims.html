@@ -106,13 +106,25 @@ footer{background:rgba(11,11,15,0.021);border-top:1px solid var(--line);padding:
 footer p{font-size:13px;color:var(--muted)}
 footer a{color:var(--accent)}
 </style>
+<style id="pd-dd-css">
+.pd-dd{position:relative;display:inline-flex;align-items:center}
+.pd-dd>a::after{content:"";display:inline-block;width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 8px}
+.pd-dd-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:10px;min-width:300px;background:#fff;border:1px solid #E8ECF4;border-radius:18px;box-shadow:0 22px 50px rgba(11,11,15,.12);padding:12px;z-index:2000;text-align:left;font-family:'Poppins',system-ui,sans-serif}
+.pd-dd-menu::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.pd-dd:hover .pd-dd-menu,.pd-dd:focus-within .pd-dd-menu{display:block}
+.pd-dd-menu .pd-dd-h{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;padding:10px 12px 4px}
+.pd-dd-menu a{display:block;padding:8px 12px;border-radius:10px;color:#0B0B0F!important;font-weight:500;font-size:14px;white-space:nowrap;text-decoration:none}
+.pd-dd-menu a:hover{background:#F5F7FC;color:#0057FF!important}
+.pd-dd-menu a.pd-dd-all{margin-top:6px;border-top:1px solid #E8ECF4;border-radius:0 0 10px 10px;color:#0057FF!important;font-weight:600}
+@media(max-width:900px){.pd-dd-menu{display:none!important}.pd-dd>a::after{display:none}}
+</style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">Pixel<span>dor</span></a>
   <div class="nav-links">
-    <a href="/services.html">Services</a>
+    <span class="pd-dd"><a href="/services.html">Services</a><span class="pd-dd-menu"><span class="pd-dd-h">Être trouvé sur Google</span><a href="/fiche-google-maps.html">Fiche Google</a><a href="/referencement-seo.html">Référencement SEO</a><span class="pd-dd-h">Avoir un site</span><a href="/creation-site-vitrine.html">Site vitrine</a><a href="/refonte-site-web.html">Refonte de site</a><span class="pd-dd-h">Avoir un outil sur mesure</span><a href="/creation-web-app.html">Web app</a><a href="/creation-application-mobile.html">Application mobile</a><a href="/conseil-strategie-digitale.html">Conseil &amp; stratégie</a><a class="pd-dd-all" href="/services.html">Tous les services</a></span></span>
     <a href="/portfolio.html">Projets</a>
     <a href="blog.html">Blog</a>
   </div>
