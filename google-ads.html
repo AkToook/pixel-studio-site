@@ -208,7 +208,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 .sc-2{display:grid;grid-template-columns:1fr;gap:12px}
 .sc{background:rgba(255,255,255,.06);border-radius:16px;padding:16px}
 .sc-n{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.sc-ca{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
+.sc-ca{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
 .sc-d{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.6}
 .sc-d .neg{color:#FCA5A5}.sc-d .pos{color:#86EFAC}
 .sc.amb{margin-top:12px;background:linear-gradient(120deg,#0057FF,#3D7BFF);padding:22px;box-shadow:0 18px 40px rgba(0,87,255,.35)}
@@ -252,7 +252,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
         <label for="simConv"><span class="sim-row"><span>Sur 100 visiteurs, combien vous contactent ?</span><span class="sim-val" id="simConvV"></span></span></label>
         <input type="range" id="simConv" min="1" max="20" step="1" value="6">
         <div class="sim-2">
-          <div><label for="simClose">Sur 10 contacts, combien deviennent clients ?</label><input type="number" id="simClose" min="1" max="10" value="5"></div>
+          <div><label for="simClose">Sur 10 contacts, combien deviennent clients ?</label><input type="number" id="simClose" min="1" max="10" value="3"></div>
           <div><label for="simBasket">Ce que vous rapporte un client sur un an <small id="simCur1"></small></label><input type="number" id="simBasket" min="10" step="10"></div>
         </div>
         <details class="sim-adv"><summary>Modifier le coût par clic</summary>
@@ -268,14 +268,14 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
           <div class="sc"><div class="sc-n">Réaliste</div><div class="sc-ca" id="rCa">-</div><div class="sc-d" id="rD"></div></div>
         </div>
         <div class="sc amb">
-          <div class="sc-n">Ambitieux</div>
+          <div class="sc-n">Ambitieux · l'objectif une fois la campagne réglée</div>
           <div class="sc-big" id="aCa">-</div>
           <div class="sc-sub">de chiffre d'affaires par mois, soit <b id="aYear">-</b> sur un an</div>
           <div class="sc-d" id="aD"></div>
           <div class="sc-x" id="aX"></div>
         </div>
         <div class="sim-cost">Budget Google : <b id="rBud">-</b> · Gestion Pixeldor (<span id="rPlan">-</span>) : <b id="rFee">-</b> · Total investi : <b id="rTot">-</b> par mois</div>
-        <p class="sim-note">Réaliste : vos réponses, avec un coût par clic moyen. Ambitieux : clics moins chers et plus de contacts, ce qu'on vise une fois la campagne bien réglée. Ce sont des estimations, pas des garanties : les résultats dépendent aussi de votre site, de vos prix et de votre réactivité au téléphone.</p>
+        <p class="sim-note">Réaliste : vos réponses, avec un coût par clic moyen. Ambitieux : clics moins chers et plus de contacts, l'objectif après quelques mois de réglages, pas dès le premier mois. Ce sont des estimations, pas des garanties : les résultats dépendent aussi de votre site, de vos prix et de votre réactivité au téléphone.</p>
         <a class="btn btn-blue" id="simWa" href="#" target="_blank" rel="noopener">Recevoir une simulation précise</a>
       </div>
     </div>
@@ -415,7 +415,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     return fmt(o.le)+' contacts · '+fmt(o.k)+' client'+(o.k>1?'s':'')+'<br>Gain net : <span class="'+cls+'">'+sg+fmt(Math.abs(n),c)+'</span>';
   }
   function calc(){
-    var c=CFG[mk],bud=+$('simBud').value,conv=+$('simConv').value/100,close=Math.min(10,Math.max(1,+$('simClose').value||5))/10,
+    var c=CFG[mk],bud=+$('simBud').value,conv=+$('simConv').value/100,close=Math.min(10,Math.max(1,+$('simClose').value||3))/10,
         basket=+$('simBasket').value||0,lo=Math.max(0.05,+$('simCpcMin').value||0.1),hi=Math.max(lo,+$('simCpcMax').value||lo);
     var perf=bud>c.start,fee=perf?Math.max(c.min,bud*0.15):c.fixed,tot=bud+fee;
     var P=scen(bud,hi,conv*0.7,close,basket,tot),R=scen(bud,(lo+hi)/2,conv,close,basket,tot),A=scen(bud,lo,conv*1.3,close,basket,tot);
