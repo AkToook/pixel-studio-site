@@ -8,7 +8,7 @@
   // ← Colle ici l'URL de ton Apps Script (elle finit par /exec)
   var LEADS_URL = '';
   // Réception directe par e-mail (FormSubmit). Remplaçable par l'alias secret fourni par FormSubmit après activation.
-  var MAIL_TO = 'mredahmamouchi@gmail.com';
+  var MAIL_TO = '5439e16ffdb009cc3396572798ea0b8f';
 
   function val(id){var e=document.getElementById(id);return e?String(e.value||'').trim():''}
 
@@ -76,6 +76,8 @@
   wrap('handleContact',function(){
     var n=val('cf-name'),c=val('cf-company');
     return {source:'Formulaire de contact',nom:n+(c?' ('+c+')':''),email:val('cf-email'),
-      tel:val('cf-phone'),type:val('cf-service'),projet:val('cf-message')};
+      tel:val('cf-phone'),type:val('cf-service'),activite:val('cf-activity'),ville:val('cf-city'),
+      site_actuel:val('cf-hassite')+(val('cf-url')?' : '+val('cf-url'):''),budget:val('cf-budget'),
+      delai:val('cf-delay'),connu_par:val('cf-source'),projet:val('cf-message')};
   });
 })();

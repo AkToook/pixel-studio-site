@@ -102,21 +102,58 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
             <input id="cf-phone" class="cf-input" type="tel" placeholder="06 XX XX XX XX">
           </div>
           <div>
-            <label class="cf-label" for="cf-service">Sujet</label>
-            <select id="cf-service" class="cf-input">
-              <option value="">Choisir un sujet</option>
-              <option>Création de site vitrine</option>
-              <option>Site e-commerce</option>
-              <option>Application mobile</option>
-              <option>SEO local</option>
-              <option>Google Ads</option>
+            <label class="cf-label" for="cf-service">Ce dont vous avez besoin *</label>
+            <select id="cf-service" class="cf-input" required>
+              <option value="">Choisir</option>
+              <option>Site vitrine</option>
               <option>Refonte de site existant</option>
+              <option>Site e-commerce</option>
+              <option>Fiche Google (Google Maps)</option>
+              <option>Référencement SEO</option>
+              <option>Google Ads</option>
+              <option>Web app / logiciel</option>
+              <option>Application mobile</option>
+              <option>Conseil</option>
               <option>Autre</option>
             </select>
           </div>
+          <div class="cf-2">
+            <div>
+              <label class="cf-label" for="cf-activity">Votre métier *</label>
+              <input id="cf-activity" class="cf-input" type="text" placeholder="Ex : plombier, restaurant" required>
+            </div>
+            <div>
+              <label class="cf-label" for="cf-city">Votre ville *</label>
+              <input id="cf-city" class="cf-input" type="text" placeholder="Ex : Casablanca, Lyon" required>
+            </div>
+          </div>
+          <div class="cf-2">
+            <div>
+              <label class="cf-label" for="cf-hassite">Avez-vous déjà un site ?</label>
+              <select id="cf-hassite" class="cf-input"><option value="">Choisir</option><option>Non</option><option>Oui</option></select>
+            </div>
+            <div>
+              <label class="cf-label" for="cf-url">Adresse du site actuel</label>
+              <input id="cf-url" class="cf-input" type="text" placeholder="Si vous en avez un">
+            </div>
+          </div>
+          <div class="cf-2">
+            <div>
+              <label class="cf-label" for="cf-budget">Budget envisagé</label>
+              <select id="cf-budget" class="cf-input"><option value="">Choisir</option><option data-fr="Moins de 1 000 €" data-ma="Moins de 6 000 DH">Moins de 1 000 €</option><option data-fr="1 000 à 2 000 €" data-ma="6 000 à 12 000 DH">1 000 à 2 000 €</option><option data-fr="2 000 à 5 000 €" data-ma="12 000 à 30 000 DH">2 000 à 5 000 €</option><option data-fr="Plus de 5 000 €" data-ma="Plus de 30 000 DH">Plus de 5 000 €</option><option>Je ne sais pas encore</option></select>
+            </div>
+            <div>
+              <label class="cf-label" for="cf-delay">Pour quand ?</label>
+              <select id="cf-delay" class="cf-input"><option value="">Choisir</option><option>Le plus vite possible</option><option>Dans le mois</option><option>Dans 1 à 3 mois</option><option>Je me renseigne</option></select>
+            </div>
+          </div>
+          <div>
+            <label class="cf-label" for="cf-source">Comment nous avez-vous connus ?</label>
+            <select id="cf-source" class="cf-input"><option value="">Choisir</option><option>Google</option><option>Instagram</option><option>Recommandation</option><option>Appel ou message de notre équipe</option><option>Autre</option></select>
+          </div>
           <div>
             <label class="cf-label" for="cf-message">Message *</label>
-            <textarea id="cf-message" class="cf-input" rows="5" placeholder="Décrivez votre projet ou votre question..." required></textarea>
+            <textarea id="cf-message" class="cf-input" rows="5" placeholder="Votre projet en quelques mots : ce que vous voulez, vos objectifs, des sites que vous aimez..." required></textarea>
           </div>
           <div id="formSuccess" style="display:none;padding:14px 18px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:8px;color:#10b981;font-size:14px;">
             Message envoyé. On revient vers vous très rapidement !
@@ -305,6 +342,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 <style>
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
 @media(max-width:900px){.contact-layout{grid-template-columns:1fr}}
+.cf-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:600px){.cf-2{grid-template-columns:1fr}}
 .cf-label{display:block;font-size:13px;font-weight:600;color:rgba(11,11,15,0.6);margin-bottom:6px;font-family:var(--display);letter-spacing:.02em}
 .cf-input{width:100%;background:rgba(11,11,15,0.028);border:1px solid rgba(11,11,15,0.07);border-radius:8px;padding:12px 14px;color:#0B0B0F;font-size:14px;font-family:var(--body);transition:.2s;box-sizing:border-box}
 .cf-input:focus{outline:none;border-color:rgba(124,92,252,.4);background:rgba(124,92,252,.04)}
@@ -322,6 +360,25 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 </style>
 
 <script src="ps-main.js"></script>
+<script>
+function handleContact(e){
+  e.preventDefault();
+  var v=function(id){var el=document.getElementById(id);return el?String(el.value||'').trim():''};
+  var L=[['Nom',v('cf-name')+(v('cf-company')?' ('+v('cf-company')+')':'')],['E-mail',v('cf-email')],['Téléphone',v('cf-phone')],['Besoin',v('cf-service')],['Métier',v('cf-activity')],['Ville',v('cf-city')],['Site actuel',v('cf-hassite')+(v('cf-url')?' : '+v('cf-url'):'')],['Budget',v('cf-budget')],['Délai',v('cf-delay')],['Nous a connus par',v('cf-source')]];
+  var t='Bonjour Pixeldor,\n\n'+L.filter(function(x){return x[1]}).map(function(x){return x[0]+' : '+x[1]}).join('\n')+'\n\nProjet :\n'+v('cf-message');
+  var geo=null;try{geo=sessionStorage.getItem('pd_geo')}catch(err){}
+  window.open('https://wa.me/'+(geo==='ma'?'212788330413':'33620757517')+'?text='+encodeURIComponent(t),'_blank');
+  var s=document.getElementById('formSuccess');if(s)s.style.display='block';
+  e.target.reset();
+}
+(function(){
+  function apply(mk){document.querySelectorAll('[data-fr]').forEach(function(el){el.textContent=el.getAttribute(mk==='ma'?'data-ma':'data-fr')})}
+  var mk='fr',c=null;try{mk=(Intl.DateTimeFormat().resolvedOptions().timeZone==='Africa/Casablanca')?'ma':'fr'}catch(e){}
+  try{c=sessionStorage.getItem('pd_geo')}catch(e){}
+  apply(c||mk);
+  if(!c&&window.fetch){fetch('https://api.country.is/').then(function(r){return r.json()}).then(function(d){var m=(d&&d.country==='MA')?'ma':'fr';try{sessionStorage.setItem('pd_geo',m)}catch(e){}apply(m)}).catch(function(){})}
+})();
+</script>
 <script src="leads.js"></script>
 </body>
 </html>
