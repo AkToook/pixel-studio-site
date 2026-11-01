@@ -84,7 +84,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 .hub-card:hover{border-color:#0057FF;transform:translateY(-2px)}
 .hub-card h3{font-size:20px;font-weight:700}.hub-card p{color:#6B7280;font-size:14.5px;line-height:1.55;flex:1}
 .hub-pr{font-weight:700;color:#0057FF}.hub-go{font-weight:600;font-size:14px}
-.svc-mk{display:inline-flex;background:#F5F7FC;border:1px solid #E8ECF4;border-radius:50px;padding:4px;gap:4px}
+.svc-mk{display:none!important;}.x-mk{display:inline-flex;background:#F5F7FC;border:1px solid #E8ECF4;border-radius:50px;padding:4px;gap:4px}
 .svc-mk button{border:0;background:transparent;font:600 14px 'Poppins',sans-serif;padding:8px 18px;border-radius:50px;cursor:pointer;color:#6B7280}
 .svc-mk button.on{background:#0057FF;color:#fff}
 @media(max-width:900px){.hub-grid{grid-template-columns:1fr}}
@@ -384,17 +384,19 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 <a class="wa" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20discuter%20d%27un%20projet%20%F0%9F%91%8B">WhatsApp</a>
 <script>
 (function(){
-  var KEY='pd_market',FR='33620757517',MA='212788330413';
+  var FR='33620757517',MA='212788330413',cur=null;
   function apply(mk){
-    document.querySelectorAll('[data-market]').forEach(function(b){b.classList.toggle('on',b.dataset.market===mk);b.setAttribute('aria-pressed',b.dataset.market===mk)});
+    if(mk===cur)return;cur=mk;
     document.querySelectorAll('[data-fr]').forEach(function(el){el.textContent=el.getAttribute(mk==='ma'?'data-ma':'data-fr')});
-    document.querySelectorAll('a[data-wa]').forEach(function(a){a.href='https://wa.me/'+(mk==='ma'?MA:FR)+'?text='+a.getAttribute('data-wa')});
-    try{localStorage.setItem(KEY,mk)}catch(e){}
+    document.querySelectorAll('a[data-wa]').forEach(function(a){a.href='https://wa.me/'+(mk==='ma'?MA:FR)+(a.getAttribute('data-wa')?'?text='+a.getAttribute('data-wa'):'')});
+    document.querySelectorAll('[data-market]').forEach(function(b){b.classList.toggle('on',b.dataset.market===mk)});
+    window.PD_MK=mk;document.dispatchEvent(new CustomEvent('pdmarket',{detail:mk}));
   }
-  var mk=null;try{mk=localStorage.getItem(KEY)}catch(e){}
-  if(!mk){try{mk=(Intl.DateTimeFormat().resolvedOptions().timeZone==='Africa/Casablanca')?'ma':'fr'}catch(e){mk='fr'}}
-  document.querySelectorAll('[data-market]').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.market)})});
-  apply(mk);
+  var mk='fr',cached=null;
+  try{mk=(Intl.DateTimeFormat().resolvedOptions().timeZone==='Africa/Casablanca')?'ma':'fr'}catch(e){}
+  try{cached=sessionStorage.getItem('pd_geo')}catch(e){}
+  apply(cached||mk);
+  if(!cached&&window.fetch){fetch('https://api.country.is/').then(function(r){return r.json()}).then(function(d){var m=(d&&d.country==='MA')?'ma':'fr';try{sessionStorage.setItem('pd_geo',m)}catch(e){}apply(m)}).catch(function(){})}
 })();
 </script>
 <script src="ps-main.js"></script>

@@ -45,6 +45,7 @@ document.addEventListener('click',function(e){
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.pd-dd.open').forEach(function(x){x.classList.remove('open')})});
 </script>
 <style>
+.svc-mk,.market{display:none!important}
 .svc-hero .lead{font-size:19px;max-width:720px;margin-top:18px}
 .svc-pill{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:700;font-size:17px;color:#0B0B0F;background:#F5F7FC;border:1px solid #E8ECF4;border-radius:50px;padding:10px 18px}
 .svc-pill b{color:#0057FF}
@@ -63,7 +64,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 .svc-list.no li::before{background:#E8ECF4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='3'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center/10px no-repeat}
 .svc-box{background:#F5F7FC;border:1px solid #E8ECF4;border-radius:20px;padding:28px}
 .svc-box h3{font-size:18px;font-weight:700;margin-bottom:14px}
-.svc-plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;margin-top:24px;max-width:1080px}
+.svc-plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px;margin-top:24px;max-width:1240px}
 .svc-plan{background:#fff;border:1px solid #E8ECF4;border-radius:22px;padding:30px}
 .svc-plan.feat{border:2px solid #0057FF;box-shadow:0 18px 40px rgba(0,87,255,.12)}
 .svc-plan .nm{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0057FF}
@@ -166,10 +167,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 
 <section id="prix">
   <div class="wrap">
-    <div class="sec-head"><div class="tag">Prix</div><h2>Un prix clair,<br>en France et au Maroc.</h2></div>
+    <div class="sec-head"><div class="tag">Prix</div><h2>Un prix clair,<br>fixé avant de commencer.</h2></div>
     <div class="svc-mk" role="group" aria-label="Choisir le pays"><button type="button" data-market="fr" class="on">France</button><button type="button" data-market="ma">Maroc</button></div>
     <div class="svc-promo"><p><b>Votre site est fait chez nous ? Le SEO est offert pendant 2 mois.</b><span data-fr="Ensuite, -40 % pendant 6 mois sur l'offre de votre choix : par exemple l'Essentiel à 300 € au lieu de 500 €." data-ma="Ensuite, -40 % pendant 6 mois sur l'offre de votre choix : par exemple l'Essentiel à 1 490 DH au lieu de 2 490 DH.">Ensuite, -40 % pendant 6 mois sur l'offre de votre choix : par exemple l'Essentiel à 300 € au lieu de 500 €.</span></p><a href="/creation-site-vitrine.html">Voir l'offre site</a></div>
-    <div class="svc-plans"><div class="svc-plan"><div class="nm">Essentiel</div><div class="pr"><span data-fr="500 € / mois" data-ma="2 490 DH / mois">500 € / mois</span></div><ul class="svc-list" style="margin:6px 0 20px"><li>Audit SEO de départ</li><li>Pages principales optimisées (accueil, services)</li><li>Titres, descriptions et structure corrigés</li><li>Correction technique : indexation, vitesse, erreurs</li><li>2 contenus par mois</li><li>Suivi de la fiche Google</li><li>1 appel de suivi par mois</li><li>Rapport mensuel</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Essentiel%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Essentiel%29" target="_blank" rel="noopener">Je veux cette offre</a></div><div class="svc-plan feat"><div class="nm">Croissance</div><div class="pr"><span data-fr="850 € / mois" data-ma="4 490 DH / mois">850 € / mois</span></div><ul class="svc-list" style="margin:6px 0 20px"><li>Tout l&#x27;Essentiel</li><li>Optimisation complète de la fiche Google</li><li>Pages par ville ou par quartier</li><li>4 contenus par mois</li><li>Inscriptions dans les annuaires</li><li>Suivi des contacts WhatsApp et appels</li><li>2 appels de suivi par mois</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Croissance%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Croissance%29" target="_blank" rel="noopener">Je veux cette offre</a></div><div class="svc-plan"><div class="nm">Premium</div><div class="pr"><span data-fr="1 450 € / mois" data-ma="7 900 DH / mois">1 450 € / mois</span></div><ul class="svc-list" style="margin:6px 0 20px"><li>Tout Croissance</li><li>Liens depuis des sites de votre secteur</li><li>Analyse continue de vos concurrents</li><li>Pages pour plusieurs villes ou zones</li><li>Pages retravaillées pour recevoir plus de demandes</li><li>Rapport détaillé et recommandations</li><li>Point stratégique mensuel en visio</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Premium%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Premium%29" target="_blank" rel="noopener">Je veux cette offre</a></div></div>
+    <div class="svc-plans"><div class="svc-plan"><div class="nm">Essentiel</div><div class="pr"><span data-fr="500 € / mois" data-ma="2 490 DH / mois">500 € / mois</span></div><ul class="svc-list" style="margin:6px 0 20px"><li>Audit SEO de départ</li><li>Pages principales optimisées (accueil, services)</li><li>Titres, descriptions et structure corrigés</li><li>Correction technique : indexation, vitesse, erreurs</li><li>2 contenus par mois</li><li>Suivi de la fiche Google</li><li>1 appel de suivi par mois</li><li>Rapport mensuel</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Essentiel%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Essentiel%29" target="_blank" rel="noopener">Je veux cette offre</a></div><div class="svc-plan feat"><div class="nm">Croissance</div><div class="pr"><span data-fr="850 € / mois" data-ma="4 490 DH / mois">850 € / mois</span></div><ul class="svc-list" style="margin:6px 0 20px"><li>Tout l&#x27;Essentiel</li><li>Optimisation complète de la fiche Google</li><li>Pages par ville ou par quartier</li><li>4 contenus par mois</li><li>Inscriptions dans les annuaires</li><li>Suivi des contacts WhatsApp et appels</li><li>2 appels de suivi par mois</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Croissance%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Croissance%29" target="_blank" rel="noopener">Je veux cette offre</a></div><div class="svc-plan"><div class="nm">Premium</div><div class="pr"><span data-fr="1 450 € / mois" data-ma="7 900 DH / mois">1 450 € / mois</span></div><ul class="svc-list" style="margin:6px 0 20px"><li>Tout Croissance</li><li>Liens depuis des sites de votre secteur</li><li>Analyse continue de vos concurrents</li><li>Pages pour plusieurs villes ou zones</li><li>Pages retravaillées pour recevoir plus de demandes</li><li>Rapport détaillé et recommandations</li><li>Point stratégique mensuel en visio</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Premium%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Premium%29" target="_blank" rel="noopener">Je veux cette offre</a></div><div class="svc-plan"><div class="nm">Sur mesure</div><div class="pr"><span data-fr="Sur devis" data-ma="Sur devis">Sur devis</span></div><ul class="svc-list" style="margin:6px 0 20px"><li><span data-fr="Pour vous si : plus de 2 M€ de chiffre d&#x27;affaires par an" data-ma="Pour vous si : plus de 20 M DH de chiffre d&#x27;affaires par an">Pour vous si : plus de 2 M€ de chiffre d&#x27;affaires par an</span></li><li>Plusieurs établissements, agences ou franchises</li><li>Site e-commerce ou de plus de 100 pages</li><li>Présence nationale ou dans plusieurs villes</li><li>Une équipe marketing en interne</li><li>Stratégie et équipe dédiées</li><li>Point hebdomadaire et rapport sur mesure</li></ul><a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Sur%20mesure%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site%20%28Sur%20mesure%29" target="_blank" rel="noopener">Je veux cette offre</a></div></div>
     <p class="svc-pay"><span data-fr="Engagement 6 mois, puis sans engagement. Audit offert avec l&#x27;engagement 6 mois (sinon 490 €)." data-ma="Engagement 6 mois, puis sans engagement. Audit offert avec l&#x27;engagement 6 mois (sinon 2 900 DH).">Engagement 6 mois, puis sans engagement. Audit offert avec l&#x27;engagement 6 mois (sinon 490 €).</span> Devis gratuit et fixé avant de commencer.</p>
   </div>
 </section>
@@ -195,7 +196,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 <section class="cta">
   <div class="wrap">
     <h2>On regarde votre situation,<br>gratuitement.</h2>
-    <p>Écrivez-nous sur WhatsApp : réponse dans la journée, en France comme au Maroc.</p>
+    <p>Écrivez-nous sur WhatsApp : réponse dans la journée.</p>
     <div class="row">
       <a class="btn btn-blue" data-wa="Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20veux%20un%20audit%20SEO%20gratuit%20de%20mon%20site" target="_blank" rel="noopener">Audit gratuit sur WhatsApp</a>
       <button class="btn btn-ghost" onclick="document.getElementById('bookingModal').classList.add('open')">Réserver un appel</button>
@@ -221,7 +222,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
       </div>
       <div class="foot-cols">
         <div class="foot-col"><h4>Visibilité</h4><a href="/fiche-google-maps.html">Fiche Google</a><a href="/referencement-seo.html">Référencement SEO</a><a href="/google-ads.html">Google Ads</a></div><div class="foot-col"><h4>Avoir un site</h4><a href="/creation-site-vitrine.html">Site vitrine</a><a href="/refonte-site-web.html">Refonte de site</a></div><div class="foot-col"><h4>Avoir un outil sur mesure</h4><a href="/creation-web-app.html">Web app</a><a href="/creation-application-mobile.html">Application mobile</a><a href="/conseil-strategie-digitale.html">Conseil &amp; stratégie</a></div>
-        <div class="foot-col"><h4>Joindre</h4><a href="https://wa.me/33620757517">France · 06 20 75 75 17</a><a href="https://wa.me/212788330413">Maroc · +212 7 88 33 04 13</a><a href="mailto:contact@pixelstudioo.fr">contact@pixelstudioo.fr</a></div>
+        <div class="foot-col"><h4>Joindre</h4><a data-wa="" href="https://wa.me/33620757517"><span data-fr="WhatsApp · 06 20 75 75 17" data-ma="WhatsApp · +212 7 88 33 04 13">WhatsApp · 06 20 75 75 17</span></a><a href="mailto:contact@pixelstudioo.fr">contact@pixelstudioo.fr</a></div>
       </div>
     </div>
     <div class="foot-bot">
@@ -263,18 +264,19 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 <a class="wa" data-wa="Bonjour%2C%20je%20viens%20du%20site%20Pixeldor%20%28R%C3%A9f%C3%A9rencement%20SEO%29" href="https://wa.me/33620757517?text=Bonjour%2C%20je%20viens%20du%20site%20Pixeldor%20%28R%C3%A9f%C3%A9rencement%20SEO%29" target="_blank" rel="noopener">WhatsApp</a>
 <script>
 (function(){
-  var KEY='pd_market',FR='33620757517',MA='212788330413';
+  var FR='33620757517',MA='212788330413',cur=null;
   function apply(mk){
-    document.querySelectorAll('[data-market]').forEach(function(b){b.classList.toggle('on',b.dataset.market===mk);b.setAttribute('aria-pressed',b.dataset.market===mk)});
+    if(mk===cur)return;cur=mk;
     document.querySelectorAll('[data-fr]').forEach(function(el){el.textContent=el.getAttribute(mk==='ma'?'data-ma':'data-fr')});
-    document.querySelectorAll('a[data-wa]').forEach(function(a){a.href='https://wa.me/'+(mk==='ma'?MA:FR)+'?text='+a.getAttribute('data-wa')});
-    try{localStorage.setItem(KEY,mk)}catch(e){}
+    document.querySelectorAll('a[data-wa]').forEach(function(a){a.href='https://wa.me/'+(mk==='ma'?MA:FR)+(a.getAttribute('data-wa')?'?text='+a.getAttribute('data-wa'):'')});
+    document.querySelectorAll('[data-market]').forEach(function(b){b.classList.toggle('on',b.dataset.market===mk)});
     window.PD_MK=mk;document.dispatchEvent(new CustomEvent('pdmarket',{detail:mk}));
   }
-  var mk=null;try{mk=localStorage.getItem(KEY)}catch(e){}
-  if(!mk){try{mk=(Intl.DateTimeFormat().resolvedOptions().timeZone==='Africa/Casablanca')?'ma':'fr'}catch(e){mk='fr'}}
-  document.querySelectorAll('[data-market]').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.market)})});
-  apply(mk);
+  var mk='fr',cached=null;
+  try{mk=(Intl.DateTimeFormat().resolvedOptions().timeZone==='Africa/Casablanca')?'ma':'fr'}catch(e){}
+  try{cached=sessionStorage.getItem('pd_geo')}catch(e){}
+  apply(cached||mk);
+  if(!cached&&window.fetch){fetch('https://api.country.is/').then(function(r){return r.json()}).then(function(d){var m=(d&&d.country==='MA')?'ma':'fr';try{sessionStorage.setItem('pd_geo',m)}catch(e){}apply(m)}).catch(function(){})}
 })();
 </script>
 <script src="/ps-main.js"></script>
