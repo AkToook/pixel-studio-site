@@ -7,10 +7,26 @@
 (function(){
   // ← Colle ici l'URL de ton Apps Script (elle finit par /exec)
   var LEADS_URL = '';
+  // Réception directe par e-mail (FormSubmit). Remplaçable par l'alias secret fourni par FormSubmit après activation.
+  var MAIL_TO = 'mredahmamouchi@gmail.com';
 
   function val(id){var e=document.getElementById(id);return e?String(e.value||'').trim():''}
 
+  function mail(d){
+    if(!MAIL_TO) return;
+    var m={_subject:'Nouvelle demande Pixeldor : '+(d.source||'site'),_template:'table',_captcha:'false'};
+    for(var k in d){if(d[k])m[k]=d[k]}
+    if(d.email)m._replyto=d.email;
+    try{
+      fetch('https://formsubmit.co/ajax/'+MAIL_TO,{method:'POST',keepalive:true,
+        headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(m)});
+    }catch(e){}
+  }
+
   function save(d){
+    d.date = new Date().toLocaleString('fr-FR',{timeZone:'Europe/Paris'});
+    d.page = location.pathname;
+    mail(d);
     if(!LEADS_URL) return;
     d.date = new Date().toLocaleString('fr-FR',{timeZone:'Europe/Paris'});
     d.page = location.pathname;
