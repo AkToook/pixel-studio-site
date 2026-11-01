@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement en ligne CMI au Maroc : le guide 2026 — Pixeldor</title>
+<meta name="description" content="CMI, acquéreurs agréés, dossier, intégration et tests : comment accepter la carte bancaire sur votre site au Maroc en 2026, étape par étape.">
+<link rel="canonical" href="https://pixelstudioo.fr/blog/paiement-en-ligne-cmi-site-web-maroc.html">
+<meta property="og:title" content="Accepter le paiement par carte sur son site au Maroc : CMI, acquéreurs et étapes">
+<meta property="og:description" content="Qui signe le contrat depuis la réforme du CMI, quels acquéreurs, quelles étapes et ce que le site doit contenir pour encaisser par carte au Maroc.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pixelstudioo.fr/blog/paiement-en-ligne-cmi-site-web-maroc.html">
+<meta property="og:site_name" content="Pixeldor">
+<meta property="og:locale" content="fr_MA">
+<meta property="og:image" content="https://pixelstudioo.fr/og-cover.jpg">
+<meta property="article:published_time" content="2026-10-31">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Accepter le paiement par carte sur son site au Maroc : CMI, acquéreurs et étapes",
+  "description": "Comment accepter la carte bancaire sur un site au Maroc depuis la réforme du CMI : rôle des acquéreurs agréés, étapes du dossier, intégration de la passerelle, pages à prévoir et alternatives de paiement.",
+  "inLanguage": "fr",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://pixelstudioo.fr/blog/paiement-en-ligne-cmi-site-web-maroc.html"},
+  "url": "https://pixelstudioo.fr/blog/paiement-en-ligne-cmi-site-web-maroc.html",
+  "image": "https://pixelstudioo.fr/og-cover.jpg",
+  "author": {"@type": "Organization", "name": "Pixeldor", "url": "https://pixelstudioo.fr/"},
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "Pixeldor",
+    "url": "https://pixelstudioo.fr/",
+    "image": "https://pixelstudioo.fr/og-cover.jpg",
+    "email": "contact@pixelstudioo.fr",
+    "telephone": "+212788330413",
+    "areaServed": [{"@type": "City", "name": "Casablanca"}, {"@type": "Country", "name": "Maroc"}]
+  },
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "about": [{"@type": "Thing", "name": "Paiement en ligne"}, {"@type": "Organization", "name": "Centre Monétique Interbancaire (CMI)"}, {"@type": "Country", "name": "Maroc"}]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://pixelstudioo.fr/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://pixelstudioo.fr/blog.html"},
+    {"@type": "ListItem", "position": 3, "name": "Paiement en ligne au Maroc : CMI et acquéreurs", "item": "https://pixelstudioo.fr/blog/paiement-en-ligne-cmi-site-web-maroc.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Faut-il encore contacter le CMI pour avoir le paiement en ligne ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Depuis le 1er novembre 2024, le CMI ne signe plus de nouveaux contrats de paiement en ligne avec les commerçants. Vous contractez avec un acquéreur agréé, souvent l'établissement de paiement lié à votre banque ou un établissement indépendant ; le CMI intervient en arrière-plan comme plateforme technique."}},
+    {"@type": "Question", "name": "Peut-on choisir un acquéreur différent de sa banque ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les banques actionnaires du CMI se sont engagées à respecter le droit de leurs clients à contracter avec l'acquéreur de leur choix. Demandez au moins deux propositions écrites et comparez la commission, les frais fixes et le délai de reversement."}},
+    {"@type": "Question", "name": "Stripe fonctionne-t-il pour une entreprise marocaine ?", "acceptedAnswer": {"@type": "Answer", "text": "À la date de publication de cet article, le Maroc ne figure pas dans la liste des pays où Stripe est disponible. Une société marocaine passe donc par un acquéreur local agréé."}},
+    {"@type": "Question", "name": "Peut-on lancer le site avant d'avoir le paiement par carte ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, et c'est souvent la solution la plus sereine. Le site peut ouvrir avec le paiement à la livraison ou le virement, puis activer la carte dès que le contrat avec l'acquéreur est signé et que les tests sont validés."}},
+    {"@type": "Question", "name": "Le client saisit-il son numéro de carte sur mon site ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans l'intégration la plus courante pour une PME, non : il est redirigé vers une page de paiement sécurisée hébergée par la plateforme de paiement, qui peut reprendre vos couleurs. Votre site reçoit ensuite le résultat du paiement et confirme la commande."}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#0057FF;--sky:#3D7BFF;--green:#16A34A;--muted:rgba(11,11,15,0.55);--line:rgba(11,11,15,0.07);--display:'Poppins',system-ui,sans-serif;--body:'Poppins',system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#FFFFFF;color:#0B0B0F;font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+nav{background:rgba(255,255,255,0.97);border-bottom:1px solid rgba(11,11,15,0.056);padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.04em;color:#0B0B0F}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:22px;font-size:13.5px;color:rgba(11,11,15,0.7)}
+.nav-links a:hover{color:#0B0B0F}
+.nav-cta{background:linear-gradient(120deg,var(--accent),#3D7BFF);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;padding:10px 20px;border-radius:50px;transition:.2s}
+.nav-cta:hover{opacity:.88}
+.breadcrumb{font-size:13px;color:var(--muted);padding-top:28px}
+.breadcrumb a{color:rgba(11,11,15,0.75)}
+.breadcrumb a:hover{color:var(--accent)}
+.article-header{padding:40px 0 56px;border-bottom:1px solid var(--line)}
+.article-cat{display:inline-flex;align-items:center;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.2);padding:6px 14px;border-radius:50px;margin-bottom:24px}
+.article-header h1{font-family:var(--display);font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:#0B0B0F;margin-bottom:20px}
+.article-header .lead{font-size:17px;color:rgba(11,11,15,0.8);margin-bottom:22px;line-height:1.7}
+.article-meta{display:flex;gap:18px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.article-body{padding:56px 0 80px}
+.article-body h2{font-family:var(--display);font-size:clamp(20px,3vw,28px);font-weight:800;letter-spacing:-.03em;color:#0B0B0F;margin:48px 0 16px}
+.article-body h3{font-family:var(--display);font-size:clamp(17px,2.4vw,22px);font-weight:700;color:#0B0B0F;margin:32px 0 12px}
+.article-body p{color:rgba(11,11,15,0.78);margin-bottom:20px;font-size:16px;line-height:1.75}
+.article-body p a,.article-body li a,.article-body td a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.article-body ul,.article-body ol{padding-left:0;margin:0 0 22px;list-style:none}
+.article-body li{color:rgba(11,11,15,0.75);font-size:15.5px;padding:8px 0 8px 26px;position:relative;border-bottom:1px solid rgba(11,11,15,0.042)}
+.article-body li:last-child{border-bottom:none}
+.article-body ul li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700;font-size:13px}
+.article-body ol{counter-reset:step}
+.article-body ol li{counter-increment:step;padding-left:40px}
+.article-body ol li::before{content:counter(step);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;background:rgba(0,87,255,.15);color:var(--accent);font-family:var(--display);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.article-body strong{color:#0B0B0F;font-weight:600}
+.article-body em{color:var(--sky);font-style:normal}
+.answer{background:rgba(125,211,252,.06);border:1px solid rgba(125,211,252,.18);border-radius:12px;padding:18px 22px;margin:0 0 24px}
+.answer p{margin:0;color:rgba(11,11,15,0.88)}
+.callout{background:rgba(0,87,255,.06);border:1px solid rgba(0,87,255,.18);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0}
+.callout p{margin:0;color:rgba(11,11,15,0.85)}
+.callout.green{background:rgba(22,163,74,.06);border-color:rgba(22,163,74,.2);border-left-color:var(--green)}
+.toc{background:rgba(11,11,15,0.028);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:0 0 32px}
+.toc h2{font-size:13px!important;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)!important;margin:0 0 10px!important}
+.table-wrap{margin:28px 0;border-radius:16px;overflow-x:auto;border:1px solid rgba(11,11,15,0.07)}
+table{width:100%;border-collapse:collapse;min-width:620px}
+caption{caption-side:bottom;text-align:left;font-size:12.5px;color:var(--muted);padding:12px 16px}
+th,td{padding:13px 14px;font-size:13.5px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(11,11,15,0.049);color:rgba(11,11,15,0.75)}
+thead th{background:rgba(11,11,15,0.056);font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+tbody th{color:#0B0B0F;font-weight:600;background:rgba(11,11,15,0.021)}
+tr.ps td,tr.ps th{background:rgba(0,87,255,.07)}
+.trades{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.trade{background:rgba(11,11,15,0.028);border:1px solid rgba(11,11,15,0.07);border-radius:12px;padding:16px 18px;transition:.2s}
+.trade:hover{border-color:rgba(0,87,255,.35)}
+.trade strong{display:block;font-family:var(--display);font-size:15px;color:#0B0B0F;margin-bottom:4px}
+.trade span{font-size:13.5px;color:rgba(11,11,15,0.65);line-height:1.5;display:block}
+.faq-item{border-bottom:1px solid var(--line);padding:6px 0 4px}
+.faq-item h3{margin:22px 0 10px}
+.cta-box{background:linear-gradient(135deg,rgba(0,87,255,.12),rgba(29,78,216,.08));border:1px solid rgba(0,87,255,.25);border-radius:20px;padding:44px 36px;text-align:center;margin:56px 0}
+.cta-box h2{font-family:var(--display);font-size:clamp(22px,3.5vw,30px);font-weight:800;color:#0B0B0F;margin:0 0 12px;letter-spacing:-.03em}
+.cta-box p{color:var(--muted);font-size:15px;margin-bottom:24px}
+.cta-box .contact-line{font-size:14px;margin:20px 0 0}
+.cta-box .contact-line a{color:var(--accent);text-decoration:none}
+.btn-pink{background:linear-gradient(120deg,var(--accent),#3D7BFF);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;padding:15px 28px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;transition:.25s;box-shadow:0 8px 24px rgba(0,87,255,.3)}
+.btn-pink:hover{transform:translateY(-2px)}
+.related{border-top:1px solid var(--line);padding:56px 0}
+.related h2{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.related-card{background:rgba(11,11,15,0.028);border:1px solid rgba(11,11,15,0.07);border-radius:14px;padding:20px;transition:.2s}
+.related-card:hover{border-color:rgba(0,87,255,.28)}
+.related-card .rc-cat{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;font-family:var(--display)}
+.related-card h3{font-family:var(--display);font-size:15px;font-weight:700;color:#0B0B0F;line-height:1.35}
+footer{background:rgba(11,11,15,0.021);border-top:1px solid var(--line);padding:32px 28px;text-align:center}
+footer p{font-size:13px;color:var(--muted);margin:4px 0}
+footer a{color:var(--accent)}
+@media(max-width:760px){.nav-links{display:none}}
+@media(max-width:600px){.cta-box{padding:32px 22px}.related-grid,.trades{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Pixel<span>dor</span></a>
+  <div class="nav-links">
+    <a href="../services.html">Services</a>
+    <a href="../portfolio.html">Portfolio</a>
+    <a href="/recrutement.html">On recrute</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+  <a href="https://wa.me/212788330413?text=Bonjour%2C%20je%20voudrais%20un%20devis%20pour%20un%20site%20web%20au%20Maroc" class="nav-cta">Devis gratuit →</a>
+</nav>
+
+<article>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Accueil</a> &nbsp;/&nbsp; <a href="../blog.html">Blog</a> &nbsp;/&nbsp; <span>Paiement en ligne au Maroc</span></p>
+    <header class="article-header">
+      <div class="article-cat">Paiement Maroc</div>
+      <h1>Accepter le paiement par carte sur son site au Maroc : CMI, acquéreurs et étapes</h1>
+      <p class="lead">Pour encaisser par carte bancaire sur votre site au Maroc, il faut deux choses : un contrat d'acceptation signé avec un acquéreur agréé, et une passerelle de paiement intégrée au site. Depuis la réforme engagée fin 2024, ce contrat ne se signe plus directement avec le CMI. Voici qui fait quoi, les étapes dans l'ordre et ce que votre site doit contenir pour être accepté.</p>
+      <div class="article-meta">
+        <span>Publié le <time datetime="2026-10-31">31 octobre 2026</time></span>
+        <span>Environ 10 min de lecture</span>
+        <span>Par Pixeldor</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <p>Cet article fait partie de notre <a href="../creation-site-web-maroc.html">guide de la création de site web au Maroc</a>. Les budgets, eux, sont traités dans notre article <a href="prix-site-web-maroc.html">combien coûte un site web au Maroc</a>. Ici, une seule question : comment accepter concrètement le paiement par carte sur votre site, sans perdre des semaines en allers-retours.</p>
+
+      <div class="toc" role="navigation" aria-label="Sommaire">
+        <h2>Sommaire</h2>
+        <ul>
+          <li><a href="#cmi-2026">Le CMI signe-t-il encore les contrats ?</a></li>
+          <li><a href="#acteurs">Qui fait quoi dans un paiement en ligne ?</a></li>
+          <li><a href="#acquereurs">Quels acquéreurs au Maroc ?</a></li>
+          <li><a href="#etapes">Les sept étapes pour accepter la carte</a></li>
+          <li><a href="#site">Ce que le site doit contenir</a></li>
+          <li><a href="#alternatives">Les alternatives à la carte</a></li>
+          <li><a href="#delais-couts">Délais et coûts : à quoi s'attendre</a></li>
+          <li><a href="#pixeldor">Comment Pixeldor intègre le paiement</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+        </ul>
+      </div>
+
+      <h2 id="cmi-2026">Le CMI signe-t-il encore les contrats de paiement en ligne ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> non, plus avec les nouveaux commerçants. Par une décision du 31 octobre 2024, le Conseil de la concurrence a rendu obligatoires les engagements du Centre Monétique Interbancaire (CMI) : depuis le 1er novembre 2024, il ne conclut plus de nouveaux contrats d'adhésion ni de contrats de passerelle e-commerce avec les commerçants, et il devient une plateforme technique au service des établissements de paiement. Le contrat se signe désormais avec un acquéreur agréé.</p>
+      </div>
+
+      <p>Le CMI, fondé en 2004 par des banques marocaines, a longtemps été l'interlocuteur quasi unique des commerçants pour le paiement par carte. Selon le <a href="https://conseil-concurrence.ma/wp-content/uploads/2024/11/Communique-CC-FR.pdf" rel="noopener">communiqué du Conseil de la concurrence du 4 novembre 2024</a>, il s'est engagé à céder ses contrats commerçants (terminaux de paiement et paiement en ligne) aux établissements de paiement et aux filiales bancaires dédiées à l'acquisition, puis à se transformer en plateforme technique de traitement pour le compte de tous les établissements de paiement de la place.</p>
+      <p>Ces nouveaux acteurs peuvent commercialiser leurs offres depuis le 1er mai 2025, comme l'a rappelé le <a href="https://maroc.ma/fr/actualites/paiement-electronique-les-etablissements-de-paiement-et-les-filiales-des-banques-autorises-operer-des" rel="noopener">portail officiel maroc.ma</a>, et la période de transition prévue par la décision a pris fin le 1er novembre 2025 selon le <a href="https://conseil-concurrence.ma/wp-content/uploads/2025/05/Communique-du-Conseil-de-la-concurrence-CMI-Fr.pdf" rel="noopener">communiqué du 19 mai 2025</a>.</p>
+      <p>Dans la pratique, beaucoup de commerçants parlent encore de « paiement CMI », et la page de paiement que verra votre client peut toujours s'appuyer sur la plateforme du CMI. Mais votre interlocuteur commercial, celui qui signe le contrat, fixe la commission et vous reverse l'argent, c'est l'acquéreur. Si un prestataire vous dit « on s'occupe de votre contrat CMI », demandez-lui avec quel acquéreur.</p>
+
+      <h2 id="acteurs">Qui fait quoi : acquéreur, passerelle, CMI, banque, prestataire web ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> l'acquéreur signe le contrat et vous reverse les paiements ; la passerelle relie votre site au circuit des cartes et affiche la page de paiement sécurisée ; le CMI traite les opérations en arrière-plan ; votre banque reçoit les fonds ; votre prestataire web intègre la passerelle et teste le parcours de commande.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Acteur</th>
+              <th scope="col">Son rôle</th>
+              <th scope="col">Ce que vous lui demandez</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Acquéreur (établissement de paiement ou filiale bancaire agréée)</th>
+              <td>Signe le contrat commerçant, demande l'autorisation de chaque paiement, vous reverse les fonds</td>
+              <td>Commission, frais fixes éventuels, délai de reversement, cartes acceptées</td>
+            </tr>
+            <tr>
+              <th scope="row">Passerelle de paiement</th>
+              <td>Interface entre le site et le processeur de paiement, qui chiffre les données de carte</td>
+              <td>Documentation technique, environnement de test, page de paiement personnalisable</td>
+            </tr>
+            <tr>
+              <th scope="row">CMI</th>
+              <td>Plateforme technique de traitement pour le compte des établissements de paiement</td>
+              <td>En général rien directement : vous passez par votre acquéreur</td>
+            </tr>
+            <tr>
+              <th scope="row">Votre banque</th>
+              <td>Tient le compte professionnel sur lequel les fonds arrivent</td>
+              <td>Un RIB, et éventuellement une mise en relation avec un acquéreur</td>
+            </tr>
+            <tr>
+              <th scope="row">Votre prestataire web</th>
+              <td>Intègre la passerelle, gère la confirmation de commande et les cas d'échec</td>
+              <td>Un parcours testé de bout en bout avant la mise en ligne</td>
+            </tr>
+          </tbody>
+          <caption>Synthèse Pixeldor d'après les communiqués du Conseil de la concurrence (2024 et 2025) et les pages publiques du CMI, consultés le 31 octobre 2026.</caption>
+        </table>
+      </div>
+
+      <p>Les définitions du Conseil de la concurrence aident à y voir clair : l'acquéreur est « un établissement financier qui collecte les paiements pour un commerçant », la passerelle « une interface technologique intermédiaire entre un site web de commerce électronique et un processeur de paiement ». Retenez aussi ceci : votre banque peut promouvoir l'établissement de paiement de son groupe, mais les banques actionnaires du CMI se sont engagées à respecter votre droit de contracter avec l'acquéreur de votre choix.</p>
+
+      <h2 id="acquereurs">Quels acquéreurs proposent le paiement en ligne au Maroc ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> la page « Acquéreurs partenaires » du CMI cite sept établissements, consultée le 31 octobre 2026 : Al Filahi Cash, Attijari Payment, CDM Pay, Damane Cash, Lana Cash, M2T (Chaabi Payment) et Saham Paiements. Des établissements de paiement indépendants des banques proposent aussi leurs propres passerelles.</p>
+      </div>
+
+      <p>Pour bénéficier de sa plateforme de paiement en ligne, le CMI renvoie lui-même vers ses <a href="https://www.cmi.co.ma/fr/acquereurs-partenaires-du-cmi" rel="noopener">acquéreurs partenaires</a>. Deux exemples documentés :</p>
+      <ul>
+        <li><strong>Attijari Payment</strong> (groupe Attijariwafa bank) a obtenu son agrément d'établissement de paiement de Bank Al-Maghrib le 13 mars 2025 et exerce l'acquisition depuis le 1er mai 2025, avec une offre de paiement en ligne, selon son <a href="https://www.attijariwafabank.com/sites/default/files/publication/2025-09/CP%20VF%20-%20AP%20acquisition%20commer%C3%A7ants.pdf" rel="noopener">communiqué du 7 juillet 2025</a>.</li>
+        <li><strong>Payzone</strong>, la plateforme de Vantage Payment Systems, figure parmi les acteurs indépendants : la société a annoncé en 2024 avoir obtenu l'agrément d'établissement de paiement de Bank Al-Maghrib, selon <a href="https://boursenews.ma/article/marches/Vantage-Payment-Systems-obtient-agrement-etablissement-paiement-Bank-Al-Maghrib" rel="noopener">Boursenews</a>.</li>
+      </ul>
+      <p>Cette liste bouge : vérifiez-la au moment de votre projet et demandez au moins deux propositions écrites. Comparez la commission par transaction, les frais de mise en service ou d'abonnement, le délai de reversement sur votre compte, les cartes acceptées (marocaines, internationales), la devise de règlement et les outils fournis : espace commerçant, remboursements, liens de paiement.</p>
+
+      <div class="callout">
+        <p><strong>Et Stripe ?</strong> À la date de publication, le Maroc ne figure pas dans la <a href="https://stripe.com/global" rel="noopener">liste des pays où Stripe est disponible</a>. Une société marocaine passe donc par un acquéreur local. Ouvrir un compte au nom d'une société étrangère pour contourner le problème est une décision juridique et fiscale, pas un réglage technique : parlez-en à votre comptable avant.</p>
+      </div>
+
+      <h2 id="etapes">Quelles sont les étapes pour accepter la carte sur son site ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> comptez sept étapes : vérifier les prérequis de l'entreprise, préparer le site, choisir l'acquéreur, déposer le dossier, recevoir les accès de test, intégrer et tester la passerelle, puis faire valider le site et passer en production. Le calendrier dépend surtout du traitement du dossier par l'acquéreur, pas du développement.</p>
+      </div>
+
+      <ol>
+        <li><strong>Vérifier les prérequis de l'entreprise.</strong> Une structure immatriculée, un compte bancaire professionnel au Maroc et une activité que l'acquéreur accepte de vendre en ligne. Si vous êtes auto-entrepreneur, posez la question d'emblée à l'acquéreur.</li>
+        <li><strong>Préparer le site avant le dossier.</strong> L'acquéreur regardera ce que vous vendez et comment : catalogue ou prestations, prix, conditions de vente, pages légales. Un site complet et accessible le jour du dépôt évite des allers-retours.</li>
+        <li><strong>Choisir l'acquéreur</strong> à partir de propositions écrites, en comparant les mêmes critères pour chacun.</li>
+        <li><strong>Constituer le dossier.</strong> Chaque acquéreur a son propre formulaire. À titre d'indication, la <a href="https://www.cmi.co.ma/fr/solutions-paiement-ecommerce" rel="noopener">page E-commerçants du CMI</a> liste encore pour l'affiliation un questionnaire e-marchand, un dépôt de garantie et un ordre de prélèvement permanent : attendez-vous à des demandes de ce type, en plus des pièces d'identification de l'entreprise et de son représentant.</li>
+        <li><strong>Recevoir les accès de test</strong> et la documentation technique de la passerelle.</li>
+        <li><strong>Intégrer et tester</strong> tous les scénarios : paiement accepté, refusé, abandonné, remboursement, double clic, session expirée.</li>
+        <li><strong>Faire valider le site et passer en production.</strong> Une fois les identifiants de production reçus, faites un premier paiement réel de faible montant et vérifiez qu'il arrive bien sur votre compte.</li>
+      </ol>
+
+      <div class="callout green">
+        <p><strong>Ne bloquez pas le lancement.</strong> Le site peut ouvrir avec le paiement à la livraison ou le virement pendant que le dossier avance, puis activer la carte dès que tout est validé. C'est ce que nous conseillons quand le calendrier est serré.</p>
+      </div>
+
+      <h2 id="site">Que doit contenir le site pour être accepté ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> l'identité complète de l'entreprise, des prix en dirhams, des conditions de vente qui expliquent paiement, livraison, retour et remboursement, une politique de confidentialité conforme à la loi 09-08, et un parcours de commande qui fonctionne de bout en bout, avec une confirmation fiable du paiement.</p>
+      </div>
+
+      <h3>Les pages et informations à prévoir</h3>
+      <ul>
+        <li><strong>Identité de l'entreprise</strong> : raison sociale, adresse, téléphone, e-mail et identifiants légaux, faciles à trouver.</li>
+        <li><strong>Conditions générales de vente</strong> : modalités de paiement, délais et zones de livraison, frais, retours et remboursements. La loi 31-08 sur la protection du consommateur encadre la vente à distance, notamment l'information donnée avant la commande et le droit de rétractation : faites relire vos conditions.</li>
+        <li><strong>Politique de confidentialité</strong> : un site marchand collecte des données personnelles ; la loi 09-08 impose d'informer les clients et, en principe, d'accomplir une formalité auprès de la <a href="https://www.cndp.ma/" rel="noopener">CNDP</a>.</li>
+        <li><strong>Prix clairs</strong> : en dirhams, frais de livraison annoncés avant le paiement.</li>
+        <li><strong>Signes de confiance au moment de payer</strong> : logos des cartes acceptées et mention de l'authentification 3-D Secure, que le CMI conseille fortement à ses e-commerçants pour limiter la fraude.</li>
+      </ul>
+
+      <h3>Les points techniques qui font la différence</h3>
+      <ul>
+        <li><strong>Page de paiement hébergée.</strong> Dans l'intégration la plus courante pour une PME, le client est redirigé vers la page sécurisée de la plateforme : votre serveur ne voit jamais le numéro de carte. Le CMI indique que sa page peut reprendre votre charte graphique et s'afficher en arabe, en français et en anglais.</li>
+        <li><strong>Confirmation côté serveur.</strong> Une commande ne doit être validée qu'après la notification envoyée par la plateforme à votre serveur, signature vérifiée, et jamais sur le simple retour du navigateur, qu'un client peut interrompre ou falsifier.</li>
+        <li><strong>Cas d'échec soignés.</strong> Message clair en cas de refus, panier conservé, possibilité de réessayer ou de choisir le paiement à la livraison.</li>
+        <li><strong>E-mails de confirmation</strong> au client et à vous, avec le numéro de commande qui permettra de retrouver la transaction dans l'espace commerçant.</li>
+        <li><strong>Remboursements</strong> : l'espace e-commerçant du CMI permet de confirmer, annuler ou rembourser une transaction ; vérifiez les outils équivalents chez votre acquéreur et qui, dans votre équipe, y aura accès.</li>
+      </ul>
+
+      <h3>WooCommerce, PrestaShop ou site sur mesure ?</h3>
+      <p>Le CMI précise que de nombreux logiciels e-commerce sont compatibles avec sa plateforme. Demandez à votre acquéreur la liste des modules qu'il fournit ou recommande pour votre outil : pour un composant qui touche à l'argent, un module trouvé sur un forum n'est pas une option. Sur un site codé sur mesure, comme ceux que nous livrons, l'intégration passe par le formulaire de redirection ou l'API fournis par l'acquéreur, sans extension tierce à maintenir.</p>
+
+      <h2 id="alternatives">Quelles alternatives à la carte prévoir ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> le paiement à la livraison reste très attendu au Maroc ; le virement convient aux montants élevés et aux clients professionnels ; le lien de paiement dépanne pour les commandes passées sur WhatsApp. Ajouter la carte ne vous oblige pas à supprimer les autres moyens de paiement.</p>
+      </div>
+
+      <ul>
+        <li><strong>Paiement à la livraison</strong> : confirmez la commande par téléphone ou WhatsApp avant l'expédition pour limiter les colis refusés.</li>
+        <li><strong>Virement bancaire</strong> : RIB affiché après la commande, validation à réception des fonds. Pratique pour les gros paniers et le B2B.</li>
+        <li><strong>Lien de paiement</strong> : la page E-commerçants du CMI mentionne la génération de liens de paiement depuis l'espace e-commerçant ; demandez si votre acquéreur propose cet outil pour les commandes prises en conversation.</li>
+        <li><strong>Paiement au retrait</strong> : commande en ligne, règlement sur place, utile pour un restaurant ou une boutique de quartier.</li>
+        <li><strong>Clients étrangers</strong> : le CMI met en avant une solution de paiement multidevises ; si vous vendez à la diaspora ou à des touristes, posez la question à votre acquéreur.</li>
+      </ul>
+
+      <h2 id="delais-couts">Combien de temps et combien ça coûte ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> aucun barème ni délai officiel n'est publié pour les commerçants. Le délai dépend de l'acquéreur et de la complétude de votre dossier ; le coût se partage entre l'intégration, facturée par votre prestataire web, et les frais de l'acquéreur, négociés au cas par cas. Exigez les deux par écrit avant de vous engager.</p>
+      </div>
+
+      <p>Nous ne publions volontairement pas de délai type : il varie d'un acquéreur à l'autre et d'un dossier à l'autre. Ce qui raccourcit vraiment le calendrier, c'est un site prêt le jour du dépôt et des pièces complètes. Pour le détail des frais qui s'ajoutent au prix du site (hébergement, domaine, maintenance, commissions de paiement et évolution récente des frais d'interchange), reportez-vous à notre article sur le <a href="prix-site-web-maroc.html">prix d'un site web au Maroc</a>.</p>
+
+      <h2 id="pixeldor">Comment Pixeldor intègre-t-il le paiement en ligne ?</h2>
+
+      <div class="answer">
+        <p><strong>En bref :</strong> nous concevons le site ou la web app, préparons avec vous les pages attendues par l'acquéreur, intégrons la passerelle de l'acquéreur que vous avez choisi et testons chaque scénario avant la mise en ligne. Le contrat de paiement, lui, est signé entre votre entreprise et l'acquéreur.</p>
+      </div>
+
+      <p>Un site vitrine démarre à 5 900 DH et une web app à 24 900 DH ; l'intégration du paiement en ligne est chiffrée dans le devis gratuit, selon votre plateforme et votre acquéreur. Vous recevez une maquette gratuite sous 48 heures, vous réglez 40 % à la commande et 60 % à la livraison, avec la garantie satisfait ou remboursé. Le détail est dans <a href="/#offres">nos offres</a>.</p>
+      <p>Nous cadrons le projet lors d'un appel visio, puis le suivi se fait sur WhatsApp et par e-mail ; un rendez-vous en personne est possible quand notre responsable est à Casablanca. Nous n'avons pas de bureau au Maroc et nous le disons clairement sur notre page <a href="../agence-web-casablanca.html">agence web à Casablanca</a>. Pour une boutique complète, catalogue et livraison compris, voir aussi notre page <a href="../agence-web-ecommerce-casablanca.html">site e-commerce à Casablanca</a>. Et pour que vos clients vous trouvent avant même de commander, lisez notre guide pour <a href="google-business-profile-casablanca.html">apparaître sur Google Maps à Casablanca</a>.</p>
+
+      <h2 id="faq">Questions fréquentes sur le paiement en ligne au Maroc</h2>
+
+      <div class="faq-item">
+        <h3>Faut-il encore contacter le CMI pour avoir le paiement en ligne ?</h3>
+        <p>Non. Depuis le 1er novembre 2024, le CMI ne signe plus de nouveaux contrats de paiement en ligne avec les commerçants. Vous contractez avec un acquéreur agréé, souvent l'établissement de paiement lié à votre banque ou un établissement indépendant ; le CMI intervient en arrière-plan comme plateforme technique.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Peut-on choisir un acquéreur différent de sa banque ?</h3>
+        <p>Oui. Les banques actionnaires du CMI se sont engagées à respecter le droit de leurs clients à contracter avec l'acquéreur de leur choix. Demandez au moins deux propositions écrites et comparez la commission, les frais fixes et le délai de reversement.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Stripe fonctionne-t-il pour une entreprise marocaine ?</h3>
+        <p>À la date de publication de cet article, le Maroc ne figure pas dans la liste des pays où Stripe est disponible. Une société marocaine passe donc par un acquéreur local agréé.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Peut-on lancer le site avant d'avoir le paiement par carte ?</h3>
+        <p>Oui, et c'est souvent la solution la plus sereine. Le site peut ouvrir avec le paiement à la livraison ou le virement, puis activer la carte dès que le contrat avec l'acquéreur est signé et que les tests sont validés.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Le client saisit-il son numéro de carte sur mon site ?</h3>
+        <p>Dans l'intégration la plus courante pour une PME, non : il est redirigé vers une page de paiement sécurisée hébergée par la plateforme de paiement, qui peut reprendre vos couleurs. Votre site reçoit ensuite le résultat du paiement et confirme la commande.</p>
+      </div>
+
+      <p style="font-size:13px;color:var(--muted);margin-top:32px">Sources consultées le 31 octobre 2026 : Conseil de la concurrence (communiqués du 4 novembre 2024 et du 19 mai 2025) ; portail maroc.ma ; CMI (pages E-commerçants et Acquéreurs partenaires) ; Attijariwafa bank (communiqué du 7 juillet 2025) ; Boursenews (février 2024) ; Stripe (disponibilité par pays). Cet article est informatif et ne remplace pas les conditions de votre acquéreur ni un conseil juridique.</p>
+
+      <div class="cta-box">
+        <h2>Un site qui encaisse en dirhams</h2>
+        <p>Maquette gratuite sous 48 heures. Paiement intégré et testé avant la mise en ligne.</p>
+        <a href="https://wa.me/212788330413?text=Bonjour%2C%20j%27ai%20lu%20l%27article%20sur%20le%20paiement%20en%20ligne%20au%20Maroc%20et%20je%20voudrais%20un%20devis" class="btn-pink">Parler de mon projet sur WhatsApp →</a>
+        <p class="contact-line"><a href="https://wa.me/212788330413">+212 7 88 33 04 13</a> &nbsp;·&nbsp; <a href="mailto:contact@pixelstudioo.fr">contact@pixelstudioo.fr</a> &nbsp;·&nbsp; <a href="/#offres">Voir nos offres</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="related">
+      <h2>Articles liés</h2>
+      <div class="related-grid">
+        <a href="google-business-profile-casablanca.html" class="related-card">
+          <div class="rc-cat">Local &amp; Google</div>
+          <h3>Apparaître sur Google Maps à Casablanca : le guide de la fiche Google</h3>
+        </a>
+        <a href="prix-site-web-maroc.html" class="related-card">
+          <div class="rc-cat">Tarifs Maroc</div>
+          <h3>Combien coûte un site web au Maroc en 2026 ?</h3>
+        </a>
+        <a href="../creation-site-web-maroc.html" class="related-card">
+          <div class="rc-cat">Guide Maroc</div>
+          <h3>Création de site web au Maroc : prix, délais, méthode</h3>
+        </a>
+        <a href="../agence-web-ecommerce-casablanca.html" class="related-card">
+          <div class="rc-cat">E-commerce Casablanca</div>
+          <h3>Site e-commerce à Casablanca : paiement, livraison, WhatsApp</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <p><a href="../index.html">Accueil</a> &nbsp;·&nbsp; <a href="../services.html">Services</a> &nbsp;·&nbsp; <a href="/recrutement.html">On recrute</a> &nbsp;·&nbsp; <a href="../portfolio.html">Portfolio</a> &nbsp;·&nbsp; <a href="../blog.html">Blog</a> &nbsp;·&nbsp; <a href="../contact.html">Contact</a></p>
+  <p>© 2026 Pixeldor · <a href="../mentions-legales.html">Mentions légales</a> · <a href="../confidentialite.html">Confidentialité</a></p>
+</footer>
+
+</body>
+</html>
