@@ -205,7 +205,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 .sim-cost{margin-top:14px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.7}
 .sim-cost b{color:#fff}
 .sc-intro{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:12px}
-.sc-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sc-2{display:grid;grid-template-columns:1fr;gap:12px}
 .sc{background:rgba(255,255,255,.06);border-radius:16px;padding:16px}
 .sc-n{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 .sc-ca{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
@@ -252,8 +252,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
         <label for="simConv"><span class="sim-row"><span>Sur 100 visiteurs, combien vous contactent ?</span><span class="sim-val" id="simConvV"></span></span></label>
         <input type="range" id="simConv" min="1" max="20" step="1" value="6">
         <div class="sim-2">
-          <div><label for="simClose">Sur 10 contacts, combien deviennent clients ?</label><input type="number" id="simClose" min="1" max="10" value="3"></div>
-          <div><label for="simBasket">Ce que vous rapporte un client <small id="simCur1"></small></label><input type="number" id="simBasket" min="10" step="10"></div>
+          <div><label for="simClose">Sur 10 contacts, combien deviennent clients ?</label><input type="number" id="simClose" min="1" max="10" value="5"></div>
+          <div><label for="simBasket">Ce que vous rapporte un client sur un an <small id="simCur1"></small></label><input type="number" id="simBasket" min="10" step="10"></div>
         </div>
         <details class="sim-adv"><summary>Modifier le coût par clic</summary>
           <div class="sim-2" style="margin-top:6px">
@@ -263,9 +263,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
         </details>
       </div>
       <div class="sim-out" aria-live="polite">
-        <div class="sc-intro">Vos résultats possibles chaque mois, selon 3 scénarios</div>
+        <div class="sc-intro">Vos résultats possibles chaque mois, selon 2 scénarios</div>
         <div class="sc-2">
-          <div class="sc"><div class="sc-n">Pessimiste</div><div class="sc-ca" id="pCa">-</div><div class="sc-d" id="pD"></div></div>
           <div class="sc"><div class="sc-n">Réaliste</div><div class="sc-ca" id="rCa">-</div><div class="sc-d" id="rD"></div></div>
         </div>
         <div class="sc amb">
@@ -276,7 +275,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
           <div class="sc-x" id="aX"></div>
         </div>
         <div class="sim-cost">Budget Google : <b id="rBud">-</b> · Gestion Pixeldor (<span id="rPlan">-</span>) : <b id="rFee">-</b> · Total investi : <b id="rTot">-</b> par mois</div>
-        <p class="sim-note">Pessimiste : clics au prix le plus haut et moins de contacts. Réaliste : vos réponses. Ambitieux : clics moins chers et plus de contacts, ce qu'on vise une fois la campagne bien réglée. Ce sont des estimations, pas des garanties : les résultats dépendent aussi de votre site, de vos prix et de votre réactivité au téléphone.</p>
+        <p class="sim-note">Réaliste : vos réponses, avec un coût par clic moyen. Ambitieux : clics moins chers et plus de contacts, ce qu'on vise une fois la campagne bien réglée. Ce sont des estimations, pas des garanties : les résultats dépendent aussi de votre site, de vos prix et de votre réactivité au téléphone.</p>
         <a class="btn btn-blue" id="simWa" href="#" target="_blank" rel="noopener">Recevoir une simulation précise</a>
       </div>
     </div>
@@ -390,6 +389,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 (function(){
   var CPC={fr:{artisan:[2,7],resto:[0.5,2],sante:[1,4],juridique:[3,12],immo:[1,4],b2b:[2,8],ecom:[0.5,2],autre:[1,4]},
            ma:{artisan:[3,15],resto:[1,5],sante:[2,8],juridique:[5,20],immo:[3,12],b2b:[5,20],ecom:[1,5],autre:[2,8]}};
+  var BASK={fr:{artisan:800,resto:150,sante:300,juridique:1500,immo:3000,b2b:2000,ecom:80,autre:500},
+            ma:{artisan:3000,resto:600,sante:1500,juridique:6000,immo:15000,b2b:10000,ecom:400,autre:2000}};
   var CFG={fr:{cur:'€',bud:[150,10000,50,600],basket:300,start:1500,fixed:290,min:490},
            ma:{cur:'DH',bud:[1500,100000,500,6000],basket:2000,start:15000,fixed:1490,min:2900}};
   var $=function(i){return document.getElementById(i)};
@@ -399,10 +400,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
   function setMarket(m){
     mk=m;var c=CFG[m];
     var b=$('simBud');b.min=c.bud[0];b.max=c.bud[1];b.step=c.bud[2];if(!touched.bud)b.value=c.bud[3];
-    if(!touched.basket)$('simBasket').value=c.basket;
+    setBasket();
     ['simCur1','simCur2','simCur3'].forEach(function(i){$(i).textContent='('+c.cur+')'});
     touched.cpc=false;setCpc();calc();
   }
+  function setBasket(){if(!touched.basket)$('simBasket').value=BASK[mk][$('simSec').value]}
   function setCpc(){var r=CPC[mk][$('simSec').value];$('simCpcMin').value=r[0];$('simCpcMax').value=r[1]}
   function scen(bud,cpc,conv,close,basket,tot){
     var cl=bud/cpc,le=cl*conv,k=Math.round(le*close),ca=k*basket;
@@ -413,12 +415,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     return fmt(o.le)+' contacts · '+fmt(o.k)+' client'+(o.k>1?'s':'')+'<br>Gain net : <span class="'+cls+'">'+sg+fmt(Math.abs(n),c)+'</span>';
   }
   function calc(){
-    var c=CFG[mk],bud=+$('simBud').value,conv=+$('simConv').value/100,close=Math.min(10,Math.max(1,+$('simClose').value||3))/10,
+    var c=CFG[mk],bud=+$('simBud').value,conv=+$('simConv').value/100,close=Math.min(10,Math.max(1,+$('simClose').value||5))/10,
         basket=+$('simBasket').value||0,lo=Math.max(0.05,+$('simCpcMin').value||0.1),hi=Math.max(lo,+$('simCpcMax').value||lo);
     var perf=bud>c.start,fee=perf?Math.max(c.min,bud*0.15):c.fixed,tot=bud+fee;
     var P=scen(bud,hi,conv*0.7,close,basket,tot),R=scen(bud,(lo+hi)/2,conv,close,basket,tot),A=scen(bud,lo,conv*1.3,close,basket,tot);
     $('simBudV').textContent=fmt(bud,c.cur);$('simConvV').textContent=Math.round(conv*100)+' sur 100';
-    $('pCa').textContent=fmt(P.ca,c.cur);$('pD').innerHTML=line(P,c.cur);
     $('rCa').textContent=fmt(R.ca,c.cur);$('rD').innerHTML=line(R,c.cur);
     $('aCa').textContent=fmt(A.ca,c.cur);$('aYear').textContent=fmt(A.ca*12,c.cur);$('aD').innerHTML=line(A,c.cur);
     var x=tot>0?A.ca/tot:0;
@@ -430,7 +431,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     $('simWa').href='https://wa.me/'+(mk==='ma'?'212788330413':'33620757517')+'?text='+encodeURIComponent(t);
   }
 
-  $('simSec').addEventListener('change',function(){setCpc();calc()});
+  $('simSec').addEventListener('change',function(){setCpc();setBasket();calc()});
   $('simBud').addEventListener('input',function(){touched.bud=true;calc()});
   $('simBasket').addEventListener('input',function(){touched.basket=true;calc()});
   ['simConv','simClose','simCpcMin','simCpcMax'].forEach(function(i){$(i).addEventListener('input',calc)});
