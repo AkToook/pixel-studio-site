@@ -62,13 +62,13 @@
 
   // Formulaire « maquette gratuite » en 3 étapes
   wrap('submitIntake',function(){
-    return {source:'Maquette gratuite (3 étapes)',type:intakeType(),activite:val('i-activity'),
+    return {source:'Demande de devis (accueil)',type:intakeType(),activite:val('i-activity'),
       budget:val('i-budget'),projet:val('i-desc'),nom:val('i-name'),email:val('i-email'),tel:val('i-phone')};
   });
 
   // Petit formulaire maquette
   wrap('submitMaquette',function(){
-    return {source:'Maquette gratuite (court)',projet:val('mq-desc'),nom:val('mq-name'),
+    return {source:'Demande de devis (court)',projet:val('mq-desc'),nom:val('mq-name'),
       email:val('mq-email'),tel:val('mq-phone')};
   });
 
