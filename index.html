@@ -182,6 +182,16 @@ section{padding:120px 0}
 .work:hover{box-shadow:0 20px 50px rgba(11,11,15,.08);transform:translateY(-3px)}
 .work-top{height:150px;display:grid;place-items:center;font-weight:900;font-size:24px;letter-spacing:-.02em;color:#fff;text-align:center;padding:16px;position:relative}
 .work-top small{position:absolute;top:12px;right:12px;font-size:11px;font-weight:700;letter-spacing:.06em;background:#fff;color:var(--blue);border-radius:999px;padding:4px 10px}
+.work.big{grid-column:span 2}
+.shot{background:#F5F7FC;border-bottom:1px solid var(--line)}
+.shot .bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;background:#EEF1F7}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:#D5DAE3}
+.shot .bar span{margin-left:8px;font-size:11.5px;color:#6B7280;background:#fff;border-radius:6px;padding:2px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot .pic{height:190px;overflow:hidden}
+.work.big .shot .pic{height:300px}
+.shot img{display:block;width:100%;height:auto;transform:translateY(0);transition:transform 4s ease}
+.work:hover .shot img{transform:translateY(calc(-100% + 190px))}
+.work.big:hover .shot img{transform:translateY(calc(-100% + 300px))}
 .work-info{padding:18px 20px}
 .work-info strong{display:block;font-size:16px}
 .work-info span{color:var(--muted);font-size:13.5px}
@@ -286,7 +296,7 @@ footer{padding:80px 0 40px;border-top:1px solid var(--line);margin-top:120px}
   .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(3){border-left:0}.stats div:nth-child(n+3){border-top:1px solid var(--line)}
   section{padding:84px 0}.hero{padding:72px 0 64px}.band{padding:80px 0}
 }
-@media(max-width:560px){.wrap{padding:0 20px}.works,.steps{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.intake-types{grid-template-columns:1fr}.final{padding:56px 24px;border-radius:28px}.legal a{margin:0 14px 0 0}}
+@media(max-width:560px){.wrap{padding:0 20px}.works,.steps{grid-template-columns:1fr}.work.big{grid-column:auto}.work.big .shot .pic{height:200px}.foot{grid-template-columns:1fr}.intake-types{grid-template-columns:1fr}.final{padding:56px 24px;border-radius:28px}.legal a{margin:0 14px 0 0}}
 </style>
 <style id="pd-dd-css">
 .pd-dd{position:relative;display:inline-flex;align-items:center}
@@ -470,20 +480,17 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     <div class="head">
       <div class="tag">Réalisations</div>
       <h2>Quelques <span class="em">projets.</span></h2>
-      <p>Restaurants, artisans, boutiques en ligne, startups et sites immersifs 3D.</p>
+      <p>Des sites en ligne, à visiter. Passez la souris sur un projet pour le parcourir.</p>
     </div>
     <div class="works">
-      <a class="work" href="https://www.imobuycash.com/" target="_blank" rel="noopener"><div class="work-top t14">IMOBUYCASH</div><div class="work-info"><strong>Imobuycash</strong><span>Plateforme d'investissement immobilier</span></div></a>
-      <a class="work" href="https://restaurant-leriad-reims.fr/" target="_blank" rel="noopener"><div class="work-top t7">LE RIAD</div><div class="work-info"><strong>Le Riad</strong><span>Restaurant oriental · Événements</span></div></a>
-      <a class="work" href="https://reimsplomberie.net/" target="_blank" rel="noopener"><div class="work-top t8">PLOMBERIE</div><div class="work-info"><strong>Reims Plomberie</strong><span>Artisan plombier</span></div></a>
-      <a class="work" href="https://www.lifeosapp.site/" target="_blank" rel="noopener"><div class="work-top t9">LifeOS</div><div class="work-info"><strong>LifeOS App</strong><span>Application SaaS</span></div></a>
-      <a class="work" href="https://www.arenapizza-reims.fr/" target="_blank" rel="noopener"><div class="work-top t2">ARENA</div><div class="work-info"><strong>Arena Pizza Kebab</strong><span>Restauration · Fast food</span></div></a>
-      <a class="work" href="https://aktoook.github.io/croc-meal/" target="_blank" rel="noopener"><div class="work-top t3">CROC MEAL</div><div class="work-info"><strong>Croc Meal</strong><span>Restauration · Paris</span></div></a>
-      <a class="work" href="https://pizzareims.fr/" target="_blank" rel="noopener"><div class="work-top t4">PIZZA</div><div class="work-info"><strong>Pizza Paris</strong><span>Pizzeria</span></div></a>
-      <a class="work" href="https://floriangravaudversion3.netlify.app/" target="_blank" rel="noopener"><div class="work-top t1"><small>3D</small>GRAVAUD</div><div class="work-info"><strong>Florian Gravaud</strong><span>Conseil immobilier · Site immersif</span></div></a>
-      <a class="work" href="https://cantinepremiereversionv1.netlify.app/" target="_blank" rel="noopener"><div class="work-top t11"><small>3D</small>LA CANTINE</div><div class="work-info"><strong>La Cantine de Versailles</strong><span>Restaurant · Site immersif</span></div></a>
-      <a class="work" href="https://epiltherm.com/" target="_blank" rel="noopener"><div class="work-top t12"><small>3D</small>ÉPILTHERM</div><div class="work-info"><strong>Épiltherm</strong><span>Épilation définitive · Site immersif</span></div></a>
-      <a class="work" href="https://ocroqvert.fr/" target="_blank" rel="noopener"><div class="work-top t13"><small>3D</small>O'CROQ VERT</div><div class="work-info"><strong>O'Croq Vert</strong><span>Bar à salades · Site immersif</span></div></a>
+      <a class="work big" href="https://restaurant-leriad-reims.fr/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>restaurant-leriad-reims.fr</span></div><div class="pic"><img src="img/work/le-riad.jpg" alt="Site du restaurant Le Riad" loading="lazy"></div></div><div class="work-info"><strong>Le Riad</strong><span>Restaurant oriental · Commande et réservation</span></div></a>
+      <a class="work big" href="https://www.imobuycash.com/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>imobuycash.com</span></div><div class="pic"><img src="img/work/imobuycash.jpg" alt="Plateforme Imobuycash" loading="lazy"></div></div><div class="work-info"><strong>Imobuycash</strong><span>Plateforme d'investissement immobilier</span></div></a>
+      <a class="work" href="https://reimsplomberie.net/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>reimsplomberie.net</span></div><div class="pic"><img src="img/work/reims-plomberie.jpg" alt="Site Reims Plomberie" loading="lazy"></div></div><div class="work-info"><strong>Reims Plomberie</strong><span>Artisan plombier</span></div></a>
+      <a class="work" href="https://www.lifeosapp.site/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>lifeosapp.site</span></div><div class="pic"><img src="img/work/lifeos.jpg" alt="Application LifeOS" loading="lazy"></div></div><div class="work-info"><strong>LifeOS App</strong><span>Application SaaS</span></div></a>
+      <a class="work" href="https://aktoook.github.io/croc-meal/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>croc-meal</span></div><div class="pic"><img src="img/work/croc-meal.jpg" alt="Site Croc Meal" loading="lazy"></div></div><div class="work-info"><strong>Croc Meal</strong><span>Restauration rapide</span></div></a>
+      <a class="work" href="https://www.arenapizza-reims.fr/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>arenapizza-reims.fr</span></div><div class="pic"><img src="img/work/arena.jpg" alt="Site Arena Pizza Kebab" loading="lazy"></div></div><div class="work-info"><strong>Arena Pizza Kebab</strong><span>Restauration · Commande en ligne</span></div></a>
+      <a class="work big" href="https://pizzareims.fr/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>pizzareims.fr</span></div><div class="pic"><img src="img/work/pizza-paris.jpg" alt="Site de pizzeria" loading="lazy"></div></div><div class="work-info"><strong>La Pizza</strong><span>Pizzeria · Commande en ligne</span></div></a>
+      <a class="work big" href="https://epiltherm.com/" target="_blank" rel="noopener"><div class="shot"><div class="bar"><i></i><i></i><i></i><span>epiltherm.com</span></div><div class="pic"><img src="img/work/epiltherm.jpg" alt="Site Épiltherm" loading="lazy"></div></div><div class="work-info"><strong>Épiltherm</strong><span>Institut d'épilation · Site immersif</span></div></a>
     </div>
     <p class="note"><a href="portfolio.html">Voir toutes les réalisations →</a></p>
   </div>
